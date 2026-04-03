@@ -1,0 +1,22 @@
+{
+  "generated_at_utc": "2026-03-26T14:55:15.170806+00:00",
+  "phase": "01B_model_compare",
+  "horizon_bars": 6,
+  "band": 0.00125,
+  "frozen_items": [
+    "[p_short, p_flat, p_long]",
+    "US100 M5 base frame",
+    "chronological split ordering",
+    "shared FPMarkets v2 feature contract",
+    "selected horizon=6",
+    "selected band=0.00125"
+  ],
+  "models_to_compare": [
+    "lightgbm",
+    "xgboost",
+    "catboost",
+    "logistic_regression"
+  ],
+  "selection_metric": "valid_macro_f1",
+  "carry_forward_count_for_01C": 2
+}

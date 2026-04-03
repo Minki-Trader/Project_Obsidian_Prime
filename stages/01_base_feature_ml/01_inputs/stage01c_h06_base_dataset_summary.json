@@ -1,0 +1,10 @@
+{
+  "generated_at_utc": "2026-03-26T14:59:57.610659+00:00",
+  "horizon_bars": 6,
+  "row_count": 53171,
+  "split_counts": {
+    "train": 34695,
+    "valid": 11756,
+    "test": 6720
+  }
+}

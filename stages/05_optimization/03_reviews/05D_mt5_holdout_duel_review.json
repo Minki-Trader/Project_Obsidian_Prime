@@ -1,0 +1,62 @@
+{
+  "generated_at_utc": "2026-03-29T11:05:00+00:00",
+  "phase": "05D_mt5_holdout_duel",
+  "scope": {
+    "split": "test",
+    "tester_from_date": "2025.10.01",
+    "tester_to_date": "2026.03.01",
+    "note": "tester date granularity includes 35 extra ready rows on the first holdout day for every compared run"
+  },
+  "ranked_runs": [
+    {
+      "rank": 1,
+      "run_name": "03E_mt5_validation_baseline_0001",
+      "family": "margin_only",
+      "param_name": "min_margin",
+      "param_value": 0.07,
+      "return_pct": 7.072000000000001,
+      "profit_factor": 1.0440579132298338,
+      "trade_count": 357,
+      "max_dd_pct": 20.022800086483088,
+      "ulcer_index": 8.19108033290302,
+      "actual_ready_row_count": 6755,
+      "expected_ready_row_count": 6720,
+      "ready_row_gap": 35
+    },
+    {
+      "rank": 2,
+      "run_name": "05D_mt5_validation_diff_tightgap_0001",
+      "family": "probability_difference_filter",
+      "param_name": "min_probability_diff",
+      "param_value": 0.0775,
+      "return_pct": 1.8079999999999985,
+      "profit_factor": 1.0114040620663554,
+      "trade_count": 351,
+      "max_dd_pct": 20.731659164494985,
+      "ulcer_index": 8.076400649016298,
+      "actual_ready_row_count": 6755,
+      "expected_ready_row_count": 6720,
+      "ready_row_gap": 35
+    },
+    {
+      "rank": 3,
+      "run_name": "05C_mt5_validation_margin_tightgap_0001",
+      "family": "margin_only",
+      "param_name": "min_margin",
+      "param_value": 0.085,
+      "return_pct": 0.7419999999999991,
+      "profit_factor": 1.0059732732249234,
+      "trade_count": 255,
+      "max_dd_pct": 24.452431541531798,
+      "ulcer_index": 10.510136521367695,
+      "actual_ready_row_count": 6755,
+      "expected_ready_row_count": 6720,
+      "ready_row_gap": 35
+    }
+  ],
+  "verdict": {
+    "promoted_run_name": "03E_mt5_validation_baseline_0001",
+    "summary": "Stage 05 validation challengers improved the validation frontier but did not beat the incumbent on MT5 holdout.",
+    "synthesis_policy": "remain_closed"
+  }
+}

@@ -1,0 +1,189 @@
+{
+  "generated_at_utc": "2026-03-31T15:20:31.969400+00:00",
+  "phase": "05GA_mt5_05dp_risk_pct_probe",
+  "run_name": "05GB_05dp_riskpct300_atr14x15_brokersl_0001",
+  "experiment_id": "exp_05gb_05dp_riskpct300_atr14x15_brokersl_v1",
+  "runtime_settings": {
+    "sizing_mode": "risk_pct",
+    "risk_pct": 3.0,
+    "capital_base": "balance",
+    "stop_model": "atr",
+    "stop_execution_mode": "broker_native",
+    "stop_atr_period": 14,
+    "stop_atr_mult": 1.5
+  },
+  "validation": {
+    "headline": {
+      "net_profit": 1321.96,
+      "return_pct": 264.392,
+      "trade_count": 432,
+      "win_rate": 0.4861111111111111,
+      "profit_factor": 1.1902733138640325,
+      "expectancy_per_trade": 3.060092592592593,
+      "max_dd_pct": 39.03367657046422,
+      "recovery_factor": 1.1616724371254328,
+      "extra": {
+        "final_balance": 1821.96,
+        "initial_deposit": 500.0
+      }
+    },
+    "risk": {
+      "max_dd_pct": 38.84183315687434,
+      "max_dd_amount": 1129.9399999999998,
+      "equity_dd_pct": 39.03367657046422,
+      "equity_dd_amount": 1137.98,
+      "time_under_water": 22275000.0,
+      "longest_recovery_duration": 13237500.0,
+      "worst_day": -228.91,
+      "worst_week": -453.48999999999995,
+      "min_free_margin": 367.27,
+      "margin_call_proximity": null,
+      "ulcer_index": 21.911449246368328,
+      "consecutive_losses": 8,
+      "extra": {
+        "min_balance": 406.45,
+        "min_equity": 403.62
+      }
+    },
+    "diagnostics": {
+      "avg_win": 39.379285714285714,
+      "avg_loss": -31.2959009009009,
+      "payoff_ratio": 1.2582889317991202,
+      "avg_hold": 4.275462962962963,
+      "hold_distribution": {
+        "p50": 5.0,
+        "p90": 5.0
+      },
+      "long_count": 184,
+      "short_count": 248,
+      "long_expectancy": 9.19483695652174,
+      "short_expectancy": -1.491491935483871,
+      "mfe_mean": 37.407222222222224,
+      "mfe_median": 21.59,
+      "mfe_p90": 90.23400000000001,
+      "mae_mean": 24.926296296296297,
+      "mae_median": 16.55,
+      "mae_p90": 61.17700000000001,
+      "realized_over_mfe": -6.124922378547494,
+      "win_trade_mae": 13.52304761904762,
+      "loss_trade_mfe": 18.57846846846847,
+      "rule_pass_rates": {
+        "long_signal_rate": 0.04550867642055121,
+        "short_signal_rate": 0.06073494385845526
+      },
+      "no_trade_rate": 0.8937563797209935,
+      "extra": {
+        "decision_reason_breakdown": {
+          "SKIPPED": 41053,
+          "DUAL_SIGNAL_SHORT_WINS": 596,
+          "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 3763,
+          "DUAL_SIGNAL_LONG_WINS": 448,
+          "LONG_FILTERS_OK": 87,
+          "SHORT_MARGIN_FAIL": 698,
+          "THRESHOLD_FAIL": 5492,
+          "LONG_MARGIN_FAIL": 554,
+          "SHORT_FILTERS_OK": 118
+        },
+        "trade_close_reason_breakdown": {
+          "BROKER_SL": 127,
+          "TIME_EXIT": 305
+        },
+        "no_trade_count": 10507,
+        "mfe_mae_unit": "account_currency",
+        "attempt_id": "att_0001"
+      }
+    },
+    "execution": {
+      "skip_rate": 0.7773864303433127,
+      "reject_count": 0,
+      "avg_spread": 135.09070423602037,
+      "avg_slippage": null,
+      "skip_reason_breakdown": {
+        "HANDLE_NOT_READY_EMA9_-1": 1,
+        "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 8673,
+        "SESSION_CASH_OPEN_NOT_FOUND": 23702,
+        "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 5926,
+        "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 1204,
+        "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1547
+      },
+      "external_mismatch_count": 17350,
+      "fill_rate": null,
+      "entry_delay_stats": {},
+      "next_tick_fill_distance": {
+        "mean_points": null,
+        "p90_points": null
+      },
+      "spread_regime_breakdown": {},
+      "slippage_regime_breakdown": {},
+      "sessionwise_execution_quality": {},
+      "runtime_warning_counts": {
+        "HANDLE_NOT_READY_EMA9_-1": 1
+      },
+      "data_readiness_failures": 1,
+      "broker_constraint_events": 0,
+      "extra": {
+        "ready_row_count": 11756,
+        "row_count": 52809,
+        "feature_ready_max": 54,
+        "latest_bar_time_server": "2025.09.30 23:55:00",
+        "expected_ready_row_count": 11756,
+        "ready_row_gap": 0,
+        "matches_offline_split_count": true,
+        "contract_skip_count": 41052,
+        "contract_skip_breakdown": {
+          "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 8673,
+          "SESSION_CASH_OPEN_NOT_FOUND": 23702,
+          "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 5926,
+          "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 1204,
+          "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1547
+        },
+        "startup_skip_count": 1,
+        "startup_skip_breakdown": {
+          "HANDLE_NOT_READY_EMA9_-1": 1
+        },
+        "unexpected_skip_count": 0,
+        "unexpected_skip_breakdown": {},
+        "tester_from_date": "2025.01.01",
+        "tester_to_date": "2025.10.01",
+        "tester_dates_derived_from_bundle": true,
+        "attempt_id": "att_0001",
+        "csv_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_05gb_05dp_riskpct300_atr14x15_brokersl_v1\\logs\\att_0001_shadow.csv",
+        "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_05gb_05dp_riskpct300_atr14x15_brokersl_v1\\logs\\att_0001_trades.csv"
+      }
+    },
+    "ready_row_gap": 0,
+    "unexpected_skip_count": 0
+  },
+  "attempt_summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05GB_05dp_riskpct300_atr14x15_brokersl_0001\\mt5_attempts\\att_0001\\tester_report.xml",
+  "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_05gb_05dp_riskpct300_atr14x15_brokersl_v1\\logs\\att_0001_trades.csv",
+  "ledger_summary": {
+    "row_count": 432,
+    "close_reason_breakdown": {
+      "BROKER_SL": 127,
+      "TIME_EXIT": 305
+    },
+    "unique_volume_count": 150,
+    "unique_volumes_preview": [
+      0.09,
+      0.1,
+      0.12,
+      0.13,
+      0.14,
+      0.15,
+      0.16,
+      0.17,
+      0.18,
+      0.19,
+      0.2,
+      0.21
+    ],
+    "min_volume": 0.09,
+    "max_volume": 3.36,
+    "stop_price_count": 432,
+    "realized_r_mean": 0.11869583333333333
+  },
+  "verdict": {
+    "status": "implementation_verified",
+    "reason": "risk_pct sizing path compiled, executed on MT5 validation, and produced trade ledger evidence for ATR-based stop-aware sizing"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "generated_at_utc": "2026-03-29T16:55:28.424296+00:00",
+  "phase": "stage05_mt5_model_family_trial",
+  "model_family": "logistic_regression",
+  "logic_reference_run_name": "03E_mt5_validation_baseline_0001",
+  "logic_filter": {
+    "type": "max_probability_margin",
+    "min_margin": 0.07
+  },
+  "baseline_stage01_test_confirmation": {
+    "run_name": "01D_run_0001_final_h03_band000125_logreg",
+    "model_family": "logistic_regression",
+    "test_rows": 6720,
+    "test_macro_f1": 0.45812929996514556,
+    "test_balanced_accuracy": 0.46935993441877705,
+    "test_accuracy": 0.5769345238095238,
+    "test_log_loss": 0.9727633173365045
+  },
+  "trial_model_test_confirmation": {
+    "run_name": "05Z_no_leader_rel_0001",
+    "model_family": "logistic_regression",
+    "test_rows": 6720,
+    "test_macro_f1": 0.45798644146440354,
+    "test_balanced_accuracy": 0.46881889486857037,
+    "test_accuracy": 0.5757440476190476,
+    "test_log_loss": 0.972973405894956
+  },
+  "ranked_validation_runs": [
+    {
+      "rank": 1,
+      "run_name": "05Z_no_leader_rel_0001",
+      "return_pct": 77.97,
+      "profit_factor": 1.3350637295768837,
+      "trade_count": 523,
+      "max_dd_pct": 11.797752808988765,
+      "ulcer_index": 3.5705661306043974,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "03E_mt5_validation_baseline_0001",
+      "return_pct": 67.664,
+      "profit_factor": 1.2655010319633986,
+      "trade_count": 530,
+      "max_dd_pct": 12.201705598813493,
+      "ulcer_index": 3.556990606308009,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "verdict": {
+    "status": "validation_only_pending_holdout",
+    "selected_run_name": "03E_mt5_validation_baseline_0001",
+    "reason": "holdout not run yet, so the incumbent remains the selected bundle"
+  }
+}

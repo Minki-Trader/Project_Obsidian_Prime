@@ -1,0 +1,92 @@
+{
+  "generated_at_utc": "2026-03-28T05:04:09.563365+00:00",
+  "phase": "02D_local_surface_probe",
+  "source_run_dir": "stages\\01_base_feature_ml\\02_runs\\archived\\01C_run_0001_h03_band000125_logreg",
+  "final_run_dir": "stages\\01_base_feature_ml\\02_runs\\active\\01D_run_0001_final_h03_band000125_logreg",
+  "offsets": [
+    -0.05,
+    -0.025,
+    0.0,
+    0.025,
+    0.05
+  ],
+  "probe_centers": {
+    "valid_leader": [
+      0.6,
+      0.4
+    ],
+    "balanced_challenger": [
+      0.45,
+      0.5
+    ],
+    "test_favored": [
+      0.35,
+      0.4
+    ]
+  },
+  "probe_pair_count": 74,
+  "blended_leader": {
+    "origin": "valid_leader",
+    "short_threshold": 0.575,
+    "long_threshold": 0.4,
+    "valid_trade_count": 935,
+    "valid_long_trade_count": 913,
+    "valid_short_trade_count": 22,
+    "valid_compounded_return": 0.13449147378804738,
+    "valid_mean_trade_return": 0.0001442823739166246,
+    "valid_max_drawdown": -0.07591991033208101,
+    "test_trade_count": 390,
+    "test_long_trade_count": 379,
+    "test_short_trade_count": 11,
+    "test_compounded_return": 0.06979414245380666,
+    "test_mean_trade_return": 0.0001768638613396327,
+    "test_max_drawdown": -0.031153421407775106,
+    "avg_compounded_return": 0.10214280812092702,
+    "abs_valid_test_gap": 0.06469733133424072,
+    "both_positive": true,
+    "trade_count_gap": 545
+  },
+  "top_test_pair_within_probe": {
+    "origin": "test_favored",
+    "short_threshold": 0.35,
+    "long_threshold": 0.4,
+    "valid_trade_count": 1806,
+    "valid_long_trade_count": 669,
+    "valid_short_trade_count": 1137,
+    "valid_compounded_return": -0.08790224855874584,
+    "valid_mean_trade_return": -4.480577607680106e-05,
+    "valid_max_drawdown": -0.16022945478535833,
+    "test_trade_count": 908,
+    "test_long_trade_count": 203,
+    "test_short_trade_count": 705,
+    "test_compounded_return": 0.22119848030753686,
+    "test_mean_trade_return": 0.00022314076794667496,
+    "test_max_drawdown": -0.0296443731129018,
+    "avg_compounded_return": 0.06664811587439551,
+    "abs_valid_test_gap": 0.3091007288662827,
+    "both_positive": false,
+    "trade_count_gap": 898
+  },
+  "best_balanced_region_pair": {
+    "origin": "balanced_challenger",
+    "short_threshold": 0.45,
+    "long_threshold": 0.5,
+    "valid_trade_count": 573,
+    "valid_long_trade_count": 183,
+    "valid_short_trade_count": 390,
+    "valid_compounded_return": 0.09137372251769471,
+    "valid_mean_trade_return": 0.00016649176187488968,
+    "valid_max_drawdown": -0.06671099974982819,
+    "test_trade_count": 238,
+    "test_long_trade_count": 18,
+    "test_short_trade_count": 220,
+    "test_compounded_return": 0.08383410623339027,
+    "test_mean_trade_return": 0.000343011218438782,
+    "test_max_drawdown": -0.027663430870995986,
+    "avg_compounded_return": 0.08760391437554249,
+    "abs_valid_test_gap": 0.00753961628430444,
+    "both_positive": true,
+    "trade_count_gap": 335
+  },
+  "verdict": "keep exploring; local blended reads favor the valid-leader neighborhood while the test-favored pocket still looks split-dependent"
+}

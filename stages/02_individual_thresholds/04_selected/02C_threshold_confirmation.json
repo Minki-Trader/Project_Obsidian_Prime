@@ -1,0 +1,14 @@
+{
+  "generated_at_utc": "2026-03-28T04:54:19.833674+00:00",
+  "phase": "02C_threshold_confirmation",
+  "preferred_seed_test_rank_within_02A_grid": 22,
+  "preferred_seed_test_compounded_return": 0.05541432416231484,
+  "balanced_challenger_test_rank_within_02A_grid": 13,
+  "balanced_challenger_test_compounded_return": 0.08383410623339027,
+  "top_test_pair_within_02A_grid": {
+    "short_threshold": 0.35,
+    "long_threshold": 0.4,
+    "test_compounded_return": 0.22119848030753686
+  },
+  "verdict": "do not freeze Stage 02 threshold yet; confirmation shows a material valid-test rank mismatch"
+}

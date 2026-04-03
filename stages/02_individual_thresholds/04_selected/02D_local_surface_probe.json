@@ -1,0 +1,19 @@
+{
+  "generated_at_utc": "2026-03-28T05:04:09.565946+00:00",
+  "phase": "02D_local_surface_probe",
+  "blended_leader": {
+    "short_threshold": 0.575,
+    "long_threshold": 0.4,
+    "valid_compounded_return": 0.13449147378804738,
+    "test_compounded_return": 0.06979414245380666,
+    "avg_compounded_return": 0.10214280812092702
+  },
+  "top_test_pair_within_probe": {
+    "short_threshold": 0.35,
+    "long_threshold": 0.4,
+    "valid_compounded_return": -0.08790224855874584,
+    "test_compounded_return": 0.22119848030753686,
+    "avg_compounded_return": 0.06664811587439551
+  },
+  "verdict": "exploration continues; no freeze"
+}

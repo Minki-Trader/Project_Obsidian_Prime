@@ -1,0 +1,36 @@
+{
+  "generated_at_utc": "2026-03-28T07:12:30.932439+00:00",
+  "phase": "04A_probability_diff_sweep",
+  "stage_root": "stages\\04_probability_difference_filter",
+  "source_run_dir": "stages\\01_base_feature_ml\\02_runs\\archived\\01C_run_0001_h03_band000125_logreg",
+  "final_run_dir": "stages\\01_base_feature_ml\\02_runs\\active\\01D_run_0001_final_h03_band000125_logreg",
+  "search_split": "valid",
+  "diagnostic_split": "test",
+  "fixed_short_threshold": 0.3333333333333333,
+  "fixed_long_threshold": 0.3333333333333333,
+  "fixed_min_margin": 0.0,
+  "min_probability_diffs": [
+    0.0,
+    0.02,
+    0.04,
+    0.06,
+    0.08,
+    0.1,
+    0.12,
+    0.14,
+    0.16,
+    0.18,
+    0.2
+  ],
+  "min_trades": 100,
+  "fixed_items": [
+    "probability difference only",
+    "short_threshold = 1/3",
+    "long_threshold = 1/3",
+    "min_margin = 0",
+    "3-bar time exit",
+    "no overlap",
+    "no flip",
+    "zero cost assumption"
+  ]
+}

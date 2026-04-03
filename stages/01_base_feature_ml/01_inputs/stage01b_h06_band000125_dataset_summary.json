@@ -1,0 +1,30 @@
+{
+  "generated_at_utc": "2026-03-26T14:55:15.158459+00:00",
+  "source_selected_label_json": "stages\\01_base_feature_ml\\04_selected\\01A_selected_label.json",
+  "source_base_dataset": "stages\\01_base_feature_ml\\01_inputs\\stage01a_h06_dataset.parquet",
+  "row_count": 53171,
+  "horizon_bars": 6,
+  "band": 0.00125,
+  "split_counts": {
+    "train": 34695,
+    "valid": 11756,
+    "test": 6720
+  },
+  "class_counts": {
+    "test": {
+      "short": 1576,
+      "flat": 3561,
+      "long": 1583
+    },
+    "train": {
+      "short": 9138,
+      "flat": 15266,
+      "long": 10291
+    },
+    "valid": {
+      "short": 2875,
+      "flat": 5641,
+      "long": 3240
+    }
+  }
+}

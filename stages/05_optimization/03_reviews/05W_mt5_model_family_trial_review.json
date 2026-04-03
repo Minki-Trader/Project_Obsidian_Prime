@@ -1,0 +1,81 @@
+{
+  "generated_at_utc": "2026-03-29T16:59:10.090734+00:00",
+  "phase": "stage05_mt5_model_family_trial",
+  "model_family": "logistic_regression",
+  "logic_reference_run_name": "03E_mt5_validation_baseline_0001",
+  "logic_filter": {
+    "type": "max_probability_margin",
+    "min_margin": 0.07
+  },
+  "baseline_stage01_test_confirmation": {
+    "run_name": "01D_run_0001_final_h03_band000125_logreg",
+    "model_family": "logistic_regression",
+    "test_rows": 6720,
+    "test_macro_f1": 0.45812929996514556,
+    "test_balanced_accuracy": 0.46935993441877705,
+    "test_accuracy": 0.5769345238095238,
+    "test_log_loss": 0.9727633173365045
+  },
+  "trial_model_test_confirmation": {
+    "run_name": "05W_no_trend_strength_0001",
+    "model_family": "logistic_regression",
+    "test_rows": 6720,
+    "test_macro_f1": 0.4587073408997618,
+    "test_balanced_accuracy": 0.4695623652497638,
+    "test_accuracy": 0.5772321428571429,
+    "test_log_loss": 0.9733455464342872
+  },
+  "ranked_validation_runs": [
+    {
+      "rank": 1,
+      "run_name": "05W_no_trend_strength_0001",
+      "return_pct": 91.16799999999999,
+      "profit_factor": 1.4091663899036866,
+      "trade_count": 493,
+      "max_dd_pct": 11.147223438038381,
+      "ulcer_index": 6.520512249938508,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "03E_mt5_validation_baseline_0001",
+      "return_pct": 67.664,
+      "profit_factor": 1.2655010319633986,
+      "trade_count": 530,
+      "max_dd_pct": 12.201705598813493,
+      "ulcer_index": 3.556990606308009,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "ranked_test_runs": [
+    {
+      "rank": 1,
+      "run_name": "05W_no_trend_strength_0001",
+      "return_pct": 33.538000000000004,
+      "profit_factor": 1.225311047214683,
+      "trade_count": 336,
+      "max_dd_pct": 17.016601562500004,
+      "ulcer_index": 7.83439513405396,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "03E_mt5_validation_baseline_0001",
+      "return_pct": 7.072000000000001,
+      "profit_factor": 1.0440579132298338,
+      "trade_count": 357,
+      "max_dd_pct": 20.022800086483088,
+      "ulcer_index": 8.19108033290302,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "verdict": {
+    "status": "promote_candidate",
+    "selected_run_name": "05W_no_trend_strength_0001",
+    "reason": "trial model cleared the holdout gate versus the incumbent"
+  }
+}

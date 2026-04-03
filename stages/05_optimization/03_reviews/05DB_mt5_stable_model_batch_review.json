@@ -1,0 +1,182 @@
+{
+  "generated_at_utc": "2026-03-30T12:55:35.657767+00:00",
+  "phase": "05DB_mt5_stable_model_batch",
+  "ranked_validation_runs": [
+    {
+      "rank": 1,
+      "run_name": "05W_no_trend_strength_0001",
+      "variant_label": "incumbent_05w",
+      "model_family": null,
+      "return_pct": 91.16799999999999,
+      "profit_factor": 1.4091663899036866,
+      "trade_count": 493,
+      "max_dd_pct": 11.147223438038381,
+      "ulcer_index": 6.520512249938508,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05BF_trend_proxy_persistence_volatility_0001",
+      "variant_label": "persistence_volatility_reference",
+      "model_family": null,
+      "return_pct": 89.422,
+      "profit_factor": 1.4011646164751062,
+      "trade_count": 487,
+      "max_dd_pct": 11.94626370657451,
+      "ulcer_index": 7.150574039547822,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 3,
+      "run_name": "05BB_trend_proxy_persistence_only_0001",
+      "variant_label": "persistence_only_reference",
+      "model_family": null,
+      "return_pct": 75.676,
+      "profit_factor": 1.3308037978003533,
+      "trade_count": 490,
+      "max_dd_pct": 12.34551853777547,
+      "ulcer_index": 7.260856883657908,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 4,
+      "run_name": "05AH_trend_proxy_sector_replacement_0001",
+      "variant_label": "full_proxy_reference",
+      "model_family": null,
+      "return_pct": 62.2,
+      "profit_factor": 1.2631734829444967,
+      "trade_count": 489,
+      "max_dd_pct": 13.454463789194513,
+      "ulcer_index": 7.922504691164585,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 5,
+      "run_name": "05DA_mt5_validation_margin_regularized_vote_0001",
+      "variant_label": "regularized_logreg_voter",
+      "model_family": "regularized_logreg_voter",
+      "return_pct": 53.238,
+      "profit_factor": 1.222041490453192,
+      "trade_count": 489,
+      "max_dd_pct": 14.149025773485317,
+      "ulcer_index": 8.286855690874646,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 6,
+      "run_name": "05CY_mt5_validation_margin_elasticnet_logreg_0001",
+      "variant_label": "elasticnet_logreg",
+      "model_family": "elasticnet_logreg",
+      "return_pct": 42.51,
+      "profit_factor": 1.1782165765312538,
+      "trade_count": 477,
+      "max_dd_pct": 14.825953571514844,
+      "ulcer_index": 8.767805873527077,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 7,
+      "run_name": "05CZ_mt5_validation_margin_pca_logreg_0001",
+      "variant_label": "pca_logreg",
+      "model_family": "pca_logreg",
+      "return_pct": 37.5,
+      "profit_factor": 1.4009751716173735,
+      "trade_count": 168,
+      "max_dd_pct": 21.304935332346698,
+      "ulcer_index": 2.8959090066058604,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "ranked_test_runs": [
+    {
+      "rank": 1,
+      "run_name": "05DA_mt5_validation_margin_regularized_vote_0001",
+      "variant_label": "regularized_logreg_voter",
+      "model_family": "regularized_logreg_voter",
+      "return_pct": 46.217999999999996,
+      "profit_factor": 1.3289350072593733,
+      "trade_count": 329,
+      "max_dd_pct": 17.70395132211539,
+      "ulcer_index": 6.731836346410299,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05BB_trend_proxy_persistence_only_0001",
+      "variant_label": "persistence_only_reference",
+      "model_family": null,
+      "return_pct": 44.792,
+      "profit_factor": 1.3192587312900927,
+      "trade_count": 328,
+      "max_dd_pct": 15.540489783653847,
+      "ulcer_index": 6.318342098095846,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 3,
+      "run_name": "05AH_trend_proxy_sector_replacement_0001",
+      "variant_label": "full_proxy_reference",
+      "model_family": null,
+      "return_pct": 44.558,
+      "profit_factor": 1.310903026835429,
+      "trade_count": 331,
+      "max_dd_pct": 17.70395132211539,
+      "ulcer_index": 7.152147741539391,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 4,
+      "run_name": "05BF_trend_proxy_persistence_volatility_0001",
+      "variant_label": "persistence_volatility_reference",
+      "model_family": null,
+      "return_pct": 40.461999999999996,
+      "profit_factor": 1.280134036749332,
+      "trade_count": 331,
+      "max_dd_pct": 17.016601562500004,
+      "ulcer_index": 6.99348295800412,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 5,
+      "run_name": "05W_no_trend_strength_0001",
+      "variant_label": "incumbent_05w",
+      "model_family": null,
+      "return_pct": 33.538000000000004,
+      "profit_factor": 1.225311047214683,
+      "trade_count": 336,
+      "max_dd_pct": 17.016601562500004,
+      "ulcer_index": 7.83439513405396,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 6,
+      "run_name": "05CY_mt5_validation_margin_elasticnet_logreg_0001",
+      "variant_label": "elasticnet_logreg",
+      "model_family": "elasticnet_logreg",
+      "return_pct": 29.233999999999998,
+      "profit_factor": 1.200230133833783,
+      "trade_count": 325,
+      "max_dd_pct": 19.523599639729422,
+      "ulcer_index": 7.205622602610308,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "verdict": {
+    "status": "mixed_holdout_win_keep_incumbent",
+    "selected_run_name": "05W_no_trend_strength_0001",
+    "reason": "stable linear model improved holdout but did not lead validation, so the incumbent stays promoted for now"
+  }
+}

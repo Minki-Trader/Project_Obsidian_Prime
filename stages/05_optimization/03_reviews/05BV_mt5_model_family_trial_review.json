@@ -1,0 +1,93 @@
+{
+  "generated_at_utc": "2026-03-30T12:16:12.950365+00:00",
+  "phase": "stage05_mt5_model_family_trial",
+  "model_family": "persistence_frontier_stacker",
+  "logic_reference_run_name": "05W_no_trend_strength_0001",
+  "logic_filter": {
+    "type": "max_probability_margin",
+    "min_margin": 0.07
+  },
+  "dropped_sectors": [
+    "trend_strength"
+  ],
+  "dropped_features": [],
+  "replacement_sector_name": null,
+  "replacement_sector_components": null,
+  "voter_components": [
+    "base_05w",
+    "persistence_only",
+    "persistence_volatility"
+  ],
+  "voter_weights": null,
+  "baseline_stage01_test_confirmation": {
+    "run_name": "01D_run_0001_final_h03_band000125_logreg",
+    "model_family": "logistic_regression",
+    "test_rows": 6720,
+    "test_macro_f1": 0.45812929996514556,
+    "test_balanced_accuracy": 0.46935993441877705,
+    "test_accuracy": 0.5769345238095238,
+    "test_log_loss": 0.9727633173365045
+  },
+  "trial_model_test_confirmation": {
+    "run_name": "05BV_frontier_stack_w_bb_bf_0001",
+    "model_family": "persistence_frontier_stacker",
+    "test_rows": 6720,
+    "test_macro_f1": 0.44744373837827417,
+    "test_balanced_accuracy": 0.47253074804940587,
+    "test_accuracy": 0.5400297619047619,
+    "test_log_loss": 1.0134462278354448
+  },
+  "ranked_validation_runs": [
+    {
+      "rank": 1,
+      "run_name": "05W_no_trend_strength_0001",
+      "return_pct": 91.16799999999999,
+      "profit_factor": 1.4091663899036866,
+      "trade_count": 493,
+      "max_dd_pct": 11.147223438038381,
+      "ulcer_index": 6.520512249938508,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05BV_frontier_stack_w_bb_bf_0001",
+      "return_pct": -11.846,
+      "profit_factor": 0.9291625804291147,
+      "trade_count": 270,
+      "max_dd_pct": 27.60133240988093,
+      "ulcer_index": 13.98716592895996,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "ranked_test_runs": [
+    {
+      "rank": 1,
+      "run_name": "05W_no_trend_strength_0001",
+      "return_pct": 33.538000000000004,
+      "profit_factor": 1.225311047214683,
+      "trade_count": 336,
+      "max_dd_pct": 17.016601562500004,
+      "ulcer_index": 7.83439513405396,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05BV_frontier_stack_w_bb_bf_0001",
+      "return_pct": 12.021999999999998,
+      "profit_factor": 1.143433234704591,
+      "trade_count": 153,
+      "max_dd_pct": 17.314665968821263,
+      "ulcer_index": 8.62396661593522,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "verdict": {
+    "status": "reject_keep_incumbent",
+    "selected_run_name": "05W_no_trend_strength_0001",
+    "reason": "trial model did not clear the incumbent on the holdout gate"
+  }
+}

@@ -1,0 +1,35 @@
+﻿Broker: FPMarkets
+Main Symbol: US100 (NDX CFD, USTECH 100)
+TimeFrame: M5
+
+External symbol contract (broker-native):
+- VIX
+- US10YR
+- USDX
+- NVDA
+- AAPL
+- MSFT
+- AMZN
+- AMD
+- GOOGL
+- META
+- TSLA
+
+Removed from prior draft due current FPMarkets MT5 unavailability:
+- VXN
+- AVGO
+
+Breadth basket contract (mega8, v2):
+- AAPL
+- AMZN
+- AMD
+- GOOGL
+- META
+- MSFT
+- NVDA
+- TSLA
+
+ML decision interpretation:
+- individual thresholds
+- max-probability margin
+- probability-difference based filter

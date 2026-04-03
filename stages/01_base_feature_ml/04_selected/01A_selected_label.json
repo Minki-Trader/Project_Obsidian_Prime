@@ -1,0 +1,15 @@
+{
+  "phase": "01A_smoke",
+  "selected_at_utc": "2026-03-26T14:32:25.279125+00:00",
+  "selected_run_name": "01A_run_0003_h06_band000125_lgbm",
+  "selected_band": 0.00125,
+  "selected_horizon_bars": 6,
+  "selection_metric": "valid_macro_f1",
+  "selected_run_metrics": {
+    "valid_macro_f1": 0.4357346866182666,
+    "valid_balanced_accuracy": 0.4359602548869244,
+    "valid_accuracy": 0.4809458999659748,
+    "valid_log_loss": 1.018597728675886
+  },
+  "next_phase": "01B_model_compare"
+}

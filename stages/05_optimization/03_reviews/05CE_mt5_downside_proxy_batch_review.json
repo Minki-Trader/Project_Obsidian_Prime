@@ -1,0 +1,258 @@
+{
+  "generated_at_utc": "2026-03-30T13:09:48.506559+00:00",
+  "phase": "05CE_mt5_downside_proxy_batch",
+  "ranked_validation_runs": [
+    {
+      "rank": 1,
+      "run_name": "05W_no_trend_strength_0001",
+      "variant_label": "incumbent_05w",
+      "component_groups": [],
+      "return_pct": 91.16799999999999,
+      "profit_factor": 1.4091663899036866,
+      "trade_count": 493,
+      "max_dd_pct": 11.147223438038381,
+      "ulcer_index": 6.520512249938508,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05BF_trend_proxy_persistence_volatility_0001",
+      "variant_label": "persistence_volatility_reference",
+      "component_groups": [],
+      "return_pct": 89.422,
+      "profit_factor": 1.4011646164751062,
+      "trade_count": 487,
+      "max_dd_pct": 11.94626370657451,
+      "ulcer_index": 7.150574039547822,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 3,
+      "run_name": "05AI_trend_proxy_light_pb_0001",
+      "variant_label": "light_pb_reference",
+      "component_groups": [],
+      "return_pct": 86.868,
+      "profit_factor": 1.3884313041611889,
+      "trade_count": 485,
+      "max_dd_pct": 11.717263510635284,
+      "ulcer_index": 6.844386501971849,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 4,
+      "run_name": "05CA_trend_proxy_persistence_riskoff_0001",
+      "variant_label": "persistence_riskoff",
+      "component_groups": [
+        "trend_proxy_persistence",
+        "trend_proxy_risk_off_confirmation"
+      ],
+      "return_pct": 84.15199999999999,
+      "profit_factor": 1.376037821847658,
+      "trade_count": 488,
+      "max_dd_pct": 12.053703863194865,
+      "ulcer_index": 7.274127603224929,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 5,
+      "run_name": "05CC_trend_proxy_persistence_downside_riskoff_0001",
+      "variant_label": "persistence_downside_riskoff",
+      "component_groups": [
+        "trend_proxy_persistence",
+        "trend_proxy_downside_pressure",
+        "trend_proxy_risk_off_confirmation"
+      ],
+      "return_pct": 78.506,
+      "profit_factor": 1.3414313797122628,
+      "trade_count": 495,
+      "max_dd_pct": 12.006369111785821,
+      "ulcer_index": 7.248835496808677,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 6,
+      "run_name": "05BZ_trend_proxy_persistence_downside_0001",
+      "variant_label": "persistence_downside",
+      "component_groups": [
+        "trend_proxy_persistence",
+        "trend_proxy_downside_pressure"
+      ],
+      "return_pct": 78.354,
+      "profit_factor": 1.3388339690200046,
+      "trade_count": 494,
+      "max_dd_pct": 12.272825936815517,
+      "ulcer_index": 7.3678982691913975,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 7,
+      "run_name": "05BB_trend_proxy_persistence_only_0001",
+      "variant_label": "persistence_only_reference",
+      "component_groups": [],
+      "return_pct": 75.676,
+      "profit_factor": 1.3308037978003533,
+      "trade_count": 490,
+      "max_dd_pct": 12.34551853777547,
+      "ulcer_index": 7.260856883657908,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 8,
+      "run_name": "05CD_trend_proxy_persistence_session_riskoff_0001",
+      "variant_label": "persistence_session_riskoff",
+      "component_groups": [
+        "trend_proxy_persistence",
+        "trend_proxy_session_pressure",
+        "trend_proxy_risk_off_confirmation"
+      ],
+      "return_pct": 73.066,
+      "profit_factor": 1.315371932217436,
+      "trade_count": 489,
+      "max_dd_pct": 12.05166600454319,
+      "ulcer_index": 7.1455883131025395,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 9,
+      "run_name": "05CB_trend_proxy_persistence_leader_drag_0001",
+      "variant_label": "persistence_leader_drag",
+      "component_groups": [
+        "trend_proxy_persistence",
+        "trend_proxy_leader_drag"
+      ],
+      "return_pct": 69.21199999999999,
+      "profit_factor": 1.2933880443905623,
+      "trade_count": 489,
+      "max_dd_pct": 12.110849302500153,
+      "ulcer_index": 7.274473275040702,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 10,
+      "run_name": "05AH_trend_proxy_sector_replacement_0001",
+      "variant_label": "full_proxy_reference",
+      "component_groups": [],
+      "return_pct": 62.2,
+      "profit_factor": 1.2631734829444967,
+      "trade_count": 489,
+      "max_dd_pct": 13.454463789194513,
+      "ulcer_index": 7.922504691164585,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "ranked_test_runs": [
+    {
+      "rank": 1,
+      "run_name": "05CC_trend_proxy_persistence_downside_riskoff_0001",
+      "variant_label": "persistence_downside_riskoff",
+      "component_groups": [
+        "trend_proxy_persistence",
+        "trend_proxy_downside_pressure",
+        "trend_proxy_risk_off_confirmation"
+      ],
+      "return_pct": 47.402,
+      "profit_factor": 1.3367432476592358,
+      "trade_count": 333,
+      "max_dd_pct": 15.540489783653847,
+      "ulcer_index": 6.025131692106465,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05BB_trend_proxy_persistence_only_0001",
+      "variant_label": "persistence_only_reference",
+      "component_groups": [],
+      "return_pct": 44.792,
+      "profit_factor": 1.3192587312900927,
+      "trade_count": 328,
+      "max_dd_pct": 15.540489783653847,
+      "ulcer_index": 6.318342098095846,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 3,
+      "run_name": "05AH_trend_proxy_sector_replacement_0001",
+      "variant_label": "full_proxy_reference",
+      "component_groups": [],
+      "return_pct": 44.558,
+      "profit_factor": 1.310903026835429,
+      "trade_count": 331,
+      "max_dd_pct": 17.70395132211539,
+      "ulcer_index": 7.152147741539391,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 4,
+      "run_name": "05BF_trend_proxy_persistence_volatility_0001",
+      "variant_label": "persistence_volatility_reference",
+      "component_groups": [],
+      "return_pct": 40.461999999999996,
+      "profit_factor": 1.280134036749332,
+      "trade_count": 331,
+      "max_dd_pct": 17.016601562500004,
+      "ulcer_index": 6.99348295800412,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 5,
+      "run_name": "05CA_trend_proxy_persistence_riskoff_0001",
+      "variant_label": "persistence_riskoff",
+      "component_groups": [
+        "trend_proxy_persistence",
+        "trend_proxy_risk_off_confirmation"
+      ],
+      "return_pct": 38.456,
+      "profit_factor": 1.263863539679708,
+      "trade_count": 330,
+      "max_dd_pct": 17.016601562500004,
+      "ulcer_index": 7.079991155161843,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 6,
+      "run_name": "05AI_trend_proxy_light_pb_0001",
+      "variant_label": "light_pb_reference",
+      "component_groups": [],
+      "return_pct": 37.274,
+      "profit_factor": 1.2541975258125673,
+      "trade_count": 330,
+      "max_dd_pct": 17.03725961538462,
+      "ulcer_index": 7.786025278033086,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 7,
+      "run_name": "05W_no_trend_strength_0001",
+      "variant_label": "incumbent_05w",
+      "component_groups": [],
+      "return_pct": 33.538000000000004,
+      "profit_factor": 1.225311047214683,
+      "trade_count": 336,
+      "max_dd_pct": 17.016601562500004,
+      "ulcer_index": 7.83439513405396,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "verdict": {
+    "status": "mixed_holdout_win_keep_incumbent",
+    "selected_run_name": "05W_no_trend_strength_0001",
+    "reason": "downside-aware persistence proxy improved holdout but did not lead validation, so the incumbent stays promoted for now"
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "generated_at_utc": "2026-04-01T13:31:38.274960+00:00",
+  "phase": "06G_early_wfo_core_compare",
+  "model_config_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DP_05ca_margin0675_hold5_0001\\config.json",
+  "logic_rule_stack_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05ER_05dp_short_bias_margin_hold4_0001\\rule_stack.json",
+  "dataset_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\01_base_feature_ml\\01_inputs\\stage01c_h03_band000125_dataset.parquet",
+  "wfo_window": {
+    "train_start_utc": "2022-09-01T00:00:00Z",
+    "train_end_utc_exclusive": "2024-07-01T00:00:00Z",
+    "validation_end_utc_exclusive": "2025-04-01T00:00:00Z",
+    "test_end_utc_exclusive": "2025-09-01T00:00:00Z"
+  },
+  "variants": [
+    {
+      "run_name": "06G_WFO_C",
+      "label": "plain_direction_split",
+      "overlay": {
+        "risk_pct": 2.5,
+        "stop_execution_mode": "broker_native",
+        "stop_policy": "direction_split",
+        "stop_long_atr_mult": 1.4,
+        "stop_short_atr_mult": 2.0,
+        "stop_atr_period": 14
+      }
+    },
+    {
+      "run_name": "06G_WFO_D",
+      "label": "soft_decay_reference",
+      "overlay": {
+        "risk_pct": 2.5,
+        "stop_execution_mode": "broker_native",
+        "stop_policy": "direction_split",
+        "stop_long_atr_mult": 1.4,
+        "stop_short_atr_mult": 2.0,
+        "stop_atr_period": 14,
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7
+      }
+    }
+  ]
+}

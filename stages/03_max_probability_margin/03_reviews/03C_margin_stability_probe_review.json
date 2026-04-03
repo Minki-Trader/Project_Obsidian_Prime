@@ -1,0 +1,62 @@
+{
+  "generated_at_utc": "2026-03-28T06:55:31.055882+00:00",
+  "phase": "03C_margin_stability_probe",
+  "source_search_model": "01C_run_0001_h03_band000125_logreg",
+  "final_model_run_name": "01D_run_0001_final_h03_band000125_logreg",
+  "fixed_thresholds": {
+    "short_threshold": 0.3333333333333333,
+    "long_threshold": 0.3333333333333333
+  },
+  "min_margins": [
+    0.079,
+    0.08,
+    0.081,
+    0.082,
+    0.0825,
+    0.083,
+    0.084,
+    0.085,
+    0.086
+  ],
+  "stability_leader": {
+    "min_margin": 0.0825,
+    "valid_trade_count": 763,
+    "valid_long_trade_count": 374,
+    "valid_short_trade_count": 389,
+    "valid_margin_rejected_rows": 4019,
+    "valid_compounded_return": 0.07704571317675746,
+    "valid_mean_trade_return": 0.00010588604710712814,
+    "valid_max_drawdown": -0.08080470081181101,
+    "test_trade_count": 218,
+    "test_long_trade_count": 53,
+    "test_short_trade_count": 165,
+    "test_margin_rejected_rows": 2555,
+    "test_compounded_return": 0.054032932558594204,
+    "test_mean_trade_return": 0.0002460040386055234,
+    "test_max_drawdown": -0.0364935002496366,
+    "avg_compounded_return": 0.06553932286767583,
+    "abs_valid_test_gap": 0.023012780618163253,
+    "both_positive": true
+  },
+  "tight_gap_leader": {
+    "min_margin": 0.084,
+    "valid_trade_count": 745,
+    "valid_long_trade_count": 367,
+    "valid_short_trade_count": 378,
+    "valid_margin_rejected_rows": 4073,
+    "valid_compounded_return": 0.05670804412361807,
+    "valid_mean_trade_return": 8.276959594946478e-05,
+    "valid_max_drawdown": -0.08844108771165904,
+    "test_trade_count": 209,
+    "test_long_trade_count": 50,
+    "test_short_trade_count": 159,
+    "test_margin_rejected_rows": 2582,
+    "test_compounded_return": 0.05360578291134588,
+    "test_mean_trade_return": 0.0002543005840904658,
+    "test_max_drawdown": -0.03451853549901884,
+    "avg_compounded_return": 0.055156913517481976,
+    "abs_valid_test_gap": 0.003102261212272195,
+    "both_positive": true
+  },
+  "verdict": "the higher-margin pocket remains valid; use this read to distinguish blended strength from split-stability before any Stage 03 freeze"
+}

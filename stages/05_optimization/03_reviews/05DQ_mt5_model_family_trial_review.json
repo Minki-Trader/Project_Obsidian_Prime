@@ -1,0 +1,107 @@
+{
+  "generated_at_utc": "2026-03-30T14:08:53.173491+00:00",
+  "phase": "stage05_mt5_model_family_trial",
+  "model_family": "trend_proxy_sector_logreg",
+  "logic_reference_run_name": "05DJ_05bf_margin_hold5_0001",
+  "logic_filter": {
+    "type": "max_probability_margin",
+    "min_margin": 0.0725
+  },
+  "logic_exit": {
+    "type": "time_exit",
+    "max_hold_bars": 5
+  },
+  "dropped_sectors": [
+    "trend_strength"
+  ],
+  "dropped_features": [],
+  "replacement_sector_name": "trend_proxy_regime",
+  "replacement_sector_components": {
+    "trend_proxy_persistence": [
+      "ema20_ema50_diff",
+      "ema50_ema200_diff",
+      "trix_15"
+    ],
+    "trend_proxy_risk_off_confirmation": [
+      "vix_change_1",
+      "vix_zscore_20",
+      "us10yr_change_1",
+      "us10yr_zscore_20",
+      "usdx_change_1",
+      "usdx_zscore_20"
+    ]
+  },
+  "voter_components": null,
+  "voter_weights": null,
+  "baseline_stage01_test_confirmation": {
+    "run_name": "01D_run_0001_final_h03_band000125_logreg",
+    "model_family": "logistic_regression",
+    "test_rows": 6720,
+    "test_macro_f1": 0.45812929996514556,
+    "test_balanced_accuracy": 0.46935993441877705,
+    "test_accuracy": 0.5769345238095238,
+    "test_log_loss": 0.9727633173365045
+  },
+  "trial_model_test_confirmation": {
+    "run_name": "05DQ_05ca_margin0725_hold5_0001",
+    "model_family": "trend_proxy_sector_logreg",
+    "test_rows": 6720,
+    "test_macro_f1": 0.45726259597063584,
+    "test_balanced_accuracy": 0.4685063923112125,
+    "test_accuracy": 0.5760416666666667,
+    "test_log_loss": 0.9739131901819446
+  },
+  "ranked_validation_runs": [
+    {
+      "rank": 1,
+      "run_name": "05DJ_05bf_margin_hold5_0001",
+      "return_pct": 119.43599999999999,
+      "profit_factor": 1.5645437271343625,
+      "trade_count": 386,
+      "max_dd_pct": 12.469552918991115,
+      "ulcer_index": 7.185755376438692,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05DQ_05ca_margin0725_hold5_0001",
+      "return_pct": 106.636,
+      "profit_factor": 1.5020858248660456,
+      "trade_count": 375,
+      "max_dd_pct": 15.840339435845053,
+      "ulcer_index": 7.528352947112868,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "ranked_test_runs": [
+    {
+      "rank": 1,
+      "run_name": "05DJ_05bf_margin_hold5_0001",
+      "return_pct": 59.19,
+      "profit_factor": 1.4282923299565846,
+      "trade_count": 265,
+      "max_dd_pct": 20.273177853767237,
+      "ulcer_index": 6.180120714308422,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05DQ_05ca_margin0725_hold5_0001",
+      "return_pct": 54.477999999999994,
+      "profit_factor": 1.4179042651119975,
+      "trade_count": 250,
+      "max_dd_pct": 21.356668075460092,
+      "ulcer_index": 6.686565023698654,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "verdict": {
+    "status": "reject_keep_incumbent",
+    "selected_run_name": "05DJ_05bf_margin_hold5_0001",
+    "reason": "trial model did not clear the incumbent on the holdout gate"
+  }
+}

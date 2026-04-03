@@ -1,0 +1,16 @@
+{
+  "generated_at_utc": "2026-03-26T14:32:22.418478+00:00",
+  "horizon_bars": 6,
+  "modeling_start_utc": "2022-09-01T00:00:00+00:00",
+  "train_end_utc_exclusive": "2025-01-01T00:00:00+00:00",
+  "valid_end_utc_exclusive": "2025-10-01T00:00:00+00:00",
+  "test_end_utc_exclusive": "2026-03-01T00:00:00+00:00",
+  "row_count": 53171,
+  "split_counts": {
+    "train": 34695,
+    "valid": 11756,
+    "test": 6720
+  },
+  "feature_count": 58,
+  "return_formula": "forward_return = exit_close[t+h] / entry_open[t+1] - 1"
+}

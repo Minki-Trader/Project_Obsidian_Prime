@@ -1,0 +1,85 @@
+{
+  "generated_at_utc": "2026-03-29T17:22:46.895069+00:00",
+  "phase": "stage05_mt5_model_family_trial",
+  "model_family": "logistic_regression",
+  "logic_reference_run_name": "05W_no_trend_strength_0001",
+  "logic_filter": {
+    "type": "max_probability_margin",
+    "min_margin": 0.07
+  },
+  "dropped_sectors": [],
+  "dropped_features": [
+    "di_spread_14"
+  ],
+  "baseline_stage01_test_confirmation": {
+    "run_name": "01D_run_0001_final_h03_band000125_logreg",
+    "model_family": "logistic_regression",
+    "test_rows": 6720,
+    "test_macro_f1": 0.45812929996514556,
+    "test_balanced_accuracy": 0.46935993441877705,
+    "test_accuracy": 0.5769345238095238,
+    "test_log_loss": 0.9727633173365045
+  },
+  "trial_model_test_confirmation": {
+    "run_name": "05AD_drop_di_spread14_0001",
+    "model_family": "logistic_regression",
+    "test_rows": 6720,
+    "test_macro_f1": 0.4566382111672145,
+    "test_balanced_accuracy": 0.4674272234085845,
+    "test_accuracy": 0.5763392857142857,
+    "test_log_loss": 0.9733113089261312
+  },
+  "ranked_validation_runs": [
+    {
+      "rank": 1,
+      "run_name": "05AD_drop_di_spread14_0001",
+      "return_pct": 76.554,
+      "profit_factor": 1.3094366163024762,
+      "trade_count": 524,
+      "max_dd_pct": 11.151322923443937,
+      "ulcer_index": 4.33480346999596,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05W_no_trend_strength_0001",
+      "return_pct": 91.16799999999999,
+      "profit_factor": 1.4091663899036866,
+      "trade_count": 493,
+      "max_dd_pct": 11.147223438038381,
+      "ulcer_index": 6.520512249938508,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "ranked_test_runs": [
+    {
+      "rank": 1,
+      "run_name": "05W_no_trend_strength_0001",
+      "return_pct": 33.538000000000004,
+      "profit_factor": 1.225311047214683,
+      "trade_count": 336,
+      "max_dd_pct": 17.016601562500004,
+      "ulcer_index": 7.83439513405396,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05AD_drop_di_spread14_0001",
+      "return_pct": 23.919999999999998,
+      "profit_factor": 1.1485308362931868,
+      "trade_count": 346,
+      "max_dd_pct": 24.30306010515565,
+      "ulcer_index": 7.782944824117563,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "verdict": {
+    "status": "reject_keep_incumbent",
+    "selected_run_name": "05W_no_trend_strength_0001",
+    "reason": "holdout still favors the incumbent logic/model bundle"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "phase": "01A_smoke",
+  "generated_at_utc": "2026-03-26T14:32:22.421998+00:00",
+  "horizon_bars": 6,
+  "bands": [
+    0.00075,
+    0.001,
+    0.00125
+  ],
+  "baseline_model": "lightgbm_multiclass",
+  "frozen_items": [
+    "[p_short, p_flat, p_long]",
+    "US100 M5 base frame",
+    "chronological split ordering",
+    "shared FPMarkets v2 feature contract"
+  ],
+  "search_items": [
+    "band candidate"
+  ],
+  "selection_metric": "valid_macro_f1"
+}

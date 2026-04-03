@@ -1,0 +1,250 @@
+{
+  "generated_at_utc": "2026-03-30T14:08:53.606376+00:00",
+  "phase": "05DV_mt5_downside_local_probe_batch",
+  "ranked_validation_runs": [
+    {
+      "rank": 1,
+      "run_name": "05DP_05ca_margin0675_hold5_0001",
+      "variant_label": "05ca_m0675_h5",
+      "component_groups": [
+        "trend_proxy_persistence",
+        "trend_proxy_risk_off_confirmation"
+      ],
+      "min_margin": 0.0675,
+      "max_hold_bars": 5,
+      "return_pct": 122.57000000000001,
+      "profit_factor": 1.5552837351744633,
+      "trade_count": 405,
+      "max_dd_pct": 12.603127209868777,
+      "ulcer_index": 7.2871377165059945,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05DJ_05bf_margin_hold5_0001",
+      "variant_label": "promoted_05dj",
+      "component_groups": [],
+      "min_margin": null,
+      "max_hold_bars": null,
+      "return_pct": 119.43599999999999,
+      "profit_factor": 1.5645437271343625,
+      "trade_count": 386,
+      "max_dd_pct": 12.469552918991115,
+      "ulcer_index": 7.185755376438692,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 3,
+      "run_name": "05DN_05ca_margin_hold5_0001",
+      "variant_label": "cross_05ca_hold5",
+      "component_groups": [],
+      "min_margin": null,
+      "max_hold_bars": null,
+      "return_pct": 109.31399999999998,
+      "profit_factor": 1.502371367120719,
+      "trade_count": 388,
+      "max_dd_pct": 13.223854796888505,
+      "ulcer_index": 7.514788686125801,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 4,
+      "run_name": "05DQ_05ca_margin0725_hold5_0001",
+      "variant_label": "05ca_m0725_h5",
+      "component_groups": [
+        "trend_proxy_persistence",
+        "trend_proxy_risk_off_confirmation"
+      ],
+      "min_margin": 0.0725,
+      "max_hold_bars": 5,
+      "return_pct": 106.636,
+      "profit_factor": 1.5020858248660456,
+      "trade_count": 375,
+      "max_dd_pct": 15.840339435845053,
+      "ulcer_index": 7.528352947112868,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 5,
+      "run_name": "05DR_05cc_margin0675_hold5_0001",
+      "variant_label": "05cc_m0675_h5",
+      "component_groups": [
+        "trend_proxy_persistence",
+        "trend_proxy_downside_pressure",
+        "trend_proxy_risk_off_confirmation"
+      ],
+      "min_margin": 0.0675,
+      "max_hold_bars": 5,
+      "return_pct": 102.06,
+      "profit_factor": 1.4440209872353755,
+      "trade_count": 408,
+      "max_dd_pct": 14.271744132535671,
+      "ulcer_index": 7.867074205949992,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 6,
+      "run_name": "05DL_05cc_margin_hold5_0001",
+      "variant_label": "cross_05cc_hold5",
+      "component_groups": [],
+      "min_margin": null,
+      "max_hold_bars": null,
+      "return_pct": 99.68199999999999,
+      "profit_factor": 1.4448341722894575,
+      "trade_count": 393,
+      "max_dd_pct": 14.91613058377923,
+      "ulcer_index": 7.6350328355652985,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 7,
+      "run_name": "05DT_05ca_margin0700_hold6_0001",
+      "variant_label": "05ca_m0700_h6",
+      "component_groups": [
+        "trend_proxy_persistence",
+        "trend_proxy_risk_off_confirmation"
+      ],
+      "min_margin": 0.07,
+      "max_hold_bars": 6,
+      "return_pct": 92.632,
+      "profit_factor": 1.4003630548472146,
+      "trade_count": 358,
+      "max_dd_pct": 14.884366245725039,
+      "ulcer_index": 9.374105346913131,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 8,
+      "run_name": "05DU_05cc_margin0700_hold6_0001",
+      "variant_label": "05cc_m0700_h6",
+      "component_groups": [
+        "trend_proxy_persistence",
+        "trend_proxy_downside_pressure",
+        "trend_proxy_risk_off_confirmation"
+      ],
+      "min_margin": 0.07,
+      "max_hold_bars": 6,
+      "return_pct": 91.58800000000001,
+      "profit_factor": 1.400885916380699,
+      "trade_count": 360,
+      "max_dd_pct": 15.415376676986584,
+      "ulcer_index": 9.217075349898428,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 9,
+      "run_name": "05DS_05cc_margin0725_hold5_0001",
+      "variant_label": "05cc_m0725_h5",
+      "component_groups": [
+        "trend_proxy_persistence",
+        "trend_proxy_downside_pressure",
+        "trend_proxy_risk_off_confirmation"
+      ],
+      "min_margin": 0.0725,
+      "max_hold_bars": 5,
+      "return_pct": 86.43399999999998,
+      "profit_factor": 1.3771116928446772,
+      "trade_count": 382,
+      "max_dd_pct": 16.0091370165318,
+      "ulcer_index": 7.727964873788136,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "ranked_test_runs": [
+    {
+      "rank": 1,
+      "run_name": "05DP_05ca_margin0675_hold5_0001",
+      "variant_label": "05ca_m0675_h5",
+      "component_groups": [
+        "trend_proxy_persistence",
+        "trend_proxy_risk_off_confirmation"
+      ],
+      "min_margin": 0.0675,
+      "max_hold_bars": 5,
+      "return_pct": 68.574,
+      "profit_factor": 1.492530238170483,
+      "trade_count": 275,
+      "max_dd_pct": 19.393561462311947,
+      "ulcer_index": 5.858664410637043,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05DN_05ca_margin_hold5_0001",
+      "variant_label": "cross_05ca_hold5",
+      "component_groups": [],
+      "min_margin": null,
+      "max_hold_bars": null,
+      "return_pct": 60.94,
+      "profit_factor": 1.4516616762028995,
+      "trade_count": 263,
+      "max_dd_pct": 20.273177853767237,
+      "ulcer_index": 6.239222347317802,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 3,
+      "run_name": "05DJ_05bf_margin_hold5_0001",
+      "variant_label": "promoted_05dj",
+      "component_groups": [],
+      "min_margin": null,
+      "max_hold_bars": null,
+      "return_pct": 59.19,
+      "profit_factor": 1.4282923299565846,
+      "trade_count": 265,
+      "max_dd_pct": 20.273177853767237,
+      "ulcer_index": 6.180120714308422,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 4,
+      "run_name": "05DL_05cc_margin_hold5_0001",
+      "variant_label": "cross_05cc_hold5",
+      "component_groups": [],
+      "min_margin": null,
+      "max_hold_bars": null,
+      "return_pct": 58.85199999999999,
+      "profit_factor": 1.431143866023941,
+      "trade_count": 267,
+      "max_dd_pct": 18.394359703384936,
+      "ulcer_index": 5.586436549646309,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 5,
+      "run_name": "05DQ_05ca_margin0725_hold5_0001",
+      "variant_label": "05ca_m0725_h5",
+      "component_groups": [
+        "trend_proxy_persistence",
+        "trend_proxy_risk_off_confirmation"
+      ],
+      "min_margin": 0.0725,
+      "max_hold_bars": 5,
+      "return_pct": 54.477999999999994,
+      "profit_factor": 1.4179042651119975,
+      "trade_count": 250,
+      "max_dd_pct": 21.356668075460092,
+      "ulcer_index": 6.686565023698654,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "verdict": {
+    "status": "promote_candidate",
+    "selected_run_name": "05DP_05ca_margin0675_hold5_0001",
+    "reason": "local-probe candidate led both validation and holdout versus the promoted incumbent"
+  }
+}

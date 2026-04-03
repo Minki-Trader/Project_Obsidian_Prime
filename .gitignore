@@ -1,0 +1,44 @@
+# Python / local tooling
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+
+# Local editor noise
+.vscode/
+.idea/
+
+# Project-local heavy experiment outputs
+catboost_info/
+data/
+
+# Stage run artifacts and tester outputs
+stages/*/02_runs/
+**/mt5_attempts/
+**/artifacts/
+
+# Large model / dataset artifacts
+*.parquet
+*.joblib
+*.onnx
+*.bin
+*.npy
+*.npz
+
+# Runtime / export artifacts
+*.xml
+*.html
+*.svg
+
+# Logs and ledgers
+*.log
+*_stdout.log
+*_stderr.log
+*_shadow.csv
+*_trades.csv
+
+# OS noise
+Thumbs.db
+Desktop.ini

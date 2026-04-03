@@ -1,0 +1,15 @@
+{
+  "generated_at_utc": "2026-03-28T05:20:33.968596+00:00",
+  "phase": "02E_extreme_range_bracket",
+  "recommended_exploratory_bracket": {
+    "short_threshold": [
+      0.55,
+      0.7
+    ],
+    "long_threshold": [
+      0.35,
+      0.4
+    ]
+  },
+  "verdict": "exploration continues inside the bracket; no freeze"
+}

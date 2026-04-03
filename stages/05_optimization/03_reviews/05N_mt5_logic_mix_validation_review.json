@@ -1,0 +1,99 @@
+{
+  "generated_at_utc": "2026-03-29T16:05:30.409136+00:00",
+  "phase": "05N_mt5_logic_mix_validation_batch",
+  "ranked_runs": [
+    {
+      "rank": 1,
+      "run_name": "05P_margin_diff_mix_0001",
+      "stage_folder": "05_optimization",
+      "mix_label": "margin_diff_mix",
+      "short_threshold": 0.3333333333333333,
+      "long_threshold": 0.3333333333333333,
+      "min_margin": 0.07,
+      "min_probability_diff": 0.0775,
+      "return_pct": 67.402,
+      "profit_factor": 1.308174145230758,
+      "trade_count": 451,
+      "max_dd_pct": 12.550724637681157,
+      "ulcer_index": 2.3919393195387273,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05O_thr_diff_mix_0001",
+      "stage_folder": "05_optimization",
+      "mix_label": "threshold_diff_mix",
+      "short_threshold": 0.535,
+      "long_threshold": 0.4,
+      "min_margin": null,
+      "min_probability_diff": 0.0775,
+      "return_pct": 41.006,
+      "profit_factor": 1.2793019834350479,
+      "trade_count": 247,
+      "max_dd_pct": 16.28071263654847,
+      "ulcer_index": 2.4835112752310415,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 3,
+      "run_name": "05Q_thr_margin_diff_0001",
+      "stage_folder": "05_optimization",
+      "mix_label": "threshold_margin_diff_mix",
+      "short_threshold": 0.535,
+      "long_threshold": 0.4,
+      "min_margin": 0.07,
+      "min_probability_diff": 0.0775,
+      "return_pct": 41.006,
+      "profit_factor": 1.2793019834350479,
+      "trade_count": 247,
+      "max_dd_pct": 16.28071263654847,
+      "ulcer_index": 2.4835112752310415,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 4,
+      "run_name": "05N_thr_margin_mix_0001",
+      "stage_folder": "05_optimization",
+      "mix_label": "threshold_margin_mix",
+      "short_threshold": 0.535,
+      "long_threshold": 0.4,
+      "min_margin": 0.07,
+      "min_probability_diff": null,
+      "return_pct": 35.614000000000004,
+      "profit_factor": 1.2197065972436427,
+      "trade_count": 278,
+      "max_dd_pct": 17.162,
+      "ulcer_index": 6.025811095417065,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "followup_holdout_duel": {
+    "candidate_run_name": "05P_margin_diff_mix_0001",
+    "incumbent_run_name": "03E_mt5_validation_baseline_0001",
+    "candidate": {
+      "return_pct": 1.6859999999999997,
+      "profit_factor": 1.0112762342995492,
+      "trade_count": 309,
+      "max_dd_pct": 22.033531851327705,
+      "ulcer_index": 9.325620481900524,
+      "ready_row_gap": 35
+    },
+    "incumbent": {
+      "return_pct": 7.072000000000001,
+      "profit_factor": 1.0440579132298338,
+      "trade_count": 357,
+      "max_dd_pct": 20.022800086483088,
+      "ulcer_index": 8.19108033290302,
+      "ready_row_gap": 35
+    },
+    "verdict": {
+      "status": "reject_keep_incumbent",
+      "selected_run_name": "03E_mt5_validation_baseline_0001",
+      "reason": "the broad logic mix looked cleaner on validation but still underperformed the incumbent on holdout"
+    }
+  }
+}

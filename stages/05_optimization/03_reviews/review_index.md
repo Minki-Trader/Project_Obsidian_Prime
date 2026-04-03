@@ -1,0 +1,118 @@
+# Review Index
+
+## Current Entries
+- `05AG`: see `05AG_mt5_trend_strength_feature_ablation_review.md`
+- `05GL`: see `05GL_mt5_stop_policy_progression_review.md`
+- `05GK`: see `05GK_mt5_direction_split_riskpct300_probe_review.md`
+- `05GJ`: see `05GJ_mt5_direction_split_riskpct300_probe_review.md`
+- `05GI`: see `05GI_mt5_direction_split_riskpct300_probe_review.md`
+- `05GH`: see `05GH_mt5_regime_bucket_riskpct300_probe_review.md`
+- `05GG`: see `05GG_mt5_regime_bucket_riskpct300_probe_review.md`
+- `05GF`: see `05GF_mt5_regime_bucket_riskpct300_probe_review.md`
+- `05GE`: see `05GE_mt5_fixed_stop20_riskpct300_brokersl_probe_review.md`
+- `05GD`: see `05GD_mt5_fixed_stop15_riskpct300_brokersl_probe_review.md`
+- `05GC`: see `05GC_mt5_fixed_stop10_riskpct300_brokersl_probe_review.md`
+- `05GB`: see `05GB_mt5_05dp_risk_pct_3pct_broker_sl_probe_review.md`
+- `05GA`: see `05GA_mt5_05dp_risk_pct_probe_review.md`
+- `05FQ`: see `05FQ_mt5_calibrated_linear_specialist_review.md`
+- `05FW`: see `05FW_mt5_05dp_regime_exit_review.md`
+- `05FM`: see `05FM_mt5_05dp_output_shape_review.md`
+- `05EX`: see `05EX_mt5_05dp_plateau_response_review.md`
+- `05EQ`: see `05EQ_mt5_05dp_logic_cross_review.md`
+- `05EJ`: see `05EJ_mt5_05dp_feature_expansion_review.md`
+- `05FN`: see `05FN_mt5_model_family_trial_review.md`
+- `05DW`: see `05DW_mt5_05dp_fine_probe_review.md`
+- `05DV`: see `05DV_mt5_downside_local_probe_review.md`
+- `05DO`: see `05DO_mt5_downside_exit_cross_review.md`
+- `05DK`: see `05DK_mt5_exit_hold_scan_review.md`
+- `05EH`: see `05EH_mt5_model_family_trial_review.md`
+- `05EG`: see `05EG_mt5_model_family_trial_review.md`
+- `05EF`: see `05EF_mt5_model_family_trial_review.md`
+- `05EE`: see `05EE_mt5_model_family_trial_review.md`
+- `05ED`: see `05ED_mt5_model_family_trial_review.md`
+- `05EC`: see `05EC_mt5_model_family_trial_review.md`
+- `05CE`: see `05CE_mt5_downside_proxy_batch_review.md`
+- `05EB`: see `05EB_mt5_model_family_trial_review.md`
+- `05EA`: see `05EA_mt5_model_family_trial_review.md`
+- `05DZ`: see `05DZ_mt5_model_family_trial_review.md`
+- `05DY`: see `05DY_mt5_model_family_trial_review.md`
+- `05DX`: see `05DX_mt5_model_family_trial_review.md`
+- `05DB`: see `05DB_mt5_stable_model_batch_review.md`
+- `05DU`: see `05DU_mt5_model_family_trial_review.md`
+- `05DT`: see `05DT_mt5_model_family_trial_review.md`
+- `05DS`: see `05DS_mt5_model_family_trial_review.md`
+- `05DR`: see `05DR_mt5_model_family_trial_review.md`
+- `05DQ`: see `05DQ_mt5_model_family_trial_review.md`
+- `05DP`: see `05DP_mt5_model_family_trial_review.md`
+- `05BY`: see `05BY_mt5_persistence_frontier_stack_review.md`
+- `05DN`: see `05DN_mt5_model_family_trial_review.md`
+- `05DM`: see `05DM_mt5_model_family_trial_review.md`
+- `05DL`: see `05DL_mt5_model_family_trial_review.md`
+- `05BT`: see `05BT_mt5_persistence_frontier_vote_review.md`
+- `05BO`: see `05BO_mt5_asymmetric_logic_scan_review.md`
+- `05CD`: see `05CD_mt5_model_family_trial_review.md`
+- `05CC`: see `05CC_mt5_model_family_trial_review.md`
+- `05CB`: see `05CB_mt5_model_family_trial_review.md`
+- `05CA`: see `05CA_mt5_model_family_trial_review.md`
+- `05BZ`: see `05BZ_mt5_model_family_trial_review.md`
+- `05BH`: see `05BH_mt5_proxy_semantic_expansion_review.md`
+- `05DA`: see `05DA_mt5_model_family_trial_review.md`
+- `05CZ`: see `05CZ_mt5_model_family_trial_review.md`
+- `05CY`: see `05CY_mt5_model_family_trial_review.md`
+- `05BA`: see `05BA_mt5_lightweight_proxy_logic_cross_review.md`
+- `05BW`: see `05BW_mt5_model_family_trial_review.md`
+- `05BV`: see `05BV_mt5_model_family_trial_review.md`
+- `05BU`: see `05BU_mt5_model_family_trial_review.md`
+- `05AR`: see `05AR_mt5_broad_logic_scan_review.md`
+- `05BS`: see `05BS_mt5_model_family_trial_review.md`
+- `05BR`: see `05BR_mt5_model_family_trial_review.md`
+- `05BQ`: see `05BQ_mt5_model_family_trial_review.md`
+- `05BP`: see `05BP_mt5_model_family_trial_review.md`
+- `05AM`: see `05AM_mt5_replacement_sector_variant_review.md`
+- `MT5 leaderboard`: see `mt5_validation_leaderboard.md`
+- `05BG`: see `05BG_mt5_model_family_trial_review.md`
+- `05BF`: see `05BF_mt5_model_family_trial_review.md`
+- `05BE`: see `05BE_mt5_model_family_trial_review.md`
+- `05BD`: see `05BD_mt5_model_family_trial_review.md`
+- `05BC`: see `05BC_mt5_model_family_trial_review.md`
+- `05BB`: see `05BB_mt5_model_family_trial_review.md`
+- `05AB`: see `05AB_mt5_sector_ablation_review.md`
+- `05A`: see `05A_margin_family_probe_review.md`
+- `05B`: see `05B_diff_family_probe_review.md`
+- `05AL`: see `05AL_mt5_model_family_trial_review.md`
+- `05AK`: see `05AK_mt5_model_family_trial_review.md`
+- `05AJ`: see `05AJ_mt5_model_family_trial_review.md`
+- `05AI`: see `05AI_mt5_model_family_trial_review.md`
+- `05AH`: see `05AH_mt5_model_family_trial_review.md`
+- `05AF`: see `05AF_mt5_model_family_trial_review.md`
+- `05AE`: see `05AE_mt5_model_family_trial_review.md`
+- `05AD`: see `05AD_mt5_model_family_trial_review.md`
+- `05AC`: see `05AC_mt5_model_family_trial_review.md`
+- `05C`: see `05C_mt5_family_confirmation_review.md`
+- `05AA`: see `05AA_mt5_model_family_trial_review.md`
+- `05Z`: see `05Z_mt5_model_family_trial_review.md`
+- `05Y`: see `05Y_mt5_model_family_trial_review.md`
+- `05X`: see `05X_mt5_model_family_trial_review.md`
+- `05W`: see `05W_mt5_model_family_trial_review.md`
+- `05V`: see `05V_mt5_model_family_trial_review.md`
+- `05U`: see `05U_mt5_model_family_trial_review.md`
+- `05T`: see `05T_mt5_model_family_trial_review.md`
+- `05S`: see `05S_mt5_model_family_trial_review.md`
+- `05R`: see `05R_mt5_model_family_trial_review.md`
+- `05N`: see `05N_mt5_logic_mix_validation_review.md`
+- `05M`: see `05M_mt5_model_family_trial_review.md`
+- `05L`: see `05L_mt5_model_family_trial_review.md`
+- `05K`: see `05K_mt5_model_family_trial_review.md`
+- `05D`: see `05D_mt5_holdout_duel_review.md`
+- `05E`: see `05E_mt5_frontier_validation_review.md`
+- `05I`: see `05I_mt5_alt_model_lightgbm_review.md`
+
+## Review Rule
+
+For each completed Stage 05 family probe, add:
+
+- run folder name
+- single-family logic summary
+- split used for cheap search
+- headline result
+- whether the family stays in the sequential shortlist

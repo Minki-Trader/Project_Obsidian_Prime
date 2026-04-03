@@ -1,0 +1,63 @@
+{
+  "generated_at_utc": "2026-03-29T10:34:09.713386+00:00",
+  "phase": "05A_logic_family_probe",
+  "family": "margin",
+  "family_display_name": "max_probability_margin",
+  "run_name": "05A_run_0001_margin_family_probe",
+  "run_bucket": "active",
+  "source_search_model": "01C_run_0001_h03_band000125_logreg",
+  "final_model_run_name": "01D_run_0001_final_h03_band000125_logreg",
+  "fixed_thresholds": {
+    "short_threshold": 0.3333333333333333,
+    "long_threshold": 0.3333333333333333
+  },
+  "parameter_name": "min_margin",
+  "parameter_values": [
+    0.065,
+    0.07,
+    0.0725,
+    0.075,
+    0.0775,
+    0.08,
+    0.0825,
+    0.085,
+    0.09
+  ],
+  "local_leader": {
+    "min_margin": 0.07,
+    "valid_trade_count": 940,
+    "valid_long_trade_count": 470,
+    "valid_short_trade_count": 470,
+    "valid_compounded_return": 0.038468079346116735,
+    "valid_mean_trade_return": 4.749334264166019e-05,
+    "valid_max_drawdown": -0.08559613493453211,
+    "test_trade_count": 304,
+    "test_long_trade_count": 91,
+    "test_short_trade_count": 213,
+    "test_compounded_return": 0.09846579383353515,
+    "test_mean_trade_return": 0.0003130628178762217,
+    "test_max_drawdown": -0.041178102286734464,
+    "avg_compounded_return": 0.06846693658982594,
+    "abs_valid_test_gap": 0.05999771448741842,
+    "both_positive": true
+  },
+  "tight_gap_leader": {
+    "min_margin": 0.085,
+    "valid_trade_count": 734,
+    "valid_long_trade_count": 365,
+    "valid_short_trade_count": 369,
+    "valid_compounded_return": 0.048337525426136896,
+    "valid_mean_trade_return": 7.312233428255102e-05,
+    "valid_max_drawdown": -0.08788257842728231,
+    "test_trade_count": 205,
+    "test_long_trade_count": 49,
+    "test_short_trade_count": 156,
+    "test_compounded_return": 0.051845507348449615,
+    "test_mean_trade_return": 0.0002510396493404414,
+    "test_max_drawdown": -0.036696435060538324,
+    "avg_compounded_return": 0.050091516387293256,
+    "abs_valid_test_gap": 0.0035079819223127195,
+    "both_positive": true
+  },
+  "verdict": "keep max_probability_margin isolated for Stage 05 and compare it family-first before any synthesis"
+}

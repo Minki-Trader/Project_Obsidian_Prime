@@ -1,0 +1,61 @@
+{
+  "phase": "05E_mt5_frontier_validation_batch",
+  "ranked_runs": [
+    {
+      "rank": 1,
+      "run_name": "05H_mt5_validation_diff_07000_0001",
+      "stage_folder": "05_optimization",
+      "param_name": "min_probability_diff",
+      "param_value": 0.07,
+      "return_pct": 67.616,
+      "profit_factor": 1.2507472428038477,
+      "trade_count": 588,
+      "max_dd_pct": 12.535807886877551,
+      "ulcer_index": 3.6162909573374873,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05F_mt5_validation_margin_07250_0001",
+      "stage_folder": "05_optimization",
+      "param_name": "min_margin",
+      "param_value": 0.0725,
+      "return_pct": 64.838,
+      "profit_factor": 1.2651926018634405,
+      "trade_count": 502,
+      "max_dd_pct": 12.542496912780326,
+      "ulcer_index": 2.976618468968846,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 3,
+      "run_name": "05G_mt5_validation_diff_07250_0001",
+      "stage_folder": "05_optimization",
+      "param_name": "min_probability_diff",
+      "param_value": 0.0725,
+      "return_pct": 63.624,
+      "profit_factor": 1.2451735219994915,
+      "trade_count": 557,
+      "max_dd_pct": 12.993966579271564,
+      "ulcer_index": 3.12408170570803,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 4,
+      "run_name": "05E_mt5_validation_margin_08250_0001",
+      "stage_folder": "05_optimization",
+      "param_name": "min_margin",
+      "param_value": 0.0825,
+      "return_pct": 56.752,
+      "profit_factor": 1.272809429499875,
+      "trade_count": 408,
+      "max_dd_pct": 12.613068408303436,
+      "ulcer_index": 2.2329105166810725,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    }
+  ]
+}

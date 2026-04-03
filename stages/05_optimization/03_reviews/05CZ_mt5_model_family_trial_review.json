@@ -1,0 +1,69 @@
+{
+  "generated_at_utc": "2026-03-30T12:46:40.895261+00:00",
+  "phase": "stage05_mt5_model_family_trial",
+  "model_family": "pca_logreg",
+  "logic_reference_run_name": "05W_no_trend_strength_0001",
+  "logic_filter": {
+    "type": "max_probability_margin",
+    "min_margin": 0.07
+  },
+  "logic_exit": {
+    "type": "time_exit",
+    "max_hold_bars": 3
+  },
+  "dropped_sectors": [
+    "trend_strength"
+  ],
+  "dropped_features": [],
+  "replacement_sector_name": null,
+  "replacement_sector_components": null,
+  "voter_components": null,
+  "voter_weights": null,
+  "baseline_stage01_test_confirmation": {
+    "run_name": "01D_run_0001_final_h03_band000125_logreg",
+    "model_family": "logistic_regression",
+    "test_rows": 6720,
+    "test_macro_f1": 0.45812929996514556,
+    "test_balanced_accuracy": 0.46935993441877705,
+    "test_accuracy": 0.5769345238095238,
+    "test_log_loss": 0.9727633173365045
+  },
+  "trial_model_test_confirmation": {
+    "run_name": "05CZ_mt5_validation_margin_pca_logreg_0001",
+    "model_family": "pca_logreg",
+    "test_rows": 6720,
+    "test_macro_f1": 0.45548837543911813,
+    "test_balanced_accuracy": 0.47367218377617243,
+    "test_accuracy": 0.5505952380952381,
+    "test_log_loss": 1.015285938993111
+  },
+  "ranked_validation_runs": [
+    {
+      "rank": 1,
+      "run_name": "05W_no_trend_strength_0001",
+      "return_pct": 91.16799999999999,
+      "profit_factor": 1.4091663899036866,
+      "trade_count": 493,
+      "max_dd_pct": 11.147223438038381,
+      "ulcer_index": 6.520512249938508,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05CZ_mt5_validation_margin_pca_logreg_0001",
+      "return_pct": 37.5,
+      "profit_factor": 1.4009751716173735,
+      "trade_count": 168,
+      "max_dd_pct": 21.304935332346698,
+      "ulcer_index": 2.8959090066058604,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "verdict": {
+    "status": "validation_only_pending_holdout",
+    "selected_run_name": "05W_no_trend_strength_0001",
+    "reason": "holdout not run yet, so the incumbent remains the selected bundle"
+  }
+}

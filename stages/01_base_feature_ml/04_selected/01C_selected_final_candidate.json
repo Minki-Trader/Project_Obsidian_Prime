@@ -1,0 +1,67 @@
+{
+  "generated_at_utc": "2026-03-26T15:00:14.892724+00:00",
+  "phase": "01C_expanded_search",
+  "selection_metric": "valid_macro_f1",
+  "selected_final_candidate": {
+    "run_name": "01C_run_0001_h03_band000125_logreg",
+    "model_family": "logistic_regression",
+    "train_rows": 34695,
+    "valid_rows": 11756,
+    "test_rows": 6720,
+    "valid_macro_f1": 0.44980101306356324,
+    "valid_balanced_accuracy": 0.4546410666916348,
+    "valid_accuracy": 0.5415957808778497,
+    "valid_log_loss": 1.011971909541384,
+    "best_iteration": 0,
+    "horizon_bars": 3,
+    "band": 0.00125
+  },
+  "runner_up": {
+    "run_name": "01C_run_0002_h03_band000125_lightgbm",
+    "model_family": "lightgbm",
+    "train_rows": 34695,
+    "valid_rows": 11756,
+    "test_rows": 6720,
+    "valid_macro_f1": 0.44714591751552973,
+    "valid_balanced_accuracy": 0.44965238582591044,
+    "valid_accuracy": 0.5518883974140865,
+    "valid_log_loss": 0.9407245831316754,
+    "best_iteration": 500,
+    "horizon_bars": 3,
+    "band": 0.00125
+  },
+  "candidate_models_used": [
+    "logistic_regression",
+    "lightgbm"
+  ],
+  "candidate_horizons": [
+    3,
+    6,
+    12
+  ],
+  "candidate_bands": [
+    0.001,
+    0.00125,
+    0.0015
+  ],
+  "archived_runs": [
+    "01C_run_0001_h03_band000100_logreg",
+    "01C_run_0002_h03_band000100_lightgbm",
+    "01C_run_0002_h03_band000125_lightgbm",
+    "01C_run_0001_h03_band000150_logreg",
+    "01C_run_0002_h03_band000150_lightgbm",
+    "01C_run_0001_h06_band000100_logreg",
+    "01C_run_0002_h06_band000100_lightgbm",
+    "01C_run_0001_h06_band000125_logreg",
+    "01C_run_0002_h06_band000125_lightgbm",
+    "01C_run_0001_h06_band000150_logreg",
+    "01C_run_0002_h06_band000150_lightgbm",
+    "01C_run_0001_h12_band000100_logreg",
+    "01C_run_0002_h12_band000100_lightgbm",
+    "01C_run_0001_h12_band000125_logreg",
+    "01C_run_0002_h12_band000125_lightgbm",
+    "01C_run_0001_h12_band000150_logreg",
+    "01C_run_0002_h12_band000150_lightgbm"
+  ],
+  "next_phase": "01D_final_confirmation"
+}

@@ -1,0 +1,47 @@
+{
+  "generated_at_utc": "2026-03-28T06:44:38.377696+00:00",
+  "phase": "03A_margin_only_sweep",
+  "fixed_thresholds": {
+    "short_threshold": 0.3333333333333333,
+    "long_threshold": 0.3333333333333333
+  },
+  "selected_margin_seed": {
+    "min_margin": 0.08,
+    "valid_candidate_rows": 11756.0,
+    "valid_trade_count": 788.0,
+    "valid_long_trade_count": 386.0,
+    "valid_short_trade_count": 402.0,
+    "valid_threshold_no_trade_rows": 5447.0,
+    "valid_margin_rejected_rows": 3945.0,
+    "valid_dual_signal_rows": 2808.0,
+    "valid_hit_rate": 0.5038071065989848,
+    "valid_mean_trade_return": 6.813151745636023e-05,
+    "valid_median_trade_return": 3.538600834496197e-05,
+    "valid_sum_return": 0.05368763575561186,
+    "valid_compounded_return": 0.04836312609546378,
+    "valid_max_drawdown": -0.0824605928756158,
+    "test_candidate_rows": 6720.0,
+    "test_trade_count": 232.0,
+    "test_long_trade_count": 58.0,
+    "test_short_trade_count": 174.0,
+    "test_threshold_no_trade_rows": 3510.0,
+    "test_margin_rejected_rows": 2514.0,
+    "test_dual_signal_rows": 1894.0,
+    "test_hit_rate": 0.49137931034482757,
+    "test_mean_trade_return": 0.00023047728400264612,
+    "test_median_trade_return": -3.5348407073698684e-05,
+    "test_sum_return": 0.0534707298886139,
+    "test_compounded_return": 0.053814985665277204,
+    "test_max_drawdown": -0.0438285924527374,
+    "valid_test_compounded_delta": 0.005451859569813422
+  },
+  "threshold_only_default_reference": {
+    "short_threshold": 0.3333333333333333,
+    "long_threshold": 0.3333333333333333,
+    "valid_trade_count": 2292,
+    "valid_compounded_return": -0.12695285506672582,
+    "test_trade_count": 1180,
+    "test_compounded_return": 0.23116400604981302
+  },
+  "next_step": "continue margin-only exploration or summarize before Stage 04"
+}

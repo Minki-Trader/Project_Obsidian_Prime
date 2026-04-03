@@ -1,0 +1,82 @@
+{
+  "generated_at_utc": "2026-03-29T10:51:40.043744+00:00",
+  "phase": "05C_mt5_family_confirmation_batch",
+  "baseline_run_names": [
+    "03E_mt5_validation_baseline_0001",
+    "04C_mt5_validation_baseline_0001"
+  ],
+  "ranked_runs": [
+    {
+      "rank": 1,
+      "stage_folder": "05_optimization",
+      "run_name": "05D_mt5_validation_diff_tightgap_0001",
+      "bundle_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05D_mt5_validation_diff_tightgap_0001\\experiment_bundle.json",
+      "family_param_name": "min_probability_diff",
+      "family_param_value": 0.0775,
+      "return_pct": 68.662,
+      "profit_factor": 1.30112534975309,
+      "trade_count": 487,
+      "max_dd_pct": 12.774646356423034,
+      "ulcer_index": 2.469317461372238,
+      "latest_attempt_id": "att_0001",
+      "ready_row_count": 11756,
+      "expected_ready_row_count": 11756,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "stage_folder": "03_max_probability_margin",
+      "run_name": "03E_mt5_validation_baseline_0001",
+      "bundle_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\03_max_probability_margin\\02_runs\\active\\03E_mt5_validation_baseline_0001\\experiment_bundle.json",
+      "family_param_name": "min_margin",
+      "family_param_value": 0.07,
+      "return_pct": 67.664,
+      "profit_factor": 1.2655010319633986,
+      "trade_count": 530,
+      "max_dd_pct": 12.201705598813493,
+      "ulcer_index": 3.556990606308009,
+      "latest_attempt_id": "att_0003",
+      "ready_row_count": 11756,
+      "expected_ready_row_count": 11756,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 3,
+      "stage_folder": "05_optimization",
+      "run_name": "05C_mt5_validation_margin_tightgap_0001",
+      "bundle_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05C_mt5_validation_margin_tightgap_0001\\experiment_bundle.json",
+      "family_param_name": "min_margin",
+      "family_param_value": 0.085,
+      "return_pct": 62.822,
+      "profit_factor": 1.337150891956293,
+      "trade_count": 378,
+      "max_dd_pct": 12.474980287499239,
+      "ulcer_index": 2.709922503123142,
+      "latest_attempt_id": "att_0001",
+      "ready_row_count": 11756,
+      "expected_ready_row_count": 11756,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 4,
+      "stage_folder": "04_probability_difference_filter",
+      "run_name": "04C_mt5_validation_baseline_0001",
+      "bundle_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\04_probability_difference_filter\\02_runs\\active\\04C_mt5_validation_baseline_0001\\experiment_bundle.json",
+      "family_param_name": "min_probability_diff",
+      "family_param_value": 0.0825,
+      "return_pct": 60.648,
+      "profit_factor": 1.2829972095974915,
+      "trade_count": 435,
+      "max_dd_pct": 12.670958600295709,
+      "ulcer_index": 2.201610130938037,
+      "latest_attempt_id": "att_0002",
+      "ready_row_count": 11756,
+      "expected_ready_row_count": 11756,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    }
+  ]
+}

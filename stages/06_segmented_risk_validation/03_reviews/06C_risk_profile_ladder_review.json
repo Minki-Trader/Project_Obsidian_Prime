@@ -1,0 +1,2390 @@
+{
+  "generated_at_utc": "2026-04-01T11:07:45.045661+00:00",
+  "stage": "06_segmented_risk_validation",
+  "phase": "06C_risk_profile_ladder_batch",
+  "combo_total": 30,
+  "completed_count": 30,
+  "failed_count": 0,
+  "profiles": [
+    {
+      "token": "R",
+      "name": "practical",
+      "label_ko": "실전형",
+      "stop_long_atr_mult": 1.4,
+      "stop_short_atr_mult": 2.0
+    },
+    {
+      "token": "A",
+      "name": "aggressive",
+      "label_ko": "공격형",
+      "stop_long_atr_mult": 1.2,
+      "stop_short_atr_mult": 1.8
+    },
+    {
+      "token": "C",
+      "name": "conservative",
+      "label_ko": "보수형",
+      "stop_long_atr_mult": 1.7,
+      "stop_short_atr_mult": 2.4
+    }
+  ],
+  "risk_values": [
+    0.5,
+    0.75,
+    1.0,
+    1.25,
+    1.5,
+    1.75,
+    2.0,
+    2.25,
+    2.5,
+    2.75
+  ],
+  "best_holdout": {
+    "profile_token": "A",
+    "profile_name": "aggressive",
+    "profile_label_ko": "공격형",
+    "risk_pct": 2.75,
+    "target_run_name": "06C_A275",
+    "status": "completed",
+    "validation": {
+      "return_pct": 77.592,
+      "profit_factor": 1.115773013750955,
+      "trade_count": 411,
+      "max_dd_pct": 44.69176339694579,
+      "ulcer_index": 27.719338594722117
+    },
+    "test": {
+      "return_pct": 135.024,
+      "profit_factor": 1.3923473894648752,
+      "trade_count": 259,
+      "max_dd_pct": 33.41500765696784,
+      "ulcer_index": 15.423079376603665
+    },
+    "best_segment": {
+      "split": "test",
+      "segment": "holdout_c",
+      "return_pct": 109.806,
+      "profit_factor": 1.6741113634968383,
+      "trade_count": 99,
+      "max_dd_pct": 9.15192578782229,
+      "ulcer_index": 4.833056047180903
+    },
+    "worst_segment": {
+      "split": "validation",
+      "segment": "validation_q3",
+      "return_pct": -11.679999999999998,
+      "profit_factor": 0.9011175076193702,
+      "trade_count": 57,
+      "max_dd_pct": 13.365949532947294,
+      "ulcer_index": 6.988247392299998
+    }
+  },
+  "best_validation": {
+    "profile_token": "R",
+    "profile_name": "practical",
+    "profile_label_ko": "실전형",
+    "risk_pct": 2.75,
+    "target_run_name": "06C_R275",
+    "status": "completed",
+    "validation": {
+      "return_pct": 88.79,
+      "profit_factor": 1.1607716459583468,
+      "trade_count": 405,
+      "max_dd_pct": 35.38172187464016,
+      "ulcer_index": 21.24642728703584
+    },
+    "test": {
+      "return_pct": 120.34,
+      "profit_factor": 1.4091193429068756,
+      "trade_count": 257,
+      "max_dd_pct": 30.793727299330374,
+      "ulcer_index": 15.5562689629851
+    },
+    "best_segment": {
+      "split": "test",
+      "segment": "holdout_c",
+      "return_pct": 98.92,
+      "profit_factor": 1.7596958758927888,
+      "trade_count": 98,
+      "max_dd_pct": 8.802242054854153,
+      "ulcer_index": 4.842982497035364
+    },
+    "worst_segment": {
+      "split": "test",
+      "segment": "holdout_b",
+      "return_pct": 2.613999999999998,
+      "profit_factor": 1.0272928499832943,
+      "trade_count": 81,
+      "max_dd_pct": 23.303054053012286,
+      "ulcer_index": 15.96786925046301
+    }
+  },
+  "top_holdout": [
+    {
+      "profile_token": "A",
+      "profile_name": "aggressive",
+      "profile_label_ko": "공격형",
+      "risk_pct": 2.75,
+      "target_run_name": "06C_A275",
+      "status": "completed",
+      "validation": {
+        "return_pct": 77.592,
+        "profit_factor": 1.115773013750955,
+        "trade_count": 411,
+        "max_dd_pct": 44.69176339694579,
+        "ulcer_index": 27.719338594722117
+      },
+      "test": {
+        "return_pct": 135.024,
+        "profit_factor": 1.3923473894648752,
+        "trade_count": 259,
+        "max_dd_pct": 33.41500765696784,
+        "ulcer_index": 15.423079376603665
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 109.806,
+        "profit_factor": 1.6741113634968383,
+        "trade_count": 99,
+        "max_dd_pct": 9.15192578782229,
+        "ulcer_index": 4.833056047180903
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q3",
+        "return_pct": -11.679999999999998,
+        "profit_factor": 0.9011175076193702,
+        "trade_count": 57,
+        "max_dd_pct": 13.365949532947294,
+        "ulcer_index": 6.988247392299998
+      }
+    },
+    {
+      "profile_token": "R",
+      "profile_name": "practical",
+      "profile_label_ko": "실전형",
+      "risk_pct": 2.75,
+      "target_run_name": "06C_R275",
+      "status": "completed",
+      "validation": {
+        "return_pct": 88.79,
+        "profit_factor": 1.1607716459583468,
+        "trade_count": 405,
+        "max_dd_pct": 35.38172187464016,
+        "ulcer_index": 21.24642728703584
+      },
+      "test": {
+        "return_pct": 120.34,
+        "profit_factor": 1.4091193429068756,
+        "trade_count": 257,
+        "max_dd_pct": 30.793727299330374,
+        "ulcer_index": 15.5562689629851
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 98.92,
+        "profit_factor": 1.7596958758927888,
+        "trade_count": 98,
+        "max_dd_pct": 8.802242054854153,
+        "ulcer_index": 4.842982497035364
+      },
+      "worst_segment": {
+        "split": "test",
+        "segment": "holdout_b",
+        "return_pct": 2.613999999999998,
+        "profit_factor": 1.0272928499832943,
+        "trade_count": 81,
+        "max_dd_pct": 23.303054053012286,
+        "ulcer_index": 15.96786925046301
+      }
+    },
+    {
+      "profile_token": "A",
+      "profile_name": "aggressive",
+      "profile_label_ko": "공격형",
+      "risk_pct": 2.5,
+      "target_run_name": "06C_A250",
+      "status": "completed",
+      "validation": {
+        "return_pct": 71.358,
+        "profit_factor": 1.1235443826936062,
+        "trade_count": 411,
+        "max_dd_pct": 41.46247661028482,
+        "ulcer_index": 25.556570998754157
+      },
+      "test": {
+        "return_pct": 118.92799999999998,
+        "profit_factor": 1.39353028377806,
+        "trade_count": 259,
+        "max_dd_pct": 30.5314079947623,
+        "ulcer_index": 14.125864046866722
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 95.846,
+        "profit_factor": 1.68432100528345,
+        "trade_count": 99,
+        "max_dd_pct": 8.12965498490012,
+        "ulcer_index": 4.398369898784618
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q3",
+        "return_pct": -9.842,
+        "profit_factor": 0.9044224755763591,
+        "trade_count": 57,
+        "max_dd_pct": 12.190949227373075,
+        "ulcer_index": 6.337809093285251
+      }
+    },
+    {
+      "profile_token": "R",
+      "profile_name": "practical",
+      "profile_label_ko": "실전형",
+      "risk_pct": 2.5,
+      "target_run_name": "06C_R250",
+      "status": "completed",
+      "validation": {
+        "return_pct": 80.108,
+        "profit_factor": 1.167602580947519,
+        "trade_count": 405,
+        "max_dd_pct": 32.70675753263935,
+        "ulcer_index": 19.496611101030282
+      },
+      "test": {
+        "return_pct": 107.03800000000001,
+        "profit_factor": 1.4151076569868455,
+        "trade_count": 257,
+        "max_dd_pct": 28.251528384279478,
+        "ulcer_index": 14.319810092046321
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 87.82600000000001,
+        "profit_factor": 1.784651121236487,
+        "trade_count": 98,
+        "max_dd_pct": 7.988365800865807,
+        "ulcer_index": 4.380161919530182
+      },
+      "worst_segment": {
+        "split": "test",
+        "segment": "holdout_b",
+        "return_pct": 2.5619999999999994,
+        "profit_factor": 1.0304376752364206,
+        "trade_count": 81,
+        "max_dd_pct": 21.295104820116887,
+        "ulcer_index": 14.695920519838609
+      }
+    },
+    {
+      "profile_token": "A",
+      "profile_name": "aggressive",
+      "profile_label_ko": "공격형",
+      "risk_pct": 2.25,
+      "target_run_name": "06C_A225",
+      "status": "completed",
+      "validation": {
+        "return_pct": 63.428000000000004,
+        "profit_factor": 1.1284263979946791,
+        "trade_count": 411,
+        "max_dd_pct": 38.030636356229124,
+        "ulcer_index": 23.305837535841384
+      },
+      "test": {
+        "return_pct": 102.174,
+        "profit_factor": 1.3897093599816919,
+        "trade_count": 259,
+        "max_dd_pct": 27.89998533509312,
+        "ulcer_index": 12.830819936540674
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 81.838,
+        "profit_factor": 1.6920058852378619,
+        "trade_count": 99,
+        "max_dd_pct": 7.5050476519264775,
+        "ulcer_index": 3.9344898024083985
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q3",
+        "return_pct": -8.200000000000001,
+        "profit_factor": 0.9069598565820228,
+        "trade_count": 57,
+        "max_dd_pct": 10.960915468338493,
+        "ulcer_index": 5.723368887788988
+      }
+    },
+    {
+      "profile_token": "R",
+      "profile_name": "practical",
+      "profile_label_ko": "실전형",
+      "risk_pct": 2.25,
+      "target_run_name": "06C_R225",
+      "status": "completed",
+      "validation": {
+        "return_pct": 70.968,
+        "profit_factor": 1.1733065685944115,
+        "trade_count": 405,
+        "max_dd_pct": 29.78023471838325,
+        "ulcer_index": 17.620532027714564
+      },
+      "test": {
+        "return_pct": 90.976,
+        "profit_factor": 1.4081215177153523,
+        "trade_count": 257,
+        "max_dd_pct": 26.108025892257075,
+        "ulcer_index": 13.059766547703928
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 74.722,
+        "profit_factor": 1.7937496016486434,
+        "trade_count": 98,
+        "max_dd_pct": 7.114072830307479,
+        "ulcer_index": 3.9175400069189066
+      },
+      "worst_segment": {
+        "split": "test",
+        "segment": "holdout_b",
+        "return_pct": 1.577999999999999,
+        "profit_factor": 1.0216615418405446,
+        "trade_count": 81,
+        "max_dd_pct": 19.29740608858426,
+        "ulcer_index": 13.405111889658395
+      }
+    },
+    {
+      "profile_token": "A",
+      "profile_name": "aggressive",
+      "profile_label_ko": "공격형",
+      "risk_pct": 2.0,
+      "target_run_name": "06C_A200",
+      "status": "completed",
+      "validation": {
+        "return_pct": 54.647999999999996,
+        "profit_factor": 1.132239564428312,
+        "trade_count": 411,
+        "max_dd_pct": 34.49155070930643,
+        "ulcer_index": 21.03055114690422
+      },
+      "test": {
+        "return_pct": 89.34599999999999,
+        "profit_factor": 1.3967829608839306,
+        "trade_count": 259,
+        "max_dd_pct": 25.270684749270174,
+        "ulcer_index": 11.571520896571617
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 70.414,
+        "profit_factor": 1.710291121108802,
+        "trade_count": 99,
+        "max_dd_pct": 6.256279724027057,
+        "ulcer_index": 3.4881519623514734
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q3",
+        "return_pct": -6.421999999999999,
+        "profit_factor": 0.9123587532070527,
+        "trade_count": 57,
+        "max_dd_pct": 9.664121189544923,
+        "ulcer_index": 4.976576476389668
+      }
+    },
+    {
+      "profile_token": "C",
+      "profile_name": "conservative",
+      "profile_label_ko": "보수형",
+      "risk_pct": 2.75,
+      "target_run_name": "06C_C275",
+      "status": "completed",
+      "validation": {
+        "return_pct": 47.699999999999996,
+        "profit_factor": 1.1158689442080103,
+        "trade_count": 403,
+        "max_dd_pct": 35.44798585559324,
+        "ulcer_index": 21.764537987261726
+      },
+      "test": {
+        "return_pct": 86.166,
+        "profit_factor": 1.363061028432744,
+        "trade_count": 255,
+        "max_dd_pct": 27.341816586222023,
+        "ulcer_index": 13.155839997709146
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 65.67999999999999,
+        "profit_factor": 1.6254046848219386,
+        "trade_count": 97,
+        "max_dd_pct": 9.403300621627588,
+        "ulcer_index": 4.814970637302663
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q2",
+        "return_pct": -11.762,
+        "profit_factor": 0.9405653417417053,
+        "trade_count": 160,
+        "max_dd_pct": 33.96473455344769,
+        "ulcer_index": 22.410603352447236
+      }
+    },
+    {
+      "profile_token": "R",
+      "profile_name": "practical",
+      "profile_label_ko": "실전형",
+      "risk_pct": 2.0,
+      "target_run_name": "06C_R200",
+      "status": "completed",
+      "validation": {
+        "return_pct": 62.166,
+        "profit_factor": 1.179552202594822,
+        "trade_count": 405,
+        "max_dd_pct": 26.86623159931679,
+        "ulcer_index": 15.781380432914291
+      },
+      "test": {
+        "return_pct": 81.05399999999999,
+        "profit_factor": 1.4201735560324718,
+        "trade_count": 257,
+        "max_dd_pct": 22.790381449939158,
+        "ulcer_index": 11.47557206282954
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 64.73,
+        "profit_factor": 1.8030618827849734,
+        "trade_count": 98,
+        "max_dd_pct": 6.355233298278626,
+        "ulcer_index": 3.4639631309476386
+      },
+      "worst_segment": {
+        "split": "test",
+        "segment": "holdout_b",
+        "return_pct": 2.0559999999999987,
+        "profit_factor": 1.0323718352437334,
+        "trade_count": 81,
+        "max_dd_pct": 17.196102735579842,
+        "ulcer_index": 11.892232387222345
+      }
+    },
+    {
+      "profile_token": "A",
+      "profile_name": "aggressive",
+      "profile_label_ko": "공격형",
+      "risk_pct": 1.75,
+      "target_run_name": "06C_A175",
+      "status": "completed",
+      "validation": {
+        "return_pct": 47.57600000000001,
+        "profit_factor": 1.1391355208516114,
+        "trade_count": 411,
+        "max_dd_pct": 30.725912365184865,
+        "ulcer_index": 18.597719036570123
+      },
+      "test": {
+        "return_pct": 76.27000000000001,
+        "profit_factor": 1.4029650450145823,
+        "trade_count": 259,
+        "max_dd_pct": 22.471428305087912,
+        "ulcer_index": 10.002614785297828
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 59.086000000000006,
+        "profit_factor": 1.7221991346224363,
+        "trade_count": 99,
+        "max_dd_pct": 5.685770091944168,
+        "ulcer_index": 3.0105931202725524
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q3",
+        "return_pct": -5.163999999999999,
+        "profit_factor": 0.9153941935906679,
+        "trade_count": 57,
+        "max_dd_pct": 8.51119549561346,
+        "ulcer_index": 4.392498910827469
+      }
+    }
+  ],
+  "top_validation": [
+    {
+      "profile_token": "R",
+      "profile_name": "practical",
+      "profile_label_ko": "실전형",
+      "risk_pct": 2.75,
+      "target_run_name": "06C_R275",
+      "status": "completed",
+      "validation": {
+        "return_pct": 88.79,
+        "profit_factor": 1.1607716459583468,
+        "trade_count": 405,
+        "max_dd_pct": 35.38172187464016,
+        "ulcer_index": 21.24642728703584
+      },
+      "test": {
+        "return_pct": 120.34,
+        "profit_factor": 1.4091193429068756,
+        "trade_count": 257,
+        "max_dd_pct": 30.793727299330374,
+        "ulcer_index": 15.5562689629851
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 98.92,
+        "profit_factor": 1.7596958758927888,
+        "trade_count": 98,
+        "max_dd_pct": 8.802242054854153,
+        "ulcer_index": 4.842982497035364
+      },
+      "worst_segment": {
+        "split": "test",
+        "segment": "holdout_b",
+        "return_pct": 2.613999999999998,
+        "profit_factor": 1.0272928499832943,
+        "trade_count": 81,
+        "max_dd_pct": 23.303054053012286,
+        "ulcer_index": 15.96786925046301
+      }
+    },
+    {
+      "profile_token": "R",
+      "profile_name": "practical",
+      "profile_label_ko": "실전형",
+      "risk_pct": 2.5,
+      "target_run_name": "06C_R250",
+      "status": "completed",
+      "validation": {
+        "return_pct": 80.108,
+        "profit_factor": 1.167602580947519,
+        "trade_count": 405,
+        "max_dd_pct": 32.70675753263935,
+        "ulcer_index": 19.496611101030282
+      },
+      "test": {
+        "return_pct": 107.03800000000001,
+        "profit_factor": 1.4151076569868455,
+        "trade_count": 257,
+        "max_dd_pct": 28.251528384279478,
+        "ulcer_index": 14.319810092046321
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 87.82600000000001,
+        "profit_factor": 1.784651121236487,
+        "trade_count": 98,
+        "max_dd_pct": 7.988365800865807,
+        "ulcer_index": 4.380161919530182
+      },
+      "worst_segment": {
+        "split": "test",
+        "segment": "holdout_b",
+        "return_pct": 2.5619999999999994,
+        "profit_factor": 1.0304376752364206,
+        "trade_count": 81,
+        "max_dd_pct": 21.295104820116887,
+        "ulcer_index": 14.695920519838609
+      }
+    },
+    {
+      "profile_token": "A",
+      "profile_name": "aggressive",
+      "profile_label_ko": "공격형",
+      "risk_pct": 2.75,
+      "target_run_name": "06C_A275",
+      "status": "completed",
+      "validation": {
+        "return_pct": 77.592,
+        "profit_factor": 1.115773013750955,
+        "trade_count": 411,
+        "max_dd_pct": 44.69176339694579,
+        "ulcer_index": 27.719338594722117
+      },
+      "test": {
+        "return_pct": 135.024,
+        "profit_factor": 1.3923473894648752,
+        "trade_count": 259,
+        "max_dd_pct": 33.41500765696784,
+        "ulcer_index": 15.423079376603665
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 109.806,
+        "profit_factor": 1.6741113634968383,
+        "trade_count": 99,
+        "max_dd_pct": 9.15192578782229,
+        "ulcer_index": 4.833056047180903
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q3",
+        "return_pct": -11.679999999999998,
+        "profit_factor": 0.9011175076193702,
+        "trade_count": 57,
+        "max_dd_pct": 13.365949532947294,
+        "ulcer_index": 6.988247392299998
+      }
+    },
+    {
+      "profile_token": "A",
+      "profile_name": "aggressive",
+      "profile_label_ko": "공격형",
+      "risk_pct": 2.5,
+      "target_run_name": "06C_A250",
+      "status": "completed",
+      "validation": {
+        "return_pct": 71.358,
+        "profit_factor": 1.1235443826936062,
+        "trade_count": 411,
+        "max_dd_pct": 41.46247661028482,
+        "ulcer_index": 25.556570998754157
+      },
+      "test": {
+        "return_pct": 118.92799999999998,
+        "profit_factor": 1.39353028377806,
+        "trade_count": 259,
+        "max_dd_pct": 30.5314079947623,
+        "ulcer_index": 14.125864046866722
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 95.846,
+        "profit_factor": 1.68432100528345,
+        "trade_count": 99,
+        "max_dd_pct": 8.12965498490012,
+        "ulcer_index": 4.398369898784618
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q3",
+        "return_pct": -9.842,
+        "profit_factor": 0.9044224755763591,
+        "trade_count": 57,
+        "max_dd_pct": 12.190949227373075,
+        "ulcer_index": 6.337809093285251
+      }
+    },
+    {
+      "profile_token": "R",
+      "profile_name": "practical",
+      "profile_label_ko": "실전형",
+      "risk_pct": 2.25,
+      "target_run_name": "06C_R225",
+      "status": "completed",
+      "validation": {
+        "return_pct": 70.968,
+        "profit_factor": 1.1733065685944115,
+        "trade_count": 405,
+        "max_dd_pct": 29.78023471838325,
+        "ulcer_index": 17.620532027714564
+      },
+      "test": {
+        "return_pct": 90.976,
+        "profit_factor": 1.4081215177153523,
+        "trade_count": 257,
+        "max_dd_pct": 26.108025892257075,
+        "ulcer_index": 13.059766547703928
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 74.722,
+        "profit_factor": 1.7937496016486434,
+        "trade_count": 98,
+        "max_dd_pct": 7.114072830307479,
+        "ulcer_index": 3.9175400069189066
+      },
+      "worst_segment": {
+        "split": "test",
+        "segment": "holdout_b",
+        "return_pct": 1.577999999999999,
+        "profit_factor": 1.0216615418405446,
+        "trade_count": 81,
+        "max_dd_pct": 19.29740608858426,
+        "ulcer_index": 13.405111889658395
+      }
+    },
+    {
+      "profile_token": "A",
+      "profile_name": "aggressive",
+      "profile_label_ko": "공격형",
+      "risk_pct": 2.25,
+      "target_run_name": "06C_A225",
+      "status": "completed",
+      "validation": {
+        "return_pct": 63.428000000000004,
+        "profit_factor": 1.1284263979946791,
+        "trade_count": 411,
+        "max_dd_pct": 38.030636356229124,
+        "ulcer_index": 23.305837535841384
+      },
+      "test": {
+        "return_pct": 102.174,
+        "profit_factor": 1.3897093599816919,
+        "trade_count": 259,
+        "max_dd_pct": 27.89998533509312,
+        "ulcer_index": 12.830819936540674
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 81.838,
+        "profit_factor": 1.6920058852378619,
+        "trade_count": 99,
+        "max_dd_pct": 7.5050476519264775,
+        "ulcer_index": 3.9344898024083985
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q3",
+        "return_pct": -8.200000000000001,
+        "profit_factor": 0.9069598565820228,
+        "trade_count": 57,
+        "max_dd_pct": 10.960915468338493,
+        "ulcer_index": 5.723368887788988
+      }
+    },
+    {
+      "profile_token": "R",
+      "profile_name": "practical",
+      "profile_label_ko": "실전형",
+      "risk_pct": 2.0,
+      "target_run_name": "06C_R200",
+      "status": "completed",
+      "validation": {
+        "return_pct": 62.166,
+        "profit_factor": 1.179552202594822,
+        "trade_count": 405,
+        "max_dd_pct": 26.86623159931679,
+        "ulcer_index": 15.781380432914291
+      },
+      "test": {
+        "return_pct": 81.05399999999999,
+        "profit_factor": 1.4201735560324718,
+        "trade_count": 257,
+        "max_dd_pct": 22.790381449939158,
+        "ulcer_index": 11.47557206282954
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 64.73,
+        "profit_factor": 1.8030618827849734,
+        "trade_count": 98,
+        "max_dd_pct": 6.355233298278626,
+        "ulcer_index": 3.4639631309476386
+      },
+      "worst_segment": {
+        "split": "test",
+        "segment": "holdout_b",
+        "return_pct": 2.0559999999999987,
+        "profit_factor": 1.0323718352437334,
+        "trade_count": 81,
+        "max_dd_pct": 17.196102735579842,
+        "ulcer_index": 11.892232387222345
+      }
+    },
+    {
+      "profile_token": "A",
+      "profile_name": "aggressive",
+      "profile_label_ko": "공격형",
+      "risk_pct": 2.0,
+      "target_run_name": "06C_A200",
+      "status": "completed",
+      "validation": {
+        "return_pct": 54.647999999999996,
+        "profit_factor": 1.132239564428312,
+        "trade_count": 411,
+        "max_dd_pct": 34.49155070930643,
+        "ulcer_index": 21.03055114690422
+      },
+      "test": {
+        "return_pct": 89.34599999999999,
+        "profit_factor": 1.3967829608839306,
+        "trade_count": 259,
+        "max_dd_pct": 25.270684749270174,
+        "ulcer_index": 11.571520896571617
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 70.414,
+        "profit_factor": 1.710291121108802,
+        "trade_count": 99,
+        "max_dd_pct": 6.256279724027057,
+        "ulcer_index": 3.4881519623514734
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q3",
+        "return_pct": -6.421999999999999,
+        "profit_factor": 0.9123587532070527,
+        "trade_count": 57,
+        "max_dd_pct": 9.664121189544923,
+        "ulcer_index": 4.976576476389668
+      }
+    },
+    {
+      "profile_token": "R",
+      "profile_name": "practical",
+      "profile_label_ko": "실전형",
+      "risk_pct": 1.75,
+      "target_run_name": "06C_R175",
+      "status": "completed",
+      "validation": {
+        "return_pct": 52.346000000000004,
+        "profit_factor": 1.1815199600521542,
+        "trade_count": 405,
+        "max_dd_pct": 23.768817611014452,
+        "ulcer_index": 13.899696729976975
+      },
+      "test": {
+        "return_pct": 67.08999999999999,
+        "profit_factor": 1.4144120771872606,
+        "trade_count": 257,
+        "max_dd_pct": 20.515338315785637,
+        "ulcer_index": 10.172839292191595
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 53.837999999999994,
+        "profit_factor": 1.8161972044510475,
+        "trade_count": 98,
+        "max_dd_pct": 5.500696746912699,
+        "ulcer_index": 3.0229609678775216
+      },
+      "worst_segment": {
+        "split": "test",
+        "segment": "holdout_b",
+        "return_pct": 1.410000000000001,
+        "profit_factor": 1.0265197111044237,
+        "trade_count": 81,
+        "max_dd_pct": 15.289387366416266,
+        "ulcer_index": 10.480295667086637
+      }
+    },
+    {
+      "profile_token": "C",
+      "profile_name": "conservative",
+      "profile_label_ko": "보수형",
+      "risk_pct": 2.75,
+      "target_run_name": "06C_C275",
+      "status": "completed",
+      "validation": {
+        "return_pct": 47.699999999999996,
+        "profit_factor": 1.1158689442080103,
+        "trade_count": 403,
+        "max_dd_pct": 35.44798585559324,
+        "ulcer_index": 21.764537987261726
+      },
+      "test": {
+        "return_pct": 86.166,
+        "profit_factor": 1.363061028432744,
+        "trade_count": 255,
+        "max_dd_pct": 27.341816586222023,
+        "ulcer_index": 13.155839997709146
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 65.67999999999999,
+        "profit_factor": 1.6254046848219386,
+        "trade_count": 97,
+        "max_dd_pct": 9.403300621627588,
+        "ulcer_index": 4.814970637302663
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q2",
+        "return_pct": -11.762,
+        "profit_factor": 0.9405653417417053,
+        "trade_count": 160,
+        "max_dd_pct": 33.96473455344769,
+        "ulcer_index": 22.410603352447236
+      }
+    }
+  ],
+  "profile_summary": {
+    "practical": {
+      "token": "R",
+      "label_ko": "실전형",
+      "completed_count": 10,
+      "failed_count": 0,
+      "best_holdout": {
+        "profile_token": "R",
+        "profile_name": "practical",
+        "profile_label_ko": "실전형",
+        "risk_pct": 2.75,
+        "target_run_name": "06C_R275",
+        "status": "completed",
+        "validation": {
+          "return_pct": 88.79,
+          "profit_factor": 1.1607716459583468,
+          "trade_count": 405,
+          "max_dd_pct": 35.38172187464016,
+          "ulcer_index": 21.24642728703584
+        },
+        "test": {
+          "return_pct": 120.34,
+          "profit_factor": 1.4091193429068756,
+          "trade_count": 257,
+          "max_dd_pct": 30.793727299330374,
+          "ulcer_index": 15.5562689629851
+        },
+        "best_segment": {
+          "split": "test",
+          "segment": "holdout_c",
+          "return_pct": 98.92,
+          "profit_factor": 1.7596958758927888,
+          "trade_count": 98,
+          "max_dd_pct": 8.802242054854153,
+          "ulcer_index": 4.842982497035364
+        },
+        "worst_segment": {
+          "split": "test",
+          "segment": "holdout_b",
+          "return_pct": 2.613999999999998,
+          "profit_factor": 1.0272928499832943,
+          "trade_count": 81,
+          "max_dd_pct": 23.303054053012286,
+          "ulcer_index": 15.96786925046301
+        }
+      },
+      "best_validation": {
+        "profile_token": "R",
+        "profile_name": "practical",
+        "profile_label_ko": "실전형",
+        "risk_pct": 2.75,
+        "target_run_name": "06C_R275",
+        "status": "completed",
+        "validation": {
+          "return_pct": 88.79,
+          "profit_factor": 1.1607716459583468,
+          "trade_count": 405,
+          "max_dd_pct": 35.38172187464016,
+          "ulcer_index": 21.24642728703584
+        },
+        "test": {
+          "return_pct": 120.34,
+          "profit_factor": 1.4091193429068756,
+          "trade_count": 257,
+          "max_dd_pct": 30.793727299330374,
+          "ulcer_index": 15.5562689629851
+        },
+        "best_segment": {
+          "split": "test",
+          "segment": "holdout_c",
+          "return_pct": 98.92,
+          "profit_factor": 1.7596958758927888,
+          "trade_count": 98,
+          "max_dd_pct": 8.802242054854153,
+          "ulcer_index": 4.842982497035364
+        },
+        "worst_segment": {
+          "split": "test",
+          "segment": "holdout_b",
+          "return_pct": 2.613999999999998,
+          "profit_factor": 1.0272928499832943,
+          "trade_count": 81,
+          "max_dd_pct": 23.303054053012286,
+          "ulcer_index": 15.96786925046301
+        }
+      }
+    },
+    "aggressive": {
+      "token": "A",
+      "label_ko": "공격형",
+      "completed_count": 10,
+      "failed_count": 0,
+      "best_holdout": {
+        "profile_token": "A",
+        "profile_name": "aggressive",
+        "profile_label_ko": "공격형",
+        "risk_pct": 2.75,
+        "target_run_name": "06C_A275",
+        "status": "completed",
+        "validation": {
+          "return_pct": 77.592,
+          "profit_factor": 1.115773013750955,
+          "trade_count": 411,
+          "max_dd_pct": 44.69176339694579,
+          "ulcer_index": 27.719338594722117
+        },
+        "test": {
+          "return_pct": 135.024,
+          "profit_factor": 1.3923473894648752,
+          "trade_count": 259,
+          "max_dd_pct": 33.41500765696784,
+          "ulcer_index": 15.423079376603665
+        },
+        "best_segment": {
+          "split": "test",
+          "segment": "holdout_c",
+          "return_pct": 109.806,
+          "profit_factor": 1.6741113634968383,
+          "trade_count": 99,
+          "max_dd_pct": 9.15192578782229,
+          "ulcer_index": 4.833056047180903
+        },
+        "worst_segment": {
+          "split": "validation",
+          "segment": "validation_q3",
+          "return_pct": -11.679999999999998,
+          "profit_factor": 0.9011175076193702,
+          "trade_count": 57,
+          "max_dd_pct": 13.365949532947294,
+          "ulcer_index": 6.988247392299998
+        }
+      },
+      "best_validation": {
+        "profile_token": "A",
+        "profile_name": "aggressive",
+        "profile_label_ko": "공격형",
+        "risk_pct": 2.75,
+        "target_run_name": "06C_A275",
+        "status": "completed",
+        "validation": {
+          "return_pct": 77.592,
+          "profit_factor": 1.115773013750955,
+          "trade_count": 411,
+          "max_dd_pct": 44.69176339694579,
+          "ulcer_index": 27.719338594722117
+        },
+        "test": {
+          "return_pct": 135.024,
+          "profit_factor": 1.3923473894648752,
+          "trade_count": 259,
+          "max_dd_pct": 33.41500765696784,
+          "ulcer_index": 15.423079376603665
+        },
+        "best_segment": {
+          "split": "test",
+          "segment": "holdout_c",
+          "return_pct": 109.806,
+          "profit_factor": 1.6741113634968383,
+          "trade_count": 99,
+          "max_dd_pct": 9.15192578782229,
+          "ulcer_index": 4.833056047180903
+        },
+        "worst_segment": {
+          "split": "validation",
+          "segment": "validation_q3",
+          "return_pct": -11.679999999999998,
+          "profit_factor": 0.9011175076193702,
+          "trade_count": 57,
+          "max_dd_pct": 13.365949532947294,
+          "ulcer_index": 6.988247392299998
+        }
+      }
+    },
+    "conservative": {
+      "token": "C",
+      "label_ko": "보수형",
+      "completed_count": 10,
+      "failed_count": 0,
+      "best_holdout": {
+        "profile_token": "C",
+        "profile_name": "conservative",
+        "profile_label_ko": "보수형",
+        "risk_pct": 2.75,
+        "target_run_name": "06C_C275",
+        "status": "completed",
+        "validation": {
+          "return_pct": 47.699999999999996,
+          "profit_factor": 1.1158689442080103,
+          "trade_count": 403,
+          "max_dd_pct": 35.44798585559324,
+          "ulcer_index": 21.764537987261726
+        },
+        "test": {
+          "return_pct": 86.166,
+          "profit_factor": 1.363061028432744,
+          "trade_count": 255,
+          "max_dd_pct": 27.341816586222023,
+          "ulcer_index": 13.155839997709146
+        },
+        "best_segment": {
+          "split": "test",
+          "segment": "holdout_c",
+          "return_pct": 65.67999999999999,
+          "profit_factor": 1.6254046848219386,
+          "trade_count": 97,
+          "max_dd_pct": 9.403300621627588,
+          "ulcer_index": 4.814970637302663
+        },
+        "worst_segment": {
+          "split": "validation",
+          "segment": "validation_q2",
+          "return_pct": -11.762,
+          "profit_factor": 0.9405653417417053,
+          "trade_count": 160,
+          "max_dd_pct": 33.96473455344769,
+          "ulcer_index": 22.410603352447236
+        }
+      },
+      "best_validation": {
+        "profile_token": "C",
+        "profile_name": "conservative",
+        "profile_label_ko": "보수형",
+        "risk_pct": 2.75,
+        "target_run_name": "06C_C275",
+        "status": "completed",
+        "validation": {
+          "return_pct": 47.699999999999996,
+          "profit_factor": 1.1158689442080103,
+          "trade_count": 403,
+          "max_dd_pct": 35.44798585559324,
+          "ulcer_index": 21.764537987261726
+        },
+        "test": {
+          "return_pct": 86.166,
+          "profit_factor": 1.363061028432744,
+          "trade_count": 255,
+          "max_dd_pct": 27.341816586222023,
+          "ulcer_index": 13.155839997709146
+        },
+        "best_segment": {
+          "split": "test",
+          "segment": "holdout_c",
+          "return_pct": 65.67999999999999,
+          "profit_factor": 1.6254046848219386,
+          "trade_count": 97,
+          "max_dd_pct": 9.403300621627588,
+          "ulcer_index": 4.814970637302663
+        },
+        "worst_segment": {
+          "split": "validation",
+          "segment": "validation_q2",
+          "return_pct": -11.762,
+          "profit_factor": 0.9405653417417053,
+          "trade_count": 160,
+          "max_dd_pct": 33.96473455344769,
+          "ulcer_index": 22.410603352447236
+        }
+      }
+    }
+  },
+  "failed_runs": [],
+  "completed_runs": [
+    {
+      "profile_token": "R",
+      "profile_name": "practical",
+      "profile_label_ko": "실전형",
+      "risk_pct": 0.5,
+      "target_run_name": "06C_R050",
+      "status": "completed",
+      "validation": {
+        "return_pct": 12.256,
+        "profit_factor": 1.2150175438596493,
+        "trade_count": 399,
+        "max_dd_pct": 6.31874721584484,
+        "ulcer_index": 3.4391941513773805
+      },
+      "test": {
+        "return_pct": 15.004000000000001,
+        "profit_factor": 1.433541377716135,
+        "trade_count": 257,
+        "max_dd_pct": 5.784705309303458,
+        "ulcer_index": 2.6608688290389106
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 11.040000000000001,
+        "profit_factor": 1.8710746409973176,
+        "trade_count": 98,
+        "max_dd_pct": 1.4258706291853014,
+        "ulcer_index": 0.7662876492889982
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q2",
+        "return_pct": -0.26999999999999996,
+        "profit_factor": 0.9880994358251058,
+        "trade_count": 154,
+        "max_dd_pct": 6.1714011582085435,
+        "ulcer_index": 3.911915584657671
+      }
+    },
+    {
+      "profile_token": "R",
+      "profile_name": "practical",
+      "profile_label_ko": "실전형",
+      "risk_pct": 0.75,
+      "target_run_name": "06C_R075",
+      "status": "completed",
+      "validation": {
+        "return_pct": 17.664,
+        "profit_factor": 1.1872813248796623,
+        "trade_count": 404,
+        "max_dd_pct": 10.222348736439255,
+        "ulcer_index": 5.756389183988234
+      },
+      "test": {
+        "return_pct": 22.374000000000002,
+        "profit_factor": 1.3890995095822753,
+        "trade_count": 257,
+        "max_dd_pct": 8.705755824002773,
+        "ulcer_index": 4.39611956721017
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 17.206,
+        "profit_factor": 1.8067329332333082,
+        "trade_count": 98,
+        "max_dd_pct": 2.452036021926404,
+        "ulcer_index": 1.2810069563605837
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q2",
+        "return_pct": 0.09000000000000022,
+        "profit_factor": 1.0023053278688525,
+        "trade_count": 159,
+        "max_dd_pct": 9.874434639592632,
+        "ulcer_index": 6.28713606118742
+      }
+    },
+    {
+      "profile_token": "R",
+      "profile_name": "practical",
+      "profile_label_ko": "실전형",
+      "risk_pct": 1.0,
+      "target_run_name": "06C_R100",
+      "status": "completed",
+      "validation": {
+        "return_pct": 25.744,
+        "profit_factor": 1.1878411114029712,
+        "trade_count": 404,
+        "max_dd_pct": 13.92980437284235,
+        "ulcer_index": 7.947779429939923
+      },
+      "test": {
+        "return_pct": 34.762,
+        "profit_factor": 1.4261302343826616,
+        "trade_count": 257,
+        "max_dd_pct": 11.736644833983267,
+        "ulcer_index": 5.686212446059393
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 25.938,
+        "profit_factor": 1.8220715010141988,
+        "trade_count": 98,
+        "max_dd_pct": 3.2032909099009537,
+        "ulcer_index": 1.7454676242494251
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q2",
+        "return_pct": -0.08999999999999952,
+        "profit_factor": 0.9984601697235149,
+        "trade_count": 159,
+        "max_dd_pct": 13.52272727272727,
+        "ulcer_index": 8.635862598604852
+      }
+    },
+    {
+      "profile_token": "R",
+      "profile_name": "practical",
+      "profile_label_ko": "실전형",
+      "risk_pct": 1.25,
+      "target_run_name": "06C_R125",
+      "status": "completed",
+      "validation": {
+        "return_pct": 35.15,
+        "profit_factor": 1.1933103084165604,
+        "trade_count": 405,
+        "max_dd_pct": 17.16067831849782,
+        "ulcer_index": 9.878219379764921
+      },
+      "test": {
+        "return_pct": 44.494,
+        "profit_factor": 1.4172199092307116,
+        "trade_count": 257,
+        "max_dd_pct": 14.68524927509119,
+        "ulcer_index": 7.290966025662141
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 34.36,
+        "profit_factor": 1.8284708492067319,
+        "trade_count": 98,
+        "max_dd_pct": 3.878024067622532,
+        "ulcer_index": 2.1511285910111555
+      },
+      "worst_segment": {
+        "split": "test",
+        "segment": "holdout_b",
+        "return_pct": 1.9940000000000002,
+        "profit_factor": 1.0565545408134325,
+        "trade_count": 81,
+        "max_dd_pct": 10.793961648306812,
+        "ulcer_index": 7.527734764142413
+      }
+    },
+    {
+      "profile_token": "R",
+      "profile_name": "practical",
+      "profile_label_ko": "실전형",
+      "risk_pct": 1.5,
+      "target_run_name": "06C_R150",
+      "status": "completed",
+      "validation": {
+        "return_pct": 45.6,
+        "profit_factor": 1.195267336399373,
+        "trade_count": 405,
+        "max_dd_pct": 20.471212174545627,
+        "ulcer_index": 11.812491903429374
+      },
+      "test": {
+        "return_pct": 54.476,
+        "profit_factor": 1.4067376469007122,
+        "trade_count": 257,
+        "max_dd_pct": 17.684082669267724,
+        "ulcer_index": 8.766052589263179
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 43.419999999999995,
+        "profit_factor": 1.8172099676277946,
+        "trade_count": 98,
+        "max_dd_pct": 4.654966509164548,
+        "ulcer_index": 2.5883929947792135
+      },
+      "worst_segment": {
+        "split": "test",
+        "segment": "holdout_b",
+        "return_pct": 0.926,
+        "profit_factor": 1.02098916542001,
+        "trade_count": 81,
+        "max_dd_pct": 13.182062044371504,
+        "ulcer_index": 9.093102657572679
+      }
+    },
+    {
+      "profile_token": "R",
+      "profile_name": "practical",
+      "profile_label_ko": "실전형",
+      "risk_pct": 1.75,
+      "target_run_name": "06C_R175",
+      "status": "completed",
+      "validation": {
+        "return_pct": 52.346000000000004,
+        "profit_factor": 1.1815199600521542,
+        "trade_count": 405,
+        "max_dd_pct": 23.768817611014452,
+        "ulcer_index": 13.899696729976975
+      },
+      "test": {
+        "return_pct": 67.08999999999999,
+        "profit_factor": 1.4144120771872606,
+        "trade_count": 257,
+        "max_dd_pct": 20.515338315785637,
+        "ulcer_index": 10.172839292191595
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 53.837999999999994,
+        "profit_factor": 1.8161972044510475,
+        "trade_count": 98,
+        "max_dd_pct": 5.500696746912699,
+        "ulcer_index": 3.0229609678775216
+      },
+      "worst_segment": {
+        "split": "test",
+        "segment": "holdout_b",
+        "return_pct": 1.410000000000001,
+        "profit_factor": 1.0265197111044237,
+        "trade_count": 81,
+        "max_dd_pct": 15.289387366416266,
+        "ulcer_index": 10.480295667086637
+      }
+    },
+    {
+      "profile_token": "R",
+      "profile_name": "practical",
+      "profile_label_ko": "실전형",
+      "risk_pct": 2.0,
+      "target_run_name": "06C_R200",
+      "status": "completed",
+      "validation": {
+        "return_pct": 62.166,
+        "profit_factor": 1.179552202594822,
+        "trade_count": 405,
+        "max_dd_pct": 26.86623159931679,
+        "ulcer_index": 15.781380432914291
+      },
+      "test": {
+        "return_pct": 81.05399999999999,
+        "profit_factor": 1.4201735560324718,
+        "trade_count": 257,
+        "max_dd_pct": 22.790381449939158,
+        "ulcer_index": 11.47557206282954
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 64.73,
+        "profit_factor": 1.8030618827849734,
+        "trade_count": 98,
+        "max_dd_pct": 6.355233298278626,
+        "ulcer_index": 3.4639631309476386
+      },
+      "worst_segment": {
+        "split": "test",
+        "segment": "holdout_b",
+        "return_pct": 2.0559999999999987,
+        "profit_factor": 1.0323718352437334,
+        "trade_count": 81,
+        "max_dd_pct": 17.196102735579842,
+        "ulcer_index": 11.892232387222345
+      }
+    },
+    {
+      "profile_token": "R",
+      "profile_name": "practical",
+      "profile_label_ko": "실전형",
+      "risk_pct": 2.25,
+      "target_run_name": "06C_R225",
+      "status": "completed",
+      "validation": {
+        "return_pct": 70.968,
+        "profit_factor": 1.1733065685944115,
+        "trade_count": 405,
+        "max_dd_pct": 29.78023471838325,
+        "ulcer_index": 17.620532027714564
+      },
+      "test": {
+        "return_pct": 90.976,
+        "profit_factor": 1.4081215177153523,
+        "trade_count": 257,
+        "max_dd_pct": 26.108025892257075,
+        "ulcer_index": 13.059766547703928
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 74.722,
+        "profit_factor": 1.7937496016486434,
+        "trade_count": 98,
+        "max_dd_pct": 7.114072830307479,
+        "ulcer_index": 3.9175400069189066
+      },
+      "worst_segment": {
+        "split": "test",
+        "segment": "holdout_b",
+        "return_pct": 1.577999999999999,
+        "profit_factor": 1.0216615418405446,
+        "trade_count": 81,
+        "max_dd_pct": 19.29740608858426,
+        "ulcer_index": 13.405111889658395
+      }
+    },
+    {
+      "profile_token": "R",
+      "profile_name": "practical",
+      "profile_label_ko": "실전형",
+      "risk_pct": 2.5,
+      "target_run_name": "06C_R250",
+      "status": "completed",
+      "validation": {
+        "return_pct": 80.108,
+        "profit_factor": 1.167602580947519,
+        "trade_count": 405,
+        "max_dd_pct": 32.70675753263935,
+        "ulcer_index": 19.496611101030282
+      },
+      "test": {
+        "return_pct": 107.03800000000001,
+        "profit_factor": 1.4151076569868455,
+        "trade_count": 257,
+        "max_dd_pct": 28.251528384279478,
+        "ulcer_index": 14.319810092046321
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 87.82600000000001,
+        "profit_factor": 1.784651121236487,
+        "trade_count": 98,
+        "max_dd_pct": 7.988365800865807,
+        "ulcer_index": 4.380161919530182
+      },
+      "worst_segment": {
+        "split": "test",
+        "segment": "holdout_b",
+        "return_pct": 2.5619999999999994,
+        "profit_factor": 1.0304376752364206,
+        "trade_count": 81,
+        "max_dd_pct": 21.295104820116887,
+        "ulcer_index": 14.695920519838609
+      }
+    },
+    {
+      "profile_token": "R",
+      "profile_name": "practical",
+      "profile_label_ko": "실전형",
+      "risk_pct": 2.75,
+      "target_run_name": "06C_R275",
+      "status": "completed",
+      "validation": {
+        "return_pct": 88.79,
+        "profit_factor": 1.1607716459583468,
+        "trade_count": 405,
+        "max_dd_pct": 35.38172187464016,
+        "ulcer_index": 21.24642728703584
+      },
+      "test": {
+        "return_pct": 120.34,
+        "profit_factor": 1.4091193429068756,
+        "trade_count": 257,
+        "max_dd_pct": 30.793727299330374,
+        "ulcer_index": 15.5562689629851
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 98.92,
+        "profit_factor": 1.7596958758927888,
+        "trade_count": 98,
+        "max_dd_pct": 8.802242054854153,
+        "ulcer_index": 4.842982497035364
+      },
+      "worst_segment": {
+        "split": "test",
+        "segment": "holdout_b",
+        "return_pct": 2.613999999999998,
+        "profit_factor": 1.0272928499832943,
+        "trade_count": 81,
+        "max_dd_pct": 23.303054053012286,
+        "ulcer_index": 15.96786925046301
+      }
+    },
+    {
+      "profile_token": "A",
+      "profile_name": "aggressive",
+      "profile_label_ko": "공격형",
+      "risk_pct": 0.5,
+      "target_run_name": "06C_A050",
+      "status": "completed",
+      "validation": {
+        "return_pct": 8.860000000000001,
+        "profit_factor": 1.135727197524434,
+        "trade_count": 407,
+        "max_dd_pct": 8.729686037607411,
+        "ulcer_index": 5.156531781511452
+      },
+      "test": {
+        "return_pct": 16.546,
+        "profit_factor": 1.4036200419573597,
+        "trade_count": 259,
+        "max_dd_pct": 6.246076585059631,
+        "ulcer_index": 2.7852820841124686
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 11.696000000000002,
+        "profit_factor": 1.7580038885288398,
+        "trade_count": 99,
+        "max_dd_pct": 1.401316018521754,
+        "ulcer_index": 0.8324331076902913
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q2",
+        "return_pct": -1.8239999999999998,
+        "profit_factor": 0.9320366644310307,
+        "trade_count": 158,
+        "max_dd_pct": 7.582744831106942,
+        "ulcer_index": 4.887612025143314
+      }
+    },
+    {
+      "profile_token": "A",
+      "profile_name": "aggressive",
+      "profile_label_ko": "공격형",
+      "risk_pct": 0.75,
+      "target_run_name": "06C_A075",
+      "status": "completed",
+      "validation": {
+        "return_pct": 19.069999999999997,
+        "profit_factor": 1.1705571952419282,
+        "trade_count": 410,
+        "max_dd_pct": 14.063125435488416,
+        "ulcer_index": 8.308226618915079
+      },
+      "test": {
+        "return_pct": 27.32,
+        "profit_factor": 1.4066686513843407,
+        "trade_count": 259,
+        "max_dd_pct": 9.57229349582416,
+        "ulcer_index": 4.336762444275909
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 20.072000000000003,
+        "profit_factor": 1.7703408044212465,
+        "trade_count": 99,
+        "max_dd_pct": 2.2401204124767835,
+        "ulcer_index": 1.2697530553091125
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q3",
+        "return_pct": -1.3840000000000001,
+        "profit_factor": 0.9308898432038349,
+        "trade_count": 57,
+        "max_dd_pct": 3.617978647450473,
+        "ulcer_index": 1.8102893357055194
+      }
+    },
+    {
+      "profile_token": "A",
+      "profile_name": "aggressive",
+      "profile_label_ko": "공격형",
+      "risk_pct": 1.0,
+      "target_run_name": "06C_A100",
+      "status": "completed",
+      "validation": {
+        "return_pct": 24.796000000000003,
+        "profit_factor": 1.1528579178379443,
+        "trade_count": 411,
+        "max_dd_pct": 18.53102460898458,
+        "ulcer_index": 11.028354096608627
+      },
+      "test": {
+        "return_pct": 37.886,
+        "profit_factor": 1.3998353631508962,
+        "trade_count": 259,
+        "max_dd_pct": 13.209286249207896,
+        "ulcer_index": 5.877181961466367
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 28.528000000000002,
+        "profit_factor": 1.7580782312925172,
+        "trade_count": 99,
+        "max_dd_pct": 3.2246064105234904,
+        "ulcer_index": 1.7057627256608556
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q3",
+        "return_pct": -2.194,
+        "profit_factor": 0.9230769230769231,
+        "trade_count": 57,
+        "max_dd_pct": 4.844372372750599,
+        "ulcer_index": 2.4513614858544197
+      }
+    },
+    {
+      "profile_token": "A",
+      "profile_name": "aggressive",
+      "profile_label_ko": "공격형",
+      "risk_pct": 1.25,
+      "target_run_name": "06C_A125",
+      "status": "completed",
+      "validation": {
+        "return_pct": 32.18,
+        "profit_factor": 1.149140288269917,
+        "trade_count": 411,
+        "max_dd_pct": 22.529842266668293,
+        "ulcer_index": 13.533868608001372
+      },
+      "test": {
+        "return_pct": 47.856,
+        "profit_factor": 1.3870404218494734,
+        "trade_count": 259,
+        "max_dd_pct": 16.612111292962357,
+        "ulcer_index": 7.396558682962047
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 37.160000000000004,
+        "profit_factor": 1.744868505452213,
+        "trade_count": 99,
+        "max_dd_pct": 3.7899447591077418,
+        "ulcer_index": 2.13071282784049
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q3",
+        "return_pct": -2.974,
+        "profit_factor": 0.9221832644303731,
+        "trade_count": 57,
+        "max_dd_pct": 5.9295322372996635,
+        "ulcer_index": 3.060239366286331
+      }
+    },
+    {
+      "profile_token": "A",
+      "profile_name": "aggressive",
+      "profile_label_ko": "공격형",
+      "risk_pct": 1.5,
+      "target_run_name": "06C_A150",
+      "status": "completed",
+      "validation": {
+        "return_pct": 38.628,
+        "profit_factor": 1.1400163838162691,
+        "trade_count": 411,
+        "max_dd_pct": 26.668883347187588,
+        "ulcer_index": 16.08425260231668
+      },
+      "test": {
+        "return_pct": 61.846000000000004,
+        "profit_factor": 1.399537449771955,
+        "trade_count": 259,
+        "max_dd_pct": 19.29635917751368,
+        "ulcer_index": 8.67346525863004
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 48.02,
+        "profit_factor": 1.741782006920415,
+        "trade_count": 99,
+        "max_dd_pct": 4.561303820027385,
+        "ulcer_index": 2.5908945573365183
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q3",
+        "return_pct": -4.406,
+        "profit_factor": 0.9105598635865373,
+        "trade_count": 57,
+        "max_dd_pct": 7.201085056699806,
+        "ulcer_index": 3.7397730593578435
+      }
+    },
+    {
+      "profile_token": "A",
+      "profile_name": "aggressive",
+      "profile_label_ko": "공격형",
+      "risk_pct": 1.75,
+      "target_run_name": "06C_A175",
+      "status": "completed",
+      "validation": {
+        "return_pct": 47.57600000000001,
+        "profit_factor": 1.1391355208516114,
+        "trade_count": 411,
+        "max_dd_pct": 30.725912365184865,
+        "ulcer_index": 18.597719036570123
+      },
+      "test": {
+        "return_pct": 76.27000000000001,
+        "profit_factor": 1.4029650450145823,
+        "trade_count": 259,
+        "max_dd_pct": 22.471428305087912,
+        "ulcer_index": 10.002614785297828
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 59.086000000000006,
+        "profit_factor": 1.7221991346224363,
+        "trade_count": 99,
+        "max_dd_pct": 5.685770091944168,
+        "ulcer_index": 3.0105931202725524
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q3",
+        "return_pct": -5.163999999999999,
+        "profit_factor": 0.9153941935906679,
+        "trade_count": 57,
+        "max_dd_pct": 8.51119549561346,
+        "ulcer_index": 4.392498910827469
+      }
+    },
+    {
+      "profile_token": "A",
+      "profile_name": "aggressive",
+      "profile_label_ko": "공격형",
+      "risk_pct": 2.0,
+      "target_run_name": "06C_A200",
+      "status": "completed",
+      "validation": {
+        "return_pct": 54.647999999999996,
+        "profit_factor": 1.132239564428312,
+        "trade_count": 411,
+        "max_dd_pct": 34.49155070930643,
+        "ulcer_index": 21.03055114690422
+      },
+      "test": {
+        "return_pct": 89.34599999999999,
+        "profit_factor": 1.3967829608839306,
+        "trade_count": 259,
+        "max_dd_pct": 25.270684749270174,
+        "ulcer_index": 11.571520896571617
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 70.414,
+        "profit_factor": 1.710291121108802,
+        "trade_count": 99,
+        "max_dd_pct": 6.256279724027057,
+        "ulcer_index": 3.4881519623514734
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q3",
+        "return_pct": -6.421999999999999,
+        "profit_factor": 0.9123587532070527,
+        "trade_count": 57,
+        "max_dd_pct": 9.664121189544923,
+        "ulcer_index": 4.976576476389668
+      }
+    },
+    {
+      "profile_token": "A",
+      "profile_name": "aggressive",
+      "profile_label_ko": "공격형",
+      "risk_pct": 2.25,
+      "target_run_name": "06C_A225",
+      "status": "completed",
+      "validation": {
+        "return_pct": 63.428000000000004,
+        "profit_factor": 1.1284263979946791,
+        "trade_count": 411,
+        "max_dd_pct": 38.030636356229124,
+        "ulcer_index": 23.305837535841384
+      },
+      "test": {
+        "return_pct": 102.174,
+        "profit_factor": 1.3897093599816919,
+        "trade_count": 259,
+        "max_dd_pct": 27.89998533509312,
+        "ulcer_index": 12.830819936540674
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 81.838,
+        "profit_factor": 1.6920058852378619,
+        "trade_count": 99,
+        "max_dd_pct": 7.5050476519264775,
+        "ulcer_index": 3.9344898024083985
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q3",
+        "return_pct": -8.200000000000001,
+        "profit_factor": 0.9069598565820228,
+        "trade_count": 57,
+        "max_dd_pct": 10.960915468338493,
+        "ulcer_index": 5.723368887788988
+      }
+    },
+    {
+      "profile_token": "A",
+      "profile_name": "aggressive",
+      "profile_label_ko": "공격형",
+      "risk_pct": 2.5,
+      "target_run_name": "06C_A250",
+      "status": "completed",
+      "validation": {
+        "return_pct": 71.358,
+        "profit_factor": 1.1235443826936062,
+        "trade_count": 411,
+        "max_dd_pct": 41.46247661028482,
+        "ulcer_index": 25.556570998754157
+      },
+      "test": {
+        "return_pct": 118.92799999999998,
+        "profit_factor": 1.39353028377806,
+        "trade_count": 259,
+        "max_dd_pct": 30.5314079947623,
+        "ulcer_index": 14.125864046866722
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 95.846,
+        "profit_factor": 1.68432100528345,
+        "trade_count": 99,
+        "max_dd_pct": 8.12965498490012,
+        "ulcer_index": 4.398369898784618
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q3",
+        "return_pct": -9.842,
+        "profit_factor": 0.9044224755763591,
+        "trade_count": 57,
+        "max_dd_pct": 12.190949227373075,
+        "ulcer_index": 6.337809093285251
+      }
+    },
+    {
+      "profile_token": "A",
+      "profile_name": "aggressive",
+      "profile_label_ko": "공격형",
+      "risk_pct": 2.75,
+      "target_run_name": "06C_A275",
+      "status": "completed",
+      "validation": {
+        "return_pct": 77.592,
+        "profit_factor": 1.115773013750955,
+        "trade_count": 411,
+        "max_dd_pct": 44.69176339694579,
+        "ulcer_index": 27.719338594722117
+      },
+      "test": {
+        "return_pct": 135.024,
+        "profit_factor": 1.3923473894648752,
+        "trade_count": 259,
+        "max_dd_pct": 33.41500765696784,
+        "ulcer_index": 15.423079376603665
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 109.806,
+        "profit_factor": 1.6741113634968383,
+        "trade_count": 99,
+        "max_dd_pct": 9.15192578782229,
+        "ulcer_index": 4.833056047180903
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q3",
+        "return_pct": -11.679999999999998,
+        "profit_factor": 0.9011175076193702,
+        "trade_count": 57,
+        "max_dd_pct": 13.365949532947294,
+        "ulcer_index": 6.988247392299998
+      }
+    },
+    {
+      "profile_token": "C",
+      "profile_name": "conservative",
+      "profile_label_ko": "보수형",
+      "risk_pct": 0.5,
+      "target_run_name": "06C_C050",
+      "status": "completed",
+      "validation": {
+        "return_pct": 7.152,
+        "profit_factor": 1.1620666213460231,
+        "trade_count": 385,
+        "max_dd_pct": 6.470798356849442,
+        "ulcer_index": 3.6369700928942663
+      },
+      "test": {
+        "return_pct": 9.464,
+        "profit_factor": 1.3361511685728493,
+        "trade_count": 252,
+        "max_dd_pct": 4.951757138374647,
+        "ulcer_index": 2.297403076598086
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 7.2379999999999995,
+        "profit_factor": 1.6756908140403286,
+        "trade_count": 97,
+        "max_dd_pct": 1.683605752622678,
+        "ulcer_index": 0.8154120497569356
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q2",
+        "return_pct": -0.3939999999999999,
+        "profit_factor": 0.9768996247654784,
+        "trade_count": 142,
+        "max_dd_pct": 6.165386676192174,
+        "ulcer_index": 3.972990012040741
+      }
+    },
+    {
+      "profile_token": "C",
+      "profile_name": "conservative",
+      "profile_label_ko": "보수형",
+      "risk_pct": 0.75,
+      "target_run_name": "06C_C075",
+      "status": "completed",
+      "validation": {
+        "return_pct": 11.996,
+        "profit_factor": 1.1572421025036048,
+        "trade_count": 399,
+        "max_dd_pct": 10.18613416206566,
+        "ulcer_index": 5.905833966625314
+      },
+      "test": {
+        "return_pct": 17.016000000000002,
+        "profit_factor": 1.3646025283908292,
+        "trade_count": 255,
+        "max_dd_pct": 7.644975909908852,
+        "ulcer_index": 3.56831624322648
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 12.262,
+        "profit_factor": 1.6749972476054167,
+        "trade_count": 97,
+        "max_dd_pct": 2.334292476120756,
+        "ulcer_index": 1.2161005062661767
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q2",
+        "return_pct": -1.4459999999999995,
+        "profit_factor": 0.9551933564700048,
+        "trade_count": 156,
+        "max_dd_pct": 9.650543855589001,
+        "ulcer_index": 6.270033661539514
+      }
+    },
+    {
+      "profile_token": "C",
+      "profile_name": "conservative",
+      "profile_label_ko": "보수형",
+      "risk_pct": 1.0,
+      "target_run_name": "06C_C100",
+      "status": "completed",
+      "validation": {
+        "return_pct": 14.943999999999999,
+        "profit_factor": 1.1364773785822573,
+        "trade_count": 402,
+        "max_dd_pct": 13.90659655980022,
+        "ulcer_index": 8.246036237319641
+      },
+      "test": {
+        "return_pct": 25.356,
+        "profit_factor": 1.3809151819247063,
+        "trade_count": 255,
+        "max_dd_pct": 10.525107164727485,
+        "ulcer_index": 4.862705541990341
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 19.032,
+        "profit_factor": 1.729698642742121,
+        "trade_count": 97,
+        "max_dd_pct": 3.1643259541378943,
+        "ulcer_index": 1.60373035737998
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q2",
+        "return_pct": -2.8120000000000007,
+        "profit_factor": 0.9398888413852073,
+        "trade_count": 159,
+        "max_dd_pct": 13.340468102926806,
+        "ulcer_index": 8.67091459589898
+      }
+    },
+    {
+      "profile_token": "C",
+      "profile_name": "conservative",
+      "profile_label_ko": "보수형",
+      "risk_pct": 1.25,
+      "target_run_name": "06C_C125",
+      "status": "completed",
+      "validation": {
+        "return_pct": 16.906000000000002,
+        "profit_factor": 1.116397234997659,
+        "trade_count": 402,
+        "max_dd_pct": 17.546989017468853,
+        "ulcer_index": 10.444899368850662
+      },
+      "test": {
+        "return_pct": 32.384,
+        "profit_factor": 1.368804664723032,
+        "trade_count": 255,
+        "max_dd_pct": 13.062381852551988,
+        "ulcer_index": 6.065030311906957
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 23.524,
+        "profit_factor": 1.6740014898859665,
+        "trade_count": 97,
+        "max_dd_pct": 4.170660117407455,
+        "ulcer_index": 2.1125110071301987
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q2",
+        "return_pct": -6.6240000000000006,
+        "profit_factor": 0.8966163066550131,
+        "trade_count": 159,
+        "max_dd_pct": 16.624161568511827,
+        "ulcer_index": 10.822256843024716
+      }
+    },
+    {
+      "profile_token": "C",
+      "profile_name": "conservative",
+      "profile_label_ko": "보수형",
+      "risk_pct": 1.5,
+      "target_run_name": "06C_C150",
+      "status": "completed",
+      "validation": {
+        "return_pct": 24.072,
+        "profit_factor": 1.1306032097399004,
+        "trade_count": 403,
+        "max_dd_pct": 20.94137806396338,
+        "ulcer_index": 12.573958542211919
+      },
+      "test": {
+        "return_pct": 39.916000000000004,
+        "profit_factor": 1.364456456237103,
+        "trade_count": 255,
+        "max_dd_pct": 15.497647080706061,
+        "ulcer_index": 7.424975866716725
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 29.01,
+        "profit_factor": 1.6501277396799787,
+        "trade_count": 97,
+        "max_dd_pct": 5.064452821664055,
+        "ulcer_index": 2.605191867168537
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q2",
+        "return_pct": -4.6979999999999995,
+        "profit_factor": 0.9430241583389929,
+        "trade_count": 160,
+        "max_dd_pct": 19.895848672672994,
+        "ulcer_index": 13.033231871689544
+      }
+    },
+    {
+      "profile_token": "C",
+      "profile_name": "conservative",
+      "profile_label_ko": "보수형",
+      "risk_pct": 1.75,
+      "target_run_name": "06C_C175",
+      "status": "completed",
+      "validation": {
+        "return_pct": 30.410000000000004,
+        "profit_factor": 1.1341491389045737,
+        "trade_count": 403,
+        "max_dd_pct": 23.788143035610478,
+        "ulcer_index": 14.34743863021386
+      },
+      "test": {
+        "return_pct": 47.959999999999994,
+        "profit_factor": 1.3634104203922044,
+        "trade_count": 255,
+        "max_dd_pct": 18.152379901013777,
+        "ulcer_index": 8.673841225807529
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 35.898,
+        "profit_factor": 1.6591384818772723,
+        "trade_count": 97,
+        "max_dd_pct": 5.995863081337167,
+        "ulcer_index": 3.0414496508965154
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q2",
+        "return_pct": -6.177999999999999,
+        "profit_factor": 0.9402156031663086,
+        "trade_count": 160,
+        "max_dd_pct": 22.735537496753132,
+        "ulcer_index": 14.868948523672731
+      }
+    },
+    {
+      "profile_token": "C",
+      "profile_name": "conservative",
+      "profile_label_ko": "보수형",
+      "risk_pct": 2.0,
+      "target_run_name": "06C_C200",
+      "status": "completed",
+      "validation": {
+        "return_pct": 32.602,
+        "profit_factor": 1.1225095634267506,
+        "trade_count": 403,
+        "max_dd_pct": 26.717276990856988,
+        "ulcer_index": 16.1361308540195
+      },
+      "test": {
+        "return_pct": 56.79,
+        "profit_factor": 1.3625881091020533,
+        "trade_count": 255,
+        "max_dd_pct": 21.104102666642437,
+        "ulcer_index": 9.79084325711134
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 42.78,
+        "profit_factor": 1.6503101058008027,
+        "trade_count": 97,
+        "max_dd_pct": 6.8647669827217666,
+        "ulcer_index": 3.4767559821945526
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q2",
+        "return_pct": -7.8340000000000005,
+        "profit_factor": 0.9360155509817375,
+        "trade_count": 160,
+        "max_dd_pct": 25.492680847032073,
+        "ulcer_index": 16.709880751558163
+      }
+    },
+    {
+      "profile_token": "C",
+      "profile_name": "conservative",
+      "profile_label_ko": "보수형",
+      "risk_pct": 2.25,
+      "target_run_name": "06C_C225",
+      "status": "completed",
+      "validation": {
+        "return_pct": 38.856,
+        "profit_factor": 1.1233899855193963,
+        "trade_count": 403,
+        "max_dd_pct": 30.098194694879542,
+        "ulcer_index": 18.2839193466844
+      },
+      "test": {
+        "return_pct": 66.44800000000001,
+        "profit_factor": 1.3648583351636283,
+        "trade_count": 255,
+        "max_dd_pct": 23.039145397189557,
+        "ulcer_index": 10.984610912038125
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 50.134,
+        "profit_factor": 1.6430733709594665,
+        "trade_count": 97,
+        "max_dd_pct": 7.671479077246874,
+        "ulcer_index": 3.9125188575814014
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q2",
+        "return_pct": -8.290000000000001,
+        "profit_factor": 0.9437309947871417,
+        "trade_count": 160,
+        "max_dd_pct": 28.771914579305253,
+        "ulcer_index": 18.88149715795351
+      }
+    },
+    {
+      "profile_token": "C",
+      "profile_name": "conservative",
+      "profile_label_ko": "보수형",
+      "risk_pct": 2.5,
+      "target_run_name": "06C_C250",
+      "status": "completed",
+      "validation": {
+        "return_pct": 45.95000000000001,
+        "profit_factor": 1.1257787607712606,
+        "trade_count": 403,
+        "max_dd_pct": 32.70261051026346,
+        "ulcer_index": 19.989825611298873
+      },
+      "test": {
+        "return_pct": 74.894,
+        "profit_factor": 1.3610149719937914,
+        "trade_count": 255,
+        "max_dd_pct": 25.204209024433748,
+        "ulcer_index": 12.067173898036172
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 57.816,
+        "profit_factor": 1.6434581311490006,
+        "trade_count": 97,
+        "max_dd_pct": 8.485270343093232,
+        "ulcer_index": 4.318545417741895
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q2",
+        "return_pct": -8.684,
+        "profit_factor": 0.949971194838115,
+        "trade_count": 160,
+        "max_dd_pct": 31.311074101571123,
+        "ulcer_index": 20.642688559660662
+      }
+    },
+    {
+      "profile_token": "C",
+      "profile_name": "conservative",
+      "profile_label_ko": "보수형",
+      "risk_pct": 2.75,
+      "target_run_name": "06C_C275",
+      "status": "completed",
+      "validation": {
+        "return_pct": 47.699999999999996,
+        "profit_factor": 1.1158689442080103,
+        "trade_count": 403,
+        "max_dd_pct": 35.44798585559324,
+        "ulcer_index": 21.764537987261726
+      },
+      "test": {
+        "return_pct": 86.166,
+        "profit_factor": 1.363061028432744,
+        "trade_count": 255,
+        "max_dd_pct": 27.341816586222023,
+        "ulcer_index": 13.155839997709146
+      },
+      "best_segment": {
+        "split": "test",
+        "segment": "holdout_c",
+        "return_pct": 65.67999999999999,
+        "profit_factor": 1.6254046848219386,
+        "trade_count": 97,
+        "max_dd_pct": 9.403300621627588,
+        "ulcer_index": 4.814970637302663
+      },
+      "worst_segment": {
+        "split": "validation",
+        "segment": "validation_q2",
+        "return_pct": -11.762,
+        "profit_factor": 0.9405653417417053,
+        "trade_count": 160,
+        "max_dd_pct": 33.96473455344769,
+        "ulcer_index": 22.410603352447236
+      }
+    }
+  ]
+}

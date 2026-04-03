@@ -1,0 +1,89 @@
+{
+  "generated_at_utc": "2026-03-29T15:23:19.332041+00:00",
+  "phase": "05I_mt5_alt_model_validation",
+  "candidate_key": "runner_up",
+  "source_run_name": "01C_run_0002_h03_band000125_lightgbm",
+  "source_run_dir": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\01_base_feature_ml\\02_runs\\archived\\01C_run_0002_h03_band000125_lightgbm",
+  "model_family": "lightgbm",
+  "logic_reference_run_name": "03E_mt5_validation_baseline_0001",
+  "logic_filter": {
+    "type": "max_probability_margin",
+    "min_margin": 0.07
+  },
+  "baseline_stage01_test_confirmation": {
+    "run_name": "01D_run_0001_final_h03_band000125_logreg",
+    "model_family": "logistic_regression",
+    "test_rows": 6720,
+    "test_macro_f1": 0.45812929996514556,
+    "test_balanced_accuracy": 0.46935993441877705,
+    "test_accuracy": 0.5769345238095238,
+    "test_log_loss": 0.9727633173365045
+  },
+  "alt_model_test_confirmation": {
+    "run_name": "05I_mt5_validation_margin_lightgbm_modelswap_0001",
+    "model_family": "lightgbm",
+    "test_rows": 6720,
+    "test_macro_f1": 0.45316625335047517,
+    "test_balanced_accuracy": 0.4637797858279353,
+    "test_accuracy": 0.5712797619047619,
+    "test_log_loss": 0.8978040617075377
+  },
+  "ranked_validation_runs": [
+    {
+      "rank": 1,
+      "run_name": "05I_mt5_validation_margin_lightgbm_modelswap_0001",
+      "stage_folder": "05_optimization",
+      "return_pct": 1308.5559999999998,
+      "profit_factor": 15.290226056568745,
+      "trade_count": 1554,
+      "max_dd_pct": 1.9298111476412576,
+      "ulcer_index": 0.08406059582529445,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "03E_mt5_validation_baseline_0001",
+      "stage_folder": "03_max_probability_margin",
+      "return_pct": 67.664,
+      "profit_factor": 1.2655010319633986,
+      "trade_count": 530,
+      "max_dd_pct": 12.201705598813493,
+      "ulcer_index": 3.556990606308009,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "ranked_test_runs": [
+    {
+      "rank": 1,
+      "run_name": "03E_mt5_validation_baseline_0001",
+      "stage_folder": "03_max_probability_margin",
+      "return_pct": 7.072000000000001,
+      "profit_factor": 1.0440579132298338,
+      "trade_count": 357,
+      "max_dd_pct": 20.022800086483088,
+      "ulcer_index": 8.19108033290302,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05I_mt5_validation_margin_lightgbm_modelswap_0001",
+      "stage_folder": "05_optimization",
+      "return_pct": -5.07,
+      "profit_factor": 0.9853653467575727,
+      "trade_count": 794,
+      "max_dd_pct": 29.98364103762561,
+      "ulcer_index": 16.744688812122117,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "verdict": {
+    "validation_leader": "05I_mt5_validation_margin_lightgbm_modelswap_0001",
+    "holdout_winner": "03E_mt5_validation_baseline_0001",
+    "promotion_decision": "reject_alternate_model",
+    "reason": "validation spike did not survive holdout and came with materially worse drawdown"
+  }
+}

@@ -1,0 +1,16 @@
+; Project Obsidian Prime Stage 1 shadow EA runtime smoke inputs
+InpOnnxModelPath=Project_Obsidian_Prime\obsidian_prime_stage01d_probonly.onnx
+InpOnnxUseCommonFiles=true
+InpUseCpuOnly=true
+InpDumpModelIo=true
+InpRunSmokeOnInit=true
+InpFeatureMode=0
+InpWarmupBars=300
+InpShortThreshold=0.333333
+InpLongThreshold=0.333333
+InpMinMargin=0.0
+InpAllowPartialInference=false
+InpWriteCsvLog=true
+InpLogUseCommonFiles=true
+InpCsvLogPath=Project_Obsidian_Prime\obsidian_prime_stage1_shadow_runtime.csv
+InpVerboseLog=true

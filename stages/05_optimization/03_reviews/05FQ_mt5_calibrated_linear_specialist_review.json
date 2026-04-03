@@ -1,0 +1,137 @@
+{
+  "generated_at_utc": "2026-03-31T13:51:42.535877+00:00",
+  "phase": "05FQ_mt5_calibrated_linear_specialist_batch",
+  "ranked_validation_runs": [
+    {
+      "rank": 1,
+      "run_name": "05DP_05ca_margin0675_hold5_0001",
+      "variant_label": "promoted_05dp",
+      "model_family": null,
+      "return_pct": 122.57000000000001,
+      "profit_factor": 1.5552837351744633,
+      "trade_count": 405,
+      "max_dd_pct": 12.603127209868777,
+      "ulcer_index": 7.2871377165059945,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05EM_05dp_short_bias_margin_hold5_0001",
+      "variant_label": "closest_short_bias_05em",
+      "model_family": null,
+      "return_pct": 109.204,
+      "profit_factor": 1.528879030617681,
+      "trade_count": 356,
+      "max_dd_pct": 13.0565608779599,
+      "ulcer_index": 7.98816665769608,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 3,
+      "run_name": "05DL_05cc_margin_hold5_0001",
+      "variant_label": "lower_ulcer_alt_05dl",
+      "model_family": null,
+      "return_pct": 99.68199999999999,
+      "profit_factor": 1.4448341722894575,
+      "trade_count": 393,
+      "max_dd_pct": 14.91613058377923,
+      "ulcer_index": 7.6350328355652985,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 4,
+      "run_name": "05FN_ovr_proxy_0001",
+      "variant_label": "ovr_trend_proxy_logreg",
+      "model_family": "ovr_trend_proxy_logreg",
+      "return_pct": 8.863999999999999,
+      "profit_factor": 1.2002530272908005,
+      "trade_count": 70,
+      "max_dd_pct": 9.720795592492308,
+      "ulcer_index": 3.4894793979792356,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "failed_runs": [
+    {
+      "run_name": "05FO_cal_proxy_0001",
+      "variant_label": "calibrated_trend_proxy_sigmoid",
+      "model_family": "calibrated_trend_proxy_sigmoid",
+      "status": "failed",
+      "run_holdout": false,
+      "returncode": 1,
+      "error_tail": "                            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\foundation\\pipelines\\build_experiment_bundle.py\", line 336, in assemble_bundle\n    smoke_summary = run_smoke_test(\n        request,\n    ...<2 lines>...\n        feature_schema=feature_schema,\n    )\n  File \"C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\foundation\\pipelines\\build_experiment_bundle.py\", line 276, in run_smoke_test\n    raise ValueError(\n    ...<2 lines>...\n    )\nValueError: smoke test output mismatch against expected output; max_abs_diff=0.00933573"
+    },
+    {
+      "run_name": "05FP_cal_ovr_proxy_0001",
+      "variant_label": "calibrated_ovr_trend_proxy_sigmoid",
+      "model_family": "calibrated_ovr_trend_proxy_sigmoid",
+      "status": "failed",
+      "run_holdout": false,
+      "returncode": 1,
+      "error_tail": "                            ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\foundation\\pipelines\\build_experiment_bundle.py\", line 336, in assemble_bundle\n    smoke_summary = run_smoke_test(\n        request,\n    ...<2 lines>...\n        feature_schema=feature_schema,\n    )\n  File \"C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\foundation\\pipelines\\build_experiment_bundle.py\", line 276, in run_smoke_test\n    raise ValueError(\n    ...<2 lines>...\n    )\nValueError: smoke test output mismatch against expected output; max_abs_diff=0.04049981"
+    }
+  ],
+  "ranked_test_runs": [
+    {
+      "rank": 1,
+      "run_name": "05DP_05ca_margin0675_hold5_0001",
+      "variant_label": "promoted_05dp",
+      "model_family": null,
+      "return_pct": 68.574,
+      "profit_factor": 1.492530238170483,
+      "trade_count": 275,
+      "max_dd_pct": 19.393561462311947,
+      "ulcer_index": 5.858664410637043,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05EM_05dp_short_bias_margin_hold5_0001",
+      "variant_label": "closest_short_bias_05em",
+      "model_family": null,
+      "return_pct": 64.534,
+      "profit_factor": 1.524862956878182,
+      "trade_count": 229,
+      "max_dd_pct": 20.184902857589613,
+      "ulcer_index": 6.0536260023680954,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 3,
+      "run_name": "05DL_05cc_margin_hold5_0001",
+      "variant_label": "lower_ulcer_alt_05dl",
+      "model_family": null,
+      "return_pct": 58.85199999999999,
+      "profit_factor": 1.431143866023941,
+      "trade_count": 267,
+      "max_dd_pct": 18.394359703384936,
+      "ulcer_index": 5.586436549646309,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 4,
+      "run_name": "05FN_ovr_proxy_0001",
+      "variant_label": "ovr_trend_proxy_logreg",
+      "model_family": "ovr_trend_proxy_logreg",
+      "return_pct": 24.552000000000003,
+      "profit_factor": 1.6891209161333782,
+      "trade_count": 61,
+      "max_dd_pct": 13.920616509721432,
+      "ulcer_index": 5.255862515473661,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "verdict": {
+    "status": "reject_keep_incumbent",
+    "selected_run_name": "05DP_05ca_margin0675_hold5_0001",
+    "reason": "no calibration-aware linear specialist cleared 05DP on holdout"
+  }
+}

@@ -1,0 +1,376 @@
+{
+  "generated_at_utc": "2026-03-30T16:27:27.644960+00:00",
+  "phase": "05FM_mt5_05dp_output_shape_batch",
+  "ranked_validation_runs": [
+    {
+      "rank": 1,
+      "run_name": "05FB_05ca_temp090_margin0675_hold5_0001",
+      "variant_label": "temp_sharp_090",
+      "temperature": 0.9,
+      "class_scales": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "class_biases": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "offline_test_macro_f1": 0.45726259597063584,
+      "offline_test_balanced_accuracy": 0.4685063923112125,
+      "offline_test_log_loss": 0.9685578543780659,
+      "offline_predicted_share": {
+        "short": 0.25342261904761904,
+        "flat": 0.5633928571428571,
+        "long": 0.1831845238095238
+      },
+      "return_pct": 124.44800000000001,
+      "profit_factor": 1.486862901585215,
+      "trade_count": 475,
+      "max_dd_pct": 13.362705072549637,
+      "ulcer_index": 6.707307770185801,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05DP_05ca_margin0675_hold5_0001",
+      "variant_label": "promoted_05dp",
+      "temperature": null,
+      "class_scales": null,
+      "class_biases": null,
+      "offline_test_macro_f1": null,
+      "offline_test_balanced_accuracy": null,
+      "offline_test_log_loss": null,
+      "offline_predicted_share": null,
+      "return_pct": 122.57000000000001,
+      "profit_factor": 1.5552837351744633,
+      "trade_count": 405,
+      "max_dd_pct": 12.603127209868777,
+      "ulcer_index": 7.2871377165059945,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 3,
+      "run_name": "05EM_05dp_short_bias_margin_hold5_0001",
+      "variant_label": "closest_short_bias_05em",
+      "temperature": null,
+      "class_scales": null,
+      "class_biases": null,
+      "offline_test_macro_f1": null,
+      "offline_test_balanced_accuracy": null,
+      "offline_test_log_loss": null,
+      "offline_predicted_share": null,
+      "return_pct": 109.204,
+      "profit_factor": 1.528879030617681,
+      "trade_count": 356,
+      "max_dd_pct": 13.0565608779599,
+      "ulcer_index": 7.98816665769608,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 4,
+      "run_name": "05DL_05cc_margin_hold5_0001",
+      "variant_label": "lower_ulcer_alt_05dl",
+      "temperature": null,
+      "class_scales": null,
+      "class_biases": null,
+      "offline_test_macro_f1": null,
+      "offline_test_balanced_accuracy": null,
+      "offline_test_log_loss": null,
+      "offline_predicted_share": null,
+      "return_pct": 99.68199999999999,
+      "profit_factor": 1.4448341722894575,
+      "trade_count": 393,
+      "max_dd_pct": 14.91613058377923,
+      "ulcer_index": 7.6350328355652985,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 5,
+      "run_name": "05FA_05ca_temp115_margin0675_hold5_0001",
+      "variant_label": "temp_soft_115",
+      "temperature": 1.15,
+      "class_scales": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "class_biases": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "offline_test_macro_f1": 0.45726259597063584,
+      "offline_test_balanced_accuracy": 0.4685063923112125,
+      "offline_test_log_loss": 0.9821464714340866,
+      "offline_predicted_share": {
+        "short": 0.25342261904761904,
+        "flat": 0.5633928571428571,
+        "long": 0.1831845238095238
+      },
+      "return_pct": 92.762,
+      "profit_factor": 1.4721529424938666,
+      "trade_count": 338,
+      "max_dd_pct": 12.466013767265919,
+      "ulcer_index": 5.761932448101724,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 6,
+      "run_name": "05FE_05ca_cls_scale_0001",
+      "variant_label": "short_scale_up_long_scale_down",
+      "temperature": 1.0,
+      "class_scales": [
+        1.08,
+        1.0,
+        0.92
+      ],
+      "class_biases": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "offline_test_macro_f1": 0.45259188529906763,
+      "offline_test_balanced_accuracy": 0.46904758634643895,
+      "offline_test_log_loss": 0.9744920330554682,
+      "offline_predicted_share": {
+        "short": 0.2910714285714286,
+        "flat": 0.5639880952380952,
+        "long": 0.1449404761904762
+      },
+      "return_pct": 65.192,
+      "profit_factor": 1.2421531992660224,
+      "trade_count": 440,
+      "max_dd_pct": 16.642925286530144,
+      "ulcer_index": 7.314183308224225,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 7,
+      "run_name": "05FD_05ca_flatup_longdown_margin0675_hold5_0001",
+      "variant_label": "flat_up_long_down_bias",
+      "temperature": 1.0,
+      "class_scales": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "class_biases": [
+        0.0,
+        0.1,
+        -0.1
+      ],
+      "offline_test_macro_f1": 0.4236644205632249,
+      "offline_test_balanced_accuracy": 0.45231208371135284,
+      "offline_test_log_loss": 0.9371010847460999,
+      "offline_predicted_share": {
+        "short": 0.3196428571428571,
+        "flat": 0.625297619047619,
+        "long": 0.05505952380952381
+      },
+      "return_pct": 64.77000000000001,
+      "profit_factor": 1.221579829632924,
+      "trade_count": 511,
+      "max_dd_pct": 22.942765905183006,
+      "ulcer_index": 12.980152738505323,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 8,
+      "run_name": "05FF_05ca_temp_shortbias_0001",
+      "variant_label": "soft_temp_short_bias_combo",
+      "temperature": 1.1,
+      "class_scales": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "class_biases": [
+        0.08,
+        0.0,
+        -0.08
+      ],
+      "offline_test_macro_f1": 0.3929316315016646,
+      "offline_test_balanced_accuracy": 0.45361144747049115,
+      "offline_test_log_loss": 0.9815845149830623,
+      "offline_predicted_share": {
+        "short": 0.430952380952381,
+        "flat": 0.5446428571428571,
+        "long": 0.024404761904761905
+      },
+      "return_pct": 62.43200000000001,
+      "profit_factor": 1.1538582863451756,
+      "trade_count": 722,
+      "max_dd_pct": 29.935208582895424,
+      "ulcer_index": 16.940784811837858,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 9,
+      "run_name": "05FC_05ca_shortup_longdown_margin0675_hold5_0001",
+      "variant_label": "short_up_long_down_bias",
+      "temperature": 1.0,
+      "class_scales": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "class_biases": [
+        0.1,
+        0.0,
+        -0.1
+      ],
+      "offline_test_macro_f1": 0.3872916774169553,
+      "offline_test_balanced_accuracy": 0.4532631106839442,
+      "offline_test_log_loss": 0.9772741063534777,
+      "offline_predicted_share": {
+        "short": 0.4433035714285714,
+        "flat": 0.5398809523809524,
+        "long": 0.01681547619047619
+      },
+      "return_pct": 49.11,
+      "profit_factor": 1.1025256679512818,
+      "trade_count": 840,
+      "max_dd_pct": 31.036379350986092,
+      "ulcer_index": 18.317315817939,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "failed_runs": [],
+  "ranked_test_runs": [
+    {
+      "rank": 1,
+      "run_name": "05DP_05ca_margin0675_hold5_0001",
+      "variant_label": "promoted_05dp",
+      "temperature": null,
+      "class_scales": null,
+      "class_biases": null,
+      "offline_test_macro_f1": null,
+      "offline_test_balanced_accuracy": null,
+      "offline_test_log_loss": null,
+      "offline_predicted_share": null,
+      "return_pct": 68.574,
+      "profit_factor": 1.492530238170483,
+      "trade_count": 275,
+      "max_dd_pct": 19.393561462311947,
+      "ulcer_index": 5.858664410637043,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05EM_05dp_short_bias_margin_hold5_0001",
+      "variant_label": "closest_short_bias_05em",
+      "temperature": null,
+      "class_scales": null,
+      "class_biases": null,
+      "offline_test_macro_f1": null,
+      "offline_test_balanced_accuracy": null,
+      "offline_test_log_loss": null,
+      "offline_predicted_share": null,
+      "return_pct": 64.534,
+      "profit_factor": 1.524862956878182,
+      "trade_count": 229,
+      "max_dd_pct": 20.184902857589613,
+      "ulcer_index": 6.0536260023680954,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 3,
+      "run_name": "05DL_05cc_margin_hold5_0001",
+      "variant_label": "lower_ulcer_alt_05dl",
+      "temperature": null,
+      "class_scales": null,
+      "class_biases": null,
+      "offline_test_macro_f1": null,
+      "offline_test_balanced_accuracy": null,
+      "offline_test_log_loss": null,
+      "offline_predicted_share": null,
+      "return_pct": 58.85199999999999,
+      "profit_factor": 1.431143866023941,
+      "trade_count": 267,
+      "max_dd_pct": 18.394359703384936,
+      "ulcer_index": 5.586436549646309,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 4,
+      "run_name": "05FB_05ca_temp090_margin0675_hold5_0001",
+      "variant_label": "temp_sharp_090",
+      "temperature": 0.9,
+      "class_scales": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "class_biases": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "offline_test_macro_f1": 0.45726259597063584,
+      "offline_test_balanced_accuracy": 0.4685063923112125,
+      "offline_test_log_loss": 0.9685578543780659,
+      "offline_predicted_share": {
+        "short": 0.25342261904761904,
+        "flat": 0.5633928571428571,
+        "long": 0.1831845238095238
+      },
+      "return_pct": 56.26,
+      "profit_factor": 1.3313153679449732,
+      "trade_count": 317,
+      "max_dd_pct": 17.94006858941924,
+      "ulcer_index": 6.098487707006911,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 5,
+      "run_name": "05FA_05ca_temp115_margin0675_hold5_0001",
+      "variant_label": "temp_soft_115",
+      "temperature": 1.15,
+      "class_scales": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "class_biases": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "offline_test_macro_f1": 0.45726259597063584,
+      "offline_test_balanced_accuracy": 0.4685063923112125,
+      "offline_test_log_loss": 0.9821464714340866,
+      "offline_predicted_share": {
+        "short": 0.25342261904761904,
+        "flat": 0.5633928571428571,
+        "long": 0.1831845238095238
+      },
+      "return_pct": 45.618,
+      "profit_factor": 1.4164734237770922,
+      "trade_count": 209,
+      "max_dd_pct": 17.01080478332756,
+      "ulcer_index": 5.6054746510403675,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "verdict": {
+    "status": "reject_keep_incumbent",
+    "selected_run_name": "05DP_05ca_margin0675_hold5_0001",
+    "reason": "no output-shape candidate cleared 05DP on holdout"
+  }
+}

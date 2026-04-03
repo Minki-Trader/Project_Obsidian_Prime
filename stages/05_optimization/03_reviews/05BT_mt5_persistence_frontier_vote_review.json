@@ -1,0 +1,251 @@
+{
+  "generated_at_utc": "2026-03-30T11:58:04.892363+00:00",
+  "phase": "05BT_mt5_persistence_frontier_vote_batch",
+  "ranked_validation_runs": [
+    {
+      "rank": 1,
+      "run_name": "05BQ_frontier_vote_w_bf_0001",
+      "variant_label": "vote_05w_bf_equal",
+      "voter_components": [
+        "base_05w",
+        "persistence_volatility"
+      ],
+      "voter_weights": [
+        1.0,
+        1.0
+      ],
+      "return_pct": 92.292,
+      "profit_factor": 1.4156585809636189,
+      "trade_count": 491,
+      "max_dd_pct": 10.966047750280698,
+      "ulcer_index": 6.491926923352973,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05W_no_trend_strength_0001",
+      "variant_label": "incumbent_05w",
+      "voter_components": [],
+      "voter_weights": [],
+      "return_pct": 91.16799999999999,
+      "profit_factor": 1.4091663899036866,
+      "trade_count": 493,
+      "max_dd_pct": 11.147223438038381,
+      "ulcer_index": 6.520512249938508,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 3,
+      "run_name": "05BF_trend_proxy_persistence_volatility_0001",
+      "variant_label": "persistence_volatility_reference",
+      "voter_components": [],
+      "voter_weights": [],
+      "return_pct": 89.422,
+      "profit_factor": 1.4011646164751062,
+      "trade_count": 487,
+      "max_dd_pct": 11.94626370657451,
+      "ulcer_index": 7.150574039547822,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 4,
+      "run_name": "05BR_frontier_vote_w_bb_bf_0001",
+      "variant_label": "vote_05w_bb_bf_equal",
+      "voter_components": [
+        "base_05w",
+        "persistence_only",
+        "persistence_volatility"
+      ],
+      "voter_weights": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "return_pct": 87.628,
+      "profit_factor": 1.3943760857628917,
+      "trade_count": 487,
+      "max_dd_pct": 12.169843175508376,
+      "ulcer_index": 7.249302500971241,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 5,
+      "run_name": "05BB_trend_proxy_persistence_only_0001",
+      "variant_label": "persistence_only_reference",
+      "voter_components": [],
+      "voter_weights": [],
+      "return_pct": 75.676,
+      "profit_factor": 1.3308037978003533,
+      "trade_count": 490,
+      "max_dd_pct": 12.34551853777547,
+      "ulcer_index": 7.260856883657908,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 6,
+      "run_name": "05BP_frontier_vote_w_bb_0001",
+      "variant_label": "vote_05w_bb_equal",
+      "voter_components": [
+        "base_05w",
+        "persistence_only"
+      ],
+      "voter_weights": [
+        1.0,
+        1.0
+      ],
+      "return_pct": 72.70599999999999,
+      "profit_factor": 1.3149109053266226,
+      "trade_count": 488,
+      "max_dd_pct": 13.085573092632746,
+      "ulcer_index": 7.820985071696121,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 7,
+      "run_name": "05BS_frontier_vote_w_bb_ah_0001",
+      "variant_label": "vote_05w_bb_fullproxy_weighted",
+      "voter_components": [
+        "base_05w",
+        "persistence_only",
+        "full_proxy"
+      ],
+      "voter_weights": [
+        2.0,
+        2.0,
+        1.0
+      ],
+      "return_pct": 70.768,
+      "profit_factor": 1.306485002295346,
+      "trade_count": 488,
+      "max_dd_pct": 13.02870090634441,
+      "ulcer_index": 7.878868355175794,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 8,
+      "run_name": "05AH_trend_proxy_sector_replacement_0001",
+      "variant_label": "full_proxy_reference",
+      "voter_components": [],
+      "voter_weights": [],
+      "return_pct": 62.2,
+      "profit_factor": 1.2631734829444967,
+      "trade_count": 489,
+      "max_dd_pct": 13.454463789194513,
+      "ulcer_index": 7.922504691164585,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "ranked_test_runs": [
+    {
+      "rank": 1,
+      "run_name": "05BB_trend_proxy_persistence_only_0001",
+      "variant_label": "persistence_only_reference",
+      "voter_components": [],
+      "voter_weights": [],
+      "return_pct": 44.792,
+      "profit_factor": 1.3192587312900927,
+      "trade_count": 328,
+      "max_dd_pct": 15.540489783653847,
+      "ulcer_index": 6.318342098095846,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05AH_trend_proxy_sector_replacement_0001",
+      "variant_label": "full_proxy_reference",
+      "voter_components": [],
+      "voter_weights": [],
+      "return_pct": 44.558,
+      "profit_factor": 1.310903026835429,
+      "trade_count": 331,
+      "max_dd_pct": 17.70395132211539,
+      "ulcer_index": 7.152147741539391,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 3,
+      "run_name": "05BF_trend_proxy_persistence_volatility_0001",
+      "variant_label": "persistence_volatility_reference",
+      "voter_components": [],
+      "voter_weights": [],
+      "return_pct": 40.461999999999996,
+      "profit_factor": 1.280134036749332,
+      "trade_count": 331,
+      "max_dd_pct": 17.016601562500004,
+      "ulcer_index": 6.99348295800412,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 4,
+      "run_name": "05BR_frontier_vote_w_bb_bf_0001",
+      "variant_label": "vote_05w_bb_bf_equal",
+      "voter_components": [
+        "base_05w",
+        "persistence_only",
+        "persistence_volatility"
+      ],
+      "voter_weights": [
+        1.0,
+        1.0,
+        1.0
+      ],
+      "return_pct": 38.266,
+      "profit_factor": 1.2634709924399952,
+      "trade_count": 332,
+      "max_dd_pct": 17.016601562500004,
+      "ulcer_index": 7.608321414647227,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 5,
+      "run_name": "05BQ_frontier_vote_w_bf_0001",
+      "variant_label": "vote_05w_bf_equal",
+      "voter_components": [
+        "base_05w",
+        "persistence_volatility"
+      ],
+      "voter_weights": [
+        1.0,
+        1.0
+      ],
+      "return_pct": 34.760000000000005,
+      "profit_factor": 1.232592374503165,
+      "trade_count": 335,
+      "max_dd_pct": 17.016601562500004,
+      "ulcer_index": 7.779995593288379,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 6,
+      "run_name": "05W_no_trend_strength_0001",
+      "variant_label": "incumbent_05w",
+      "voter_components": [],
+      "voter_weights": [],
+      "return_pct": 33.538000000000004,
+      "profit_factor": 1.225311047214683,
+      "trade_count": 336,
+      "max_dd_pct": 17.016601562500004,
+      "ulcer_index": 7.83439513405396,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "verdict": {
+    "status": "reject_keep_incumbent",
+    "selected_run_name": "05W_no_trend_strength_0001",
+    "reason": "no persistence-heavy voting blend cleared the current frontier on holdout"
+  }
+}

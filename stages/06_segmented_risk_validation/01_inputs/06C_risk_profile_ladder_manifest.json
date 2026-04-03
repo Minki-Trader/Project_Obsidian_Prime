@@ -1,0 +1,58 @@
+{
+  "generated_at_utc": "2026-04-01T09:46:59.497373+00:00",
+  "stage": "06_segmented_risk_validation",
+  "phase": "06C_risk_profile_ladder_batch",
+  "source_stage_id": "05ER",
+  "source_run_name": "05ER_05dp_short_bias_margin_hold4_0001",
+  "source_run_dir": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05ER_05dp_short_bias_margin_hold4_0001",
+  "assumption": {
+    "requested_range_pct": [
+      0.5,
+      3.0
+    ],
+    "effective_ladder_pct": [
+      0.5,
+      0.75,
+      1.0,
+      1.25,
+      1.5,
+      1.75,
+      2.0,
+      2.25,
+      2.5,
+      2.75
+    ],
+    "reason": "user requested 10x3 so the effective 0.25-step ladder uses 10 points"
+  },
+  "profiles": [
+    {
+      "token": "R",
+      "name": "practical",
+      "label_ko": "실전형",
+      "stop_long_atr_mult": 1.4,
+      "stop_short_atr_mult": 2.0
+    },
+    {
+      "token": "A",
+      "name": "aggressive",
+      "label_ko": "공격형",
+      "stop_long_atr_mult": 1.2,
+      "stop_short_atr_mult": 1.8
+    },
+    {
+      "token": "C",
+      "name": "conservative",
+      "label_ko": "보수형",
+      "stop_long_atr_mult": 1.7,
+      "stop_short_atr_mult": 2.4
+    }
+  ],
+  "overlay_defaults": {
+    "sizing_mode": "risk_pct",
+    "capital_base": "balance",
+    "stop_model": "atr",
+    "stop_execution_mode": "broker_native",
+    "stop_policy": "direction_split",
+    "stop_atr_period": 14
+  }
+}

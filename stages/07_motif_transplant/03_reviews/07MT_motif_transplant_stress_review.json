@@ -1,0 +1,88 @@
+{
+  "generated_at_utc": "2026-04-03T05:51:24.325569+00:00",
+  "stage": "07_motif_transplant",
+  "phase": "07MT_shifted_window_stress",
+  "ranked_candidates": [
+    {
+      "rank": 1,
+      "candidate_run_name": "07E_05et_fd_motif_0001",
+      "core_stage_id": "05ET",
+      "motif_stage_id": "05FD",
+      "avg_test_return_pct": 50.602,
+      "avg_holdout_b_return_pct": 13.848666666666668,
+      "min_holdout_b_return_pct": -13.669999999999998,
+      "best_window_token": "2501",
+      "worst_window_token": "2407",
+      "window_rows": [
+        {
+          "window_token": "2401",
+          "test_return_pct": 72.226,
+          "test_profit_factor": 1.4161682512244311,
+          "test_max_dd_pct": 10.612150478558826,
+          "holdout_b_return_pct": 17.382,
+          "holdout_b_profit_factor": 1.3775248685982364,
+          "segmented_results_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\07_motif_transplant\\02_runs\\active\\07W_2401_07e_01\\segmented_results.json"
+        },
+        {
+          "window_token": "2407",
+          "test_return_pct": -0.6819999999999988,
+          "test_profit_factor": 0.9962124577927847,
+          "test_max_dd_pct": 38.93143499437991,
+          "holdout_b_return_pct": -13.669999999999998,
+          "holdout_b_profit_factor": 0.6005960380996903,
+          "segmented_results_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\07_motif_transplant\\02_runs\\active\\07W_2407_07e_01\\segmented_results.json"
+        },
+        {
+          "window_token": "2501",
+          "test_return_pct": 80.262,
+          "test_profit_factor": 1.3555569337633342,
+          "test_max_dd_pct": 19.602479941648433,
+          "holdout_b_return_pct": 37.834,
+          "holdout_b_profit_factor": 1.7163902143452245,
+          "segmented_results_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\07_motif_transplant\\02_runs\\active\\07W_2501_07e_01\\segmented_results.json"
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "candidate_run_name": "07A_05er_fd_motif_0001",
+      "core_stage_id": "05ER",
+      "motif_stage_id": "05FD",
+      "avg_test_return_pct": 46.44200000000001,
+      "avg_holdout_b_return_pct": 13.058666666666667,
+      "min_holdout_b_return_pct": -13.118000000000002,
+      "best_window_token": "2401",
+      "worst_window_token": "2407",
+      "window_rows": [
+        {
+          "window_token": "2401",
+          "test_return_pct": 74.786,
+          "test_profit_factor": 1.4046817675133387,
+          "test_max_dd_pct": 10.982278055072632,
+          "holdout_b_return_pct": 16.41,
+          "holdout_b_profit_factor": 1.3227138643067846,
+          "segmented_results_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\07_motif_transplant\\02_runs\\active\\07W_2401_07a_01\\segmented_results.json"
+        },
+        {
+          "window_token": "2407",
+          "test_return_pct": -2.1579999999999986,
+          "test_profit_factor": 0.988300225537821,
+          "test_max_dd_pct": 39.39906642294968,
+          "holdout_b_return_pct": -13.118000000000002,
+          "holdout_b_profit_factor": 0.606986637905207,
+          "segmented_results_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\07_motif_transplant\\02_runs\\active\\07W_2407_07a_01\\segmented_results.json"
+        },
+        {
+          "window_token": "2501",
+          "test_return_pct": 66.69800000000001,
+          "test_profit_factor": 1.2914205320004195,
+          "test_max_dd_pct": 23.553856382978726,
+          "holdout_b_return_pct": 35.88400000000001,
+          "holdout_b_profit_factor": 1.7023133831761068,
+          "segmented_results_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\07_motif_transplant\\02_runs\\active\\07W_2501_07a_01\\segmented_results.json"
+        }
+      ]
+    }
+  ],
+  "selection_basis": "avg_holdout_b_return_pct_then_avg_test_return_pct"
+}

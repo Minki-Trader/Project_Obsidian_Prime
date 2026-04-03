@@ -1,0 +1,56 @@
+{
+  "generated_at_utc": "2026-03-31T16:17:05.377775+00:00",
+  "stage": "06_segmented_risk_validation",
+  "input_reference": {
+    "model_source_run": "stages/05_optimization/02_runs/active/05DP_05ca_margin0675_hold5_0001",
+    "risk_policy_reference_review": "stages/05_optimization/03_reviews/05GL_mt5_stop_policy_progression_review.md",
+    "direction_split_leader_run": "stages/05_optimization/02_runs/active/05GK_05dp_dirsplit_l14_s20_riskpct300_0001"
+  },
+  "overlay_defaults": {
+    "sizing_mode": "risk_pct",
+    "risk_pct": 2.0,
+    "capital_base": "balance",
+    "stop_model": "atr",
+    "stop_execution_mode": "broker_native",
+    "stop_policy": "direction_split",
+    "stop_long_atr_mult": 1.4,
+    "stop_short_atr_mult": 2.0,
+    "stop_atr_period": 14
+  },
+  "segment_scheme": {
+    "validation": [
+      [
+        "validation_q1",
+        "2025-01-01 00:00:00",
+        "2025-04-01 00:00:00"
+      ],
+      [
+        "validation_q2",
+        "2025-04-01 00:00:00",
+        "2025-07-01 00:00:00"
+      ],
+      [
+        "validation_q3",
+        "2025-07-01 00:00:00",
+        "2025-10-01 00:00:00"
+      ]
+    ],
+    "test": [
+      [
+        "holdout_a",
+        "2025-10-01 00:00:00",
+        "2025-11-16 00:00:00"
+      ],
+      [
+        "holdout_b",
+        "2025-11-16 00:00:00",
+        "2026-01-01 00:00:00"
+      ],
+      [
+        "holdout_c",
+        "2026-01-01 00:00:00",
+        "2026-03-01 00:00:00"
+      ]
+    ]
+  }
+}

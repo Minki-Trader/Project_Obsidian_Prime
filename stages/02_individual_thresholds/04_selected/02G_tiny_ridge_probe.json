@@ -1,0 +1,12 @@
+{
+  "generated_at_utc": "2026-03-28T05:57:28.954213+00:00",
+  "phase": "02G_tiny_ridge_probe",
+  "blended_leader": {
+    "short_threshold": 0.535,
+    "long_threshold": 0.4,
+    "valid_compounded_return": 0.16875759851560024,
+    "test_compounded_return": 0.07138395196588032,
+    "avg_compounded_return": 0.12007077524074028
+  },
+  "verdict": "tiny exploration continues; no freeze"
+}

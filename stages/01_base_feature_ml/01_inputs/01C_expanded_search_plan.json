@@ -1,0 +1,24 @@
+{
+  "generated_at_utc": "2026-03-26T14:59:25.869981+00:00",
+  "phase": "01C_expanded_search",
+  "horizons": [
+    3,
+    6,
+    12
+  ],
+  "bands": [
+    0.001,
+    0.00125,
+    0.0015
+  ],
+  "models": [
+    "logistic_regression",
+    "lightgbm"
+  ],
+  "modeling_start_utc": "2022-09-01T00:00:00+00:00",
+  "train_end_utc_exclusive": "2025-01-01T00:00:00+00:00",
+  "valid_end_utc_exclusive": "2025-10-01T00:00:00+00:00",
+  "test_end_utc_exclusive": "2026-03-01T00:00:00+00:00",
+  "selection_metric": "valid_macro_f1",
+  "note": "Validation-only search. Test remains untouched until 01D."
+}

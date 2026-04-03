@@ -1,0 +1,676 @@
+{
+  "generated_at_utc": "2026-03-31T16:39:08.108180+00:00",
+  "stage": "06_segmented_risk_validation",
+  "phase": "06B_pre_risk_pool_batch",
+  "source_root": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active",
+  "source_run_count": 131,
+  "source_runs": [
+    {
+      "stage_id": "05A",
+      "run_name": "05A_run_0001_margin_family_probe",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05A_run_0001_margin_family_probe"
+    },
+    {
+      "stage_id": "05B",
+      "run_name": "05B_run_0001_diff_family_probe",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05B_run_0001_diff_family_probe"
+    },
+    {
+      "stage_id": "05C",
+      "run_name": "05C_mt5_validation_margin_tightgap_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05C_mt5_validation_margin_tightgap_0001"
+    },
+    {
+      "stage_id": "05D",
+      "run_name": "05D_mt5_validation_diff_tightgap_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05D_mt5_validation_diff_tightgap_0001"
+    },
+    {
+      "stage_id": "05E",
+      "run_name": "05E_mt5_validation_margin_08250_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05E_mt5_validation_margin_08250_0001"
+    },
+    {
+      "stage_id": "05F",
+      "run_name": "05F_mt5_validation_margin_07250_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05F_mt5_validation_margin_07250_0001"
+    },
+    {
+      "stage_id": "05G",
+      "run_name": "05G_mt5_validation_diff_07250_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05G_mt5_validation_diff_07250_0001"
+    },
+    {
+      "stage_id": "05H",
+      "run_name": "05H_mt5_validation_diff_07000_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05H_mt5_validation_diff_07000_0001"
+    },
+    {
+      "stage_id": "05I",
+      "run_name": "05I_mt5_validation_margin_lightgbm_modelswap_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05I_mt5_validation_margin_lightgbm_modelswap_0001"
+    },
+    {
+      "stage_id": "05J",
+      "run_name": "05J_mt5_validation_margin_catboost_modelswap_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05J_mt5_validation_margin_catboost_modelswap_0001"
+    },
+    {
+      "stage_id": "05K",
+      "run_name": "05K_mt5_validation_margin_xgboost_modelswap_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05K_mt5_validation_margin_xgboost_modelswap_0001"
+    },
+    {
+      "stage_id": "05L",
+      "run_name": "05L_rf_margin_swap_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05L_rf_margin_swap_0001"
+    },
+    {
+      "stage_id": "05M",
+      "run_name": "05M_et_margin_swap_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05M_et_margin_swap_0001"
+    },
+    {
+      "stage_id": "05N",
+      "run_name": "05N_thr_margin_mix_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05N_thr_margin_mix_0001"
+    },
+    {
+      "stage_id": "05O",
+      "run_name": "05O_thr_diff_mix_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05O_thr_diff_mix_0001"
+    },
+    {
+      "stage_id": "05P",
+      "run_name": "05P_margin_diff_mix_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05P_margin_diff_mix_0001"
+    },
+    {
+      "stage_id": "05Q",
+      "run_name": "05Q_thr_margin_diff_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05Q_thr_margin_diff_0001"
+    },
+    {
+      "stage_id": "05R",
+      "run_name": "05R_semantic_interact_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05R_semantic_interact_0001"
+    },
+    {
+      "stage_id": "05S",
+      "run_name": "05S_no_price_return_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05S_no_price_return_0001"
+    },
+    {
+      "stage_id": "05T",
+      "run_name": "05T_no_ma_trend_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05T_no_ma_trend_0001"
+    },
+    {
+      "stage_id": "05U",
+      "run_name": "05U_no_momentum_osc_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05U_no_momentum_osc_0001"
+    },
+    {
+      "stage_id": "05V",
+      "run_name": "05V_no_vol_band_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05V_no_vol_band_0001"
+    },
+    {
+      "stage_id": "05W",
+      "run_name": "05W_no_trend_strength_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05W_no_trend_strength_0001"
+    },
+    {
+      "stage_id": "05X",
+      "run_name": "05X_no_session_ctx_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05X_no_session_ctx_0001"
+    },
+    {
+      "stage_id": "05Y",
+      "run_name": "05Y_no_risk_proxy_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05Y_no_risk_proxy_0001"
+    },
+    {
+      "stage_id": "05Z",
+      "run_name": "05Z_no_leader_rel_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05Z_no_leader_rel_0001"
+    },
+    {
+      "stage_id": "05AA",
+      "run_name": "05AA_no_breadth_disp_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AA_no_breadth_disp_0001"
+    },
+    {
+      "stage_id": "05AC",
+      "run_name": "05AC_drop_adx14_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AC_drop_adx14_0001"
+    },
+    {
+      "stage_id": "05AD",
+      "run_name": "05AD_drop_di_spread14_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AD_drop_di_spread14_0001"
+    },
+    {
+      "stage_id": "05AE",
+      "run_name": "05AE_drop_supertrend103_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AE_drop_supertrend103_0001"
+    },
+    {
+      "stage_id": "05AF",
+      "run_name": "05AF_drop_vortex_indicator_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AF_drop_vortex_indicator_0001"
+    },
+    {
+      "stage_id": "05AH",
+      "run_name": "05AH_trend_proxy_sector_replacement_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AH_trend_proxy_sector_replacement_0001"
+    },
+    {
+      "stage_id": "05AI",
+      "run_name": "05AI_trend_proxy_light_pb_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AI_trend_proxy_light_pb_0001"
+    },
+    {
+      "stage_id": "05AJ",
+      "run_name": "05AJ_trend_proxy_light_vb_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AJ_trend_proxy_light_vb_0001"
+    },
+    {
+      "stage_id": "05AK",
+      "run_name": "05AK_trend_proxy_light_core3_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AK_trend_proxy_light_core3_0001"
+    },
+    {
+      "stage_id": "05AL",
+      "run_name": "05AL_trend_proxy_light_pc_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AL_trend_proxy_light_pc_0001"
+    },
+    {
+      "stage_id": "05AN",
+      "run_name": "05AN_05w_diff_only_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AN_05w_diff_only_0001"
+    },
+    {
+      "stage_id": "05AO",
+      "run_name": "05AO_05w_combo_loose_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AO_05w_combo_loose_0001"
+    },
+    {
+      "stage_id": "05AP",
+      "run_name": "05AP_05w_thr_margin_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AP_05w_thr_margin_0001"
+    },
+    {
+      "stage_id": "05AQ",
+      "run_name": "05AQ_05w_thr_combo_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AQ_05w_thr_combo_0001"
+    },
+    {
+      "stage_id": "05AS",
+      "run_name": "05AS_05ai_thr_margin_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AS_05ai_thr_margin_0001"
+    },
+    {
+      "stage_id": "05AT",
+      "run_name": "05AT_05ai_thr_combo_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AT_05ai_thr_combo_0001"
+    },
+    {
+      "stage_id": "05AU",
+      "run_name": "05AU_05ai_diff_only_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AU_05ai_diff_only_0001"
+    },
+    {
+      "stage_id": "05AV",
+      "run_name": "05AV_05ai_combo_loose_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AV_05ai_combo_loose_0001"
+    },
+    {
+      "stage_id": "05AW",
+      "run_name": "05AW_05aj_thr_margin_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AW_05aj_thr_margin_0001"
+    },
+    {
+      "stage_id": "05AX",
+      "run_name": "05AX_05aj_thr_combo_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AX_05aj_thr_combo_0001"
+    },
+    {
+      "stage_id": "05AY",
+      "run_name": "05AY_05aj_diff_only_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AY_05aj_diff_only_0001"
+    },
+    {
+      "stage_id": "05AZ",
+      "run_name": "05AZ_05aj_combo_loose_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05AZ_05aj_combo_loose_0001"
+    },
+    {
+      "stage_id": "05BB",
+      "run_name": "05BB_trend_proxy_persistence_only_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05BB_trend_proxy_persistence_only_0001"
+    },
+    {
+      "stage_id": "05BC",
+      "run_name": "05BC_trend_proxy_breakout_only_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05BC_trend_proxy_breakout_only_0001"
+    },
+    {
+      "stage_id": "05BD",
+      "run_name": "05BD_trend_proxy_volatility_only_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05BD_trend_proxy_volatility_only_0001"
+    },
+    {
+      "stage_id": "05BE",
+      "run_name": "05BE_trend_proxy_breadth_only_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05BE_trend_proxy_breadth_only_0001"
+    },
+    {
+      "stage_id": "05BF",
+      "run_name": "05BF_trend_proxy_persistence_volatility_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05BF_trend_proxy_persistence_volatility_0001"
+    },
+    {
+      "stage_id": "05BG",
+      "run_name": "05BG_trend_proxy_breakout_breadth_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05BG_trend_proxy_breakout_breadth_0001"
+    },
+    {
+      "stage_id": "05BI",
+      "run_name": "05BI_05w_short_bias_margin_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05BI_05w_short_bias_margin_0001"
+    },
+    {
+      "stage_id": "05BJ",
+      "run_name": "05BJ_05w_short_bias_diff_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05BJ_05w_short_bias_diff_0001"
+    },
+    {
+      "stage_id": "05BK",
+      "run_name": "05BK_05w_long_bias_margin_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05BK_05w_long_bias_margin_0001"
+    },
+    {
+      "stage_id": "05BL",
+      "run_name": "05BL_05w_long_bias_diff_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05BL_05w_long_bias_diff_0001"
+    },
+    {
+      "stage_id": "05BM",
+      "run_name": "05BM_05w_balanced_tight_margin_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05BM_05w_balanced_tight_margin_0001"
+    },
+    {
+      "stage_id": "05BN",
+      "run_name": "05BN_05w_balanced_tight_diff_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05BN_05w_balanced_tight_diff_0001"
+    },
+    {
+      "stage_id": "05BP",
+      "run_name": "05BP_frontier_vote_w_bb_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05BP_frontier_vote_w_bb_0001"
+    },
+    {
+      "stage_id": "05BQ",
+      "run_name": "05BQ_frontier_vote_w_bf_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05BQ_frontier_vote_w_bf_0001"
+    },
+    {
+      "stage_id": "05BR",
+      "run_name": "05BR_frontier_vote_w_bb_bf_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05BR_frontier_vote_w_bb_bf_0001"
+    },
+    {
+      "stage_id": "05BS",
+      "run_name": "05BS_frontier_vote_w_bb_ah_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05BS_frontier_vote_w_bb_ah_0001"
+    },
+    {
+      "stage_id": "05BU",
+      "run_name": "05BU_frontier_stack_w_bf_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05BU_frontier_stack_w_bf_0001"
+    },
+    {
+      "stage_id": "05BV",
+      "run_name": "05BV_frontier_stack_w_bb_bf_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05BV_frontier_stack_w_bb_bf_0001"
+    },
+    {
+      "stage_id": "05BW",
+      "run_name": "05BW_frontier_stack_w_bb_ah_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05BW_frontier_stack_w_bb_ah_0001"
+    },
+    {
+      "stage_id": "05BZ",
+      "run_name": "05BZ_trend_proxy_persistence_downside_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05BZ_trend_proxy_persistence_downside_0001"
+    },
+    {
+      "stage_id": "05CA",
+      "run_name": "05CA_trend_proxy_persistence_riskoff_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05CA_trend_proxy_persistence_riskoff_0001"
+    },
+    {
+      "stage_id": "05CB",
+      "run_name": "05CB_trend_proxy_persistence_leader_drag_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05CB_trend_proxy_persistence_leader_drag_0001"
+    },
+    {
+      "stage_id": "05CC",
+      "run_name": "05CC_trend_proxy_persistence_downside_riskoff_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05CC_trend_proxy_persistence_downside_riskoff_0001"
+    },
+    {
+      "stage_id": "05CD",
+      "run_name": "05CD_trend_proxy_persistence_session_riskoff_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05CD_trend_proxy_persistence_session_riskoff_0001"
+    },
+    {
+      "stage_id": "05CY",
+      "run_name": "05CY_mt5_validation_margin_elasticnet_logreg_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05CY_mt5_validation_margin_elasticnet_logreg_0001"
+    },
+    {
+      "stage_id": "05CZ",
+      "run_name": "05CZ_mt5_validation_margin_pca_logreg_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05CZ_mt5_validation_margin_pca_logreg_0001"
+    },
+    {
+      "stage_id": "05DA",
+      "run_name": "05DA_mt5_validation_margin_regularized_vote_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DA_mt5_validation_margin_regularized_vote_0001"
+    },
+    {
+      "stage_id": "05DE",
+      "run_name": "05DE_05bb_margin_hold2_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DE_05bb_margin_hold2_0001"
+    },
+    {
+      "stage_id": "05DF",
+      "run_name": "05DF_05bb_margin_hold4_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DF_05bb_margin_hold4_0001"
+    },
+    {
+      "stage_id": "05DG",
+      "run_name": "05DG_05bb_margin_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DG_05bb_margin_hold5_0001"
+    },
+    {
+      "stage_id": "05DH",
+      "run_name": "05DH_05bf_margin_hold2_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DH_05bf_margin_hold2_0001"
+    },
+    {
+      "stage_id": "05DI",
+      "run_name": "05DI_05bf_margin_hold4_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DI_05bf_margin_hold4_0001"
+    },
+    {
+      "stage_id": "05DJ",
+      "run_name": "05DJ_05bf_margin_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DJ_05bf_margin_hold5_0001"
+    },
+    {
+      "stage_id": "05DL",
+      "run_name": "05DL_05cc_margin_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DL_05cc_margin_hold5_0001"
+    },
+    {
+      "stage_id": "05DM",
+      "run_name": "05DM_05cc_margin_hold4_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DM_05cc_margin_hold4_0001"
+    },
+    {
+      "stage_id": "05DN",
+      "run_name": "05DN_05ca_margin_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DN_05ca_margin_hold5_0001"
+    },
+    {
+      "stage_id": "05DP",
+      "run_name": "05DP_05ca_margin0675_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DP_05ca_margin0675_hold5_0001"
+    },
+    {
+      "stage_id": "05DQ",
+      "run_name": "05DQ_05ca_margin0725_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DQ_05ca_margin0725_hold5_0001"
+    },
+    {
+      "stage_id": "05DR",
+      "run_name": "05DR_05cc_margin0675_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DR_05cc_margin0675_hold5_0001"
+    },
+    {
+      "stage_id": "05DS",
+      "run_name": "05DS_05cc_margin0725_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DS_05cc_margin0725_hold5_0001"
+    },
+    {
+      "stage_id": "05DT",
+      "run_name": "05DT_05ca_margin0700_hold6_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DT_05ca_margin0700_hold6_0001"
+    },
+    {
+      "stage_id": "05DU",
+      "run_name": "05DU_05cc_margin0700_hold6_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DU_05cc_margin0700_hold6_0001"
+    },
+    {
+      "stage_id": "05DX",
+      "run_name": "05DX_05ca_margin0650_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DX_05ca_margin0650_hold5_0001"
+    },
+    {
+      "stage_id": "05DY",
+      "run_name": "05DY_05ca_margin06625_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DY_05ca_margin06625_hold5_0001"
+    },
+    {
+      "stage_id": "05DZ",
+      "run_name": "05DZ_05ca_margin06875_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DZ_05ca_margin06875_hold5_0001"
+    },
+    {
+      "stage_id": "05EA",
+      "run_name": "05EA_05ca_margin0675_hold4_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05EA_05ca_margin0675_hold4_0001"
+    },
+    {
+      "stage_id": "05EB",
+      "run_name": "05EB_05ca_margin0675_hold6_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05EB_05ca_margin0675_hold6_0001"
+    },
+    {
+      "stage_id": "05EC",
+      "run_name": "05EC_05ca_plus_volatility_margin0675_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05EC_05ca_plus_volatility_margin0675_hold5_0001"
+    },
+    {
+      "stage_id": "05ED",
+      "run_name": "05ED_05ca_plus_breakout_margin0675_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05ED_05ca_plus_breakout_margin0675_hold5_0001"
+    },
+    {
+      "stage_id": "05EE",
+      "run_name": "05EE_05ca_plus_downside_margin0675_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05EE_05ca_plus_downside_margin0675_hold5_0001"
+    },
+    {
+      "stage_id": "05EF",
+      "run_name": "05EF_05ca_plus_leader_margin0675_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05EF_05ca_plus_leader_margin0675_hold5_0001"
+    },
+    {
+      "stage_id": "05EG",
+      "run_name": "05EG_05ca_plus_session_margin0675_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05EG_05ca_plus_session_margin0675_hold5_0001"
+    },
+    {
+      "stage_id": "05EH",
+      "run_name": "05EH_05ca_plus_leader_session_margin0675_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05EH_05ca_plus_leader_session_margin0675_hold5_0001"
+    },
+    {
+      "stage_id": "05EK",
+      "run_name": "05EK_05dp_diff_only_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05EK_05dp_diff_only_hold5_0001"
+    },
+    {
+      "stage_id": "05EL",
+      "run_name": "05EL_05dp_combo_loose_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05EL_05dp_combo_loose_hold5_0001"
+    },
+    {
+      "stage_id": "05EM",
+      "run_name": "05EM_05dp_short_bias_margin_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05EM_05dp_short_bias_margin_hold5_0001"
+    },
+    {
+      "stage_id": "05EN",
+      "run_name": "05EN_05dp_short_bias_diff_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05EN_05dp_short_bias_diff_hold5_0001"
+    },
+    {
+      "stage_id": "05EO",
+      "run_name": "05EO_05dp_short_bias_combo_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05EO_05dp_short_bias_combo_hold5_0001"
+    },
+    {
+      "stage_id": "05EP",
+      "run_name": "05EP_05dp_balanced_tight_margin_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05EP_05dp_balanced_tight_margin_hold5_0001"
+    },
+    {
+      "stage_id": "05ER",
+      "run_name": "05ER_05dp_short_bias_margin_hold4_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05ER_05dp_short_bias_margin_hold4_0001"
+    },
+    {
+      "stage_id": "05ES",
+      "run_name": "05ES_05dp_stronger_long_suppression_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05ES_05dp_stronger_long_suppression_hold5_0001"
+    },
+    {
+      "stage_id": "05ET",
+      "run_name": "05ET_05dp_stronger_long_suppression_hold4_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05ET_05dp_stronger_long_suppression_hold4_0001"
+    },
+    {
+      "stage_id": "05EU",
+      "run_name": "05EU_05dp_near_short_only_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05EU_05dp_near_short_only_hold5_0001"
+    },
+    {
+      "stage_id": "05EV",
+      "run_name": "05EV_05dp_short_bias_combo_hold4_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05EV_05dp_short_bias_combo_hold4_0001"
+    },
+    {
+      "stage_id": "05EW",
+      "run_name": "05EW_05dp_balanced_tight_combo_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05EW_05dp_balanced_tight_combo_hold5_0001"
+    },
+    {
+      "stage_id": "05FA",
+      "run_name": "05FA_05ca_temp115_margin0675_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05FA_05ca_temp115_margin0675_hold5_0001"
+    },
+    {
+      "stage_id": "05FB",
+      "run_name": "05FB_05ca_temp090_margin0675_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05FB_05ca_temp090_margin0675_hold5_0001"
+    },
+    {
+      "stage_id": "05FC",
+      "run_name": "05FC_05ca_shortup_longdown_margin0675_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05FC_05ca_shortup_longdown_margin0675_hold5_0001"
+    },
+    {
+      "stage_id": "05FD",
+      "run_name": "05FD_05ca_flatup_longdown_margin0675_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05FD_05ca_flatup_longdown_margin0675_hold5_0001"
+    },
+    {
+      "stage_id": "05FE",
+      "run_name": "05FE_05ca_cls_scale_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05FE_05ca_cls_scale_0001"
+    },
+    {
+      "stage_id": "05FE",
+      "run_name": "05FE_05ca_shortscale_longscale_margin0675_hold5_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05FE_05ca_shortscale_longscale_margin0675_hold5_0001"
+    },
+    {
+      "stage_id": "05FF",
+      "run_name": "05FF_05ca_temp_shortbias_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05FF_05ca_temp_shortbias_0001"
+    },
+    {
+      "stage_id": "05FN",
+      "run_name": "05FN_ovr_proxy_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05FN_ovr_proxy_0001"
+    },
+    {
+      "stage_id": "05FO",
+      "run_name": "05FO_cal_proxy_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05FO_cal_proxy_0001"
+    },
+    {
+      "stage_id": "05FP",
+      "run_name": "05FP_cal_ovr_proxy_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05FP_cal_ovr_proxy_0001"
+    },
+    {
+      "stage_id": "05FR",
+      "run_name": "05FR_05dp_flatexit052_hold1_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05FR_05dp_flatexit052_hold1_0001"
+    },
+    {
+      "stage_id": "05FS",
+      "run_name": "05FS_05dp_flatexit055_hold1_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05FS_05dp_flatexit055_hold1_0001"
+    },
+    {
+      "stage_id": "05FT",
+      "run_name": "05FT_05dp_flatexit055_hold2_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05FT_05dp_flatexit055_hold2_0001"
+    },
+    {
+      "stage_id": "05FU",
+      "run_name": "05FU_05dp_flatexit058_hold1_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05FU_05dp_flatexit058_hold1_0001"
+    },
+    {
+      "stage_id": "05FV",
+      "run_name": "05FV_05dp_flatexit060_hold2_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05FV_05dp_flatexit060_hold2_0001"
+    },
+    {
+      "stage_id": "05FX",
+      "run_name": "05FX_05dp_flatexit045_hold1_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05FX_05dp_flatexit045_hold1_0001"
+    },
+    {
+      "stage_id": "05FY",
+      "run_name": "05FY_05dp_flatexit048_hold1_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05FY_05dp_flatexit048_hold1_0001"
+    },
+    {
+      "stage_id": "05FZ",
+      "run_name": "05FZ_05dp_flatexit050_hold1_0001",
+      "path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05FZ_05dp_flatexit050_hold1_0001"
+    }
+  ],
+  "overlay_defaults": {
+    "sizing_mode": "risk_pct",
+    "risk_pct": 2.0,
+    "capital_base": "balance",
+    "stop_model": "atr",
+    "stop_execution_mode": "broker_native",
+    "stop_policy": "direction_split",
+    "stop_long_atr_mult": 1.4,
+    "stop_short_atr_mult": 2.0,
+    "stop_atr_period": 14
+  },
+  "segment_scheme_name": "validation_q3_holdout_3way"
+}

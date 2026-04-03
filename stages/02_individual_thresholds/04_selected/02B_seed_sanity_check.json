@@ -1,0 +1,30 @@
+{
+  "generated_at_utc": "2026-03-28T04:43:19.355370+00:00",
+  "phase": "02B_seed_sanity_check",
+  "current_preferred_seed": {
+    "short_threshold": 0.6,
+    "long_threshold": 0.4,
+    "valid_compounded_return": 0.1342407603455366
+  },
+  "balanced_challenger": {
+    "short_threshold": 0.45,
+    "long_threshold": 0.5,
+    "candidate_rows": 11756.0,
+    "trade_count": 573.0,
+    "long_trade_count": 183.0,
+    "short_trade_count": 390.0,
+    "no_trade_rows": 10037.0,
+    "dual_signal_rows": 23.0,
+    "valid_hit_rate": 0.4973821989528796,
+    "valid_mean_trade_return": 0.0001664917618748,
+    "valid_median_trade_return": -5.060639108123155e-05,
+    "valid_sum_return": 0.0953997795543117,
+    "valid_compounded_return": 0.0913737225176947,
+    "valid_max_drawdown": -0.0667109997498281,
+    "long_share": 0.3193717277486911,
+    "short_share": 0.680628272251309,
+    "minority_share": 0.3193717277486911,
+    "direction_trade_gap": 207.0
+  },
+  "verdict": "keep current 02A seed; balanced challenger stays as reference"
+}

@@ -1,0 +1,63 @@
+{
+  "generated_at_utc": "2026-03-28T05:57:28.952073+00:00",
+  "phase": "02G_tiny_ridge_probe",
+  "source_run_dir": "stages\\01_base_feature_ml\\02_runs\\archived\\01C_run_0001_h03_band000125_logreg",
+  "final_run_dir": "stages\\01_base_feature_ml\\02_runs\\active\\01D_run_0001_final_h03_band000125_logreg",
+  "short_thresholds": [
+    0.535,
+    0.5375,
+    0.54,
+    0.5425,
+    0.545,
+    0.5475,
+    0.55
+  ],
+  "long_thresholds": [
+    0.395,
+    0.396,
+    0.397,
+    0.398,
+    0.399,
+    0.4
+  ],
+  "probe_pair_count": 42,
+  "blended_leader": {
+    "short_threshold": 0.535,
+    "long_threshold": 0.4,
+    "valid_trade_count": 956,
+    "valid_long_trade_count": 896,
+    "valid_short_trade_count": 60,
+    "valid_compounded_return": 0.16875759851560024,
+    "valid_mean_trade_return": 0.00017241102425486873,
+    "valid_max_drawdown": -0.0679522243017524,
+    "test_trade_count": 401,
+    "test_long_trade_count": 375,
+    "test_short_trade_count": 26,
+    "test_compounded_return": 0.07138395196588032,
+    "test_mean_trade_return": 0.00017583213923680777,
+    "test_max_drawdown": -0.031982325087309804,
+    "avg_compounded_return": 0.12007077524074028,
+    "both_positive": true,
+    "abs_valid_test_gap": 0.09737364654971992
+  },
+  "top_test_pair": {
+    "short_threshold": 0.55,
+    "long_threshold": 0.395,
+    "valid_trade_count": 999,
+    "valid_long_trade_count": 957,
+    "valid_short_trade_count": 42,
+    "valid_compounded_return": 0.058151633025467886,
+    "valid_mean_trade_return": 6.563061545813795e-05,
+    "valid_max_drawdown": -0.07591991033208123,
+    "test_trade_count": 430,
+    "test_long_trade_count": 412,
+    "test_short_trade_count": 18,
+    "test_compounded_return": 0.07975510377848827,
+    "test_mean_trade_return": 0.00018222337793572272,
+    "test_max_drawdown": -0.028609779052040762,
+    "avg_compounded_return": 0.06895336840197808,
+    "both_positive": true,
+    "abs_valid_test_gap": 0.021603470753020382
+  },
+  "verdict": "the tiny ridge still leans toward long_threshold at 0.400 while short_threshold works best at the lower edge of the current pocket"
+}

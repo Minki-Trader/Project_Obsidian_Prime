@@ -1,0 +1,62 @@
+{
+  "generated_at_utc": "2026-03-28T04:32:36.218403+00:00",
+  "phase": "02A_threshold_sweep",
+  "selection_metric": "valid_compounded_return",
+  "search_source_model": "01C_run_0001_h03_band000125_logreg",
+  "reserved_final_confirmation_model": "01D_run_0001_final_h03_band000125_logreg",
+  "selected_threshold_seed": {
+    "short_threshold": 0.6,
+    "long_threshold": 0.4,
+    "candidate_rows": 11756.0,
+    "trade_count": 925.0,
+    "long_trade_count": 915.0,
+    "short_trade_count": 10.0,
+    "no_trade_rows": 8981.0,
+    "dual_signal_rows": 0.0,
+    "valid_hit_rate": 0.5297297297297298,
+    "valid_mean_trade_return": 0.0001455859218377086,
+    "valid_median_trade_return": 0.0001966129348498491,
+    "valid_sum_return": 0.13466697769988045,
+    "valid_compounded_return": 0.13424076034553667,
+    "valid_max_drawdown": -0.0759199103320819
+  },
+  "runner_up": {
+    "short_threshold": 0.55,
+    "long_threshold": 0.4,
+    "candidate_rows": 11756.0,
+    "trade_count": 946.0,
+    "long_trade_count": 903.0,
+    "short_trade_count": 43.0,
+    "no_trade_rows": 8918.0,
+    "dual_signal_rows": 9.0,
+    "valid_hit_rate": 0.5317124735729387,
+    "valid_mean_trade_return": 0.00013415403673991088,
+    "valid_median_trade_return": 0.00025566078062444486,
+    "valid_sum_return": 0.1269097187559557,
+    "valid_compounded_return": 0.12542047039807547,
+    "valid_max_drawdown": -0.0759199103320819
+  },
+  "default_reference_threshold": {
+    "short_threshold": 0.3333333333333333,
+    "long_threshold": 0.3333333333333333,
+    "trade_count": 2292,
+    "valid_compounded_return": -0.12695285506672582
+  },
+  "best_symmetric_threshold_pair": {
+    "short_threshold": 0.45,
+    "long_threshold": 0.45,
+    "candidate_rows": 11756.0,
+    "trade_count": 766.0,
+    "long_trade_count": 400.0,
+    "short_trade_count": 366.0,
+    "no_trade_rows": 9458.0,
+    "dual_signal_rows": 58.0,
+    "valid_hit_rate": 0.4908616187989556,
+    "valid_mean_trade_return": 3.7266888450842164e-05,
+    "valid_median_trade_return": -7.347980044858371e-05,
+    "valid_sum_return": 0.0285464365533451,
+    "valid_compounded_return": 0.01994990092404403,
+    "valid_max_drawdown": -0.06901601086507447
+  },
+  "next_step": "later confirmation or carry-forward"
+}

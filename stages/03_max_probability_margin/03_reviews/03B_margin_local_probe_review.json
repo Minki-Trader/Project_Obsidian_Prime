@@ -1,0 +1,62 @@
+{
+  "generated_at_utc": "2026-03-28T06:46:54.857687+00:00",
+  "phase": "03B_margin_local_probe",
+  "source_search_model": "01C_run_0001_h03_band000125_logreg",
+  "final_model_run_name": "01D_run_0001_final_h03_band000125_logreg",
+  "fixed_thresholds": {
+    "short_threshold": 0.3333333333333333,
+    "long_threshold": 0.3333333333333333
+  },
+  "min_margins": [
+    0.065,
+    0.07,
+    0.0725,
+    0.075,
+    0.0775,
+    0.08,
+    0.0825,
+    0.085,
+    0.09
+  ],
+  "blended_leader": {
+    "min_margin": 0.07,
+    "valid_trade_count": 940,
+    "valid_long_trade_count": 470,
+    "valid_short_trade_count": 470,
+    "valid_margin_rejected_rows": 3499,
+    "valid_compounded_return": 0.038468079346116735,
+    "valid_mean_trade_return": 4.749334264166019e-05,
+    "valid_max_drawdown": -0.08559613493453211,
+    "test_trade_count": 304,
+    "test_long_trade_count": 91,
+    "test_short_trade_count": 213,
+    "test_margin_rejected_rows": 2303,
+    "test_compounded_return": 0.09846579383353515,
+    "test_mean_trade_return": 0.0003130628178762217,
+    "test_max_drawdown": -0.041178102286734464,
+    "avg_compounded_return": 0.06846693658982594,
+    "abs_valid_test_gap": 0.05999771448741842,
+    "both_positive": true
+  },
+  "top_test_read": {
+    "min_margin": 0.065,
+    "valid_trade_count": 1008,
+    "valid_long_trade_count": 505,
+    "valid_short_trade_count": 503,
+    "valid_margin_rejected_rows": 3306,
+    "valid_compounded_return": -0.02216519070373213,
+    "valid_mean_trade_return": -1.5072512856618297e-05,
+    "valid_max_drawdown": -0.10122740210146774,
+    "test_trade_count": 340,
+    "test_long_trade_count": 104,
+    "test_short_trade_count": 236,
+    "test_margin_rejected_rows": 2199,
+    "test_compounded_return": 0.10939378197029503,
+    "test_mean_trade_return": 0.000309346720848407,
+    "test_max_drawdown": -0.03858815351366485,
+    "avg_compounded_return": 0.04361429563328145,
+    "abs_valid_test_gap": 0.13155897267402716,
+    "both_positive": false
+  },
+  "verdict": "the useful margin-only pocket remains in the higher-margin zone; keep exploration small and separate from threshold logic"
+}

@@ -1,0 +1,36 @@
+{
+  "generated_at_utc": "2026-03-26T14:55:26.381181+00:00",
+  "phase": "01B_model_compare",
+  "frozen_horizon_bars": 6,
+  "frozen_band": 0.00125,
+  "selection_metric": "valid_macro_f1",
+  "primary_candidate": {
+    "run_name": "01B_run_0004_h06_band000125_logreg",
+    "model_family": "logistic_regression",
+    "train_rows": 34695,
+    "valid_rows": 11756,
+    "test_rows": 6720,
+    "valid_macro_f1": 0.4377568428760091,
+    "valid_balanced_accuracy": 0.43880858321717303,
+    "valid_accuracy": 0.48860156515821707,
+    "valid_log_loss": 1.0352598870524075,
+    "best_iteration": 0
+  },
+  "secondary_candidate": {
+    "run_name": "01B_run_0001_h06_band000125_lightgbm",
+    "model_family": "lightgbm",
+    "train_rows": 34695,
+    "valid_rows": 11756,
+    "test_rows": 6720,
+    "valid_macro_f1": 0.4357346866182666,
+    "valid_balanced_accuracy": 0.4359602548869244,
+    "valid_accuracy": 0.4809458999659748,
+    "valid_log_loss": 1.018597728675886,
+    "best_iteration": 86
+  },
+  "archived_runs": [
+    "01B_run_0002_h06_band000125_xgboost",
+    "01B_run_0003_h06_band000125_catboost"
+  ],
+  "next_phase": "01C_expanded_search"
+}

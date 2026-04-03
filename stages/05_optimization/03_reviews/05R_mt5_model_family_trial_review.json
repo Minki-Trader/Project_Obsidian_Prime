@@ -1,0 +1,81 @@
+{
+  "generated_at_utc": "2026-03-29T16:35:41.740034+00:00",
+  "phase": "stage05_mt5_model_family_trial",
+  "model_family": "semantic_interaction_logreg",
+  "logic_reference_run_name": "03E_mt5_validation_baseline_0001",
+  "logic_filter": {
+    "type": "max_probability_margin",
+    "min_margin": 0.07
+  },
+  "baseline_stage01_test_confirmation": {
+    "run_name": "01D_run_0001_final_h03_band000125_logreg",
+    "model_family": "logistic_regression",
+    "test_rows": 6720,
+    "test_macro_f1": 0.45812929996514556,
+    "test_balanced_accuracy": 0.46935993441877705,
+    "test_accuracy": 0.5769345238095238,
+    "test_log_loss": 0.9727633173365045
+  },
+  "trial_model_test_confirmation": {
+    "run_name": "05R_semantic_interact_0001",
+    "model_family": "semantic_interaction_logreg",
+    "test_rows": 6720,
+    "test_macro_f1": 0.4606129567547672,
+    "test_balanced_accuracy": 0.47327606091901836,
+    "test_accuracy": 0.5708333333333333,
+    "test_log_loss": 0.9524655531761608
+  },
+  "ranked_validation_runs": [
+    {
+      "rank": 1,
+      "run_name": "05R_semantic_interact_0001",
+      "return_pct": 75.154,
+      "profit_factor": 1.191124561314277,
+      "trade_count": 847,
+      "max_dd_pct": 21.80504885694906,
+      "ulcer_index": 8.030834928266234,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "03E_mt5_validation_baseline_0001",
+      "return_pct": 67.664,
+      "profit_factor": 1.2655010319633986,
+      "trade_count": 530,
+      "max_dd_pct": 12.201705598813493,
+      "ulcer_index": 3.556990606308009,
+      "ready_row_gap": 0,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "ranked_test_runs": [
+    {
+      "rank": 1,
+      "run_name": "03E_mt5_validation_baseline_0001",
+      "return_pct": 7.072000000000001,
+      "profit_factor": 1.0440579132298338,
+      "trade_count": 357,
+      "max_dd_pct": 20.022800086483088,
+      "ulcer_index": 8.19108033290302,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    },
+    {
+      "rank": 2,
+      "run_name": "05R_semantic_interact_0001",
+      "return_pct": -1.0219999999999998,
+      "profit_factor": 0.9960358403475429,
+      "trade_count": 527,
+      "max_dd_pct": 25.487055896758136,
+      "ulcer_index": 9.276271552397697,
+      "ready_row_gap": 35,
+      "unexpected_skip_count": 0
+    }
+  ],
+  "verdict": {
+    "status": "reject_keep_incumbent",
+    "selected_run_name": "03E_mt5_validation_baseline_0001",
+    "reason": "holdout still favors the incumbent logic/model bundle"
+  }
+}

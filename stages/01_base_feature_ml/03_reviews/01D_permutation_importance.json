@@ -1,0 +1,125 @@
+{
+  "generated_at_utc": "2026-03-26T15:36:33.674670+00:00",
+  "phase": "01D_feature_importance_review",
+  "run_name": "01D_run_0001_final_h03_band000125_logreg",
+  "model_family": "logistic_regression",
+  "dataset_path": "stages\\01_base_feature_ml\\01_inputs\\stage01c_h03_band000125_dataset.parquet",
+  "split_used": "test",
+  "scoring": "f1_macro",
+  "n_repeats": 20,
+  "random_state": 42,
+  "test_row_count": 6720,
+  "base_metrics": {
+    "macro_f1": 0.45812929996514556,
+    "balanced_accuracy": 0.46935993441877705,
+    "accuracy": 0.5769345238095238,
+    "log_loss": 0.9727633173365045
+  },
+  "top_features": [
+    {
+      "feature": "atr_50",
+      "importance_mean": 0.06350882581775287,
+      "importance_std": 0.0035040301837173924,
+      "rank": 1,
+      "importance_pct_of_base_macro_f1": 0.13862642232789874
+    },
+    {
+      "feature": "ema9_ema20_diff",
+      "importance_mean": 0.06075515382758234,
+      "importance_std": 0.004722947232694692,
+      "rank": 2,
+      "importance_pct_of_base_macro_f1": 0.1326157349730842
+    },
+    {
+      "feature": "close_ema20_ratio",
+      "importance_mean": 0.03901007183794906,
+      "importance_std": 0.005108108195734377,
+      "rank": 3,
+      "importance_pct_of_base_macro_f1": 0.08515079005188479
+    },
+    {
+      "feature": "close_ema50_ratio",
+      "importance_mean": 0.03538672304006303,
+      "importance_std": 0.0037113169717777777,
+      "rank": 4,
+      "importance_pct_of_base_macro_f1": 0.07724178096173995
+    },
+    {
+      "feature": "ema20_ema50_diff",
+      "importance_mean": 0.03487067126172696,
+      "importance_std": 0.004547546554579294,
+      "rank": 5,
+      "importance_pct_of_base_macro_f1": 0.07611534836208886
+    },
+    {
+      "feature": "ema50_ema200_diff",
+      "importance_mean": 0.027912922094904608,
+      "importance_std": 0.0034972897747799535,
+      "rank": 6,
+      "importance_pct_of_base_macro_f1": 0.060928043888544614
+    },
+    {
+      "feature": "historical_vol_20",
+      "importance_mean": 0.023929965595722073,
+      "importance_std": 0.003489429893546438,
+      "rank": 7,
+      "importance_pct_of_base_macro_f1": 0.0522340867470006
+    },
+    {
+      "feature": "hl_range",
+      "importance_mean": 0.01949300172682408,
+      "importance_std": 0.00389416269989099,
+      "rank": 8,
+      "importance_pct_of_base_macro_f1": 0.04254912691309441
+    },
+    {
+      "feature": "return_1_over_atr_14",
+      "importance_mean": 0.017282224579001103,
+      "importance_std": 0.0023547981350255853,
+      "rank": 9,
+      "importance_pct_of_base_macro_f1": 0.03772346492642128
+    },
+    {
+      "feature": "top3_weighted_return_1",
+      "importance_mean": 0.015411305121985932,
+      "importance_std": 0.0032613402622055365,
+      "rank": 10,
+      "importance_pct_of_base_macro_f1": 0.033639640868109555
+    },
+    {
+      "feature": "log_return_1",
+      "importance_mean": 0.014366809291092821,
+      "importance_std": 0.003911207114168884,
+      "rank": 11,
+      "importance_pct_of_base_macro_f1": 0.03135972593803943
+    },
+    {
+      "feature": "atr_14_over_atr_50",
+      "importance_mean": 0.013891765369118944,
+      "importance_std": 0.002887727839097211,
+      "rank": 12,
+      "importance_pct_of_base_macro_f1": 0.030322804872283497
+    },
+    {
+      "feature": "nvda_xnas_log_return_1",
+      "importance_mean": 0.013870746181444297,
+      "importance_std": 0.0047358750203553325,
+      "rank": 13,
+      "importance_pct_of_base_macro_f1": 0.03027692440212748
+    },
+    {
+      "feature": "trix_15",
+      "importance_mean": 0.01340300979047715,
+      "importance_std": 0.004095629284301317,
+      "rank": 14,
+      "importance_pct_of_base_macro_f1": 0.029255954141105687
+    },
+    {
+      "feature": "atr_14",
+      "importance_mean": 0.012402298079333957,
+      "importance_std": 0.0038128286971836076,
+      "rank": 15,
+      "importance_pct_of_base_macro_f1": 0.0270716107445595
+    }
+  ]
+}
