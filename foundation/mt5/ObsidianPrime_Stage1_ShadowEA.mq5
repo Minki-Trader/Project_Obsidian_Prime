@@ -121,6 +121,18 @@ bool     g_effective_time_exit_enabled = true;
 bool     g_effective_flat_exit_enabled = false;
 double   g_effective_flat_exit_min_probability = 0.0;
 int      g_effective_flat_exit_min_hold_bars = 1;
+bool     g_effective_break_even_enabled = false;
+double   g_effective_break_even_trigger_points = 0.0;
+double   g_effective_break_even_offset_points = 0.0;
+bool     g_effective_trailing_stop_enabled = false;
+double   g_effective_trailing_activate_points = 0.0;
+double   g_effective_trailing_distance_points = 0.0;
+bool     g_effective_partial_stop_loss_enabled = false;
+double   g_effective_partial_stop_loss_trigger_points = 0.0;
+double   g_effective_partial_stop_loss_close_fraction = 0.0;
+bool     g_effective_partial_take_profit_enabled = false;
+double   g_effective_partial_take_profit_trigger_points = 0.0;
+double   g_effective_partial_take_profit_close_fraction = 0.0;
 bool     g_effective_threshold_rule_enabled = true;
 bool     g_effective_margin_rule_enabled = false;
 bool     g_effective_prob_diff_rule_enabled = false;
@@ -133,6 +145,10 @@ bool     g_effective_exit_rule_enabled[];
 int      g_effective_exit_rule_max_hold_bars[];
 double   g_effective_exit_rule_min_flat_probability[];
 int      g_effective_exit_rule_min_hold_bars[];
+double   g_effective_exit_rule_trigger_points[];
+double   g_effective_exit_rule_offset_points[];
+double   g_effective_exit_rule_distance_points[];
+double   g_effective_exit_rule_close_fraction[];
 bool     g_runtime_config_loaded = false;
 datetime g_entry_block_bar_time = 0;
 bool     g_managed_trade_active = false;
@@ -156,6 +172,12 @@ double   g_managed_initial_stop_distance_price = 0.0;
 double   g_managed_initial_risk_amount = 0.0;
 double   g_managed_risk_pct_multiplier = 1.0;
 double   g_managed_stop_atr_mult_applied = 0.0;
+double   g_managed_dynamic_stop_price = 0.0;
+double   g_managed_trailing_anchor_price = 0.0;
+bool     g_managed_break_even_applied = false;
+bool     g_managed_trailing_active = false;
+bool     g_managed_partial_stop_loss_done = false;
+bool     g_managed_partial_take_profit_done = false;
 double   g_last_trade_fill_price = 0.0;
 
 string TrimText(const string value)
@@ -210,6 +232,57 @@ double NormalizePriceForSymbol(const double raw_price)
    if(digits < 0)
       return raw_price;
    return NormalizeDouble(raw_price, digits);
+}
+
+bool IsHedgingAccount()
+{
+   return ((ENUM_ACCOUNT_MARGIN_MODE)AccountInfoInteger(ACCOUNT_MARGIN_MODE) == ACCOUNT_MARGIN_MODE_RETAIL_HEDGING);
+}
+
+double NormalizePartialCloseVolume(const double current_volume, const double close_fraction)
+{
+   if(current_volume <= 0.0 || close_fraction <= 0.0 || close_fraction >= 1.0)
+      return 0.0;
+
+   const double min_volume = SymbolInfoDouble(_Symbol, SYMBOL_VOLUME_MIN);
+   const double target_close_volume = NormalizeVolumeForSymbol(current_volume * close_fraction);
+   if(target_close_volume <= 0.0 || target_close_volume >= current_volume)
+      return 0.0;
+
+   const double remaining_volume = NormalizeVolumeForSymbol(current_volume - target_close_volume);
+   if(remaining_volume < min_volume)
+      return 0.0;
+
+   return target_close_volume;
+}
+
+bool ResolveManagedMovePoints(const MqlTick &tick, double &favorable_points, double &adverse_points)
+{
+   favorable_points = 0.0;
+   adverse_points = 0.0;
+   if(!g_managed_trade_active || g_managed_entry_price <= 0.0)
+      return false;
+
+   if(g_managed_position_type == POSITION_TYPE_BUY)
+   {
+      favorable_points = (tick.bid - g_managed_entry_price);
+      adverse_points = (g_managed_entry_price - tick.bid);
+   }
+   else if(g_managed_position_type == POSITION_TYPE_SELL)
+   {
+      favorable_points = (g_managed_entry_price - tick.ask);
+      adverse_points = (tick.ask - g_managed_entry_price);
+   }
+   else
+   {
+      return false;
+   }
+
+   if(favorable_points < 0.0)
+      favorable_points = 0.0;
+   if(adverse_points < 0.0)
+      adverse_points = 0.0;
+   return true;
 }
 
 double ResolveRiskCapitalBase()
@@ -666,6 +739,10 @@ bool EnsureExitRuleCapacity(const int rule_index)
    ArrayResize(g_effective_exit_rule_max_hold_bars, new_size);
    ArrayResize(g_effective_exit_rule_min_flat_probability, new_size);
    ArrayResize(g_effective_exit_rule_min_hold_bars, new_size);
+   ArrayResize(g_effective_exit_rule_trigger_points, new_size);
+   ArrayResize(g_effective_exit_rule_offset_points, new_size);
+   ArrayResize(g_effective_exit_rule_distance_points, new_size);
+   ArrayResize(g_effective_exit_rule_close_fraction, new_size);
    for(int i = current_size; i < new_size; i++)
    {
       g_effective_exit_rule_types[i] = "";
@@ -673,6 +750,10 @@ bool EnsureExitRuleCapacity(const int rule_index)
       g_effective_exit_rule_max_hold_bars[i] = 0;
       g_effective_exit_rule_min_flat_probability[i] = 0.0;
       g_effective_exit_rule_min_hold_bars[i] = 1;
+      g_effective_exit_rule_trigger_points[i] = 0.0;
+      g_effective_exit_rule_offset_points[i] = 0.0;
+      g_effective_exit_rule_distance_points[i] = 0.0;
+      g_effective_exit_rule_close_fraction[i] = 0.0;
    }
    return true;
 }
@@ -684,6 +765,18 @@ void FinalizeExitRuleRuntimeConfig()
    g_effective_flat_exit_enabled = false;
    g_effective_flat_exit_min_probability = 0.0;
    g_effective_flat_exit_min_hold_bars = 1;
+   g_effective_break_even_enabled = false;
+   g_effective_break_even_trigger_points = 0.0;
+   g_effective_break_even_offset_points = 0.0;
+   g_effective_trailing_stop_enabled = false;
+   g_effective_trailing_activate_points = 0.0;
+   g_effective_trailing_distance_points = 0.0;
+   g_effective_partial_stop_loss_enabled = false;
+   g_effective_partial_stop_loss_trigger_points = 0.0;
+   g_effective_partial_stop_loss_close_fraction = 0.0;
+   g_effective_partial_take_profit_enabled = false;
+   g_effective_partial_take_profit_trigger_points = 0.0;
+   g_effective_partial_take_profit_close_fraction = 0.0;
 
    const int exit_rule_count = ArraySize(g_effective_exit_rule_types);
    if(exit_rule_count <= 0)
@@ -710,6 +803,30 @@ void FinalizeExitRuleRuntimeConfig()
          g_effective_flat_exit_min_probability = g_effective_exit_rule_min_flat_probability[i];
          if(g_effective_exit_rule_min_hold_bars[i] > 0)
             g_effective_flat_exit_min_hold_bars = g_effective_exit_rule_min_hold_bars[i];
+      }
+      else if(rule_type == "break_even")
+      {
+         g_effective_break_even_enabled = true;
+         g_effective_break_even_trigger_points = g_effective_exit_rule_trigger_points[i];
+         g_effective_break_even_offset_points = g_effective_exit_rule_offset_points[i];
+      }
+      else if(rule_type == "trailing_stop")
+      {
+         g_effective_trailing_stop_enabled = true;
+         g_effective_trailing_activate_points = g_effective_exit_rule_trigger_points[i];
+         g_effective_trailing_distance_points = g_effective_exit_rule_distance_points[i];
+      }
+      else if(rule_type == "partial_stop_loss")
+      {
+         g_effective_partial_stop_loss_enabled = true;
+         g_effective_partial_stop_loss_trigger_points = g_effective_exit_rule_trigger_points[i];
+         g_effective_partial_stop_loss_close_fraction = g_effective_exit_rule_close_fraction[i];
+      }
+      else if(rule_type == "partial_take_profit")
+      {
+         g_effective_partial_take_profit_enabled = true;
+         g_effective_partial_take_profit_trigger_points = g_effective_exit_rule_trigger_points[i];
+         g_effective_partial_take_profit_close_fraction = g_effective_exit_rule_close_fraction[i];
       }
    }
 }
@@ -755,6 +872,26 @@ bool TryApplyExitRuleRuntimeKey(const string key, const string value)
    if(suffix == "min_hold_bars")
    {
       g_effective_exit_rule_min_hold_bars[rule_index] = (int)StringToInteger(value);
+      return true;
+   }
+   if(suffix == "trigger_points")
+   {
+      g_effective_exit_rule_trigger_points[rule_index] = StringToDouble(value);
+      return true;
+   }
+   if(suffix == "offset_points")
+   {
+      g_effective_exit_rule_offset_points[rule_index] = StringToDouble(value);
+      return true;
+   }
+   if(suffix == "distance_points")
+   {
+      g_effective_exit_rule_distance_points[rule_index] = StringToDouble(value);
+      return true;
+   }
+   if(suffix == "close_fraction")
+   {
+      g_effective_exit_rule_close_fraction[rule_index] = StringToDouble(value);
       return true;
    }
    return false;
@@ -803,6 +940,18 @@ void ResetEffectiveRuntimeConfig()
    g_effective_flat_exit_enabled = false;
    g_effective_flat_exit_min_probability = 0.0;
    g_effective_flat_exit_min_hold_bars = 1;
+   g_effective_break_even_enabled = false;
+   g_effective_break_even_trigger_points = 0.0;
+   g_effective_break_even_offset_points = 0.0;
+   g_effective_trailing_stop_enabled = false;
+   g_effective_trailing_activate_points = 0.0;
+   g_effective_trailing_distance_points = 0.0;
+   g_effective_partial_stop_loss_enabled = false;
+   g_effective_partial_stop_loss_trigger_points = 0.0;
+   g_effective_partial_stop_loss_close_fraction = 0.0;
+   g_effective_partial_take_profit_enabled = false;
+   g_effective_partial_take_profit_trigger_points = 0.0;
+   g_effective_partial_take_profit_close_fraction = 0.0;
    g_effective_threshold_rule_enabled = true;
    g_effective_margin_rule_enabled = (InpMinMargin > 0.0);
    g_effective_prob_diff_rule_enabled = false;
@@ -815,6 +964,10 @@ void ResetEffectiveRuntimeConfig()
    ArrayResize(g_effective_exit_rule_max_hold_bars, 0);
    ArrayResize(g_effective_exit_rule_min_flat_probability, 0);
    ArrayResize(g_effective_exit_rule_min_hold_bars, 0);
+   ArrayResize(g_effective_exit_rule_trigger_points, 0);
+   ArrayResize(g_effective_exit_rule_offset_points, 0);
+   ArrayResize(g_effective_exit_rule_distance_points, 0);
+   ArrayResize(g_effective_exit_rule_close_fraction, 0);
    g_runtime_config_loaded = false;
 }
 
@@ -1171,6 +1324,34 @@ bool LoadRuntimeConfig()
       Log("runtime config has invalid fixed_lot for fixed_lot sizing");
       return false;
    }
+   if(g_effective_break_even_enabled &&
+      (g_effective_break_even_trigger_points <= 0.0 || g_effective_break_even_offset_points < 0.0))
+   {
+      Log("runtime config has invalid break_even points");
+      return false;
+   }
+   if(g_effective_trailing_stop_enabled &&
+      (g_effective_trailing_activate_points <= 0.0 || g_effective_trailing_distance_points <= 0.0))
+   {
+      Log("runtime config has invalid trailing_stop points");
+      return false;
+   }
+   if(g_effective_partial_stop_loss_enabled &&
+      (g_effective_partial_stop_loss_trigger_points <= 0.0 ||
+       g_effective_partial_stop_loss_close_fraction <= 0.0 ||
+       g_effective_partial_stop_loss_close_fraction >= 1.0))
+   {
+      Log("runtime config has invalid partial_stop_loss settings");
+      return false;
+   }
+   if(g_effective_partial_take_profit_enabled &&
+      (g_effective_partial_take_profit_trigger_points <= 0.0 ||
+       g_effective_partial_take_profit_close_fraction <= 0.0 ||
+       g_effective_partial_take_profit_close_fraction >= 1.0))
+   {
+      Log("runtime config has invalid partial_take_profit settings");
+      return false;
+   }
    if(g_effective_sizing_mode == "risk_pct")
    {
       if(g_effective_risk_pct <= 0.0)
@@ -1277,7 +1458,7 @@ bool LoadRuntimeConfig()
    }
    g_runtime_config_loaded = true;
    Log(StringFormat(
-      "runtime config loaded experiment=%s logic=%s onnx=%s feature_count=%d sizing_mode=%s fixed_lot=%.4f risk_pct=%.4f capital_base=%s monday_risk_mult=%.4f monday_long_mult=%.4f monday_short_mult=%.4f ny_postcash_risk_mult=%.4f ny_postcash_hold_cap=%d taper_start=%d taper_mid=%d taper_late=%d taper_mults=%.4f/%.4f/%.4f stop_model=%s stop_execution_mode=%s stop_policy=%s stop_atr_period=%d stop_atr_mult=%.4f long_mult=%.4f short_mult=%.4f low_thr=%.4f high_thr=%.4f low_mult=%.4f mid_mult=%.4f high_mult=%.4f threshold_enabled=%s short=%.6f long=%.6f margin_enabled=%s margin=%.6f diff_enabled=%s diff=%.6f time_exit=%s hold=%d flat_exit=%s flat_min=%.6f flat_min_hold=%d",
+      "runtime config loaded experiment=%s logic=%s onnx=%s feature_count=%d sizing_mode=%s fixed_lot=%.4f risk_pct=%.4f capital_base=%s monday_risk_mult=%.4f monday_long_mult=%.4f monday_short_mult=%.4f ny_postcash_risk_mult=%.4f ny_postcash_hold_cap=%d taper_start=%d taper_mid=%d taper_late=%d taper_mults=%.4f/%.4f/%.4f stop_model=%s stop_execution_mode=%s stop_policy=%s stop_atr_period=%d stop_atr_mult=%.4f long_mult=%.4f short_mult=%.4f low_thr=%.4f high_thr=%.4f low_mult=%.4f mid_mult=%.4f high_mult=%.4f threshold_enabled=%s short=%.6f long=%.6f margin_enabled=%s margin=%.6f diff_enabled=%s diff=%.6f time_exit=%s hold=%d flat_exit=%s flat_min=%.6f flat_min_hold=%d break_even=%s be_trigger=%.1f be_offset=%.1f trail=%s trail_trigger=%.1f trail_dist=%.1f partial_sl=%s psl_trigger=%.1f psl_frac=%.2f partial_tp=%s ptp_trigger=%.1f ptp_frac=%.2f",
       g_effective_experiment_id,
       g_effective_logic_family,
       g_effective_onnx_model_path,
@@ -1321,7 +1502,19 @@ bool LoadRuntimeConfig()
       ,
       g_effective_flat_exit_enabled ? "true" : "false",
       g_effective_flat_exit_min_probability,
-      g_effective_flat_exit_min_hold_bars
+      g_effective_flat_exit_min_hold_bars,
+      g_effective_break_even_enabled ? "true" : "false",
+      g_effective_break_even_trigger_points,
+      g_effective_break_even_offset_points,
+      g_effective_trailing_stop_enabled ? "true" : "false",
+      g_effective_trailing_activate_points,
+      g_effective_trailing_distance_points,
+      g_effective_partial_stop_loss_enabled ? "true" : "false",
+      g_effective_partial_stop_loss_trigger_points,
+      g_effective_partial_stop_loss_close_fraction,
+      g_effective_partial_take_profit_enabled ? "true" : "false",
+      g_effective_partial_take_profit_trigger_points,
+      g_effective_partial_take_profit_close_fraction
    ));
    return true;
 }
@@ -3178,6 +3371,12 @@ void ResetManagedTradeTracking()
    g_managed_initial_risk_amount = 0.0;
    g_managed_risk_pct_multiplier = 1.0;
    g_managed_stop_atr_mult_applied = 0.0;
+   g_managed_dynamic_stop_price = 0.0;
+   g_managed_trailing_anchor_price = 0.0;
+   g_managed_break_even_applied = false;
+   g_managed_trailing_active = false;
+   g_managed_partial_stop_loss_done = false;
+   g_managed_partial_take_profit_done = false;
 }
 
 void UpdateManagedTradeTrackingFromSelectedPosition()
@@ -3238,6 +3437,85 @@ bool InitializeManagedTradeTracking(
    return true;
 }
 
+void RefreshManagedTrackingAfterPartialClose()
+{
+   if(!SelectManagedPosition())
+      return;
+
+   g_managed_position_ticket = (ulong)PositionGetInteger(POSITION_TICKET);
+   g_managed_position_identifier = (long)PositionGetInteger(POSITION_IDENTIFIER);
+   g_managed_position_type = (long)PositionGetInteger(POSITION_TYPE);
+   g_managed_entry_volume = PositionGetDouble(POSITION_VOLUME);
+
+   const double current_profit = PositionGetDouble(POSITION_PROFIT);
+   g_managed_max_floating_profit = IsUsableValue(current_profit) ? current_profit : 0.0;
+   g_managed_min_floating_profit = IsUsableValue(current_profit) ? current_profit : 0.0;
+
+   MqlTick tick;
+   if(SymbolInfoTick(_Symbol, tick))
+      g_managed_trailing_anchor_price = (g_managed_position_type == POSITION_TYPE_BUY) ? tick.bid : tick.ask;
+}
+
+bool ExecuteManagedPartialClose(const double close_fraction, const string close_reason, const datetime exit_bar_time_server, string &action_reason)
+{
+   action_reason = "";
+   if(close_fraction <= 0.0 || close_fraction >= 1.0)
+   {
+      action_reason = "PARTIAL_CLOSE_FRACTION_INVALID";
+      return false;
+   }
+   if(!SelectManagedPosition())
+   {
+      action_reason = "PARTIAL_CLOSE_POSITION_MISSING";
+      return false;
+   }
+
+   const double current_volume = PositionGetDouble(POSITION_VOLUME);
+   const double close_volume = NormalizePartialCloseVolume(current_volume, close_fraction);
+   if(close_volume <= 0.0)
+   {
+      action_reason = "PARTIAL_CLOSE_VOLUME_INVALID";
+      return false;
+   }
+
+   ResetLastError();
+   bool trade_ok = false;
+   if(IsHedgingAccount())
+   {
+      trade_ok = g_trade.PositionClosePartial(_Symbol, close_volume, InpTradeDeviationPoints);
+   }
+   else
+   {
+      string comment = StringFormat("OP|%s|PARTIAL", g_effective_experiment_id);
+      if(g_managed_position_type == POSITION_TYPE_BUY)
+         trade_ok = g_trade.Sell(close_volume, _Symbol, 0.0, 0.0, 0.0, comment);
+      else if(g_managed_position_type == POSITION_TYPE_SELL)
+         trade_ok = g_trade.Buy(close_volume, _Symbol, 0.0, 0.0, 0.0, comment);
+   }
+
+   if(!trade_ok)
+   {
+      action_reason = StringFormat("PARTIAL_CLOSE_FAIL_%d", GetLastError());
+      return false;
+   }
+
+   const ulong close_deal_ticket = g_trade.ResultDeal();
+   if(!AppendClosedTradeLedger(close_reason, exit_bar_time_server, close_deal_ticket))
+      Log("trade ledger append failed after partial close");
+
+   if(!SelectManagedPosition())
+   {
+      ResetManagedTradeTracking();
+      g_entry_block_bar_time = exit_bar_time_server;
+      action_reason = "PARTIAL_CLOSE_FLAT";
+      return true;
+   }
+
+   RefreshManagedTrackingAfterPartialClose();
+   action_reason = "PARTIAL_CLOSE_OK";
+   return true;
+}
+
 bool AppendClosedTradeLedger(const string close_reason, const datetime exit_bar_time_server, const ulong close_deal_ticket)
 {
    if(!InpWriteTradeLedger || !g_managed_trade_active)
@@ -3263,6 +3541,7 @@ bool AppendClosedTradeLedger(const string close_reason, const datetime exit_bar_
    const double swap = HistoryDealGetDouble(close_deal_ticket, DEAL_SWAP);
    const double commission = HistoryDealGetDouble(close_deal_ticket, DEAL_COMMISSION);
    const double fee = HistoryDealGetDouble(close_deal_ticket, DEAL_FEE);
+   const double close_volume = HistoryDealGetDouble(close_deal_ticket, DEAL_VOLUME);
    const double net_profit = gross_profit + swap + commission + fee;
    const int hold_bars = (g_managed_entry_bar_time_server > 0 && exit_bar_time_server >= g_managed_entry_bar_time_server)
       ? (int)((exit_bar_time_server - g_managed_entry_bar_time_server) / PeriodSeconds(PERIOD_M5))
@@ -3273,6 +3552,11 @@ bool AppendClosedTradeLedger(const string close_reason, const datetime exit_bar_
    const double realized_r_multiple = (g_managed_initial_risk_amount > 0.0)
       ? (net_profit / g_managed_initial_risk_amount)
       : EMPTY_VALUE;
+   const double volume_scale = (g_managed_entry_volume > 0.0 && close_volume > 0.0)
+      ? MathMin(1.0, close_volume / g_managed_entry_volume)
+      : 1.0;
+   const double scaled_max_floating_profit = g_managed_max_floating_profit * volume_scale;
+   const double scaled_min_floating_profit = g_managed_min_floating_profit * volume_scale;
 
    int flags = FILE_READ | FILE_WRITE | FILE_TXT | FILE_ANSI;
    if(InpTradeLedgerUseCommonFiles)
@@ -3293,7 +3577,7 @@ bool AppendClosedTradeLedger(const string close_reason, const datetime exit_bar_
       EscapeCsv((string)g_managed_position_ticket) + "," +
       EscapeCsv((string)g_managed_position_identifier) + "," +
       EscapeCsv(g_managed_entry_decision_text) + "," +
-      EscapeCsv(CsvDouble(g_managed_entry_volume, 2)) + "," +
+      EscapeCsv(CsvDouble(close_volume, 2)) + "," +
       EscapeCsv(TimeToString(g_managed_entry_time_server, TIME_DATE | TIME_SECONDS)) + "," +
       EscapeCsv(TimeToString(exit_time_server, TIME_DATE | TIME_SECONDS)) + "," +
       EscapeCsv(TimeToString(g_managed_entry_bar_time_server, TIME_DATE | TIME_SECONDS)) + "," +
@@ -3317,8 +3601,8 @@ bool AppendClosedTradeLedger(const string close_reason, const datetime exit_bar_
       EscapeCsv(CsvDouble(commission, 2)) + "," +
       EscapeCsv(CsvDouble(fee, 2)) + "," +
       EscapeCsv(CsvDouble(net_profit, 2)) + "," +
-      EscapeCsv(CsvDouble(g_managed_max_floating_profit, 2)) + "," +
-      EscapeCsv(CsvDouble(g_managed_min_floating_profit, 2));
+      EscapeCsv(CsvDouble(scaled_max_floating_profit, 2)) + "," +
+      EscapeCsv(CsvDouble(scaled_min_floating_profit, 2));
 
    FileWriteString(handle, line + "\r\n");
    FileClose(handle);
@@ -3352,6 +3636,110 @@ bool ManageOpenPositionOnTick(string &action_reason)
 
    UpdateManagedTradeTrackingFromSelectedPosition();
 
+   MqlTick tick;
+   if(!SymbolInfoTick(_Symbol, tick))
+   {
+      action_reason = "MANAGED_TICK_UNAVAILABLE";
+      return false;
+   }
+
+   const datetime current_bar_open = iTime(_Symbol, PERIOD_M5, 0);
+   const datetime tick_exit_bar_time_server = current_bar_open + PeriodSeconds(PERIOD_M5);
+   double favorable_points = 0.0;
+   double adverse_points = 0.0;
+   if(!ResolveManagedMovePoints(tick, favorable_points, adverse_points))
+   {
+      action_reason = "MANAGED_MOVE_POINTS_INVALID";
+      return false;
+   }
+
+   if(g_effective_partial_take_profit_enabled &&
+      !g_managed_partial_take_profit_done &&
+      favorable_points >= g_effective_partial_take_profit_trigger_points)
+   {
+      if(!ExecuteManagedPartialClose(
+         g_effective_partial_take_profit_close_fraction,
+         "PARTIAL_TAKE_PROFIT",
+         tick_exit_bar_time_server,
+         action_reason))
+      {
+         return false;
+      }
+      g_managed_partial_take_profit_done = true;
+      action_reason = "PARTIAL_TAKE_PROFIT_OK";
+      return true;
+   }
+
+   if(g_effective_partial_stop_loss_enabled &&
+      !g_managed_partial_stop_loss_done &&
+      adverse_points >= g_effective_partial_stop_loss_trigger_points)
+   {
+      if(!ExecuteManagedPartialClose(
+         g_effective_partial_stop_loss_close_fraction,
+         "PARTIAL_STOP_LOSS",
+         tick_exit_bar_time_server,
+         action_reason))
+      {
+         return false;
+      }
+      g_managed_partial_stop_loss_done = true;
+      action_reason = "PARTIAL_STOP_LOSS_OK";
+      return true;
+   }
+
+   if(g_effective_break_even_enabled &&
+      !g_managed_break_even_applied &&
+      favorable_points >= g_effective_break_even_trigger_points)
+   {
+      const double be_offset_price = g_effective_break_even_offset_points;
+      if(g_managed_position_type == POSITION_TYPE_BUY)
+         g_managed_dynamic_stop_price = NormalizePriceForSymbol(g_managed_entry_price + be_offset_price);
+      else if(g_managed_position_type == POSITION_TYPE_SELL)
+         g_managed_dynamic_stop_price = NormalizePriceForSymbol(g_managed_entry_price - be_offset_price);
+      g_managed_break_even_applied = (g_managed_dynamic_stop_price > 0.0);
+   }
+
+   if(g_effective_trailing_stop_enabled && favorable_points >= g_effective_trailing_activate_points)
+   {
+      const double reference_price = (g_managed_position_type == POSITION_TYPE_BUY) ? tick.bid : tick.ask;
+      if(!g_managed_trailing_active)
+      {
+         g_managed_trailing_active = true;
+         g_managed_trailing_anchor_price = reference_price;
+      }
+      else if(g_managed_position_type == POSITION_TYPE_BUY && reference_price > g_managed_trailing_anchor_price)
+      {
+         g_managed_trailing_anchor_price = reference_price;
+      }
+      else if(g_managed_position_type == POSITION_TYPE_SELL && reference_price < g_managed_trailing_anchor_price)
+      {
+         g_managed_trailing_anchor_price = reference_price;
+      }
+
+      const double distance_price = g_effective_trailing_distance_points;
+      double trailing_stop_price = 0.0;
+      if(g_managed_position_type == POSITION_TYPE_BUY)
+         trailing_stop_price = NormalizePriceForSymbol(g_managed_trailing_anchor_price - distance_price);
+      else if(g_managed_position_type == POSITION_TYPE_SELL)
+         trailing_stop_price = NormalizePriceForSymbol(g_managed_trailing_anchor_price + distance_price);
+
+      if(trailing_stop_price > 0.0)
+      {
+         if(g_managed_dynamic_stop_price <= 0.0)
+         {
+            g_managed_dynamic_stop_price = trailing_stop_price;
+         }
+         else if(g_managed_position_type == POSITION_TYPE_BUY && trailing_stop_price > g_managed_dynamic_stop_price)
+         {
+            g_managed_dynamic_stop_price = trailing_stop_price;
+         }
+         else if(g_managed_position_type == POSITION_TYPE_SELL && trailing_stop_price < g_managed_dynamic_stop_price)
+         {
+            g_managed_dynamic_stop_price = trailing_stop_price;
+         }
+      }
+   }
+
    const datetime position_time = (datetime)PositionGetInteger(POSITION_TIME);
    const int entry_bar_shift = iBarShift(_Symbol, PERIOD_M5, position_time, false);
    if(entry_bar_shift < 0)
@@ -3360,19 +3748,38 @@ bool ManageOpenPositionOnTick(string &action_reason)
       return true;
    }
 
-   if(g_effective_stop_execution_mode != "broker_native" && g_managed_initial_stop_price > 0.0)
+   double enforced_stop_price = 0.0;
+   string enforced_stop_reason = "";
+   if(g_managed_initial_stop_price > 0.0)
    {
-      MqlTick tick;
-      if(!SymbolInfoTick(_Symbol, tick))
+      enforced_stop_price = g_managed_initial_stop_price;
+      enforced_stop_reason = "HARD_STOP";
+   }
+   if(g_managed_dynamic_stop_price > 0.0)
+   {
+      if(enforced_stop_price <= 0.0)
       {
-         action_reason = "HARD_STOP_TICK_UNAVAILABLE";
-         return false;
+         enforced_stop_price = g_managed_dynamic_stop_price;
+         enforced_stop_reason = g_managed_trailing_active ? "TRAIL_STOP" : "BREAK_EVEN_STOP";
       }
+      else if(g_managed_position_type == POSITION_TYPE_BUY && g_managed_dynamic_stop_price > enforced_stop_price)
+      {
+         enforced_stop_price = g_managed_dynamic_stop_price;
+         enforced_stop_reason = g_managed_trailing_active ? "TRAIL_STOP" : "BREAK_EVEN_STOP";
+      }
+      else if(g_managed_position_type == POSITION_TYPE_SELL && g_managed_dynamic_stop_price < enforced_stop_price)
+      {
+         enforced_stop_price = g_managed_dynamic_stop_price;
+         enforced_stop_reason = g_managed_trailing_active ? "TRAIL_STOP" : "BREAK_EVEN_STOP";
+      }
+   }
 
+   if(g_effective_stop_execution_mode != "broker_native" && enforced_stop_price > 0.0)
+   {
       bool hard_stop_hit = false;
-      if(g_managed_position_type == POSITION_TYPE_BUY && tick.bid <= g_managed_initial_stop_price)
+      if(g_managed_position_type == POSITION_TYPE_BUY && tick.bid <= enforced_stop_price)
          hard_stop_hit = true;
-      else if(g_managed_position_type == POSITION_TYPE_SELL && tick.ask >= g_managed_initial_stop_price)
+      else if(g_managed_position_type == POSITION_TYPE_SELL && tick.ask >= enforced_stop_price)
          hard_stop_hit = true;
 
       if(hard_stop_hit)
@@ -3384,15 +3791,13 @@ bool ManageOpenPositionOnTick(string &action_reason)
             return false;
          }
 
-         const datetime current_bar_open = iTime(_Symbol, PERIOD_M5, 0);
-         const datetime exit_bar_time_server = current_bar_open + PeriodSeconds(PERIOD_M5);
          const ulong close_deal_ticket = g_trade.ResultDeal();
-         if(!AppendClosedTradeLedger("HARD_STOP", exit_bar_time_server, close_deal_ticket))
+         if(!AppendClosedTradeLedger(enforced_stop_reason, tick_exit_bar_time_server, close_deal_ticket))
             Log("trade ledger append failed after hard stop");
 
          ResetManagedTradeTracking();
-         g_entry_block_bar_time = exit_bar_time_server;
-         action_reason = "HARD_STOP_CLOSE_OK";
+         g_entry_block_bar_time = tick_exit_bar_time_server;
+         action_reason = enforced_stop_reason + "_CLOSE_OK";
          return true;
       }
    }

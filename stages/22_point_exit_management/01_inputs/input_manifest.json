@@ -1,0 +1,57 @@
+{
+  "generated_at_utc": "2026-04-07T23:08:30.064527+00:00",
+  "source_run_name": "05DP_05ca_margin0675_hold5_0001",
+  "source_run_dir": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DP_05ca_margin0675_hold5_0001",
+  "windows": [
+    {
+      "window_id": "hist_2024",
+      "label": "2024 historical",
+      "split_name": "hist_2024",
+      "from_date": "2024.01.01",
+      "to_date": "2025.01.01"
+    },
+    {
+      "window_id": "val_2501",
+      "label": "2025 validation (Jan-Sep)",
+      "split_name": "val_2501",
+      "from_date": "2025.01.01",
+      "to_date": "2025.10.01"
+    },
+    {
+      "window_id": "oos_2501",
+      "label": "2501 OOS",
+      "split_name": "oos_2501",
+      "from_date": "2025.10.01",
+      "to_date": "2026.03.01"
+    }
+  ],
+  "distribution": {
+    "trade_count": 1064,
+    "currency_per_price_point": 0.1000232577484989,
+    "mfe": {
+      "p25": 19.271634223704794,
+      "p50": 45.43943181123001,
+      "p60": 57.8059030461896,
+      "p75": 86.10376078914719,
+      "p90": 134.08810792136148,
+      "mean": 62.35339165967874
+    },
+    "mae": {
+      "p25": 19.97377311959351,
+      "p50": 41.04494451293034,
+      "p60": 52.47999999995872,
+      "p75": 74.5074084945569,
+      "p90": 116.93135881621097,
+      "mean": 54.77611282354304
+    }
+  },
+  "derived_points": {
+    "break_even_trigger_points": 50.0,
+    "break_even_offset_points": 10.0,
+    "trailing_activate_points": 60.0,
+    "trailing_distance_points": 35.0,
+    "partial_stop_loss_trigger_points": 45.0,
+    "partial_take_profit_trigger_points": 60.0,
+    "partial_close_fraction": 0.5
+  }
+}
