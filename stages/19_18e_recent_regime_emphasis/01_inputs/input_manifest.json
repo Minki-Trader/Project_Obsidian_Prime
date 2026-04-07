@@ -1,0 +1,133 @@
+{
+  "generated_at_utc": "2026-04-06T10:15:48.872904+00:00",
+  "stage": "19_18e_recent_regime_emphasis",
+  "phase": "19RG",
+  "dataset_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\01_base_feature_ml\\01_inputs\\stage01c_h03_band000125_dataset.parquet",
+  "model_config_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\17_09c_directional_core_fork\\02_runs\\active\\17E_2407_ovr_balanced_0001\\config.json",
+  "rule_stack_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\17_09c_directional_core_fork\\02_runs\\active\\17E_2407_ovr_balanced_0001\\rule_stack.json",
+  "source_root": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\18_directional_core_overlay_matrix\\02_runs\\active",
+  "source_reference_stage_id": "18E",
+  "source_reference_label": "17E_postcash_hold_cut",
+  "target_window_token": "2407",
+  "target_segment": "holdout_b",
+  "overlay_defaults": {
+    "sizing_mode": "risk_pct",
+    "risk_pct": 2.0,
+    "capital_base": "balance",
+    "stop_model": "atr",
+    "stop_execution_mode": "broker_native",
+    "stop_policy": "direction_split",
+    "stop_long_atr_mult": 1.4,
+    "stop_short_atr_mult": 2.0,
+    "stop_atr_period": 14,
+    "monday_risk_pct_mult": 0.75,
+    "ny_postcash_risk_pct_mult": 0.7,
+    "ny_postcash_hold_cap_bars": 3,
+    "session_overlay_label": "postcash_hold_cut"
+  },
+  "window_specs": [
+    {
+      "token": "2401",
+      "train_start_utc": "2022-09-01T00:00:00Z",
+      "train_end_utc_exclusive": "2024-01-01T00:00:00Z",
+      "validation_end_utc_exclusive": "2024-10-01T00:00:00Z",
+      "test_end_utc_exclusive": "2025-03-01T00:00:00Z",
+      "source_reference_run_name": "18E_2401_17e_ph20_0001"
+    },
+    {
+      "token": "2407",
+      "train_start_utc": "2022-09-01T00:00:00Z",
+      "train_end_utc_exclusive": "2024-07-01T00:00:00Z",
+      "validation_end_utc_exclusive": "2025-04-01T00:00:00Z",
+      "test_end_utc_exclusive": "2025-09-01T00:00:00Z",
+      "source_reference_run_name": "18E_2407_17e_ph20_0001"
+    },
+    {
+      "token": "2501",
+      "train_start_utc": "2022-09-01T00:00:00Z",
+      "train_end_utc_exclusive": "2025-01-01T00:00:00Z",
+      "validation_end_utc_exclusive": "2025-10-01T00:00:00Z",
+      "test_end_utc_exclusive": "2026-03-01T00:00:00Z",
+      "source_reference_run_name": "18E_2501_17e_ph20_0001"
+    }
+  ],
+  "candidates": [
+    {
+      "stage_id": "19A",
+      "base_name": "ref_ph20",
+      "label": "18E_reference",
+      "rationale": "Exact 18E learning recipe plus the PH20 operating overlay for sanity-check parity.",
+      "recent_months": null,
+      "recent_mult": 1.0,
+      "recent_short_mult": 1.0,
+      "recent_flat_mult": 1.0,
+      "ramp_end_mult": null
+    },
+    {
+      "stage_id": "19B",
+      "base_name": "recent6_x150",
+      "label": "recent_6m_x1p5",
+      "rationale": "Boost the most recent six months of train data modestly to prefer later-regime structure without hard targeting a date.",
+      "recent_months": 6,
+      "recent_mult": 1.5,
+      "recent_short_mult": 1.0,
+      "recent_flat_mult": 1.0,
+      "ramp_end_mult": null
+    },
+    {
+      "stage_id": "19C",
+      "base_name": "recent6_x200",
+      "label": "recent_6m_x2p0",
+      "rationale": "Stronger six-month recency emphasis to test whether later-train structure improves strict-WFO robustness.",
+      "recent_months": 6,
+      "recent_mult": 2.0,
+      "recent_short_mult": 1.0,
+      "recent_flat_mult": 1.0,
+      "ramp_end_mult": null
+    },
+    {
+      "stage_id": "19D",
+      "base_name": "recent9_x200",
+      "label": "recent_9m_x2p0",
+      "rationale": "Broader nine-month emphasis to capture a wider late-train regime instead of a narrow recent pocket.",
+      "recent_months": 9,
+      "recent_mult": 2.0,
+      "recent_short_mult": 1.0,
+      "recent_flat_mult": 1.0,
+      "ramp_end_mult": null
+    },
+    {
+      "stage_id": "19E",
+      "base_name": "recent6_short150",
+      "label": "recent_6m_short_guard",
+      "rationale": "Recency emphasis with an extra short boost to see whether the 2407-like bad regime is best handled by later short separation.",
+      "recent_months": 6,
+      "recent_mult": 1.5,
+      "recent_short_mult": 1.5,
+      "recent_flat_mult": 1.0,
+      "ramp_end_mult": null
+    },
+    {
+      "stage_id": "19F",
+      "base_name": "recent6_flat150",
+      "label": "recent_6m_flat_guard",
+      "rationale": "Recency emphasis with an extra flat boost to test whether later-regime abstention is the missing model-side edge.",
+      "recent_months": 6,
+      "recent_mult": 1.5,
+      "recent_short_mult": 1.0,
+      "recent_flat_mult": 1.5,
+      "ramp_end_mult": null
+    },
+    {
+      "stage_id": "19G",
+      "base_name": "ramp200",
+      "label": "linear_ramp_x2p0",
+      "rationale": "Linearly increase weight toward the end of each train window to create a smoother recency prior than hard recent buckets.",
+      "recent_months": null,
+      "recent_mult": 1.0,
+      "recent_short_mult": 1.0,
+      "recent_flat_mult": 1.0,
+      "ramp_end_mult": 2.0
+    }
+  ]
+}

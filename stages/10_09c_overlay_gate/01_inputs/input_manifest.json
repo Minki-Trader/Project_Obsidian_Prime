@@ -1,0 +1,53 @@
+{
+  "generated_at_utc": "2026-04-03T19:02:48.798583+00:00",
+  "stage": "10_09c_overlay_gate",
+  "phase": "10OG",
+  "source_stage": "09_05et_local_probe",
+  "source_core_run_name": "09C_05ET_margin0700_t30_l50_m0700_h4",
+  "risk_pct": 2.0,
+  "stop_policy": "direction_split",
+  "stop_long_atr_mult": 1.4,
+  "stop_short_atr_mult": 2.0,
+  "stop_atr_period": 14,
+  "windows": [
+    "2401",
+    "2407",
+    "2501"
+  ],
+  "variants": [
+    {
+      "stage_id": "10A",
+      "token": "SD01",
+      "label": "soft_decay_reference",
+      "description": "06D-style soft session decay.",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "session_risk_overlay": "soft_decay",
+        "session_overlay_label": "soft_decay_reference"
+      }
+    },
+    {
+      "stage_id": "10B",
+      "token": "LP01",
+      "label": "local_probe_a",
+      "description": "Softer Monday, tighter post-cash decay.",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.8,
+        "ny_postcash_risk_pct_mult": 0.65,
+        "session_overlay_label": "local_probe_a"
+      }
+    },
+    {
+      "stage_id": "10C",
+      "token": "LP02",
+      "label": "local_probe_b",
+      "description": "Stronger Monday and post-cash decay.",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.7,
+        "ny_postcash_risk_pct_mult": 0.65,
+        "session_overlay_label": "local_probe_b"
+      }
+    }
+  ]
+}

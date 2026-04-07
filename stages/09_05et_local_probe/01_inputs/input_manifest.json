@@ -1,0 +1,110 @@
+{
+  "generated_at_utc": "2026-04-03T11:21:09.522054+00:00",
+  "stage": "09_05et_local_probe",
+  "phase": "09LP",
+  "dataset_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\01_base_feature_ml\\01_inputs\\stage01c_h03_band000125_dataset.parquet",
+  "model_config_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DP_05ca_margin0675_hold5_0001\\config.json",
+  "core_reference_run_name": "05ET_05dp_stronger_long_suppression_hold4_0001",
+  "target_window_token": "2407",
+  "target_segment": "holdout_b",
+  "overlay_defaults": {
+    "sizing_mode": "risk_pct",
+    "risk_pct": 2.0,
+    "capital_base": "balance",
+    "stop_model": "atr",
+    "stop_execution_mode": "broker_native",
+    "stop_policy": "direction_split",
+    "stop_long_atr_mult": 1.4,
+    "stop_short_atr_mult": 2.0,
+    "stop_atr_period": 14
+  },
+  "window_specs": [
+    {
+      "token": "2401",
+      "train_start_utc": "2022-09-01T00:00:00Z",
+      "train_end_utc_exclusive": "2024-01-01T00:00:00Z",
+      "validation_end_utc_exclusive": "2024-10-01T00:00:00Z",
+      "test_end_utc_exclusive": "2025-03-01T00:00:00Z"
+    },
+    {
+      "token": "2407",
+      "train_start_utc": "2022-09-01T00:00:00Z",
+      "train_end_utc_exclusive": "2024-07-01T00:00:00Z",
+      "validation_end_utc_exclusive": "2025-04-01T00:00:00Z",
+      "test_end_utc_exclusive": "2025-09-01T00:00:00Z"
+    },
+    {
+      "token": "2501",
+      "train_start_utc": "2022-09-01T00:00:00Z",
+      "train_end_utc_exclusive": "2025-01-01T00:00:00Z",
+      "validation_end_utc_exclusive": "2025-10-01T00:00:00Z",
+      "test_end_utc_exclusive": "2026-03-01T00:00:00Z"
+    }
+  ],
+  "candidates": [
+    {
+      "stage_id": "09A",
+      "label": "05ET_base_t30_l50_m0675_h4",
+      "short_threshold": 0.3,
+      "long_threshold": 0.5,
+      "min_margin": 0.0675,
+      "max_hold_bars": 4
+    },
+    {
+      "stage_id": "09B",
+      "label": "05ET_short325_t325_l50_m0675_h4",
+      "short_threshold": 0.325,
+      "long_threshold": 0.5,
+      "min_margin": 0.0675,
+      "max_hold_bars": 4
+    },
+    {
+      "stage_id": "09C",
+      "label": "05ET_margin0700_t30_l50_m0700_h4",
+      "short_threshold": 0.3,
+      "long_threshold": 0.5,
+      "min_margin": 0.07,
+      "max_hold_bars": 4
+    },
+    {
+      "stage_id": "09D",
+      "label": "05ET_hold3_t30_l50_m0675_h3",
+      "short_threshold": 0.3,
+      "long_threshold": 0.5,
+      "min_margin": 0.0675,
+      "max_hold_bars": 3
+    },
+    {
+      "stage_id": "09E",
+      "label": "05ET_short325_t325_l50_m0700_h4",
+      "short_threshold": 0.325,
+      "long_threshold": 0.5,
+      "min_margin": 0.07,
+      "max_hold_bars": 4
+    },
+    {
+      "stage_id": "09F",
+      "label": "05ET_short325_t325_l50_m0675_h3",
+      "short_threshold": 0.325,
+      "long_threshold": 0.5,
+      "min_margin": 0.0675,
+      "max_hold_bars": 3
+    },
+    {
+      "stage_id": "09G",
+      "label": "05ET_long525_t30_l525_m0700_h4",
+      "short_threshold": 0.3,
+      "long_threshold": 0.525,
+      "min_margin": 0.07,
+      "max_hold_bars": 4
+    },
+    {
+      "stage_id": "09H",
+      "label": "05ET_short325_long525_m0700_h3",
+      "short_threshold": 0.325,
+      "long_threshold": 0.525,
+      "min_margin": 0.07,
+      "max_hold_bars": 3
+    }
+  ]
+}

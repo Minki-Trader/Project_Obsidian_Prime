@@ -1,0 +1,119 @@
+{
+  "generated_at_utc": "2026-04-04T04:05:30.611915+00:00",
+  "stage": "13_09c_overlay_micro_probe",
+  "phase": "13OM",
+  "source_stage": "09_05et_local_probe",
+  "source_core_run_name": "09C_05ET_margin0700_t30_l50_m0700_h4",
+  "reference_stage12": "12B monday_0.600_post_00625",
+  "risk_pct": 2.0,
+  "stop_policy": "direction_split",
+  "stop_long_atr_mult": 1.4,
+  "stop_short_atr_mult": 2.0,
+  "stop_atr_period": 14,
+  "windows": [
+    "2401",
+    "2407",
+    "2501"
+  ],
+  "variants": [
+    {
+      "stage_id": "13A",
+      "token": "M055_P06125",
+      "label": "monday_0.550_post_0.6125",
+      "description": "Monday=0.550, post-cash=0.6125",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.55,
+        "ny_postcash_risk_pct_mult": 0.6125,
+        "session_overlay_label": "monday_0.550_post_0.6125"
+      }
+    },
+    {
+      "stage_id": "13B",
+      "token": "M055_P0625",
+      "label": "monday_0.550_post_0.625",
+      "description": "Monday=0.550, post-cash=0.625",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.55,
+        "ny_postcash_risk_pct_mult": 0.625,
+        "session_overlay_label": "monday_0.550_post_0.625"
+      }
+    },
+    {
+      "stage_id": "13C",
+      "token": "M055_P06375",
+      "label": "monday_0.550_post_0.6375",
+      "description": "Monday=0.550, post-cash=0.6375",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.55,
+        "ny_postcash_risk_pct_mult": 0.6375,
+        "session_overlay_label": "monday_0.550_post_0.6375"
+      }
+    },
+    {
+      "stage_id": "13D",
+      "token": "M0575_P06125",
+      "label": "monday_0.575_post_0.6125",
+      "description": "Monday=0.575, post-cash=0.6125",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.575,
+        "ny_postcash_risk_pct_mult": 0.6125,
+        "session_overlay_label": "monday_0.575_post_0.6125"
+      }
+    },
+    {
+      "stage_id": "13E",
+      "token": "M0575_P0625",
+      "label": "monday_0.575_post_0.625",
+      "description": "Monday=0.575, post-cash=0.625",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.575,
+        "ny_postcash_risk_pct_mult": 0.625,
+        "session_overlay_label": "monday_0.575_post_0.625"
+      }
+    },
+    {
+      "stage_id": "13F",
+      "token": "M0575_P06375",
+      "label": "monday_0.575_post_0.6375",
+      "description": "Monday=0.575, post-cash=0.6375",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.575,
+        "ny_postcash_risk_pct_mult": 0.6375,
+        "session_overlay_label": "monday_0.575_post_0.6375"
+      }
+    },
+    {
+      "stage_id": "13G",
+      "token": "M060_P06125",
+      "label": "monday_0.600_post_0.6125",
+      "description": "Monday=0.600, post-cash=0.6125",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.6,
+        "ny_postcash_risk_pct_mult": 0.6125,
+        "session_overlay_label": "monday_0.600_post_0.6125"
+      }
+    },
+    {
+      "stage_id": "13H",
+      "token": "M060_P0625",
+      "label": "monday_0.600_post_0.625",
+      "description": "Monday=0.600, post-cash=0.625",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.6,
+        "ny_postcash_risk_pct_mult": 0.625,
+        "session_overlay_label": "monday_0.600_post_0.625"
+      }
+    },
+    {
+      "stage_id": "13I",
+      "token": "M060_P06375",
+      "label": "monday_0.600_post_0.6375",
+      "description": "Monday=0.600, post-cash=0.6375",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.6,
+        "ny_postcash_risk_pct_mult": 0.6375,
+        "session_overlay_label": "monday_0.600_post_0.6375"
+      }
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "generated_at_utc": "2026-04-06T18:20:15.587753+00:00",
+  "stage": "21_retrain_cadence_wfo",
+  "phase": "21RC",
+  "window_tokens": [
+    "2407"
+  ],
+  "period_tokens": [
+    "1D",
+    "2D",
+    "5D",
+    "10D",
+    "2W",
+    "1M",
+    "2M"
+  ],
+  "source_model_config_path": "P:\\stages\\17_09c_directional_core_fork\\02_runs\\active\\17E_2407_ovr_balanced_0001\\config.json",
+  "leader": {
+    "stage_id": "21F",
+    "period_token": "1M",
+    "period_definition": "<DateOffset: months=1>",
+    "avg_validation_return_pct": -11.135117178387299,
+    "avg_test_return_pct": 12.570206582724342,
+    "avg_holdout_b_return_pct": 2.5991419426971696,
+    "total_refits": 14,
+    "total_carry_forwards": 0,
+    "run_name": "21F_2407_paired_1m_0001"
+  },
+  "ranked_candidates": [
+    {
+      "stage_id": "21F",
+      "period_token": "1M",
+      "period_definition": "<DateOffset: months=1>",
+      "avg_validation_return_pct": -11.135117178387299,
+      "avg_test_return_pct": 12.570206582724342,
+      "avg_holdout_b_return_pct": 2.5991419426971696,
+      "total_refits": 14,
+      "total_carry_forwards": 0,
+      "run_name": "21F_2407_paired_1m_0001"
+    },
+    {
+      "stage_id": "21G",
+      "period_token": "2M",
+      "period_definition": "<DateOffset: months=2>",
+      "avg_validation_return_pct": -8.140092340698157,
+      "avg_test_return_pct": 3.963318092040957,
+      "avg_holdout_b_return_pct": -1.4368523999060967,
+      "total_refits": 8,
+      "total_carry_forwards": 0,
+      "run_name": "21G_2407_paired_2m_0001"
+    },
+    {
+      "stage_id": "21A",
+      "period_token": "1D",
+      "period_definition": "<BusinessDay>",
+      "avg_validation_return_pct": -22.349948473246105,
+      "avg_test_return_pct": -2.124063868401971,
+      "avg_holdout_b_return_pct": 3.7355742166423456,
+      "total_refits": 267,
+      "total_carry_forwards": 22,
+      "run_name": "21A_2407_paired_1d_0001"
+    },
+    {
+      "stage_id": "21D",
+      "period_token": "10D",
+      "period_definition": "<10 * BusinessDays>",
+      "avg_validation_return_pct": -9.0941977336933,
+      "avg_test_return_pct": -4.090262564463131,
+      "avg_holdout_b_return_pct": -1.8032964088628978,
+      "total_refits": 31,
+      "total_carry_forwards": 0,
+      "run_name": "21D_2407_paired_10d_0001"
+    },
+    {
+      "stage_id": "21E",
+      "period_token": "2W",
+      "period_definition": "<DateOffset: weeks=2>",
+      "avg_validation_return_pct": -9.0941977336933,
+      "avg_test_return_pct": -4.090262564463131,
+      "avg_holdout_b_return_pct": -1.8032964088628978,
+      "total_refits": 31,
+      "total_carry_forwards": 0,
+      "run_name": "21E_2407_paired_2w_0001"
+    },
+    {
+      "stage_id": "21C",
+      "period_token": "5D",
+      "period_definition": "<5 * BusinessDays>",
+      "avg_validation_return_pct": -6.4644183295498925,
+      "avg_test_return_pct": -16.011333088889714,
+      "avg_holdout_b_return_pct": -1.7639579220015689,
+      "total_refits": 62,
+      "total_carry_forwards": 0,
+      "run_name": "21C_2407_paired_5d_0001"
+    },
+    {
+      "stage_id": "21B",
+      "period_token": "2D",
+      "period_definition": "<2 * BusinessDays>",
+      "avg_validation_return_pct": 18.905966472307266,
+      "avg_test_return_pct": -16.426243927953198,
+      "avg_holdout_b_return_pct": -3.7828137214427016,
+      "total_refits": 144,
+      "total_carry_forwards": 6,
+      "run_name": "21B_2407_paired_2d_0001"
+    }
+  ]
+}

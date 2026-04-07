@@ -1,0 +1,368 @@
+{
+  "generated_at_utc": "2026-04-05T22:57:49.877795+00:00",
+  "stage": "18_directional_core_overlay_matrix",
+  "phase": "18MX",
+  "source_stage": "17_09c_directional_core_fork",
+  "source_root": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\17_09c_directional_core_fork\\02_runs\\active",
+  "windows": [
+    "2401",
+    "2407",
+    "2501"
+  ],
+  "target_window_token": "2407",
+  "target_segment": "holdout_b",
+  "overlay_defaults": {
+    "sizing_mode": "risk_pct",
+    "capital_base": "balance",
+    "stop_model": "atr",
+    "stop_execution_mode": "broker_native",
+    "stop_policy": "direction_split",
+    "stop_long_atr_mult": 1.4,
+    "stop_short_atr_mult": 2.0,
+    "stop_atr_period": 14
+  },
+  "cores": [
+    {
+      "stage_id": "17E",
+      "base_name": "ovr_balanced",
+      "label": "09C_ovr_balanced",
+      "rationale": "Current directional-core leader with 3/3 positive test windows."
+    },
+    {
+      "stage_id": "17C",
+      "base_name": "short_specialist",
+      "label": "09C_short_specialist",
+      "rationale": "Aggressive short-side specialist that uniquely flips 2407 holdout_b positive."
+    },
+    {
+      "stage_id": "17D",
+      "base_name": "flat_guard",
+      "label": "09C_flat_guard",
+      "rationale": "Abstention-heavy core that improves 2407 holdout_b without directional specialization."
+    }
+  ],
+  "overlays": [
+    {
+      "token": "PLAIN20",
+      "label": "plain_core",
+      "description": "Plain directional core with no extra session overlay at 2.0% risk.",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "session_overlay_label": "plain_core"
+      }
+    },
+    {
+      "token": "SD20",
+      "label": "soft_decay",
+      "description": "06D-style soft session decay at 2.0% risk.",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "session_overlay_label": "soft_decay"
+      }
+    },
+    {
+      "token": "LP20",
+      "label": "local_probe_b",
+      "description": "LP02-style stronger Monday and post-cash decay at 2.0% risk.",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.7,
+        "ny_postcash_risk_pct_mult": 0.65,
+        "session_overlay_label": "local_probe_b"
+      }
+    },
+    {
+      "token": "BD20",
+      "label": "balanced_micro",
+      "description": "13D-style balanced Monday/post-cash micro overlay at 2.0% risk.",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.575,
+        "ny_postcash_risk_pct_mult": 0.6125,
+        "session_overlay_label": "balanced_micro"
+      }
+    },
+    {
+      "token": "PH20",
+      "label": "postcash_hold_cut",
+      "description": "Soft decay plus post-cash hold cut to 3 bars at 2.0% risk.",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "ny_postcash_hold_cap_bars": 3,
+        "session_overlay_label": "postcash_hold_cut"
+      }
+    },
+    {
+      "token": "CT20",
+      "label": "clock_taper",
+      "description": "Gradual NY clock taper instead of a single hard post-cash multiplier at 2.0% risk.",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 1.0,
+        "ny_clock_taper_start_minute": 930,
+        "ny_clock_taper_mid_minute": 960,
+        "ny_clock_taper_late_minute": 1080,
+        "ny_clock_taper_start_mult": 0.9,
+        "ny_clock_taper_mid_mult": 0.75,
+        "ny_clock_taper_late_mult": 0.6,
+        "session_overlay_label": "clock_taper"
+      }
+    }
+  ],
+  "variants": [
+    {
+      "stage_id": "18A",
+      "label": "17E_plain_core",
+      "description": "09C_ovr_balanced + Plain directional core with no extra session overlay at 2.0% risk.",
+      "core_stage_id": "17E",
+      "overlay_token": "PLAIN20",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "session_overlay_label": "plain_core"
+      }
+    },
+    {
+      "stage_id": "18B",
+      "label": "17E_soft_decay",
+      "description": "09C_ovr_balanced + 06D-style soft session decay at 2.0% risk.",
+      "core_stage_id": "17E",
+      "overlay_token": "SD20",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "session_overlay_label": "soft_decay"
+      }
+    },
+    {
+      "stage_id": "18C",
+      "label": "17E_local_probe_b",
+      "description": "09C_ovr_balanced + LP02-style stronger Monday and post-cash decay at 2.0% risk.",
+      "core_stage_id": "17E",
+      "overlay_token": "LP20",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.7,
+        "ny_postcash_risk_pct_mult": 0.65,
+        "session_overlay_label": "local_probe_b"
+      }
+    },
+    {
+      "stage_id": "18D",
+      "label": "17E_balanced_micro",
+      "description": "09C_ovr_balanced + 13D-style balanced Monday/post-cash micro overlay at 2.0% risk.",
+      "core_stage_id": "17E",
+      "overlay_token": "BD20",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.575,
+        "ny_postcash_risk_pct_mult": 0.6125,
+        "session_overlay_label": "balanced_micro"
+      }
+    },
+    {
+      "stage_id": "18E",
+      "label": "17E_postcash_hold_cut",
+      "description": "09C_ovr_balanced + Soft decay plus post-cash hold cut to 3 bars at 2.0% risk.",
+      "core_stage_id": "17E",
+      "overlay_token": "PH20",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "ny_postcash_hold_cap_bars": 3,
+        "session_overlay_label": "postcash_hold_cut"
+      }
+    },
+    {
+      "stage_id": "18F",
+      "label": "17E_clock_taper",
+      "description": "09C_ovr_balanced + Gradual NY clock taper instead of a single hard post-cash multiplier at 2.0% risk.",
+      "core_stage_id": "17E",
+      "overlay_token": "CT20",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 1.0,
+        "ny_clock_taper_start_minute": 930,
+        "ny_clock_taper_mid_minute": 960,
+        "ny_clock_taper_late_minute": 1080,
+        "ny_clock_taper_start_mult": 0.9,
+        "ny_clock_taper_mid_mult": 0.75,
+        "ny_clock_taper_late_mult": 0.6,
+        "session_overlay_label": "clock_taper"
+      }
+    },
+    {
+      "stage_id": "18G",
+      "label": "17C_plain_core",
+      "description": "09C_short_specialist + Plain directional core with no extra session overlay at 2.0% risk.",
+      "core_stage_id": "17C",
+      "overlay_token": "PLAIN20",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "session_overlay_label": "plain_core"
+      }
+    },
+    {
+      "stage_id": "18H",
+      "label": "17C_soft_decay",
+      "description": "09C_short_specialist + 06D-style soft session decay at 2.0% risk.",
+      "core_stage_id": "17C",
+      "overlay_token": "SD20",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "session_overlay_label": "soft_decay"
+      }
+    },
+    {
+      "stage_id": "18I",
+      "label": "17C_local_probe_b",
+      "description": "09C_short_specialist + LP02-style stronger Monday and post-cash decay at 2.0% risk.",
+      "core_stage_id": "17C",
+      "overlay_token": "LP20",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.7,
+        "ny_postcash_risk_pct_mult": 0.65,
+        "session_overlay_label": "local_probe_b"
+      }
+    },
+    {
+      "stage_id": "18J",
+      "label": "17C_balanced_micro",
+      "description": "09C_short_specialist + 13D-style balanced Monday/post-cash micro overlay at 2.0% risk.",
+      "core_stage_id": "17C",
+      "overlay_token": "BD20",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.575,
+        "ny_postcash_risk_pct_mult": 0.6125,
+        "session_overlay_label": "balanced_micro"
+      }
+    },
+    {
+      "stage_id": "18K",
+      "label": "17C_postcash_hold_cut",
+      "description": "09C_short_specialist + Soft decay plus post-cash hold cut to 3 bars at 2.0% risk.",
+      "core_stage_id": "17C",
+      "overlay_token": "PH20",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "ny_postcash_hold_cap_bars": 3,
+        "session_overlay_label": "postcash_hold_cut"
+      }
+    },
+    {
+      "stage_id": "18L",
+      "label": "17C_clock_taper",
+      "description": "09C_short_specialist + Gradual NY clock taper instead of a single hard post-cash multiplier at 2.0% risk.",
+      "core_stage_id": "17C",
+      "overlay_token": "CT20",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 1.0,
+        "ny_clock_taper_start_minute": 930,
+        "ny_clock_taper_mid_minute": 960,
+        "ny_clock_taper_late_minute": 1080,
+        "ny_clock_taper_start_mult": 0.9,
+        "ny_clock_taper_mid_mult": 0.75,
+        "ny_clock_taper_late_mult": 0.6,
+        "session_overlay_label": "clock_taper"
+      }
+    },
+    {
+      "stage_id": "18M",
+      "label": "17D_plain_core",
+      "description": "09C_flat_guard + Plain directional core with no extra session overlay at 2.0% risk.",
+      "core_stage_id": "17D",
+      "overlay_token": "PLAIN20",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "session_overlay_label": "plain_core"
+      }
+    },
+    {
+      "stage_id": "18N",
+      "label": "17D_soft_decay",
+      "description": "09C_flat_guard + 06D-style soft session decay at 2.0% risk.",
+      "core_stage_id": "17D",
+      "overlay_token": "SD20",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "session_overlay_label": "soft_decay"
+      }
+    },
+    {
+      "stage_id": "18O",
+      "label": "17D_local_probe_b",
+      "description": "09C_flat_guard + LP02-style stronger Monday and post-cash decay at 2.0% risk.",
+      "core_stage_id": "17D",
+      "overlay_token": "LP20",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.7,
+        "ny_postcash_risk_pct_mult": 0.65,
+        "session_overlay_label": "local_probe_b"
+      }
+    },
+    {
+      "stage_id": "18P",
+      "label": "17D_balanced_micro",
+      "description": "09C_flat_guard + 13D-style balanced Monday/post-cash micro overlay at 2.0% risk.",
+      "core_stage_id": "17D",
+      "overlay_token": "BD20",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.575,
+        "ny_postcash_risk_pct_mult": 0.6125,
+        "session_overlay_label": "balanced_micro"
+      }
+    },
+    {
+      "stage_id": "18Q",
+      "label": "17D_postcash_hold_cut",
+      "description": "09C_flat_guard + Soft decay plus post-cash hold cut to 3 bars at 2.0% risk.",
+      "core_stage_id": "17D",
+      "overlay_token": "PH20",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "ny_postcash_hold_cap_bars": 3,
+        "session_overlay_label": "postcash_hold_cut"
+      }
+    },
+    {
+      "stage_id": "18R",
+      "label": "17D_clock_taper",
+      "description": "09C_flat_guard + Gradual NY clock taper instead of a single hard post-cash multiplier at 2.0% risk.",
+      "core_stage_id": "17D",
+      "overlay_token": "CT20",
+      "risk_pct": 2.0,
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 1.0,
+        "ny_clock_taper_start_minute": 930,
+        "ny_clock_taper_mid_minute": 960,
+        "ny_clock_taper_late_minute": 1080,
+        "ny_clock_taper_start_mult": 0.9,
+        "ny_clock_taper_mid_mult": 0.75,
+        "ny_clock_taper_late_mult": 0.6,
+        "session_overlay_label": "clock_taper"
+      }
+    }
+  ]
+}

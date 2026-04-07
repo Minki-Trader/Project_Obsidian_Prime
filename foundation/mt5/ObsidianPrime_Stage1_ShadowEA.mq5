@@ -96,6 +96,11 @@ double   g_effective_monday_risk_pct_mult = 1.0;
 double   g_effective_ny_postcash_risk_pct_mult = 1.0;
 double   g_effective_monday_long_risk_pct_mult = 1.0;
 double   g_effective_monday_short_risk_pct_mult = 1.0;
+double   g_effective_ny_tuewed_cash_short_risk_pct_mult = 1.0;
+double   g_effective_ny_tuewed_cash_short_hour12_risk_pct_mult = 1.0;
+double   g_effective_ny_tuewed_cash_short_hour14_risk_pct_mult = 1.0;
+double   g_effective_tuewed_server_short_hour16_risk_pct_mult = 1.0;
+double   g_effective_tuewed_server_short_hour18_risk_pct_mult = 1.0;
 int      g_effective_ny_postcash_hold_cap_bars = 0;
 int      g_effective_ny_clock_taper_start_minute = -1;
 int      g_effective_ny_clock_taper_mid_minute = -1;
@@ -237,6 +242,30 @@ double ResolveDynamicRiskPctMultiplier(const int decision, const datetime bar_ti
    if(bar_time_server <= 0)
       return multiplier;
 
+   MqlDateTime server_struct;
+   ZeroMemory(server_struct);
+   if(TimeToStruct(bar_time_server, server_struct))
+   {
+      const bool is_server_tuesday_or_wednesday = (server_struct.day_of_week == 2 || server_struct.day_of_week == 3);
+      if(decision < 0 && is_server_tuesday_or_wednesday)
+      {
+         if(server_struct.hour == 16 &&
+            g_effective_tuewed_server_short_hour16_risk_pct_mult > 0.0 &&
+            MathAbs(g_effective_tuewed_server_short_hour16_risk_pct_mult - 1.0) > 0.0000001)
+         {
+            multiplier *= g_effective_tuewed_server_short_hour16_risk_pct_mult;
+            AppendRiskContextTag(tags, "TUEWED_SERVER_SHORT_H16");
+         }
+         if(server_struct.hour == 18 &&
+            g_effective_tuewed_server_short_hour18_risk_pct_mult > 0.0 &&
+            MathAbs(g_effective_tuewed_server_short_hour18_risk_pct_mult - 1.0) > 0.0000001)
+         {
+            multiplier *= g_effective_tuewed_server_short_hour18_risk_pct_mult;
+            AppendRiskContextTag(tags, "TUEWED_SERVER_SHORT_H18");
+         }
+      }
+   }
+
    const datetime ny_time = ConvertUtcToNewYork(bar_time_server);
    MqlDateTime ny_struct;
    ZeroMemory(ny_struct);
@@ -264,6 +293,31 @@ double ResolveDynamicRiskPctMultiplier(const int decision, const datetime bar_ti
    }
 
    const int minutes_of_day = (ny_struct.hour * 60) + ny_struct.min;
+   const bool is_ny_cash = (minutes_of_day >= ((9 * 60) + 30) && minutes_of_day < (16 * 60));
+   const bool is_tuesday_or_wednesday = (ny_struct.day_of_week == 2 || ny_struct.day_of_week == 3);
+   if(decision < 0 && is_tuesday_or_wednesday && is_ny_cash)
+   {
+      if(g_effective_ny_tuewed_cash_short_risk_pct_mult > 0.0 && MathAbs(g_effective_ny_tuewed_cash_short_risk_pct_mult - 1.0) > 0.0000001)
+      {
+         multiplier *= g_effective_ny_tuewed_cash_short_risk_pct_mult;
+         AppendRiskContextTag(tags, "TUEWED_CASH_SHORT");
+      }
+      if(ny_struct.hour == 12 &&
+         g_effective_ny_tuewed_cash_short_hour12_risk_pct_mult > 0.0 &&
+         MathAbs(g_effective_ny_tuewed_cash_short_hour12_risk_pct_mult - 1.0) > 0.0000001)
+      {
+         multiplier *= g_effective_ny_tuewed_cash_short_hour12_risk_pct_mult;
+         AppendRiskContextTag(tags, "TUEWED_CASH_SHORT_H12");
+      }
+      if(ny_struct.hour == 14 &&
+         g_effective_ny_tuewed_cash_short_hour14_risk_pct_mult > 0.0 &&
+         MathAbs(g_effective_ny_tuewed_cash_short_hour14_risk_pct_mult - 1.0) > 0.0000001)
+      {
+         multiplier *= g_effective_ny_tuewed_cash_short_hour14_risk_pct_mult;
+         AppendRiskContextTag(tags, "TUEWED_CASH_SHORT_H14");
+      }
+   }
+
    if(g_effective_ny_clock_taper_start_minute >= 0)
    {
       double taper_mult = 1.0;
@@ -778,6 +832,11 @@ void ResetEffectiveRuntimeConfig()
    g_effective_ny_postcash_risk_pct_mult = 1.0;
    g_effective_monday_long_risk_pct_mult = 1.0;
    g_effective_monday_short_risk_pct_mult = 1.0;
+   g_effective_ny_tuewed_cash_short_risk_pct_mult = 1.0;
+   g_effective_ny_tuewed_cash_short_hour12_risk_pct_mult = 1.0;
+   g_effective_ny_tuewed_cash_short_hour14_risk_pct_mult = 1.0;
+    g_effective_tuewed_server_short_hour16_risk_pct_mult = 1.0;
+    g_effective_tuewed_server_short_hour18_risk_pct_mult = 1.0;
    g_effective_ny_postcash_hold_cap_bars = 0;
    g_effective_ny_clock_taper_start_minute = -1;
    g_effective_ny_clock_taper_mid_minute = -1;
@@ -992,6 +1051,31 @@ bool ApplyRuntimeConfigKeyValue(const string key, const string value)
    if(key == "monday_short_risk_pct_mult")
    {
       g_effective_monday_short_risk_pct_mult = StringToDouble(value);
+      return true;
+   }
+   if(key == "ny_tuewed_cash_short_risk_pct_mult")
+   {
+      g_effective_ny_tuewed_cash_short_risk_pct_mult = StringToDouble(value);
+      return true;
+   }
+   if(key == "ny_tuewed_cash_short_hour12_risk_pct_mult")
+   {
+      g_effective_ny_tuewed_cash_short_hour12_risk_pct_mult = StringToDouble(value);
+      return true;
+   }
+   if(key == "ny_tuewed_cash_short_hour14_risk_pct_mult")
+   {
+      g_effective_ny_tuewed_cash_short_hour14_risk_pct_mult = StringToDouble(value);
+      return true;
+   }
+   if(key == "tuewed_server_short_hour16_risk_pct_mult")
+   {
+      g_effective_tuewed_server_short_hour16_risk_pct_mult = StringToDouble(value);
+      return true;
+   }
+   if(key == "tuewed_server_short_hour18_risk_pct_mult")
+   {
+      g_effective_tuewed_server_short_hour18_risk_pct_mult = StringToDouble(value);
       return true;
    }
    if(key == "ny_postcash_risk_pct_mult")
@@ -1243,6 +1327,31 @@ bool LoadRuntimeConfig()
          Log("runtime config has invalid monday_short_risk_pct_mult for risk_pct sizing");
          return false;
       }
+      if(g_effective_ny_tuewed_cash_short_risk_pct_mult <= 0.0)
+      {
+         Log("runtime config has invalid ny_tuewed_cash_short_risk_pct_mult for risk_pct sizing");
+         return false;
+      }
+      if(g_effective_ny_tuewed_cash_short_hour12_risk_pct_mult <= 0.0)
+      {
+         Log("runtime config has invalid ny_tuewed_cash_short_hour12_risk_pct_mult for risk_pct sizing");
+         return false;
+      }
+      if(g_effective_ny_tuewed_cash_short_hour14_risk_pct_mult <= 0.0)
+      {
+         Log("runtime config has invalid ny_tuewed_cash_short_hour14_risk_pct_mult for risk_pct sizing");
+         return false;
+      }
+      if(g_effective_tuewed_server_short_hour16_risk_pct_mult <= 0.0)
+      {
+         Log("runtime config has invalid tuewed_server_short_hour16_risk_pct_mult for risk_pct sizing");
+         return false;
+      }
+      if(g_effective_tuewed_server_short_hour18_risk_pct_mult <= 0.0)
+      {
+         Log("runtime config has invalid tuewed_server_short_hour18_risk_pct_mult for risk_pct sizing");
+         return false;
+      }
       if(g_effective_ny_postcash_risk_pct_mult <= 0.0)
       {
          Log("runtime config has invalid ny_postcash_risk_pct_mult for risk_pct sizing");
@@ -1277,7 +1386,7 @@ bool LoadRuntimeConfig()
    }
    g_runtime_config_loaded = true;
    Log(StringFormat(
-      "runtime config loaded experiment=%s logic=%s onnx=%s feature_count=%d sizing_mode=%s fixed_lot=%.4f risk_pct=%.4f capital_base=%s monday_risk_mult=%.4f monday_long_mult=%.4f monday_short_mult=%.4f ny_postcash_risk_mult=%.4f ny_postcash_hold_cap=%d taper_start=%d taper_mid=%d taper_late=%d taper_mults=%.4f/%.4f/%.4f stop_model=%s stop_execution_mode=%s stop_policy=%s stop_atr_period=%d stop_atr_mult=%.4f long_mult=%.4f short_mult=%.4f low_thr=%.4f high_thr=%.4f low_mult=%.4f mid_mult=%.4f high_mult=%.4f threshold_enabled=%s short=%.6f long=%.6f margin_enabled=%s margin=%.6f diff_enabled=%s diff=%.6f time_exit=%s hold=%d flat_exit=%s flat_min=%.6f flat_min_hold=%d",
+      "runtime config loaded experiment=%s logic=%s onnx=%s feature_count=%d sizing_mode=%s fixed_lot=%.4f risk_pct=%.4f capital_base=%s monday_risk_mult=%.4f monday_long_mult=%.4f monday_short_mult=%.4f tuewed_cash_short_mult=%.4f tuewed_cash_short_h12_mult=%.4f tuewed_cash_short_h14_mult=%.4f tuewed_server_short_h16_mult=%.4f tuewed_server_short_h18_mult=%.4f ny_postcash_risk_mult=%.4f ny_postcash_hold_cap=%d taper_start=%d taper_mid=%d taper_late=%d taper_mults=%.4f/%.4f/%.4f stop_model=%s stop_execution_mode=%s stop_policy=%s stop_atr_period=%d stop_atr_mult=%.4f long_mult=%.4f short_mult=%.4f low_thr=%.4f high_thr=%.4f low_mult=%.4f mid_mult=%.4f high_mult=%.4f threshold_enabled=%s short=%.6f long=%.6f margin_enabled=%s margin=%.6f diff_enabled=%s diff=%.6f time_exit=%s hold=%d flat_exit=%s flat_min=%.6f flat_min_hold=%d",
       g_effective_experiment_id,
       g_effective_logic_family,
       g_effective_onnx_model_path,
@@ -1289,6 +1398,11 @@ bool LoadRuntimeConfig()
       g_effective_monday_risk_pct_mult,
       g_effective_monday_long_risk_pct_mult,
       g_effective_monday_short_risk_pct_mult,
+      g_effective_ny_tuewed_cash_short_risk_pct_mult,
+      g_effective_ny_tuewed_cash_short_hour12_risk_pct_mult,
+      g_effective_ny_tuewed_cash_short_hour14_risk_pct_mult,
+      g_effective_tuewed_server_short_hour16_risk_pct_mult,
+      g_effective_tuewed_server_short_hour18_risk_pct_mult,
       g_effective_ny_postcash_risk_pct_mult,
       g_effective_ny_postcash_hold_cap_bars,
       g_effective_ny_clock_taper_start_minute,

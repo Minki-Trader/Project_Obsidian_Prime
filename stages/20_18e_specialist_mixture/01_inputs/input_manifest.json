@@ -1,0 +1,246 @@
+{
+  "generated_at_utc": "2026-04-06T15:33:12.278366+00:00",
+  "stage": "20_18e_specialist_mixture",
+  "phase": "20SM",
+  "dataset_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\01_base_feature_ml\\01_inputs\\stage01c_h03_band000125_dataset.parquet",
+  "model_config_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\17_09c_directional_core_fork\\02_runs\\active\\17E_2407_ovr_balanced_0001\\config.json",
+  "rule_stack_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\17_09c_directional_core_fork\\02_runs\\active\\17E_2407_ovr_balanced_0001\\rule_stack.json",
+  "source_root": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\18_directional_core_overlay_matrix\\02_runs\\active",
+  "source_reference_stage_id": "18E",
+  "source_reference_label": "17E_postcash_hold_cut",
+  "target_window_token": "2407",
+  "target_segment": "holdout_b",
+  "overlay_defaults": {
+    "sizing_mode": "risk_pct",
+    "risk_pct": 2.0,
+    "capital_base": "balance",
+    "stop_model": "atr",
+    "stop_execution_mode": "broker_native",
+    "stop_policy": "direction_split",
+    "stop_long_atr_mult": 1.4,
+    "stop_short_atr_mult": 2.0,
+    "stop_atr_period": 14
+  },
+  "window_specs": [
+    {
+      "token": "2401",
+      "train_start_utc": "2022-09-01T00:00:00Z",
+      "train_end_utc_exclusive": "2024-01-01T00:00:00Z",
+      "validation_end_utc_exclusive": "2024-10-01T00:00:00Z",
+      "test_end_utc_exclusive": "2025-03-01T00:00:00Z",
+      "source_reference_run_name": "18E_2401_17e_ph20_0001"
+    },
+    {
+      "token": "2407",
+      "train_start_utc": "2022-09-01T00:00:00Z",
+      "train_end_utc_exclusive": "2024-07-01T00:00:00Z",
+      "validation_end_utc_exclusive": "2025-04-01T00:00:00Z",
+      "test_end_utc_exclusive": "2025-09-01T00:00:00Z",
+      "source_reference_run_name": "18E_2407_17e_ph20_0001"
+    },
+    {
+      "token": "2501",
+      "train_start_utc": "2022-09-01T00:00:00Z",
+      "train_end_utc_exclusive": "2025-01-01T00:00:00Z",
+      "validation_end_utc_exclusive": "2025-10-01T00:00:00Z",
+      "test_end_utc_exclusive": "2026-03-01T00:00:00Z",
+      "source_reference_run_name": "18E_2501_17e_ph20_0001"
+    }
+  ],
+  "candidates": [
+    {
+      "stage_id": "20A",
+      "label": "18E_reference",
+      "rationale": "Exact 18E reference so the mixture family is ranked against the current practical operating leader.",
+      "model_kind": "reference",
+      "component_ids": [
+        "17E"
+      ],
+      "voter_weights": [
+        1.0
+      ],
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "ny_postcash_hold_cap_bars": 3,
+        "session_overlay_label": "postcash_hold_cut"
+      }
+    },
+    {
+      "stage_id": "20B",
+      "label": "17C_balanced_micro_reference",
+      "rationale": "18J-style practical short specialist reference with the balanced-micro operating overlay.",
+      "model_kind": "reference",
+      "component_ids": [
+        "17C"
+      ],
+      "voter_weights": [
+        1.0
+      ],
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.575,
+        "ny_postcash_risk_pct_mult": 0.6125,
+        "session_overlay_label": "balanced_micro"
+      }
+    },
+    {
+      "stage_id": "20C",
+      "label": "17C_postcash_hold_cut_reference",
+      "rationale": "18K-style practical short specialist reference with the post-cash hold-cut operating overlay.",
+      "model_kind": "reference",
+      "component_ids": [
+        "17C"
+      ],
+      "voter_weights": [
+        1.0
+      ],
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "ny_postcash_hold_cap_bars": 3,
+        "session_overlay_label": "postcash_hold_cut"
+      }
+    },
+    {
+      "stage_id": "20D",
+      "label": "17E_17C_vote_85_15_ph20",
+      "rationale": "Conservative soft mixture that keeps 17E dominant while letting 17C nudge short probabilities in bad regimes.",
+      "model_kind": "vote",
+      "component_ids": [
+        "17E",
+        "17C"
+      ],
+      "voter_weights": [
+        0.85,
+        0.15
+      ],
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "ny_postcash_hold_cap_bars": 3,
+        "session_overlay_label": "postcash_hold_cut"
+      }
+    },
+    {
+      "stage_id": "20E",
+      "label": "17E_17C_vote_80_20_ph20",
+      "rationale": "Mid-strength specialist blend under the proven 18E operating overlay.",
+      "model_kind": "vote",
+      "component_ids": [
+        "17E",
+        "17C"
+      ],
+      "voter_weights": [
+        0.8,
+        0.2
+      ],
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "ny_postcash_hold_cap_bars": 3,
+        "session_overlay_label": "postcash_hold_cut"
+      }
+    },
+    {
+      "stage_id": "20F",
+      "label": "17E_17C_vote_75_25_ph20",
+      "rationale": "More aggressive specialist share to test whether 2407-like windows need a stronger short-specialist contribution.",
+      "model_kind": "vote",
+      "component_ids": [
+        "17E",
+        "17C"
+      ],
+      "voter_weights": [
+        0.75,
+        0.25
+      ],
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "ny_postcash_hold_cap_bars": 3,
+        "session_overlay_label": "postcash_hold_cut"
+      }
+    },
+    {
+      "stage_id": "20G",
+      "label": "17E_17C_vote_80_20_bd20",
+      "rationale": "Blend the robust core with the short specialist while switching to the balanced-micro operating overlay used by 18J.",
+      "model_kind": "vote",
+      "component_ids": [
+        "17E",
+        "17C"
+      ],
+      "voter_weights": [
+        0.8,
+        0.2
+      ],
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.575,
+        "ny_postcash_risk_pct_mult": 0.6125,
+        "session_overlay_label": "balanced_micro"
+      }
+    },
+    {
+      "stage_id": "20H",
+      "label": "17E_17C_vote_75_25_bd20",
+      "rationale": "Stronger specialist blend under the balanced-micro operating overlay to see whether the practical defender and the model-side specialist reinforce each other.",
+      "model_kind": "vote",
+      "component_ids": [
+        "17E",
+        "17C"
+      ],
+      "voter_weights": [
+        0.75,
+        0.25
+      ],
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.575,
+        "ny_postcash_risk_pct_mult": 0.6125,
+        "session_overlay_label": "balanced_micro"
+      }
+    },
+    {
+      "stage_id": "20I",
+      "label": "17E_17C_17D_vote_75_20_05_ph20",
+      "rationale": "Three-way mixture that keeps 17E as the core, adds 17C short specialization, and lets 17D contribute a small abstention bias.",
+      "model_kind": "vote",
+      "component_ids": [
+        "17E",
+        "17C",
+        "17D"
+      ],
+      "voter_weights": [
+        0.75,
+        0.2,
+        0.05
+      ],
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "ny_postcash_hold_cap_bars": 3,
+        "session_overlay_label": "postcash_hold_cut"
+      }
+    },
+    {
+      "stage_id": "20J",
+      "label": "17E_17C_17D_vote_70_20_10_bd20",
+      "rationale": "Broader mixture with a slightly larger flat-guard share under the balanced-micro overlay for a more defensive practical fork.",
+      "model_kind": "vote",
+      "component_ids": [
+        "17E",
+        "17C",
+        "17D"
+      ],
+      "voter_weights": [
+        0.7,
+        0.2,
+        0.1
+      ],
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.575,
+        "ny_postcash_risk_pct_mult": 0.6125,
+        "session_overlay_label": "balanced_micro"
+      }
+    }
+  ]
+}

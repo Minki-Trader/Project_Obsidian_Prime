@@ -1,0 +1,24 @@
+{
+  "generated_at_utc": "2026-04-06T01:34:01.538050+00:00",
+  "stage": "18_directional_core_overlay_matrix",
+  "phase": "18MX_directional_core_overlay_matrix",
+  "stage_root": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\18_directional_core_overlay_matrix",
+  "total_runs": 54,
+  "completed_runs": 54,
+  "failed_runs": 0,
+  "pending_runs": 0,
+  "current_run": null,
+  "completed_run_names": [
+    "18O_2501_17d_lp20_0001",
+    "18P_2401_17d_bd20_0001",
+    "18P_2407_17d_bd20_0001",
+    "18P_2501_17d_bd20_0001",
+    "18Q_2401_17d_ph20_0001",
+    "18Q_2407_17d_ph20_0001",
+    "18Q_2501_17d_ph20_0001",
+    "18R_2401_17d_ct20_0001",
+    "18R_2407_17d_ct20_0001",
+    "18R_2501_17d_ct20_0001"
+  ],
+  "failures": []
+}

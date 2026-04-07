@@ -1,0 +1,86 @@
+{
+  "generated_at_utc": "2026-04-04T01:45:23.427490+00:00",
+  "stage": "11_09c_overlay_local_probe",
+  "phase": "11OL",
+  "source_stage": "09_05et_local_probe",
+  "source_core_run_name": "09C_05ET_margin0700_t30_l50_m0700_h4",
+  "reference_overlay": "10C local_probe_b",
+  "risk_pct": 2.0,
+  "stop_policy": "direction_split",
+  "stop_long_atr_mult": 1.4,
+  "stop_short_atr_mult": 2.0,
+  "stop_atr_period": 14,
+  "windows": [
+    "2401",
+    "2407",
+    "2501"
+  ],
+  "variants": [
+    {
+      "stage_id": "11A",
+      "token": "LP02",
+      "label": "lp02_reference",
+      "description": "Current Stage 10 LP02 reference.",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.7,
+        "ny_postcash_risk_pct_mult": 0.65,
+        "session_overlay_label": "lp02_reference"
+      }
+    },
+    {
+      "stage_id": "11B",
+      "token": "MON065",
+      "label": "monday_065_post065",
+      "description": "Stronger Monday decay only.",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.65,
+        "ny_postcash_risk_pct_mult": 0.65,
+        "session_overlay_label": "monday_065_post065"
+      }
+    },
+    {
+      "stage_id": "11C",
+      "token": "POST060",
+      "label": "monday_070_post060",
+      "description": "Stronger post-cash decay only.",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.7,
+        "ny_postcash_risk_pct_mult": 0.6,
+        "session_overlay_label": "monday_070_post060"
+      }
+    },
+    {
+      "stage_id": "11D",
+      "token": "BOTH0605",
+      "label": "monday_065_post060",
+      "description": "Stronger Monday and post-cash decay together.",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.65,
+        "ny_postcash_risk_pct_mult": 0.6,
+        "session_overlay_label": "monday_065_post060"
+      }
+    },
+    {
+      "stage_id": "11E",
+      "token": "MON075",
+      "label": "monday_075_post065",
+      "description": "Softer Monday with current post-cash decay.",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.65,
+        "session_overlay_label": "monday_075_post065"
+      }
+    },
+    {
+      "stage_id": "11F",
+      "token": "POST070",
+      "label": "monday_070_post070",
+      "description": "Current Monday with softer post-cash decay.",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.7,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "session_overlay_label": "monday_070_post070"
+      }
+    }
+  ]
+}

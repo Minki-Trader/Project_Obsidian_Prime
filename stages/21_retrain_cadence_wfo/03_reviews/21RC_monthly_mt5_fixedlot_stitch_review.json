@@ -1,0 +1,244 @@
+{
+  "generated_at_utc": "2026-04-07T09:53:41.754998+00:00",
+  "stage": "21_retrain_cadence_wfo",
+  "run_name": "21m1",
+  "mode": "monthly_mt5_fixedlot_stitch",
+  "source_reference": "18E shell + monthly retrained 17E core",
+  "window_token": "2407",
+  "months": [
+    {
+      "month_token": "2025_04",
+      "train_start_utc": "2025-03-01T00:00:00+00:00",
+      "train_end_utc_exclusive": "2025-04-01T00:00:00+00:00",
+      "test_start_utc": "2025-04-01T00:00:00+00:00",
+      "test_end_utc_exclusive": "2025-05-01T00:00:00+00:00",
+      "net_profit": 29.530000000000005,
+      "return_pct": 5.906000000000001,
+      "trade_count": 225,
+      "win_rate": 0.4622222222222222,
+      "profit_factor": 1.0371582086547293,
+      "expectancy_per_trade": 0.13124444444444447,
+      "max_dd_pct": 31.443384564290856,
+      "ulcer_index": 9.25409002005617,
+      "csv_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_21f_2407_monthly_mt5_fixedlot_2025_04_v1\\logs\\att_0001_shadow.csv",
+      "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_21f_2407_monthly_mt5_fixedlot_2025_04_v1\\logs\\att_0001_trades.csv",
+      "bundle_path": "P:\\stages\\21_retrain_cadence_wfo\\02_runs\\active\\21m1\\m2504\\experiment_bundle.json"
+    },
+    {
+      "month_token": "2025_05",
+      "train_start_utc": "2025-04-01T00:00:00+00:00",
+      "train_end_utc_exclusive": "2025-05-01T00:00:00+00:00",
+      "test_start_utc": "2025-05-01T00:00:00+00:00",
+      "test_end_utc_exclusive": "2025-06-01T00:00:00+00:00",
+      "net_profit": 8.46,
+      "return_pct": 1.6920000000000002,
+      "trade_count": 66,
+      "win_rate": 0.5,
+      "profit_factor": 1.0724439116287035,
+      "expectancy_per_trade": 0.1281818181818182,
+      "max_dd_pct": 5.4665854473286135,
+      "ulcer_index": 2.714845479016577,
+      "csv_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_21f_2407_monthly_mt5_fixedlot_2025_05_v1\\logs\\att_0001_shadow.csv",
+      "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_21f_2407_monthly_mt5_fixedlot_2025_05_v1\\logs\\att_0001_trades.csv",
+      "bundle_path": "P:\\stages\\21_retrain_cadence_wfo\\02_runs\\active\\21m1\\m2505\\experiment_bundle.json"
+    },
+    {
+      "month_token": "2025_06",
+      "train_start_utc": "2025-05-01T00:00:00+00:00",
+      "train_end_utc_exclusive": "2025-06-01T00:00:00+00:00",
+      "test_start_utc": "2025-06-01T00:00:00+00:00",
+      "test_end_utc_exclusive": "2025-07-01T00:00:00+00:00",
+      "net_profit": -5.380000000000002,
+      "return_pct": -1.0760000000000003,
+      "trade_count": 117,
+      "win_rate": 0.5384615384615384,
+      "profit_factor": 0.969703795472463,
+      "expectancy_per_trade": -0.045982905982906,
+      "max_dd_pct": 10.579189583567171,
+      "ulcer_index": 4.420574260001494,
+      "csv_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_21f_2407_monthly_mt5_fixedlot_2025_06_v1\\logs\\att_0001_shadow.csv",
+      "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_21f_2407_monthly_mt5_fixedlot_2025_06_v1\\logs\\att_0001_trades.csv",
+      "bundle_path": "P:\\stages\\21_retrain_cadence_wfo\\02_runs\\active\\21m1\\m2506\\experiment_bundle.json"
+    },
+    {
+      "month_token": "2025_07",
+      "train_start_utc": "2025-06-01T00:00:00+00:00",
+      "train_end_utc_exclusive": "2025-07-01T00:00:00+00:00",
+      "test_start_utc": "2025-07-01T00:00:00+00:00",
+      "test_end_utc_exclusive": "2025-08-01T00:00:00+00:00",
+      "net_profit": -8.929999999999998,
+      "return_pct": -1.7859999999999998,
+      "trade_count": 87,
+      "win_rate": 0.45977011494252873,
+      "profit_factor": 0.9336799108800594,
+      "expectancy_per_trade": -0.10264367816091952,
+      "max_dd_pct": 8.158703548477227,
+      "ulcer_index": 4.8684707393283,
+      "csv_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_21f_2407_monthly_mt5_fixedlot_2025_07_v1\\logs\\att_0001_shadow.csv",
+      "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_21f_2407_monthly_mt5_fixedlot_2025_07_v1\\logs\\att_0001_trades.csv",
+      "bundle_path": "P:\\stages\\21_retrain_cadence_wfo\\02_runs\\active\\21m1\\m2507\\experiment_bundle.json"
+    },
+    {
+      "month_token": "2025_08",
+      "train_start_utc": "2025-07-01T00:00:00+00:00",
+      "train_end_utc_exclusive": "2025-08-01T00:00:00+00:00",
+      "test_start_utc": "2025-08-01T00:00:00+00:00",
+      "test_end_utc_exclusive": "2025-09-01T00:00:00+00:00",
+      "net_profit": 42.05,
+      "return_pct": 8.41,
+      "trade_count": 137,
+      "win_rate": 0.5109489051094891,
+      "profit_factor": 1.1940649806165775,
+      "expectancy_per_trade": 0.30693430656934306,
+      "max_dd_pct": 4.675999999999999,
+      "ulcer_index": 2.139076355143764,
+      "csv_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_21f_2407_monthly_mt5_fixedlot_2025_08_v1\\logs\\att_0001_shadow.csv",
+      "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_21f_2407_monthly_mt5_fixedlot_2025_08_v1\\logs\\att_0001_trades.csv",
+      "bundle_path": "P:\\stages\\21_retrain_cadence_wfo\\02_runs\\active\\21m1\\m2508\\experiment_bundle.json"
+    }
+  ],
+  "stitched_financial_metrics": {
+    "headline": {
+      "net_profit": 65.73,
+      "return_pct": 13.146000000000003,
+      "trade_count": 632,
+      "win_rate": 0.49050632911392406,
+      "profit_factor": 1.045633157456262,
+      "expectancy_per_trade": 0.10400316455696203,
+      "max_dd_pct": 31.46552519419178,
+      "recovery_factor": 0.3854227747156092,
+      "extra": {
+        "final_balance": 542.05,
+        "initial_deposit": 500.0
+      }
+    },
+    "risk": {
+      "max_dd_pct": 31.443384564290856,
+      "max_dd_amount": 170.42000000000002,
+      "equity_dd_pct": 31.46552519419178,
+      "equity_dd_amount": 170.54000000000002,
+      "time_under_water": 12980700.0,
+      "longest_recovery_duration": 11841900.0,
+      "worst_day": -125.94000000000001,
+      "worst_week": -74.13,
+      "min_free_margin": 362.92,
+      "margin_call_proximity": null,
+      "ulcer_index": 11.048505076511503,
+      "consecutive_losses": 7,
+      "extra": {
+        "min_balance": 371.57,
+        "min_equity": 371.45
+      }
+    },
+    "diagnostics": {
+      "avg_win": 4.858483870967742,
+      "avg_loss": -4.473291925465839,
+      "payoff_ratio": 1.0861092796803755,
+      "avg_hold": 3.617088607594937,
+      "hold_distribution": {
+        "p50": 4.0,
+        "p90": 4.0
+      },
+      "long_count": 327,
+      "short_count": 305,
+      "long_expectancy": 0.040091743119266054,
+      "short_expectancy": 0.17252459016393445,
+      "mfe_mean": 4.825965189873418,
+      "mfe_median": 3.025,
+      "mfe_p90": 10.575999999999999,
+      "mae_mean": 4.625775316455696,
+      "mae_median": 3.1900000000000004,
+      "mae_p90": 10.612999999999998,
+      "realized_over_mfe": -8.1964927370091,
+      "win_trade_mae": 2.486870967741935,
+      "loss_trade_mfe": 2.1980124223602484,
+      "rule_pass_rates": {
+        "long_signal_rate": 0.15422127400182872,
+        "short_signal_rate": 0.13501981103322158
+      },
+      "no_trade_rate": 0.7107589149649497,
+      "extra": {
+        "decision_reason_breakdown": {
+          "SKIPPED": 23061,
+          "SHORT_MARGIN_FAIL": 1989,
+          "THRESHOLD_FAIL": 2626,
+          "LONG_FILTERS_OK": 618,
+          "SHORT_FILTERS_OK": 886,
+          "DUAL_SIGNAL_LONG_WINS": 394,
+          "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 46,
+          "LONG_MARGIN_FAIL": 3
+        },
+        "trade_close_reason_breakdown": {
+          "TIME_EXIT": 382,
+          "TIME_EXIT_NY_POSTCASH": 250
+        },
+        "no_trade_count": 4664,
+        "mfe_mae_unit": "account_currency"
+      }
+    },
+    "execution": {
+      "reject_count": 0,
+      "avg_spread": 135.48290179927758,
+      "avg_slippage": null,
+      "fill_rate": null,
+      "next_tick_fill_distance": {
+        "mean_points": null,
+        "p90_points": null
+      },
+      "runtime_warning_counts": {
+        "HANDLE_NOT_READY_EMA9_-1": 5
+      },
+      "contract_skip_count": 23056,
+      "contract_skip_breakdown": {
+        "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 3524,
+        "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 969,
+        "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 4618,
+        "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 791,
+        "SESSION_CASH_OPEN_NOT_FOUND": 13154
+      },
+      "broker_constraint_events": 0
+    }
+  },
+  "monthly_consistency": {
+    "month_count": 5,
+    "positive_months": 3,
+    "negative_months": 2,
+    "best_month": {
+      "month_token": "2025_08",
+      "train_start_utc": "2025-07-01T00:00:00+00:00",
+      "train_end_utc_exclusive": "2025-08-01T00:00:00+00:00",
+      "test_start_utc": "2025-08-01T00:00:00+00:00",
+      "test_end_utc_exclusive": "2025-09-01T00:00:00+00:00",
+      "net_profit": 42.05,
+      "return_pct": 8.41,
+      "trade_count": 137,
+      "win_rate": 0.5109489051094891,
+      "profit_factor": 1.1940649806165775,
+      "expectancy_per_trade": 0.30693430656934306,
+      "max_dd_pct": 4.675999999999999,
+      "ulcer_index": 2.139076355143764,
+      "csv_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_21f_2407_monthly_mt5_fixedlot_2025_08_v1\\logs\\att_0001_shadow.csv",
+      "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_21f_2407_monthly_mt5_fixedlot_2025_08_v1\\logs\\att_0001_trades.csv",
+      "bundle_path": "P:\\stages\\21_retrain_cadence_wfo\\02_runs\\active\\21m1\\m2508\\experiment_bundle.json"
+    },
+    "worst_month": {
+      "month_token": "2025_07",
+      "train_start_utc": "2025-06-01T00:00:00+00:00",
+      "train_end_utc_exclusive": "2025-07-01T00:00:00+00:00",
+      "test_start_utc": "2025-07-01T00:00:00+00:00",
+      "test_end_utc_exclusive": "2025-08-01T00:00:00+00:00",
+      "net_profit": -8.929999999999998,
+      "return_pct": -1.7859999999999998,
+      "trade_count": 87,
+      "win_rate": 0.45977011494252873,
+      "profit_factor": 0.9336799108800594,
+      "expectancy_per_trade": -0.10264367816091952,
+      "max_dd_pct": 8.158703548477227,
+      "ulcer_index": 4.8684707393283,
+      "csv_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_21f_2407_monthly_mt5_fixedlot_2025_07_v1\\logs\\att_0001_shadow.csv",
+      "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_21f_2407_monthly_mt5_fixedlot_2025_07_v1\\logs\\att_0001_trades.csv",
+      "bundle_path": "P:\\stages\\21_retrain_cadence_wfo\\02_runs\\active\\21m1\\m2507\\experiment_bundle.json"
+    }
+  },
+  "caveat": "current EA fixed_lot path returns after setting volume, so ATR-risk sizing behaviour is not preserved exactly in this stitch run"
+}

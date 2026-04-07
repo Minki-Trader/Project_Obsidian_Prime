@@ -1,0 +1,100 @@
+{
+  "generated_at_utc": "2026-04-05T15:17:45.257242+00:00",
+  "stage": "16_09c_feature_core_fork",
+  "phase": "16CF",
+  "dataset_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\01_base_feature_ml\\01_inputs\\stage01c_h03_band000125_dataset.parquet",
+  "model_config_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\09_05et_local_probe\\02_runs\\active\\09C_2407_05et_margin0700_0001\\config.json",
+  "rule_stack_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\09_05et_local_probe\\02_runs\\active\\09C_2407_05et_margin0700_0001\\rule_stack.json",
+  "source_reference_run_name": "09C_05ET_margin0700_t30_l50_m0700_h4",
+  "target_window_token": "2407",
+  "target_segment": "holdout_b",
+  "overlay_defaults": {
+    "sizing_mode": "risk_pct",
+    "risk_pct": 2.0,
+    "capital_base": "balance",
+    "stop_model": "atr",
+    "stop_execution_mode": "broker_native",
+    "stop_policy": "direction_split",
+    "stop_long_atr_mult": 1.4,
+    "stop_short_atr_mult": 2.0,
+    "stop_atr_period": 14
+  },
+  "window_specs": [
+    {
+      "token": "2401",
+      "train_start_utc": "2022-09-01T00:00:00Z",
+      "train_end_utc_exclusive": "2024-01-01T00:00:00Z",
+      "validation_end_utc_exclusive": "2024-10-01T00:00:00Z",
+      "test_end_utc_exclusive": "2025-03-01T00:00:00Z"
+    },
+    {
+      "token": "2407",
+      "train_start_utc": "2022-09-01T00:00:00Z",
+      "train_end_utc_exclusive": "2024-07-01T00:00:00Z",
+      "validation_end_utc_exclusive": "2025-04-01T00:00:00Z",
+      "test_end_utc_exclusive": "2025-09-01T00:00:00Z"
+    },
+    {
+      "token": "2501",
+      "train_start_utc": "2022-09-01T00:00:00Z",
+      "train_end_utc_exclusive": "2025-01-01T00:00:00Z",
+      "validation_end_utc_exclusive": "2025-10-01T00:00:00Z",
+      "test_end_utc_exclusive": "2026-03-01T00:00:00Z"
+    }
+  ],
+  "candidates": [
+    {
+      "stage_id": "16A",
+      "label": "09C_reference_full",
+      "rationale": "Reference 09C core with persistence+riskoff proxy, session features, and external breadth intact.",
+      "drop_features": [],
+      "replacement_components": null
+    },
+    {
+      "stage_id": "16B",
+      "label": "09C_persistence_only",
+      "rationale": "Strip macro risk-off confirmation and keep only persistence proxy to test whether macro confirmation is overfitting shifted windows.",
+      "drop_features": [
+        "vix_change_1",
+        "vix_zscore_20",
+        "us10yr_change_1",
+        "us10yr_zscore_20",
+        "usdx_change_1",
+        "usdx_zscore_20"
+      ],
+      "replacement_components": [
+        "trend_proxy_persistence"
+      ]
+    },
+    {
+      "stage_id": "16C",
+      "label": "09C_sessionless",
+      "rationale": "Remove explicit session-timing inputs and let price/volatility drive entry quality instead of time-of-day memorization.",
+      "drop_features": [
+        "is_us_cash_open",
+        "minutes_from_cash_open",
+        "is_first_30m_after_open",
+        "is_last_30m_before_cash_close"
+      ],
+      "replacement_components": null
+    },
+    {
+      "stage_id": "16D",
+      "label": "09C_external_breadthless",
+      "rationale": "Remove mega-cap constituent/breadth inputs to test whether component crowding is causing recent-only edge.",
+      "drop_features": [
+        "nvda_xnas_log_return_1",
+        "aapl_xnas_log_return_1",
+        "msft_xnas_log_return_1",
+        "amzn_xnas_log_return_1",
+        "mega8_equal_return_1",
+        "top3_weighted_return_1",
+        "mega8_pos_breadth_1",
+        "mega8_dispersion_5",
+        "us100_minus_mega8_equal_return_1",
+        "us100_minus_top3_weighted_return_1"
+      ],
+      "replacement_components": null
+    }
+  ]
+}

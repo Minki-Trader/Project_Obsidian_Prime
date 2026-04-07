@@ -1,0 +1,116 @@
+{
+  "generated_at_utc": "2026-04-05T10:01:09.488615+00:00",
+  "stage": "15_13d_server_hour_short_detector",
+  "phase": "15SH",
+  "source_stage": "09_05et_local_probe",
+  "source_core_run_name": "09C_05ET_margin0700_t30_l50_m0700_h4",
+  "reference_overlay_stage13": "13D monday_0.575_post_0.6125",
+  "risk_pct": 2.0,
+  "stop_policy": "direction_split",
+  "stop_long_atr_mult": 1.4,
+  "stop_short_atr_mult": 2.0,
+  "stop_atr_period": 14,
+  "windows": [
+    "2401",
+    "2407",
+    "2501"
+  ],
+  "variants": [
+    {
+      "stage_id": "15A",
+      "token": "REF",
+      "label": "stage13d_reference",
+      "description": "Reference 13D overlay without server-hour detector.",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.575,
+        "ny_postcash_risk_pct_mult": 0.6125,
+        "ny_tuewed_cash_short_risk_pct_mult": 1.0,
+        "ny_tuewed_cash_short_hour12_risk_pct_mult": 1.0,
+        "ny_tuewed_cash_short_hour14_risk_pct_mult": 1.0,
+        "tuewed_server_short_hour16_risk_pct_mult": 1.0,
+        "tuewed_server_short_hour18_risk_pct_mult": 1.0,
+        "session_overlay_label": "stage13d_reference"
+      }
+    },
+    {
+      "stage_id": "15B",
+      "token": "H16075",
+      "label": "tuewed_server_short_h16_075",
+      "description": "Reduce Tue/Wed short entries opened during server hour 16 to 0.75x.",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.575,
+        "ny_postcash_risk_pct_mult": 0.6125,
+        "ny_tuewed_cash_short_risk_pct_mult": 1.0,
+        "ny_tuewed_cash_short_hour12_risk_pct_mult": 1.0,
+        "ny_tuewed_cash_short_hour14_risk_pct_mult": 1.0,
+        "tuewed_server_short_hour16_risk_pct_mult": 0.75,
+        "tuewed_server_short_hour18_risk_pct_mult": 1.0,
+        "session_overlay_label": "tuewed_server_short_h16_075"
+      }
+    },
+    {
+      "stage_id": "15C",
+      "token": "H16050",
+      "label": "tuewed_server_short_h16_050",
+      "description": "Reduce Tue/Wed short entries opened during server hour 16 to 0.50x.",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.575,
+        "ny_postcash_risk_pct_mult": 0.6125,
+        "ny_tuewed_cash_short_risk_pct_mult": 1.0,
+        "ny_tuewed_cash_short_hour12_risk_pct_mult": 1.0,
+        "ny_tuewed_cash_short_hour14_risk_pct_mult": 1.0,
+        "tuewed_server_short_hour16_risk_pct_mult": 0.5,
+        "tuewed_server_short_hour18_risk_pct_mult": 1.0,
+        "session_overlay_label": "tuewed_server_short_h16_050"
+      }
+    },
+    {
+      "stage_id": "15D",
+      "token": "H16035",
+      "label": "tuewed_server_short_h16_035",
+      "description": "Reduce Tue/Wed short entries opened during server hour 16 to 0.35x.",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.575,
+        "ny_postcash_risk_pct_mult": 0.6125,
+        "ny_tuewed_cash_short_risk_pct_mult": 1.0,
+        "ny_tuewed_cash_short_hour12_risk_pct_mult": 1.0,
+        "ny_tuewed_cash_short_hour14_risk_pct_mult": 1.0,
+        "tuewed_server_short_hour16_risk_pct_mult": 0.35,
+        "tuewed_server_short_hour18_risk_pct_mult": 1.0,
+        "session_overlay_label": "tuewed_server_short_h16_035"
+      }
+    },
+    {
+      "stage_id": "15E",
+      "token": "H1618050",
+      "label": "tuewed_server_short_h16h18_050",
+      "description": "Reduce Tue/Wed short entries opened during server hours 16 and 18 to 0.50x.",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.575,
+        "ny_postcash_risk_pct_mult": 0.6125,
+        "ny_tuewed_cash_short_risk_pct_mult": 1.0,
+        "ny_tuewed_cash_short_hour12_risk_pct_mult": 1.0,
+        "ny_tuewed_cash_short_hour14_risk_pct_mult": 1.0,
+        "tuewed_server_short_hour16_risk_pct_mult": 0.5,
+        "tuewed_server_short_hour18_risk_pct_mult": 0.5,
+        "session_overlay_label": "tuewed_server_short_h16h18_050"
+      }
+    },
+    {
+      "stage_id": "15F",
+      "token": "H1618035",
+      "label": "tuewed_server_short_h16h18_035",
+      "description": "Reduce Tue/Wed short entries opened during server hours 16 and 18 to 0.35x.",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.575,
+        "ny_postcash_risk_pct_mult": 0.6125,
+        "ny_tuewed_cash_short_risk_pct_mult": 1.0,
+        "ny_tuewed_cash_short_hour12_risk_pct_mult": 1.0,
+        "ny_tuewed_cash_short_hour14_risk_pct_mult": 1.0,
+        "tuewed_server_short_hour16_risk_pct_mult": 0.35,
+        "tuewed_server_short_hour18_risk_pct_mult": 0.35,
+        "session_overlay_label": "tuewed_server_short_h16h18_035"
+      }
+    }
+  ]
+}

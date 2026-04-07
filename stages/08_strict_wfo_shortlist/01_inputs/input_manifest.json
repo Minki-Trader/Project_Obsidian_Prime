@@ -1,0 +1,103 @@
+{
+  "generated_at_utc": "2026-04-03T09:12:42.285074+00:00",
+  "stage": "08_strict_wfo_shortlist",
+  "phase": "08SW",
+  "dataset_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\01_base_feature_ml\\01_inputs\\stage01c_h03_band000125_dataset.parquet",
+  "model_config_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DP_05ca_margin0675_hold5_0001\\config.json",
+  "overlay_defaults": {
+    "sizing_mode": "risk_pct",
+    "risk_pct": 2.0,
+    "capital_base": "balance",
+    "stop_model": "atr",
+    "stop_execution_mode": "broker_native",
+    "stop_policy": "direction_split",
+    "stop_long_atr_mult": 1.4,
+    "stop_short_atr_mult": 2.0,
+    "stop_atr_period": 14
+  },
+  "window_specs": [
+    {
+      "token": "2401",
+      "train_start_utc": "2022-09-01T00:00:00Z",
+      "train_end_utc_exclusive": "2024-01-01T00:00:00Z",
+      "validation_end_utc_exclusive": "2024-10-01T00:00:00Z",
+      "test_end_utc_exclusive": "2025-03-01T00:00:00Z"
+    },
+    {
+      "token": "2407",
+      "train_start_utc": "2022-09-01T00:00:00Z",
+      "train_end_utc_exclusive": "2024-07-01T00:00:00Z",
+      "validation_end_utc_exclusive": "2025-04-01T00:00:00Z",
+      "test_end_utc_exclusive": "2025-09-01T00:00:00Z"
+    },
+    {
+      "token": "2501",
+      "train_start_utc": "2022-09-01T00:00:00Z",
+      "train_end_utc_exclusive": "2025-01-01T00:00:00Z",
+      "validation_end_utc_exclusive": "2025-10-01T00:00:00Z",
+      "test_end_utc_exclusive": "2026-03-01T00:00:00Z"
+    }
+  ],
+  "candidates": [
+    {
+      "stage_id": "08A",
+      "label": "05ER_core_short_bias_hold4",
+      "core_reference_run_name": "05ER_05dp_short_bias_margin_hold4_0001",
+      "standard_reference_run_name": "05ER_05dp_short_bias_margin_hold4_0001",
+      "rule_stack_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05ER_05dp_short_bias_margin_hold4_0001\\rule_stack.json",
+      "motif_source_run_name": null,
+      "motif_label": null,
+      "motif_temperature": 1.0,
+      "motif_class_biases": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "stage_id": "08B",
+      "label": "05EM_core_short_bias_hold5",
+      "core_reference_run_name": "05EM_05dp_short_bias_margin_hold5_0001",
+      "standard_reference_run_name": "05EM_05dp_short_bias_margin_hold5_0001",
+      "rule_stack_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05EM_05dp_short_bias_margin_hold5_0001\\rule_stack.json",
+      "motif_source_run_name": null,
+      "motif_label": null,
+      "motif_temperature": 1.0,
+      "motif_class_biases": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "stage_id": "08C",
+      "label": "05ET_core_long_suppression_hold4",
+      "core_reference_run_name": "05ET_05dp_stronger_long_suppression_hold4_0001",
+      "standard_reference_run_name": "05ET_05dp_stronger_long_suppression_hold4_0001",
+      "rule_stack_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05ET_05dp_stronger_long_suppression_hold4_0001\\rule_stack.json",
+      "motif_source_run_name": null,
+      "motif_label": null,
+      "motif_temperature": 1.0,
+      "motif_class_biases": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "stage_id": "08D",
+      "label": "05ET_plus_05FD_motif",
+      "core_reference_run_name": "05ET_05dp_stronger_long_suppression_hold4_0001",
+      "standard_reference_run_name": "07E_05et_fd_motif_0001",
+      "rule_stack_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05ET_05dp_stronger_long_suppression_hold4_0001\\rule_stack.json",
+      "motif_source_run_name": "05FD_05ca_flatup_longdown_margin0675_hold5_0001",
+      "motif_label": "flat_up_long_down_bias",
+      "motif_temperature": 1.0,
+      "motif_class_biases": [
+        0.0,
+        0.1,
+        -0.1
+      ]
+    }
+  ]
+}
