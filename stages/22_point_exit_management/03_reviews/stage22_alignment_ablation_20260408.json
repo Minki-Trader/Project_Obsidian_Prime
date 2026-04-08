@@ -1,0 +1,443 @@
+{
+  "generated_at": "2026-04-08",
+  "results": {
+    "validation": [
+      {
+        "label": "22A_exact",
+        "split": "validation",
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22A_05dp_base_hold5_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json",
+        "headline": {
+          "return_pct": 122.57000000000001,
+          "profit_factor": 1.5552837351744633,
+          "trade_count": 405,
+          "max_dd_pct": 12.603127209868777
+        },
+        "trade_close_reason_breakdown": {
+          "TIME_EXIT": 405
+        },
+        "row_metrics": {
+          "row_count": 52809,
+          "ready_row_count": 11756,
+          "skip_row_count": 41053,
+          "ready_rate": 0.2226135696566873,
+          "long_signal_count": 535,
+          "short_signal_count": 714,
+          "no_trade_count": 10507,
+          "no_trade_rate": 0.8937563797209935,
+          "skip_reason_breakdown": {
+            "HANDLE_NOT_READY_EMA9_-1": 1,
+            "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 8673,
+            "SESSION_CASH_OPEN_NOT_FOUND": 23702,
+            "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 5926,
+            "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 1204,
+            "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1547
+          },
+          "external_mismatch_count": 17350,
+          "argmax_share": {
+            "SHORT": 0.2642055120789384,
+            "LONG": 0.2338380401497108,
+            "NO_TRADE": 0.5019564477713508
+          },
+          "max_argmax_share": 0.5019564477713508,
+          "avg_entropy_norm": 0.9333092365357577,
+          "extreme_confidence_rate": 0.0,
+          "fallback_rows": 0,
+          "fallback_events": 0,
+          "fallback_symbol_breakdown": {},
+          "recovered_external_ready_rows": 0,
+          "recovered_external_signal_rows": 0
+        }
+      },
+      {
+        "label": "22I_breadth_stale1",
+        "split": "validation",
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22I_05dp_breadth_stale1_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+        "headline": {
+          "return_pct": 123.58999999999997,
+          "profit_factor": 1.5557954003759569,
+          "trade_count": 412,
+          "max_dd_pct": 12.2593698436395
+        },
+        "trade_close_reason_breakdown": {
+          "TIME_EXIT": 412
+        },
+        "row_metrics": {
+          "row_count": 52809,
+          "ready_row_count": 11933,
+          "skip_row_count": 40876,
+          "ready_rate": 0.22596527107121891,
+          "long_signal_count": 538,
+          "short_signal_count": 724,
+          "no_trade_count": 10671,
+          "no_trade_rate": 0.8942428559456969,
+          "skip_reason_breakdown": {
+            "HANDLE_NOT_READY_EMA9_-1": 1,
+            "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 8673,
+            "SESSION_CASH_OPEN_NOT_FOUND": 23702,
+            "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 5749,
+            "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 1204,
+            "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1547
+          },
+          "external_mismatch_count": 17173,
+          "argmax_share": {
+            "SHORT": 0.2636386491242772,
+            "LONG": 0.23221319031257856,
+            "NO_TRADE": 0.5041481605631443
+          },
+          "max_argmax_share": 0.5041481605631443,
+          "avg_entropy_norm": 0.9330756358397667,
+          "extreme_confidence_rate": 0.0,
+          "fallback_rows": 177,
+          "fallback_events": 1416,
+          "fallback_symbol_breakdown": {
+            "AAPL.xnas": 177,
+            "AMZN.xnas": 177,
+            "AMD.xnas": 177,
+            "GOOGL.xnas": 177,
+            "META.xnas": 177,
+            "MSFT.xnas": 177,
+            "NVDA.xnas": 177,
+            "TSLA.xnas": 177
+          },
+          "recovered_external_ready_rows": 177,
+          "recovered_external_signal_rows": 13
+        }
+      },
+      {
+        "label": "22J_macro_stale1",
+        "split": "validation",
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22J_05dp_macro_stale1_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+        "headline": {
+          "return_pct": 122.39599999999999,
+          "profit_factor": 1.55305227960779,
+          "trade_count": 408,
+          "max_dd_pct": 12.603127209868777
+        },
+        "trade_close_reason_breakdown": {
+          "TIME_EXIT": 408
+        },
+        "row_metrics": {
+          "row_count": 52809,
+          "ready_row_count": 13221,
+          "skip_row_count": 39588,
+          "ready_rate": 0.25035505311594614,
+          "long_signal_count": 539,
+          "short_signal_count": 722,
+          "no_trade_count": 11960,
+          "no_trade_rate": 0.904621435594887,
+          "skip_reason_breakdown": {
+            "HANDLE_NOT_READY_EMA9_-1": 1,
+            "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 5518,
+            "SESSION_CASH_OPEN_NOT_FOUND": 23702,
+            "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 7652,
+            "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 2231,
+            "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 484
+          },
+          "external_mismatch_count": 15885,
+          "argmax_share": {
+            "SHORT": 0.23810604341577793,
+            "LONG": 0.21102791014295438,
+            "NO_TRADE": 0.5508660464412677
+          },
+          "max_argmax_share": 0.5508660464412677,
+          "avg_entropy_norm": 0.9308702689906506,
+          "extreme_confidence_rate": 0.0,
+          "fallback_rows": 1465,
+          "fallback_events": 1544,
+          "fallback_symbol_breakdown": {
+            "US10YR": 470,
+            "VIX": 1074
+          },
+          "recovered_external_ready_rows": 1465,
+          "recovered_external_signal_rows": 12
+        }
+      },
+      {
+        "label": "22K_all_stale1",
+        "split": "validation",
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22K_05dp_all_stale1_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+        "headline": {
+          "return_pct": 123.41600000000001,
+          "profit_factor": 1.5535789577558288,
+          "trade_count": 415,
+          "max_dd_pct": 12.2593698436395
+        },
+        "trade_close_reason_breakdown": {
+          "TIME_EXIT": 415
+        },
+        "row_metrics": {
+          "row_count": 52809,
+          "ready_row_count": 13405,
+          "skip_row_count": 39404,
+          "ready_rate": 0.25383930769376434,
+          "long_signal_count": 542,
+          "short_signal_count": 732,
+          "no_trade_count": 12131,
+          "no_trade_rate": 0.9049608355091384,
+          "skip_reason_breakdown": {
+            "HANDLE_NOT_READY_EMA9_-1": 1,
+            "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 5518,
+            "SESSION_CASH_OPEN_NOT_FOUND": 23702,
+            "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 7468,
+            "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 2231,
+            "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 484
+          },
+          "external_mismatch_count": 15701,
+          "argmax_share": {
+            "SHORT": 0.23782170831779187,
+            "LONG": 0.20977247295785154,
+            "NO_TRADE": 0.5524058187243566
+          },
+          "max_argmax_share": 0.5524058187243566,
+          "avg_entropy_norm": 0.9306824135127931,
+          "extreme_confidence_rate": 0.0,
+          "fallback_rows": 1649,
+          "fallback_events": 3023,
+          "fallback_symbol_breakdown": {
+            "US10YR": 473,
+            "AAPL.xnas": 184,
+            "AMZN.xnas": 184,
+            "AMD.xnas": 184,
+            "GOOGL.xnas": 184,
+            "META.xnas": 184,
+            "MSFT.xnas": 184,
+            "NVDA.xnas": 184,
+            "TSLA.xnas": 184,
+            "VIX": 1078
+          },
+          "recovered_external_ready_rows": 1649,
+          "recovered_external_signal_rows": 25
+        }
+      }
+    ],
+    "test": [
+      {
+        "label": "22A_exact",
+        "split": "test",
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22A_05dp_base_hold5_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+        "headline": {
+          "return_pct": 68.574,
+          "profit_factor": 1.492530238170483,
+          "trade_count": 275,
+          "max_dd_pct": 19.393561462311947
+        },
+        "trade_close_reason_breakdown": {
+          "TIME_EXIT": 275
+        },
+        "row_metrics": {
+          "row_count": 28875,
+          "ready_row_count": 6755,
+          "skip_row_count": 22120,
+          "ready_rate": 0.23393939393939395,
+          "long_signal_count": 369,
+          "short_signal_count": 526,
+          "no_trade_count": 5860,
+          "no_trade_rate": 0.8675055514433753,
+          "skip_reason_breakdown": {
+            "HANDLE_NOT_READY_EMA9_-1": 1,
+            "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 1540,
+            "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1147,
+            "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 2467,
+            "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 3809,
+            "SESSION_CASH_OPEN_NOT_FOUND": 13143,
+            "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas": 11,
+            "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas": 1,
+            "EXTERNAL_TIMESTAMP_MISMATCH_TSLA.xnas": 1
+          },
+          "external_mismatch_count": 8976,
+          "argmax_share": {
+            "SHORT": 0.25181347150259065,
+            "NO_TRADE": 0.5184307920059216,
+            "LONG": 0.22975573649148778
+          },
+          "max_argmax_share": 0.5184307920059216,
+          "avg_entropy_norm": 0.9343936533138516,
+          "extreme_confidence_rate": 0.0,
+          "fallback_rows": 0,
+          "fallback_events": 0,
+          "fallback_symbol_breakdown": {},
+          "recovered_external_ready_rows": 0,
+          "recovered_external_signal_rows": 0
+        }
+      },
+      {
+        "label": "22I_breadth_stale1",
+        "split": "test",
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22I_05dp_breadth_stale1_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json",
+        "headline": {
+          "return_pct": 68.574,
+          "profit_factor": 1.492530238170483,
+          "trade_count": 275,
+          "max_dd_pct": 19.393561462311947
+        },
+        "trade_close_reason_breakdown": {
+          "TIME_EXIT": 275
+        },
+        "row_metrics": {
+          "row_count": 28875,
+          "ready_row_count": 6852,
+          "skip_row_count": 22023,
+          "ready_rate": 0.2372987012987013,
+          "long_signal_count": 369,
+          "short_signal_count": 528,
+          "no_trade_count": 5955,
+          "no_trade_rate": 0.8690893169877408,
+          "skip_reason_breakdown": {
+            "HANDLE_NOT_READY_EMA9_-1": 1,
+            "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 1540,
+            "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1147,
+            "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 2467,
+            "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 3712,
+            "SESSION_CASH_OPEN_NOT_FOUND": 13143,
+            "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas": 11,
+            "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas": 1,
+            "EXTERNAL_TIMESTAMP_MISMATCH_TSLA.xnas": 1
+          },
+          "external_mismatch_count": 8879,
+          "argmax_share": {
+            "SHORT": 0.2504378283712785,
+            "NO_TRADE": 0.5213076474022184,
+            "LONG": 0.22825452422650322
+          },
+          "max_argmax_share": 0.5213076474022184,
+          "avg_entropy_norm": 0.9342365410210869,
+          "extreme_confidence_rate": 0.0,
+          "fallback_rows": 97,
+          "fallback_events": 776,
+          "fallback_symbol_breakdown": {
+            "AAPL.xnas": 97,
+            "AMZN.xnas": 97,
+            "AMD.xnas": 97,
+            "GOOGL.xnas": 97,
+            "META.xnas": 97,
+            "MSFT.xnas": 97,
+            "NVDA.xnas": 97,
+            "TSLA.xnas": 97
+          },
+          "recovered_external_ready_rows": 97,
+          "recovered_external_signal_rows": 2
+        }
+      },
+      {
+        "label": "22J_macro_stale1",
+        "split": "test",
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22J_05dp_macro_stale1_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json",
+        "headline": {
+          "return_pct": 71.138,
+          "profit_factor": 1.5034322675611793,
+          "trade_count": 278,
+          "max_dd_pct": 19.52099801886977
+        },
+        "trade_close_reason_breakdown": {
+          "TIME_EXIT": 278
+        },
+        "row_metrics": {
+          "row_count": 28875,
+          "ready_row_count": 7600,
+          "skip_row_count": 21275,
+          "ready_rate": 0.2632034632034632,
+          "long_signal_count": 398,
+          "short_signal_count": 531,
+          "no_trade_count": 6671,
+          "no_trade_rate": 0.8777631578947368,
+          "skip_reason_breakdown": {
+            "HANDLE_NOT_READY_EMA9_-1": 1,
+            "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 820,
+            "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1568,
+            "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 1029,
+            "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 4701,
+            "SESSION_CASH_OPEN_NOT_FOUND": 13143,
+            "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas": 11,
+            "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas": 1,
+            "EXTERNAL_TIMESTAMP_MISMATCH_TSLA.xnas": 1
+          },
+          "external_mismatch_count": 8131,
+          "argmax_share": {
+            "SHORT": 0.23236842105263159,
+            "NO_TRADE": 0.5457894736842105,
+            "LONG": 0.2218421052631579
+          },
+          "max_argmax_share": 0.5457894736842105,
+          "avg_entropy_norm": 0.9324713033565621,
+          "extreme_confidence_rate": 0.0,
+          "fallback_rows": 845,
+          "fallback_events": 865,
+          "fallback_symbol_breakdown": {
+            "VIX": 162,
+            "US10YR": 702,
+            "USDX": 1
+          },
+          "recovered_external_ready_rows": 845,
+          "recovered_external_signal_rows": 34
+        }
+      },
+      {
+        "label": "22K_all_stale1",
+        "split": "test",
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22K_05dp_all_stale1_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json",
+        "headline": {
+          "return_pct": 71.138,
+          "profit_factor": 1.5034322675611793,
+          "trade_count": 278,
+          "max_dd_pct": 19.52099801886977
+        },
+        "trade_close_reason_breakdown": {
+          "TIME_EXIT": 278
+        },
+        "row_metrics": {
+          "row_count": 28875,
+          "ready_row_count": 7701,
+          "skip_row_count": 21174,
+          "ready_rate": 0.2667012987012987,
+          "long_signal_count": 398,
+          "short_signal_count": 533,
+          "no_trade_count": 6770,
+          "no_trade_rate": 0.8791066095312298,
+          "skip_reason_breakdown": {
+            "HANDLE_NOT_READY_EMA9_-1": 1,
+            "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 820,
+            "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1568,
+            "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 1029,
+            "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 4600,
+            "SESSION_CASH_OPEN_NOT_FOUND": 13143,
+            "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas": 11,
+            "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas": 1,
+            "EXTERNAL_TIMESTAMP_MISMATCH_TSLA.xnas": 1
+          },
+          "external_mismatch_count": 8030,
+          "argmax_share": {
+            "SHORT": 0.23126866640696014,
+            "NO_TRADE": 0.5482404882482794,
+            "LONG": 0.22049084534476043
+          },
+          "max_argmax_share": 0.5482404882482794,
+          "avg_entropy_norm": 0.9323173368991462,
+          "extreme_confidence_rate": 0.0,
+          "fallback_rows": 946,
+          "fallback_events": 1677,
+          "fallback_symbol_breakdown": {
+            "VIX": 164,
+            "US10YR": 704,
+            "AAPL.xnas": 101,
+            "AMZN.xnas": 101,
+            "AMD.xnas": 101,
+            "GOOGL.xnas": 101,
+            "META.xnas": 101,
+            "MSFT.xnas": 101,
+            "NVDA.xnas": 101,
+            "TSLA.xnas": 101,
+            "USDX": 1
+          },
+          "recovered_external_ready_rows": 946,
+          "recovered_external_signal_rows": 36
+        }
+      }
+    ]
+  },
+  "interpretation": [
+    "- `22I breadth-only stale1` recovered `177` validation rows and `97` test rows, but only produced `13` recovered signal rows on validation and `2` on test. Test PnL was unchanged versus baseline, so breadth mismatches do not look like a large hidden pool of missed trades.",
+    "- `22J macro-only stale1` was the only arm that moved OOS headline meaningfully: test return `68.574 -> 71.138`, trades `275 -> 278`, with DD `19.394 -> 19.521`. The gain is real but modest, and it came with slightly worse no-trade/argmax concentration KPIs.",
+    "- `22K all stale1` recovered the most rows, but its test headline matched `22J` exactly. That means the extra breadth relaxation on top of macro did not add incremental OOS alpha in this slice.",
+    "- Curiosity verdict: exact alignment is probably not hiding a huge missed-opportunity reservoir. If there is any upside to relaxing mismatch handling, it appears concentrated in macro externals and it is small enough that contract drift risk still matters."
+  ]
+}

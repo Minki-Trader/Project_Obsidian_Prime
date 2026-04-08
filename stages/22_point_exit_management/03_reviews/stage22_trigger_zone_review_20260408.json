@@ -1,0 +1,701 @@
+{
+  "generated_at_utc": "2026-04-08T12:27:16.208940+00:00",
+  "threshold_unit_note": "trade ledger floating profit/loss is in account currency at fixed 0.1 lot; for these runs, about 10 points ~= 1.0 currency unit",
+  "baseline_trigger_zones": {
+    "hist_2024": {
+      "label": "2024 historical",
+      "position_count": 384,
+      "winner_count": 192,
+      "loser_count": 192,
+      "profit_thresholds": [
+        {
+          "threshold_currency": 4.0,
+          "threshold_points_approx": 40.0,
+          "winner_hit_rate": 0.7917,
+          "loser_hit_rate": 0.1146,
+          "separation_gap": 0.6771
+        },
+        {
+          "threshold_currency": 4.5,
+          "threshold_points_approx": 45.0,
+          "winner_hit_rate": 0.724,
+          "loser_hit_rate": 0.0885,
+          "separation_gap": 0.6354
+        },
+        {
+          "threshold_currency": 5.0,
+          "threshold_points_approx": 50.0,
+          "winner_hit_rate": 0.6406,
+          "loser_hit_rate": 0.0729,
+          "separation_gap": 0.5677
+        },
+        {
+          "threshold_currency": 5.5,
+          "threshold_points_approx": 55.0,
+          "winner_hit_rate": 0.5833,
+          "loser_hit_rate": 0.0573,
+          "separation_gap": 0.526
+        },
+        {
+          "threshold_currency": 6.0,
+          "threshold_points_approx": 60.0,
+          "winner_hit_rate": 0.5417,
+          "loser_hit_rate": 0.0312,
+          "separation_gap": 0.5104
+        },
+        {
+          "threshold_currency": 7.0,
+          "threshold_points_approx": 70.0,
+          "winner_hit_rate": 0.4375,
+          "loser_hit_rate": 0.0156,
+          "separation_gap": 0.4219
+        },
+        {
+          "threshold_currency": 8.0,
+          "threshold_points_approx": 80.0,
+          "winner_hit_rate": 0.349,
+          "loser_hit_rate": 0.0052,
+          "separation_gap": 0.3438
+        }
+      ],
+      "loss_thresholds": [
+        {
+          "threshold_currency": 4.0,
+          "threshold_points_approx": 40.0,
+          "winner_hit_rate": 0.1615,
+          "loser_hit_rate": 0.75,
+          "separation_gap": 0.5885
+        },
+        {
+          "threshold_currency": 4.5,
+          "threshold_points_approx": 45.0,
+          "winner_hit_rate": 0.1354,
+          "loser_hit_rate": 0.6927,
+          "separation_gap": 0.5573
+        },
+        {
+          "threshold_currency": 5.0,
+          "threshold_points_approx": 50.0,
+          "winner_hit_rate": 0.0938,
+          "loser_hit_rate": 0.6198,
+          "separation_gap": 0.526
+        },
+        {
+          "threshold_currency": 5.5,
+          "threshold_points_approx": 55.0,
+          "winner_hit_rate": 0.0833,
+          "loser_hit_rate": 0.5417,
+          "separation_gap": 0.4583
+        },
+        {
+          "threshold_currency": 6.0,
+          "threshold_points_approx": 60.0,
+          "winner_hit_rate": 0.0625,
+          "loser_hit_rate": 0.4635,
+          "separation_gap": 0.401
+        },
+        {
+          "threshold_currency": 7.0,
+          "threshold_points_approx": 70.0,
+          "winner_hit_rate": 0.0521,
+          "loser_hit_rate": 0.3958,
+          "separation_gap": 0.3438
+        },
+        {
+          "threshold_currency": 8.0,
+          "threshold_points_approx": 80.0,
+          "winner_hit_rate": 0.0208,
+          "loser_hit_rate": 0.3125,
+          "separation_gap": 0.2917
+        }
+      ]
+    },
+    "val_2501": {
+      "label": "2025 validation Jan-Sep",
+      "position_count": 405,
+      "winner_count": 217,
+      "loser_count": 188,
+      "profit_thresholds": [
+        {
+          "threshold_currency": 4.0,
+          "threshold_points_approx": 40.0,
+          "winner_hit_rate": 0.8986,
+          "loser_hit_rate": 0.2819,
+          "separation_gap": 0.6167
+        },
+        {
+          "threshold_currency": 4.5,
+          "threshold_points_approx": 45.0,
+          "winner_hit_rate": 0.8756,
+          "loser_hit_rate": 0.2606,
+          "separation_gap": 0.6149
+        },
+        {
+          "threshold_currency": 5.0,
+          "threshold_points_approx": 50.0,
+          "winner_hit_rate": 0.8295,
+          "loser_hit_rate": 0.2181,
+          "separation_gap": 0.6114
+        },
+        {
+          "threshold_currency": 5.5,
+          "threshold_points_approx": 55.0,
+          "winner_hit_rate": 0.7972,
+          "loser_hit_rate": 0.1702,
+          "separation_gap": 0.627
+        },
+        {
+          "threshold_currency": 6.0,
+          "threshold_points_approx": 60.0,
+          "winner_hit_rate": 0.7558,
+          "loser_hit_rate": 0.1436,
+          "separation_gap": 0.6121
+        },
+        {
+          "threshold_currency": 7.0,
+          "threshold_points_approx": 70.0,
+          "winner_hit_rate": 0.659,
+          "loser_hit_rate": 0.133,
+          "separation_gap": 0.526
+        },
+        {
+          "threshold_currency": 8.0,
+          "threshold_points_approx": 80.0,
+          "winner_hit_rate": 0.5622,
+          "loser_hit_rate": 0.1011,
+          "separation_gap": 0.4611
+        }
+      ],
+      "loss_thresholds": [
+        {
+          "threshold_currency": 4.0,
+          "threshold_points_approx": 40.0,
+          "winner_hit_rate": 0.2903,
+          "loser_hit_rate": 0.8351,
+          "separation_gap": 0.5448
+        },
+        {
+          "threshold_currency": 4.5,
+          "threshold_points_approx": 45.0,
+          "winner_hit_rate": 0.2535,
+          "loser_hit_rate": 0.8032,
+          "separation_gap": 0.5497
+        },
+        {
+          "threshold_currency": 5.0,
+          "threshold_points_approx": 50.0,
+          "winner_hit_rate": 0.2074,
+          "loser_hit_rate": 0.75,
+          "separation_gap": 0.5426
+        },
+        {
+          "threshold_currency": 5.5,
+          "threshold_points_approx": 55.0,
+          "winner_hit_rate": 0.1797,
+          "loser_hit_rate": 0.7021,
+          "separation_gap": 0.5224
+        },
+        {
+          "threshold_currency": 6.0,
+          "threshold_points_approx": 60.0,
+          "winner_hit_rate": 0.129,
+          "loser_hit_rate": 0.6383,
+          "separation_gap": 0.5093
+        },
+        {
+          "threshold_currency": 7.0,
+          "threshold_points_approx": 70.0,
+          "winner_hit_rate": 0.0876,
+          "loser_hit_rate": 0.5532,
+          "separation_gap": 0.4656
+        },
+        {
+          "threshold_currency": 8.0,
+          "threshold_points_approx": 80.0,
+          "winner_hit_rate": 0.0599,
+          "loser_hit_rate": 0.4043,
+          "separation_gap": 0.3443
+        }
+      ]
+    },
+    "oos_2501": {
+      "label": "2501 OOS",
+      "position_count": 275,
+      "winner_count": 153,
+      "loser_count": 122,
+      "profit_thresholds": [
+        {
+          "threshold_currency": 4.0,
+          "threshold_points_approx": 40.0,
+          "winner_hit_rate": 0.8039,
+          "loser_hit_rate": 0.2623,
+          "separation_gap": 0.5416
+        },
+        {
+          "threshold_currency": 4.5,
+          "threshold_points_approx": 45.0,
+          "winner_hit_rate": 0.7647,
+          "loser_hit_rate": 0.1885,
+          "separation_gap": 0.5762
+        },
+        {
+          "threshold_currency": 5.0,
+          "threshold_points_approx": 50.0,
+          "winner_hit_rate": 0.7386,
+          "loser_hit_rate": 0.1311,
+          "separation_gap": 0.6074
+        },
+        {
+          "threshold_currency": 5.5,
+          "threshold_points_approx": 55.0,
+          "winner_hit_rate": 0.719,
+          "loser_hit_rate": 0.1066,
+          "separation_gap": 0.6124
+        },
+        {
+          "threshold_currency": 6.0,
+          "threshold_points_approx": 60.0,
+          "winner_hit_rate": 0.6797,
+          "loser_hit_rate": 0.0902,
+          "separation_gap": 0.5896
+        },
+        {
+          "threshold_currency": 7.0,
+          "threshold_points_approx": 70.0,
+          "winner_hit_rate": 0.6013,
+          "loser_hit_rate": 0.0656,
+          "separation_gap": 0.5357
+        },
+        {
+          "threshold_currency": 8.0,
+          "threshold_points_approx": 80.0,
+          "winner_hit_rate": 0.5229,
+          "loser_hit_rate": 0.0328,
+          "separation_gap": 0.4901
+        }
+      ],
+      "loss_thresholds": [
+        {
+          "threshold_currency": 4.0,
+          "threshold_points_approx": 40.0,
+          "winner_hit_rate": 0.3007,
+          "loser_hit_rate": 0.8361,
+          "separation_gap": 0.5354
+        },
+        {
+          "threshold_currency": 4.5,
+          "threshold_points_approx": 45.0,
+          "winner_hit_rate": 0.2353,
+          "loser_hit_rate": 0.8197,
+          "separation_gap": 0.5844
+        },
+        {
+          "threshold_currency": 5.0,
+          "threshold_points_approx": 50.0,
+          "winner_hit_rate": 0.2222,
+          "loser_hit_rate": 0.7787,
+          "separation_gap": 0.5565
+        },
+        {
+          "threshold_currency": 5.5,
+          "threshold_points_approx": 55.0,
+          "winner_hit_rate": 0.1765,
+          "loser_hit_rate": 0.7377,
+          "separation_gap": 0.5612
+        },
+        {
+          "threshold_currency": 6.0,
+          "threshold_points_approx": 60.0,
+          "winner_hit_rate": 0.1503,
+          "loser_hit_rate": 0.6967,
+          "separation_gap": 0.5464
+        },
+        {
+          "threshold_currency": 7.0,
+          "threshold_points_approx": 70.0,
+          "winner_hit_rate": 0.1111,
+          "loser_hit_rate": 0.5902,
+          "separation_gap": 0.4791
+        },
+        {
+          "threshold_currency": 8.0,
+          "threshold_points_approx": 80.0,
+          "winner_hit_rate": 0.0588,
+          "loser_hit_rate": 0.5,
+          "separation_gap": 0.4412
+        }
+      ]
+    }
+  },
+  "variant_event_timing": {
+    "22B": {
+      "label": "break_even",
+      "splits": {
+        "hist_2024": {
+          "label": "2024 historical",
+          "event_reason": "BREAK_EVEN_STOP",
+          "hold_bar_counts": {
+            "1": 3,
+            "2": 10,
+            "3": 13,
+            "4": 9,
+            "5": 5
+          },
+          "hold_bar_class_counts": {
+            "bar_1_loser": 1,
+            "bar_1_winner": 2,
+            "bar_2_loser": 3,
+            "bar_2_winner": 7,
+            "bar_3_loser": 5,
+            "bar_3_winner": 8,
+            "bar_4_loser": 3,
+            "bar_4_winner": 6,
+            "bar_5_loser": 2,
+            "bar_5_winner": 3
+          }
+        },
+        "val_2501": {
+          "label": "2025 validation Jan-Sep",
+          "event_reason": "BREAK_EVEN_STOP",
+          "hold_bar_counts": {
+            "1": 20,
+            "2": 18,
+            "3": 22,
+            "4": 12,
+            "5": 15
+          },
+          "hold_bar_class_counts": {
+            "bar_1_loser": 7,
+            "bar_1_winner": 13,
+            "bar_2_loser": 7,
+            "bar_2_winner": 11,
+            "bar_3_loser": 10,
+            "bar_3_winner": 12,
+            "bar_4_loser": 5,
+            "bar_4_winner": 7,
+            "bar_5_loser": 5,
+            "bar_5_winner": 10
+          }
+        },
+        "oos_2501": {
+          "label": "2501 OOS",
+          "event_reason": "BREAK_EVEN_STOP",
+          "hold_bar_counts": {
+            "1": 5,
+            "2": 15,
+            "3": 19,
+            "4": 9,
+            "5": 7
+          },
+          "hold_bar_class_counts": {
+            "bar_1_winner": 5,
+            "bar_2_loser": 5,
+            "bar_2_winner": 10,
+            "bar_3_loser": 4,
+            "bar_3_winner": 15,
+            "bar_4_loser": 5,
+            "bar_4_winner": 4,
+            "bar_5_loser": 2,
+            "bar_5_winner": 5
+          }
+        }
+      }
+    },
+    "22C": {
+      "label": "trailing_stop",
+      "splits": {
+        "hist_2024": {
+          "label": "2024 historical",
+          "event_reason": "TRAIL_STOP",
+          "hold_bar_counts": {
+            "1": 2,
+            "2": 20,
+            "3": 16,
+            "4": 13,
+            "5": 18
+          },
+          "hold_bar_class_counts": {
+            "bar_1_loser": 1,
+            "bar_1_winner": 1,
+            "bar_2_loser": 2,
+            "bar_2_winner": 18,
+            "bar_3_loser": 3,
+            "bar_3_winner": 13,
+            "bar_4_winner": 13,
+            "bar_5_winner": 18
+          }
+        },
+        "val_2501": {
+          "label": "2025 validation Jan-Sep",
+          "event_reason": "TRAIL_STOP",
+          "hold_bar_counts": {
+            "1": 26,
+            "2": 32,
+            "3": 31,
+            "4": 16,
+            "5": 21
+          },
+          "hold_bar_class_counts": {
+            "bar_1_loser": 5,
+            "bar_1_winner": 21,
+            "bar_2_loser": 7,
+            "bar_2_winner": 25,
+            "bar_3_loser": 6,
+            "bar_3_winner": 25,
+            "bar_4_loser": 2,
+            "bar_4_winner": 14,
+            "bar_5_loser": 1,
+            "bar_5_winner": 20
+          }
+        },
+        "oos_2501": {
+          "label": "2501 OOS",
+          "event_reason": "TRAIL_STOP",
+          "hold_bar_counts": {
+            "1": 5,
+            "2": 23,
+            "3": 24,
+            "4": 11,
+            "5": 14
+          },
+          "hold_bar_class_counts": {
+            "bar_1_loser": 1,
+            "bar_1_winner": 4,
+            "bar_2_loser": 4,
+            "bar_2_winner": 19,
+            "bar_3_loser": 2,
+            "bar_3_winner": 22,
+            "bar_4_winner": 11,
+            "bar_5_loser": 2,
+            "bar_5_winner": 12
+          }
+        }
+      }
+    },
+    "22D": {
+      "label": "partial_stop_loss",
+      "splits": {
+        "hist_2024": {
+          "label": "2024 historical",
+          "event_reason": "PARTIAL_STOP_LOSS",
+          "hold_bar_counts": {
+            "1": 37,
+            "2": 55,
+            "3": 35,
+            "4": 22,
+            "5": 10
+          },
+          "hold_bar_class_counts": {
+            "bar_1_loser": 25,
+            "bar_1_winner": 12,
+            "bar_2_loser": 48,
+            "bar_2_winner": 7,
+            "bar_3_loser": 29,
+            "bar_3_winner": 6,
+            "bar_4_loser": 21,
+            "bar_4_winner": 1,
+            "bar_5_loser": 10
+          }
+        },
+        "val_2501": {
+          "label": "2025 validation Jan-Sep",
+          "event_reason": "PARTIAL_STOP_LOSS",
+          "hold_bar_counts": {
+            "1": 90,
+            "2": 53,
+            "3": 23,
+            "4": 29,
+            "5": 11
+          },
+          "hold_bar_class_counts": {
+            "bar_1_loser": 56,
+            "bar_1_winner": 34,
+            "bar_2_loser": 40,
+            "bar_2_winner": 13,
+            "bar_3_loser": 16,
+            "bar_3_winner": 7,
+            "bar_4_loser": 28,
+            "bar_4_winner": 1,
+            "bar_5_loser": 11
+          }
+        },
+        "oos_2501": {
+          "label": "2501 OOS",
+          "event_reason": "PARTIAL_STOP_LOSS",
+          "hold_bar_counts": {
+            "1": 57,
+            "2": 43,
+            "3": 15,
+            "4": 14,
+            "5": 7
+          },
+          "hold_bar_class_counts": {
+            "bar_1_loser": 36,
+            "bar_1_winner": 21,
+            "bar_2_loser": 32,
+            "bar_2_winner": 11,
+            "bar_3_loser": 15,
+            "bar_4_loser": 10,
+            "bar_4_winner": 4,
+            "bar_5_loser": 7
+          }
+        }
+      }
+    },
+    "22E": {
+      "label": "partial_take_profit",
+      "splits": {
+        "hist_2024": {
+          "label": "2024 historical",
+          "event_reason": "PARTIAL_TAKE_PROFIT",
+          "hold_bar_counts": {
+            "1": 21,
+            "2": 29,
+            "3": 15,
+            "4": 27,
+            "5": 18
+          },
+          "hold_bar_class_counts": {
+            "bar_1_loser": 2,
+            "bar_1_winner": 19,
+            "bar_2_loser": 3,
+            "bar_2_winner": 26,
+            "bar_3_loser": 1,
+            "bar_3_winner": 14,
+            "bar_4_winner": 27,
+            "bar_5_winner": 18
+          }
+        },
+        "val_2501": {
+          "label": "2025 validation Jan-Sep",
+          "event_reason": "PARTIAL_TAKE_PROFIT",
+          "hold_bar_counts": {
+            "1": 57,
+            "2": 50,
+            "3": 31,
+            "4": 34,
+            "5": 19
+          },
+          "hold_bar_class_counts": {
+            "bar_1_loser": 13,
+            "bar_1_winner": 44,
+            "bar_2_loser": 11,
+            "bar_2_winner": 39,
+            "bar_3_loser": 1,
+            "bar_3_winner": 30,
+            "bar_4_loser": 2,
+            "bar_4_winner": 32,
+            "bar_5_winner": 19
+          }
+        },
+        "oos_2501": {
+          "label": "2501 OOS",
+          "event_reason": "PARTIAL_TAKE_PROFIT",
+          "hold_bar_counts": {
+            "1": 31,
+            "2": 35,
+            "3": 17,
+            "4": 17,
+            "5": 15
+          },
+          "hold_bar_class_counts": {
+            "bar_1_loser": 4,
+            "bar_1_winner": 27,
+            "bar_2_loser": 3,
+            "bar_2_winner": 32,
+            "bar_3_loser": 3,
+            "bar_3_winner": 14,
+            "bar_4_winner": 17,
+            "bar_5_loser": 1,
+            "bar_5_winner": 14
+          }
+        }
+      }
+    }
+  },
+  "recommendations": {
+    "22F": {
+      "title": "partial_stop_loss_late_small",
+      "why": [
+        "partial_stop_loss is the only variant that consistently helps baseline losers more than winners",
+        "most partial stop loss events happen on bars 1-2, and bar 1 carries the heaviest winner contamination",
+        "the 45-50 point adverse zone already separates losers from winners well enough; the bigger problem is firing too early and cutting too much size"
+      ],
+      "design": {
+        "core_rule": "partial_stop_loss",
+        "change_type": "add hold-bar gate and reduce fraction rather than moving the trigger blindly",
+        "candidate_logic": {
+          "trigger_points_anchor": 45,
+          "min_hold_bars": 2,
+          "close_fraction": 0.25
+        },
+        "success_criteria": [
+          "retain most deep-loser mitigation from 22D",
+          "reduce winner_clip_rate versus 22D",
+          "keep position_count identical to 22A"
+        ]
+      }
+    },
+    "22G": {
+      "title": "trailing_stop_extreme_runner_only",
+      "why": [
+        "trailing_stop fires overwhelmingly on baseline winners, especially from bars 2-5",
+        "the 60-point trigger is not selective enough inside a hold5 system",
+        "profit separation improves materially only in the 80-point zone, where loser hit rates drop much lower"
+      ],
+      "design": {
+        "core_rule": "trailing_stop",
+        "change_type": "move from generic point trail to late extreme-runner protection",
+        "candidate_logic": {
+          "activate_points_anchor": 80,
+          "min_hold_bars": 4,
+          "distance_points_anchor": 45
+        },
+        "success_criteria": [
+          "event_position_share falls well below 22C",
+          "big_winner_clip_rate falls materially below 22C",
+          "net delta versus 22A improves even if trade count stays similar"
+        ]
+      }
+    },
+    "22H": {
+      "title": "partial_stop_loss_late_small_plus_extreme_runner_trail",
+      "why": [
+        "22D gives the best containment signal",
+        "22C as a broad trail is too destructive, but a very late trail may still help only on rare extended runners",
+        "the combination only makes sense if partial stop loss is narrowed first"
+      ],
+      "design": {
+        "core_rule": "composite",
+        "change_type": "combine containment-first partial SL with extreme-runner trailing only on late bars",
+        "candidate_logic": {
+          "partial_stop_loss": {
+            "trigger_points_anchor": 45,
+            "min_hold_bars": 2,
+            "close_fraction": 0.25
+          },
+          "trailing_stop": {
+            "activate_points_anchor": 80,
+            "min_hold_bars": 4,
+            "distance_points_anchor": 45
+          }
+        },
+        "success_criteria": [
+          "improve worst drawdown versus 22A without repeating 22D-size net profit drag",
+          "keep big winner clipping much lower than 22C and 22E",
+          "treat this as a containment challenger, not an automatic alpha upgrade"
+        ]
+      }
+    },
+    "deprioritized": [
+      {
+        "variant": "break_even",
+        "reason": "event timing and class mix show too much winner-side interaction to justify another standalone rerun first"
+      },
+      {
+        "variant": "partial_take_profit",
+        "reason": "profit-taking events repeatedly align with winner clipping and offer weak loser relief"
+      }
+    ]
+  }
+}

@@ -53,12 +53,28 @@ input string               InpCsvLogPath           = "Project_Obsidian_Prime\\ob
 input bool                 InpWriteTradeLedger     = true;
 input bool                 InpTradeLedgerUseCommonFiles = false;
 input string               InpTradeLedgerPath      = "Project_Obsidian_Prime\\obsidian_prime_stage1_trade_ledger.csv";
+input bool                 InpEnableGovernance     = false;
+input bool                 InpGovernanceBlockNewEntries = false;
+input int                  InpGovernanceWindowBars = 144;
+input int                  InpGovernanceMinSamples = 48;
+input double               InpGovernanceMaxOperationalSkipRate = 0.15;
+input double               InpGovernanceMaxExternalSkipRate = 0.05;
+input double               InpGovernanceMaxFeatureSkipRate = 0.08;
+input int                  InpGovernanceMaxConsecutiveOperationalSkips = 4;
+input double               InpGovernanceMaxArgmaxClassShare = 0.90;
+input double               InpGovernanceMaxExtremeConfidenceRate = 0.50;
+input double               InpGovernanceExtremeConfidenceThreshold = 0.97;
+input double               InpGovernanceMinNormalizedEntropy = 0.20;
+input bool                 InpWriteGovernanceLog   = true;
+input bool                 InpGovernanceLogUseCommonFiles = false;
+input string               InpGovernanceLogPath    = "Project_Obsidian_Prime\\obsidian_prime_stage1_governance_log.csv";
 input bool                 InpVerboseLog           = true;
 
 datetime g_last_chart_bar_open = 0;
 bool     g_shadow_ready        = false;
 bool     g_log_header_written  = false;
 bool     g_trade_ledger_header_written = false;
+bool     g_governance_log_header_written = false;
 long     g_onnx_handle         = INVALID_HANDLE;
 uint     g_onnx_run_flags      = 0;
 int      g_handle_ema9         = INVALID_HANDLE;
@@ -115,6 +131,9 @@ double   g_effective_stop_high_vol_threshold = 0.0;
 double   g_effective_stop_low_atr_mult = 0.0;
 double   g_effective_stop_mid_atr_mult = 0.0;
 double   g_effective_stop_high_atr_mult = 0.0;
+string   g_effective_external_alignment_mode = "exact";
+string   g_effective_external_relaxed_scope = "none";
+int      g_effective_external_max_stale_bars = 0;
 int      g_effective_max_hold_bars = 3;
 int      g_effective_max_concurrent_positions = 1;
 bool     g_effective_time_exit_enabled = true;
@@ -133,6 +152,10 @@ bool     g_effective_exit_rule_enabled[];
 int      g_effective_exit_rule_max_hold_bars[];
 double   g_effective_exit_rule_min_flat_probability[];
 int      g_effective_exit_rule_min_hold_bars[];
+double   g_effective_exit_rule_trigger_points[];
+double   g_effective_exit_rule_offset_points[];
+double   g_effective_exit_rule_distance_points[];
+double   g_effective_exit_rule_close_fraction[];
 bool     g_runtime_config_loaded = false;
 datetime g_entry_block_bar_time = 0;
 bool     g_managed_trade_active = false;
@@ -156,7 +179,53 @@ double   g_managed_initial_stop_distance_price = 0.0;
 double   g_managed_initial_risk_amount = 0.0;
 double   g_managed_risk_pct_multiplier = 1.0;
 double   g_managed_stop_atr_mult_applied = 0.0;
+double   g_managed_peak_favorable_points = 0.0;
+bool     g_managed_exit_rule_triggered[];
 double   g_last_trade_fill_price = 0.0;
+bool     g_external_alignment_fallback_used = false;
+int      g_external_alignment_fallback_count = 0;
+string   g_external_alignment_fallback_details = "";
+int      g_governance_skip_category_window[];
+int      g_governance_inference_ready_window[];
+int      g_governance_argmax_window[];
+int      g_governance_extreme_confidence_window[];
+double   g_governance_entropy_window[];
+int      g_governance_signal_window[];
+int      g_governance_overlay_window[];
+int      g_governance_window_slot = 0;
+int      g_governance_window_count = 0;
+string   g_governance_state = "DISABLED";
+string   g_governance_reason = "GOVERNANCE_DISABLED";
+bool     g_governance_entry_blocked = false;
+int      g_governance_window_samples = 0;
+int      g_governance_inference_samples = 0;
+int      g_governance_signal_samples = 0;
+int      g_governance_consecutive_operational_skips = 0;
+double   g_governance_operational_skip_rate = 0.0;
+double   g_governance_external_skip_rate = 0.0;
+double   g_governance_feature_skip_rate = 0.0;
+double   g_governance_warmup_skip_rate = 0.0;
+double   g_governance_max_argmax_class_share = 0.0;
+double   g_governance_extreme_confidence_rate = 0.0;
+double   g_governance_avg_signal_entropy = EMPTY_VALUE;
+double   g_governance_risk_overlay_rate = EMPTY_VALUE;
+string   g_governance_current_skip_category = "NONE";
+string   g_governance_current_argmax_class = "";
+double   g_governance_current_signal_entropy = EMPTY_VALUE;
+double   g_governance_current_max_probability = EMPTY_VALUE;
+bool     g_governance_current_extreme_confidence = false;
+string   g_governance_current_risk_context = "BASE";
+double   g_governance_current_risk_pct_multiplier = 1.0;
+
+enum ENUM_OP_GOV_SKIP_CATEGORY
+{
+   OP_GOV_SKIP_NONE = 0,
+   OP_GOV_SKIP_WARMUP = 1,
+   OP_GOV_SKIP_EXTERNAL = 2,
+   OP_GOV_SKIP_FEATURE = 3,
+   OP_GOV_SKIP_RUNTIME = 4,
+   OP_GOV_SKIP_OTHER = 5
+};
 
 string TrimText(const string value)
 {
@@ -164,6 +233,57 @@ string TrimText(const string value)
    StringTrimLeft(out);
    StringTrimRight(out);
    return out;
+}
+
+void ResetExternalAlignmentTelemetry()
+{
+   g_external_alignment_fallback_used = false;
+   g_external_alignment_fallback_count = 0;
+   g_external_alignment_fallback_details = "";
+}
+
+bool SameUtcCalendarDate(const datetime left_value, const datetime right_value)
+{
+   MqlDateTime left_struct;
+   MqlDateTime right_struct;
+   ZeroMemory(left_struct);
+   ZeroMemory(right_struct);
+   if(!TimeToStruct(left_value, left_struct))
+      return false;
+   if(!TimeToStruct(right_value, right_struct))
+      return false;
+   return left_struct.year == right_struct.year &&
+      left_struct.mon == right_struct.mon &&
+      left_struct.day == right_struct.day;
+}
+
+bool IsMacroExternalSymbol(const string symbol)
+{
+   return symbol == "VIX" || symbol == "US10YR" || symbol == "USDX";
+}
+
+bool AllowExternalStaleFallback(const string symbol)
+{
+   if(g_effective_external_alignment_mode != "stale_closed_bar")
+      return false;
+   if(g_effective_external_max_stale_bars <= 0)
+      return false;
+   if(g_effective_external_relaxed_scope == "all")
+      return true;
+   if(g_effective_external_relaxed_scope == "macro_only")
+      return IsMacroExternalSymbol(symbol);
+   if(g_effective_external_relaxed_scope == "breadth_only")
+      return !IsMacroExternalSymbol(symbol);
+   return false;
+}
+
+void RecordExternalAlignmentFallback(const string symbol, const int stale_bars)
+{
+   g_external_alignment_fallback_used = true;
+   g_external_alignment_fallback_count++;
+   if(StringLen(g_external_alignment_fallback_details) > 0)
+      g_external_alignment_fallback_details += "|";
+   g_external_alignment_fallback_details += symbol + ":" + (string)stale_bars;
 }
 
 bool ParseBoolText(const string value, bool &result)
@@ -666,6 +786,10 @@ bool EnsureExitRuleCapacity(const int rule_index)
    ArrayResize(g_effective_exit_rule_max_hold_bars, new_size);
    ArrayResize(g_effective_exit_rule_min_flat_probability, new_size);
    ArrayResize(g_effective_exit_rule_min_hold_bars, new_size);
+   ArrayResize(g_effective_exit_rule_trigger_points, new_size);
+   ArrayResize(g_effective_exit_rule_offset_points, new_size);
+   ArrayResize(g_effective_exit_rule_distance_points, new_size);
+   ArrayResize(g_effective_exit_rule_close_fraction, new_size);
    for(int i = current_size; i < new_size; i++)
    {
       g_effective_exit_rule_types[i] = "";
@@ -673,6 +797,10 @@ bool EnsureExitRuleCapacity(const int rule_index)
       g_effective_exit_rule_max_hold_bars[i] = 0;
       g_effective_exit_rule_min_flat_probability[i] = 0.0;
       g_effective_exit_rule_min_hold_bars[i] = 1;
+      g_effective_exit_rule_trigger_points[i] = 0.0;
+      g_effective_exit_rule_offset_points[i] = 0.0;
+      g_effective_exit_rule_distance_points[i] = 0.0;
+      g_effective_exit_rule_close_fraction[i] = 0.0;
    }
    return true;
 }
@@ -757,6 +885,26 @@ bool TryApplyExitRuleRuntimeKey(const string key, const string value)
       g_effective_exit_rule_min_hold_bars[rule_index] = (int)StringToInteger(value);
       return true;
    }
+   if(suffix == "trigger_points")
+   {
+      g_effective_exit_rule_trigger_points[rule_index] = StringToDouble(value);
+      return true;
+   }
+   if(suffix == "offset_points")
+   {
+      g_effective_exit_rule_offset_points[rule_index] = StringToDouble(value);
+      return true;
+   }
+   if(suffix == "distance_points")
+   {
+      g_effective_exit_rule_distance_points[rule_index] = StringToDouble(value);
+      return true;
+   }
+   if(suffix == "close_fraction")
+   {
+      g_effective_exit_rule_close_fraction[rule_index] = StringToDouble(value);
+      return true;
+   }
    return false;
 }
 
@@ -797,6 +945,9 @@ void ResetEffectiveRuntimeConfig()
    g_effective_stop_low_atr_mult = 0.0;
    g_effective_stop_mid_atr_mult = 0.0;
    g_effective_stop_high_atr_mult = 0.0;
+   g_effective_external_alignment_mode = "exact";
+   g_effective_external_relaxed_scope = "none";
+   g_effective_external_max_stale_bars = 0;
    g_effective_max_hold_bars = 3;
    g_effective_max_concurrent_positions = 1;
    g_effective_time_exit_enabled = true;
@@ -815,6 +966,10 @@ void ResetEffectiveRuntimeConfig()
    ArrayResize(g_effective_exit_rule_max_hold_bars, 0);
    ArrayResize(g_effective_exit_rule_min_flat_probability, 0);
    ArrayResize(g_effective_exit_rule_min_hold_bars, 0);
+   ArrayResize(g_effective_exit_rule_trigger_points, 0);
+   ArrayResize(g_effective_exit_rule_offset_points, 0);
+   ArrayResize(g_effective_exit_rule_distance_points, 0);
+   ArrayResize(g_effective_exit_rule_close_fraction, 0);
    g_runtime_config_loaded = false;
 }
 
@@ -1095,6 +1250,23 @@ bool ApplyRuntimeConfigKeyValue(const string key, const string value)
    if(key == "stop_high_atr_mult")
    {
       g_effective_stop_high_atr_mult = StringToDouble(value);
+      return true;
+   }
+   if(key == "external_alignment_mode")
+   {
+      g_effective_external_alignment_mode = value;
+      StringToLower(g_effective_external_alignment_mode);
+      return true;
+   }
+   if(key == "external_relaxed_scope")
+   {
+      g_effective_external_relaxed_scope = value;
+      StringToLower(g_effective_external_relaxed_scope);
+      return true;
+   }
+   if(key == "external_max_stale_bars")
+   {
+      g_effective_external_max_stale_bars = (int)StringToInteger(value);
       return true;
    }
    if(key == "position_0_enabled")
@@ -1463,6 +1635,397 @@ string CsvInteger(const long value)
    return (string)value;
 }
 
+bool TextStartsWith(const string value, const string prefix)
+{
+   if(StringLen(prefix) <= 0)
+      return true;
+   if(StringLen(value) < StringLen(prefix))
+      return false;
+   return (StringFind(value, prefix) == 0);
+}
+
+void AppendGovernanceReasonTag(string &tags, const string tag)
+{
+   if(StringLen(tag) <= 0)
+      return;
+   if(StringLen(tags) > 0)
+      tags += "|";
+   tags += tag;
+}
+
+string GovernanceSkipCategoryToString(const int category)
+{
+   switch(category)
+   {
+      case OP_GOV_SKIP_NONE:
+         return "NONE";
+      case OP_GOV_SKIP_WARMUP:
+         return "WARMUP";
+      case OP_GOV_SKIP_EXTERNAL:
+         return "EXTERNAL";
+      case OP_GOV_SKIP_FEATURE:
+         return "FEATURE";
+      case OP_GOV_SKIP_RUNTIME:
+         return "RUNTIME";
+      case OP_GOV_SKIP_OTHER:
+         return "OTHER";
+   }
+   return "UNKNOWN";
+}
+
+bool IsOperationalGovernanceSkipCategory(const int category)
+{
+   return (category == OP_GOV_SKIP_EXTERNAL ||
+      category == OP_GOV_SKIP_FEATURE ||
+      category == OP_GOV_SKIP_RUNTIME ||
+      category == OP_GOV_SKIP_OTHER);
+}
+
+int ClassifyGovernanceSkipCategory(const string skip_reason)
+{
+   if(StringLen(skip_reason) <= 0)
+      return OP_GOV_SKIP_NONE;
+
+   if(TextStartsWith(skip_reason, "EXTERNAL_"))
+      return OP_GOV_SKIP_EXTERNAL;
+
+   if(skip_reason == "WARMUP_NOT_READY" ||
+      TextStartsWith(skip_reason, "PRICE_CORE_WARMUP_") ||
+      TextStartsWith(skip_reason, "RATES_NOT_READY_") ||
+      TextStartsWith(skip_reason, "HANDLE_NOT_READY_") ||
+      TextStartsWith(skip_reason, "HANDLE_INVALID_") ||
+      TextStartsWith(skip_reason, "SESSION_"))
+   {
+      return OP_GOV_SKIP_WARMUP;
+   }
+
+   if(skip_reason == "PARTIAL_FEATURE_VECTOR" ||
+      skip_reason == "FEATURE_SCHEMA_NAMES_NOT_READY" ||
+      skip_reason == "PRICE_CORE_BAR_MISMATCH" ||
+      TextStartsWith(skip_reason, "FEATURE_") ||
+      TextStartsWith(skip_reason, "PRICE_CORE_INVALID_") ||
+      TextStartsWith(skip_reason, "COPYBUFFER_FAIL_") ||
+      TextStartsWith(skip_reason, "INDICATOR_INVALID_") ||
+      TextStartsWith(skip_reason, "CUSTOM_"))
+   {
+      return OP_GOV_SKIP_FEATURE;
+   }
+
+   if(skip_reason == "SYMBOL_NOT_US100" ||
+      skip_reason == "TIMEFRAME_NOT_M5" ||
+      skip_reason == "MODEL_NOT_READY" ||
+      skip_reason == "MODEL_HANDLE_INVALID" ||
+      skip_reason == "FEATURE_BUILDER_NOT_IMPLEMENTED" ||
+      TextStartsWith(skip_reason, "ONNX_") ||
+      TextStartsWith(skip_reason, "OUTPUT_INVALID_"))
+   {
+      return OP_GOV_SKIP_RUNTIME;
+   }
+
+   return OP_GOV_SKIP_OTHER;
+}
+
+int ResolveArgmaxClass(const double p_short, const double p_flat, const double p_long)
+{
+   if(!IsUsableValue(p_short) || !IsUsableValue(p_flat) || !IsUsableValue(p_long))
+      return -1;
+
+   if(p_short >= p_flat && p_short >= p_long)
+      return 0;
+   if(p_flat >= p_short && p_flat >= p_long)
+      return 1;
+   return 2;
+}
+
+string ArgmaxClassToString(const int argmax_class)
+{
+   switch(argmax_class)
+   {
+      case 0:
+         return "SHORT";
+      case 1:
+         return "FLAT";
+      case 2:
+         return "LONG";
+   }
+   return "";
+}
+
+double ComputeNormalizedSignalEntropy(const double p_short, const double p_flat, const double p_long)
+{
+   if(!IsUsableValue(p_short) || !IsUsableValue(p_flat) || !IsUsableValue(p_long))
+      return EMPTY_VALUE;
+
+   double total = p_short + p_flat + p_long;
+   if(total <= 0.0)
+      return EMPTY_VALUE;
+
+   double entropy = 0.0;
+   double probabilities[3];
+   probabilities[0] = p_short / total;
+   probabilities[1] = p_flat / total;
+   probabilities[2] = p_long / total;
+   for(int i = 0; i < 3; i++)
+   {
+      if(probabilities[i] > 0.0)
+         entropy -= probabilities[i] * MathLog(probabilities[i]);
+   }
+
+   const double max_entropy = MathLog(3.0);
+   if(max_entropy <= 0.0)
+      return EMPTY_VALUE;
+   return entropy / max_entropy;
+}
+
+double ComputeNormalizedMaxProbability(const double p_short, const double p_flat, const double p_long)
+{
+   if(!IsUsableValue(p_short) || !IsUsableValue(p_flat) || !IsUsableValue(p_long))
+      return EMPTY_VALUE;
+
+   double total = p_short + p_flat + p_long;
+   if(total <= 0.0)
+      return EMPTY_VALUE;
+   return MathMax(p_short, MathMax(p_flat, p_long)) / total;
+}
+
+void ResetGovernanceState()
+{
+   ArrayResize(g_governance_skip_category_window, 0);
+   ArrayResize(g_governance_inference_ready_window, 0);
+   ArrayResize(g_governance_argmax_window, 0);
+   ArrayResize(g_governance_extreme_confidence_window, 0);
+   ArrayResize(g_governance_entropy_window, 0);
+   ArrayResize(g_governance_signal_window, 0);
+   ArrayResize(g_governance_overlay_window, 0);
+
+   if(InpEnableGovernance && InpGovernanceWindowBars > 0)
+   {
+      ArrayResize(g_governance_skip_category_window, InpGovernanceWindowBars);
+      ArrayResize(g_governance_inference_ready_window, InpGovernanceWindowBars);
+      ArrayResize(g_governance_argmax_window, InpGovernanceWindowBars);
+      ArrayResize(g_governance_extreme_confidence_window, InpGovernanceWindowBars);
+      ArrayResize(g_governance_entropy_window, InpGovernanceWindowBars);
+      ArrayResize(g_governance_signal_window, InpGovernanceWindowBars);
+      ArrayResize(g_governance_overlay_window, InpGovernanceWindowBars);
+      ArrayInitialize(g_governance_skip_category_window, OP_GOV_SKIP_NONE);
+      ArrayInitialize(g_governance_inference_ready_window, 0);
+      ArrayInitialize(g_governance_argmax_window, -1);
+      ArrayInitialize(g_governance_extreme_confidence_window, 0);
+      ArrayInitialize(g_governance_entropy_window, EMPTY_VALUE);
+      ArrayInitialize(g_governance_signal_window, 0);
+      ArrayInitialize(g_governance_overlay_window, 0);
+   }
+
+   g_governance_window_slot = 0;
+   g_governance_window_count = 0;
+   g_governance_state = InpEnableGovernance ? "WARMING_UP" : "DISABLED";
+   g_governance_reason = InpEnableGovernance ? "INSUFFICIENT_SAMPLES" : "GOVERNANCE_DISABLED";
+   g_governance_entry_blocked = false;
+   g_governance_window_samples = 0;
+   g_governance_inference_samples = 0;
+   g_governance_signal_samples = 0;
+   g_governance_consecutive_operational_skips = 0;
+   g_governance_operational_skip_rate = 0.0;
+   g_governance_external_skip_rate = 0.0;
+   g_governance_feature_skip_rate = 0.0;
+   g_governance_warmup_skip_rate = 0.0;
+   g_governance_max_argmax_class_share = 0.0;
+   g_governance_extreme_confidence_rate = 0.0;
+   g_governance_avg_signal_entropy = EMPTY_VALUE;
+   g_governance_risk_overlay_rate = EMPTY_VALUE;
+   g_governance_current_skip_category = "NONE";
+   g_governance_current_argmax_class = "";
+   g_governance_current_signal_entropy = EMPTY_VALUE;
+   g_governance_current_max_probability = EMPTY_VALUE;
+   g_governance_current_extreme_confidence = false;
+   g_governance_current_risk_context = "BASE";
+   g_governance_current_risk_pct_multiplier = 1.0;
+}
+
+void RecordGovernanceObservation(
+   const string skip_reason,
+   const bool row_ready,
+   const double p_short,
+   const double p_flat,
+   const double p_long,
+   const int decision,
+   const string planned_risk_context,
+   const double planned_risk_pct_multiplier
+)
+{
+   g_governance_current_skip_category = GovernanceSkipCategoryToString(ClassifyGovernanceSkipCategory(skip_reason));
+   g_governance_current_argmax_class = "";
+   g_governance_current_signal_entropy = EMPTY_VALUE;
+   g_governance_current_max_probability = EMPTY_VALUE;
+   g_governance_current_extreme_confidence = false;
+   g_governance_current_risk_context = planned_risk_context;
+   g_governance_current_risk_pct_multiplier = planned_risk_pct_multiplier;
+
+   if(!InpEnableGovernance || InpGovernanceWindowBars <= 0)
+   {
+      g_governance_state = "DISABLED";
+      g_governance_reason = "GOVERNANCE_DISABLED";
+      g_governance_entry_blocked = false;
+      return;
+   }
+
+   const int category = ClassifyGovernanceSkipCategory(skip_reason);
+   const bool inference_ready = row_ready;
+   const int argmax_class = inference_ready ? ResolveArgmaxClass(p_short, p_flat, p_long) : -1;
+   const double normalized_entropy = inference_ready ? ComputeNormalizedSignalEntropy(p_short, p_flat, p_long) : EMPTY_VALUE;
+   const double normalized_max_probability = inference_ready ? ComputeNormalizedMaxProbability(p_short, p_flat, p_long) : EMPTY_VALUE;
+   const bool extreme_confidence = (inference_ready &&
+      IsUsableValue(normalized_max_probability) &&
+      normalized_max_probability >= InpGovernanceExtremeConfidenceThreshold);
+   const bool signal_present = (inference_ready && decision != 0);
+   const bool overlay_active = (signal_present && planned_risk_context != "" && planned_risk_context != "BASE");
+
+   g_governance_current_skip_category = GovernanceSkipCategoryToString(category);
+   g_governance_current_argmax_class = ArgmaxClassToString(argmax_class);
+   g_governance_current_signal_entropy = normalized_entropy;
+   g_governance_current_max_probability = normalized_max_probability;
+   g_governance_current_extreme_confidence = extreme_confidence;
+
+   const int slot = g_governance_window_slot;
+   g_governance_skip_category_window[slot] = category;
+   g_governance_inference_ready_window[slot] = inference_ready ? 1 : 0;
+   g_governance_argmax_window[slot] = argmax_class;
+   g_governance_extreme_confidence_window[slot] = extreme_confidence ? 1 : 0;
+   g_governance_entropy_window[slot] = normalized_entropy;
+   g_governance_signal_window[slot] = signal_present ? 1 : 0;
+   g_governance_overlay_window[slot] = overlay_active ? 1 : 0;
+
+   g_governance_window_slot++;
+   if(g_governance_window_slot >= InpGovernanceWindowBars)
+      g_governance_window_slot = 0;
+   if(g_governance_window_count < InpGovernanceWindowBars)
+      g_governance_window_count++;
+
+   if(IsOperationalGovernanceSkipCategory(category))
+      g_governance_consecutive_operational_skips++;
+   else
+      g_governance_consecutive_operational_skips = 0;
+
+   int operational_skips = 0;
+   int external_skips = 0;
+   int feature_skips = 0;
+   int warmup_skips = 0;
+   int inference_samples = 0;
+   int short_argmax = 0;
+   int flat_argmax = 0;
+   int long_argmax = 0;
+   int extreme_confidence_count = 0;
+   double entropy_sum = 0.0;
+   int signal_samples = 0;
+   int overlay_samples = 0;
+   for(int i = 0; i < g_governance_window_count; i++)
+   {
+      const int window_category = g_governance_skip_category_window[i];
+      if(IsOperationalGovernanceSkipCategory(window_category))
+         operational_skips++;
+      if(window_category == OP_GOV_SKIP_EXTERNAL)
+         external_skips++;
+      if(window_category == OP_GOV_SKIP_FEATURE)
+         feature_skips++;
+      if(window_category == OP_GOV_SKIP_WARMUP)
+         warmup_skips++;
+
+      if(g_governance_inference_ready_window[i] == 0)
+         continue;
+
+      inference_samples++;
+      const int window_argmax_class = g_governance_argmax_window[i];
+      if(window_argmax_class == 0)
+         short_argmax++;
+      else if(window_argmax_class == 1)
+         flat_argmax++;
+      else if(window_argmax_class == 2)
+         long_argmax++;
+
+      if(g_governance_extreme_confidence_window[i] != 0)
+         extreme_confidence_count++;
+      if(IsUsableValue(g_governance_entropy_window[i]))
+         entropy_sum += g_governance_entropy_window[i];
+
+      if(g_governance_signal_window[i] != 0)
+      {
+         signal_samples++;
+         if(g_governance_overlay_window[i] != 0)
+            overlay_samples++;
+      }
+   }
+
+   g_governance_window_samples = g_governance_window_count;
+   g_governance_inference_samples = inference_samples;
+   g_governance_signal_samples = signal_samples;
+   g_governance_operational_skip_rate = (g_governance_window_count > 0)
+      ? ((double)operational_skips / (double)g_governance_window_count)
+      : 0.0;
+   g_governance_external_skip_rate = (g_governance_window_count > 0)
+      ? ((double)external_skips / (double)g_governance_window_count)
+      : 0.0;
+   g_governance_feature_skip_rate = (g_governance_window_count > 0)
+      ? ((double)feature_skips / (double)g_governance_window_count)
+      : 0.0;
+   g_governance_warmup_skip_rate = (g_governance_window_count > 0)
+      ? ((double)warmup_skips / (double)g_governance_window_count)
+      : 0.0;
+   if(inference_samples > 0)
+   {
+      g_governance_max_argmax_class_share = MathMax((double)short_argmax, MathMax((double)flat_argmax, (double)long_argmax)) / (double)inference_samples;
+      g_governance_extreme_confidence_rate = (double)extreme_confidence_count / (double)inference_samples;
+      g_governance_avg_signal_entropy = entropy_sum / (double)inference_samples;
+   }
+   else
+   {
+      g_governance_max_argmax_class_share = 0.0;
+      g_governance_extreme_confidence_rate = 0.0;
+      g_governance_avg_signal_entropy = EMPTY_VALUE;
+   }
+   g_governance_risk_overlay_rate = (signal_samples > 0)
+      ? ((double)overlay_samples / (double)signal_samples)
+      : EMPTY_VALUE;
+
+   if(g_governance_window_count < InpGovernanceMinSamples)
+   {
+      g_governance_state = "WARMING_UP";
+      g_governance_reason = StringFormat("INSUFFICIENT_SAMPLES_%d_OF_%d", g_governance_window_count, InpGovernanceMinSamples);
+      g_governance_entry_blocked = false;
+      return;
+   }
+
+   string breach_tags = "";
+   if(g_governance_operational_skip_rate > InpGovernanceMaxOperationalSkipRate)
+      AppendGovernanceReasonTag(breach_tags, "OP_SKIP_RATE");
+   if(g_governance_external_skip_rate > InpGovernanceMaxExternalSkipRate)
+      AppendGovernanceReasonTag(breach_tags, "EXTERNAL_SKIP_RATE");
+   if(g_governance_feature_skip_rate > InpGovernanceMaxFeatureSkipRate)
+      AppendGovernanceReasonTag(breach_tags, "FEATURE_SKIP_RATE");
+   if(g_governance_consecutive_operational_skips > InpGovernanceMaxConsecutiveOperationalSkips)
+      AppendGovernanceReasonTag(breach_tags, "CONSECUTIVE_SKIPS");
+   if(inference_samples > 0)
+   {
+      if(g_governance_max_argmax_class_share > InpGovernanceMaxArgmaxClassShare)
+         AppendGovernanceReasonTag(breach_tags, "ARGMAX_DOMINANCE");
+      if(g_governance_extreme_confidence_rate > InpGovernanceMaxExtremeConfidenceRate)
+         AppendGovernanceReasonTag(breach_tags, "EXTREME_CONFIDENCE");
+      if(IsUsableValue(g_governance_avg_signal_entropy) && g_governance_avg_signal_entropy < InpGovernanceMinNormalizedEntropy)
+         AppendGovernanceReasonTag(breach_tags, "LOW_ENTROPY");
+   }
+
+   if(StringLen(breach_tags) <= 0)
+   {
+      g_governance_state = "OK";
+      g_governance_reason = "WITHIN_LIMITS";
+      g_governance_entry_blocked = false;
+      return;
+   }
+
+   g_governance_reason = breach_tags;
+   g_governance_entry_blocked = InpGovernanceBlockNewEntries;
+   g_governance_state = g_governance_entry_blocked ? "BLOCKED" : "ALERT";
+}
+
 bool EnsureFolderPath(const string file_path, const bool use_common_files)
 {
    int last_sep = -1;
@@ -1520,7 +2083,8 @@ bool EnsureLogHeader()
    string header =
       "event_timestamp_gmt,bar_time_server,symbol,timeframe,feature_mode,feature_ready_count,row_ready,skip_reason,feature_checksum,"
       "p_short,p_flat,p_long,decision,decision_reason,cycle_tag,trade_action_reason,trade_fill_price,"
-      "bid,ask,spread_points,balance,equity,margin,free_margin,floating_profit,managed_position_count,model_path";
+      "bid,ask,spread_points,balance,equity,margin,free_margin,floating_profit,managed_position_count,"
+      "external_alignment_mode,external_relaxed_scope,external_fallback_used,external_fallback_count,external_fallback_details,model_path";
    FileWriteString(handle, header + "\r\n");
    FileClose(handle);
    g_log_header_written = true;
@@ -1567,6 +2131,50 @@ bool EnsureTradeLedgerHeader()
    FileWriteString(handle, header + "\r\n");
    FileClose(handle);
    g_trade_ledger_header_written = true;
+   return true;
+}
+
+bool EnsureGovernanceLogHeader()
+{
+   if(!InpEnableGovernance || !InpWriteGovernanceLog)
+      return true;
+   if(g_governance_log_header_written)
+      return true;
+
+   EnsureFolderPath(InpGovernanceLogPath, InpGovernanceLogUseCommonFiles);
+
+   int read_flags = FILE_READ | FILE_TXT | FILE_ANSI;
+   if(InpGovernanceLogUseCommonFiles)
+      read_flags |= FILE_COMMON;
+
+   int read_handle = FileOpen(InpGovernanceLogPath, read_flags);
+   if(read_handle != INVALID_HANDLE)
+   {
+      FileClose(read_handle);
+      g_governance_log_header_written = true;
+      return true;
+   }
+
+   int write_flags = FILE_WRITE | FILE_TXT | FILE_ANSI;
+   if(InpGovernanceLogUseCommonFiles)
+      write_flags |= FILE_COMMON;
+
+   int handle = FileOpen(InpGovernanceLogPath, write_flags);
+   if(handle == INVALID_HANDLE)
+   {
+      Log(StringFormat("failed to create governance log err=%d path=%s", GetLastError(), InpGovernanceLogPath));
+      return false;
+   }
+
+   string header =
+      "event_timestamp_gmt,bar_time_server,symbol,timeframe,cycle_tag,row_ready,skip_reason,skip_category,decision,decision_reason,trade_action_reason,"
+      "p_short,p_flat,p_long,argmax_class,signal_entropy_norm,max_probability,extreme_confidence,planned_risk_context,planned_risk_pct_multiplier,"
+      "window_samples,inference_samples,signal_samples,operational_skip_rate,external_skip_rate,feature_skip_rate,warmup_skip_rate,max_argmax_class_share,"
+      "extreme_confidence_rate,avg_signal_entropy_norm,risk_overlay_rate,consecutive_operational_skips,governance_state,governance_reason,entry_blocked_this_bar,"
+      "external_alignment_mode,external_relaxed_scope,external_fallback_used,external_fallback_count,external_fallback_details";
+   FileWriteString(handle, header + "\r\n");
+   FileClose(handle);
+   g_governance_log_header_written = true;
    return true;
 }
 
@@ -1643,7 +2251,90 @@ void AppendShadowLog(
       EscapeCsv(CsvDouble(free_margin, 2)) + "," +
       EscapeCsv(CsvDouble(floating_profit, 2)) + "," +
       EscapeCsv(CsvInteger(managed_position_count)) + "," +
+      EscapeCsv(g_effective_external_alignment_mode) + "," +
+      EscapeCsv(g_effective_external_relaxed_scope) + "," +
+      EscapeCsv(g_external_alignment_fallback_used ? "true" : "false") + "," +
+      EscapeCsv(CsvInteger(g_external_alignment_fallback_count)) + "," +
+      EscapeCsv(g_external_alignment_fallback_details) + "," +
       EscapeCsv(g_effective_onnx_model_path);
+
+   FileWriteString(handle, line + "\r\n");
+   FileClose(handle);
+}
+
+void AppendGovernanceLog(
+   const datetime bar_time_server,
+   const string cycle_tag,
+   const bool row_ready,
+   const string skip_reason,
+   const string decision,
+   const string decision_reason,
+   const string trade_action_reason,
+   const double p_short,
+   const double p_flat,
+   const double p_long,
+   const bool entry_blocked_this_bar
+)
+{
+   if(!InpEnableGovernance || !InpWriteGovernanceLog)
+      return;
+   if(!EnsureGovernanceLogHeader())
+      return;
+
+   int flags = FILE_READ | FILE_WRITE | FILE_TXT | FILE_ANSI;
+   if(InpGovernanceLogUseCommonFiles)
+      flags |= FILE_COMMON;
+
+   int handle = FileOpen(InpGovernanceLogPath, flags);
+   if(handle == INVALID_HANDLE)
+   {
+      Log(StringFormat("failed to append governance log err=%d path=%s", GetLastError(), InpGovernanceLogPath));
+      return;
+   }
+
+   FileSeek(handle, 0, SEEK_END);
+
+   string line =
+      EscapeCsv(TimeToString(TimeGMT(), TIME_DATE | TIME_SECONDS)) + "," +
+      EscapeCsv(TimeToString(bar_time_server, TIME_DATE | TIME_SECONDS)) + "," +
+      EscapeCsv(_Symbol) + "," +
+      EscapeCsv(EnumToString(_Period)) + "," +
+      EscapeCsv(cycle_tag) + "," +
+      EscapeCsv(row_ready ? "true" : "false") + "," +
+      EscapeCsv(skip_reason) + "," +
+      EscapeCsv(g_governance_current_skip_category) + "," +
+      EscapeCsv(decision) + "," +
+      EscapeCsv(decision_reason) + "," +
+      EscapeCsv(trade_action_reason) + "," +
+      EscapeCsv(CsvDouble(p_short, 6)) + "," +
+      EscapeCsv(CsvDouble(p_flat, 6)) + "," +
+      EscapeCsv(CsvDouble(p_long, 6)) + "," +
+      EscapeCsv(g_governance_current_argmax_class) + "," +
+      EscapeCsv(CsvDouble(g_governance_current_signal_entropy, 6)) + "," +
+      EscapeCsv(CsvDouble(g_governance_current_max_probability, 6)) + "," +
+      EscapeCsv(g_governance_current_extreme_confidence ? "true" : "false") + "," +
+      EscapeCsv(g_governance_current_risk_context) + "," +
+      EscapeCsv(CsvDouble(g_governance_current_risk_pct_multiplier, 4)) + "," +
+      EscapeCsv(CsvInteger(g_governance_window_samples)) + "," +
+      EscapeCsv(CsvInteger(g_governance_inference_samples)) + "," +
+      EscapeCsv(CsvInteger(g_governance_signal_samples)) + "," +
+      EscapeCsv(CsvDouble(g_governance_operational_skip_rate, 6)) + "," +
+      EscapeCsv(CsvDouble(g_governance_external_skip_rate, 6)) + "," +
+      EscapeCsv(CsvDouble(g_governance_feature_skip_rate, 6)) + "," +
+      EscapeCsv(CsvDouble(g_governance_warmup_skip_rate, 6)) + "," +
+      EscapeCsv(CsvDouble(g_governance_max_argmax_class_share, 6)) + "," +
+      EscapeCsv(CsvDouble(g_governance_extreme_confidence_rate, 6)) + "," +
+      EscapeCsv(CsvDouble(g_governance_avg_signal_entropy, 6)) + "," +
+      EscapeCsv(CsvDouble(g_governance_risk_overlay_rate, 6)) + "," +
+      EscapeCsv(CsvInteger(g_governance_consecutive_operational_skips)) + "," +
+      EscapeCsv(g_governance_state) + "," +
+      EscapeCsv(g_governance_reason) + "," +
+      EscapeCsv(entry_blocked_this_bar ? "true" : "false") + "," +
+      EscapeCsv(g_effective_external_alignment_mode) + "," +
+      EscapeCsv(g_effective_external_relaxed_scope) + "," +
+      EscapeCsv(g_external_alignment_fallback_used ? "true" : "false") + "," +
+      EscapeCsv(CsvInteger(g_external_alignment_fallback_count)) + "," +
+      EscapeCsv(g_external_alignment_fallback_details);
 
    FileWriteString(handle, line + "\r\n");
    FileClose(handle);
@@ -2039,11 +2730,23 @@ bool LoadExternalSymbolRatesAligned(
    ResetLastError();
    const int period_seconds = PeriodSeconds(PERIOD_M5);
    const datetime target_bar_open_utc = target_close_utc - period_seconds;
-   const int target_shift = iBarShift(symbol, PERIOD_M5, target_bar_open_utc, true);
+   int target_shift = iBarShift(symbol, PERIOD_M5, target_bar_open_utc, true);
+   bool using_stale_fallback = false;
    if(target_shift < 0)
    {
-      skip_reason = "EXTERNAL_TIMESTAMP_MISMATCH_" + symbol;
-      return false;
+      if(!AllowExternalStaleFallback(symbol))
+      {
+         skip_reason = "EXTERNAL_TIMESTAMP_MISMATCH_" + symbol;
+         return false;
+      }
+
+      target_shift = iBarShift(symbol, PERIOD_M5, target_bar_open_utc, false);
+      if(target_shift < 0)
+      {
+         skip_reason = "EXTERNAL_TIMESTAMP_MISMATCH_" + symbol;
+         return false;
+      }
+      using_stale_fallback = true;
    }
 
    const int copied = CopyRates(symbol, PERIOD_M5, target_shift, bars_needed, rates);
@@ -2057,8 +2760,23 @@ bool LoadExternalSymbolRatesAligned(
    const datetime latest_close_utc = rates[total_bars - 1].time + PeriodSeconds(PERIOD_M5);
    if(latest_close_utc != target_close_utc)
    {
-      skip_reason = StringFormat("EXTERNAL_TIMESTAMP_MISMATCH_%s", symbol);
-      return false;
+      if(!using_stale_fallback ||
+         latest_close_utc <= 0 ||
+         latest_close_utc > target_close_utc ||
+         !SameUtcCalendarDate(latest_close_utc, target_close_utc))
+      {
+         skip_reason = StringFormat("EXTERNAL_TIMESTAMP_MISMATCH_%s", symbol);
+         return false;
+      }
+
+      const int stale_bars = (int)((target_close_utc - latest_close_utc) / period_seconds);
+      if(stale_bars <= 0 || stale_bars > g_effective_external_max_stale_bars)
+      {
+         skip_reason = StringFormat("EXTERNAL_TIMESTAMP_MISMATCH_%s", symbol);
+         return false;
+      }
+
+      RecordExternalAlignmentFallback(symbol, stale_bars);
    }
 
    return true;
@@ -3178,6 +3896,11 @@ void ResetManagedTradeTracking()
    g_managed_initial_risk_amount = 0.0;
    g_managed_risk_pct_multiplier = 1.0;
    g_managed_stop_atr_mult_applied = 0.0;
+   g_managed_peak_favorable_points = 0.0;
+   const int exit_rule_count = ArraySize(g_effective_exit_rule_types);
+   ArrayResize(g_managed_exit_rule_triggered, exit_rule_count);
+   for(int i = 0; i < exit_rule_count; i++)
+      g_managed_exit_rule_triggered[i] = false;
 }
 
 void UpdateManagedTradeTrackingFromSelectedPosition()
@@ -3235,6 +3958,252 @@ bool InitializeManagedTradeTracking(
    g_managed_initial_risk_amount = initial_risk_amount;
    g_managed_risk_pct_multiplier = initial_risk_pct_multiplier;
    g_managed_stop_atr_mult_applied = stop_atr_mult_applied;
+   g_managed_peak_favorable_points = 0.0;
+   const int exit_rule_count = ArraySize(g_effective_exit_rule_types);
+   ArrayResize(g_managed_exit_rule_triggered, exit_rule_count);
+   for(int i = 0; i < exit_rule_count; i++)
+      g_managed_exit_rule_triggered[i] = false;
+   return true;
+}
+
+bool ComputeManagedPositionPointState(
+   MqlTick &tick,
+   double &current_favorable_points,
+   double &current_adverse_points,
+   double &current_close_price
+)
+{
+   current_favorable_points = 0.0;
+   current_adverse_points = 0.0;
+   current_close_price = 0.0;
+
+   ResetLastError();
+   if(!SymbolInfoTick(_Symbol, tick))
+      return false;
+
+   if(g_managed_position_type == POSITION_TYPE_BUY)
+   {
+      current_close_price = tick.bid;
+      current_favorable_points = current_close_price - g_managed_entry_price;
+      current_adverse_points = g_managed_entry_price - current_close_price;
+   }
+   else if(g_managed_position_type == POSITION_TYPE_SELL)
+   {
+      current_close_price = tick.ask;
+      current_favorable_points = g_managed_entry_price - current_close_price;
+      current_adverse_points = current_close_price - g_managed_entry_price;
+   }
+   else
+   {
+      return false;
+   }
+
+   if(current_adverse_points < 0.0)
+      current_adverse_points = 0.0;
+   return true;
+}
+
+void RefreshManagedTrackingAfterPartialClose()
+{
+   if(!SelectManagedPosition())
+      return;
+
+   g_managed_position_ticket = (ulong)PositionGetInteger(POSITION_TICKET);
+   g_managed_position_identifier = (long)PositionGetInteger(POSITION_IDENTIFIER);
+   g_managed_position_type = (long)PositionGetInteger(POSITION_TYPE);
+   g_managed_entry_volume = PositionGetDouble(POSITION_VOLUME);
+
+   const double current_profit = PositionGetDouble(POSITION_PROFIT);
+   g_managed_max_floating_profit = IsUsableValue(current_profit) ? current_profit : 0.0;
+   g_managed_min_floating_profit = IsUsableValue(current_profit) ? current_profit : 0.0;
+   g_managed_peak_favorable_points = 0.0;
+
+   MqlTick tick;
+   double favorable_points = 0.0;
+   double adverse_points = 0.0;
+   double close_price = 0.0;
+   if(ComputeManagedPositionPointState(tick, favorable_points, adverse_points, close_price) && favorable_points > 0.0)
+      g_managed_peak_favorable_points = favorable_points;
+}
+
+bool ExecuteManagedFullClose(const string close_reason, const datetime exit_bar_time_server, string &action_reason)
+{
+   ResetLastError();
+   if(!g_trade.PositionClose(_Symbol, InpTradeDeviationPoints))
+   {
+      action_reason = StringFormat("%s_CLOSE_FAIL_%d", close_reason, GetLastError());
+      return false;
+   }
+
+   const ulong close_deal_ticket = g_trade.ResultDeal();
+   if(!AppendClosedTradeLedger(close_reason, exit_bar_time_server, close_deal_ticket))
+      Log(StringFormat("trade ledger append failed after %s", close_reason));
+
+   ResetManagedTradeTracking();
+   g_entry_block_bar_time = exit_bar_time_server;
+   action_reason = close_reason + "_CLOSE_OK";
+   return true;
+}
+
+double ResolvePartialCloseVolume(const double current_volume, const double close_fraction)
+{
+   if(close_fraction <= 0.0 || close_fraction >= 1.0)
+      return 0.0;
+
+   const double close_volume = NormalizeVolumeForSymbol(current_volume * close_fraction);
+   if(close_volume <= 0.0)
+      return 0.0;
+
+   const double remaining_volume = NormalizeVolumeForSymbol(current_volume - close_volume);
+   const double min_volume = SymbolInfoDouble(_Symbol, SYMBOL_VOLUME_MIN);
+   if(remaining_volume <= 0.0)
+      return 0.0;
+   if(min_volume > 0.0 && remaining_volume + 1e-9 < min_volume)
+      return 0.0;
+   return close_volume;
+}
+
+bool ExecuteManagedPartialClose(
+   const int rule_index,
+   const string close_reason,
+   const double close_fraction,
+   const datetime exit_bar_time_server,
+   string &action_reason
+)
+{
+   if(!SelectManagedPosition())
+      return true;
+
+   const double current_volume = PositionGetDouble(POSITION_VOLUME);
+   const double close_volume = ResolvePartialCloseVolume(current_volume, close_fraction);
+   if(close_volume <= 0.0)
+   {
+      action_reason = close_reason + "_PARTIAL_VOLUME_UNAVAILABLE";
+      return true;
+   }
+
+   ResetLastError();
+   if(!g_trade.PositionClosePartial(_Symbol, close_volume, InpTradeDeviationPoints))
+   {
+      action_reason = StringFormat("%s_PARTIAL_FAIL_%d", close_reason, GetLastError());
+      return false;
+   }
+
+   const ulong close_deal_ticket = g_trade.ResultDeal();
+   if(!AppendClosedTradeLedger(close_reason, exit_bar_time_server, close_deal_ticket))
+      Log(StringFormat("trade ledger append failed after %s", close_reason));
+
+   if(rule_index >= 0 && rule_index < ArraySize(g_managed_exit_rule_triggered))
+      g_managed_exit_rule_triggered[rule_index] = true;
+
+   if(SelectManagedPosition())
+   {
+      RefreshManagedTrackingAfterPartialClose();
+      action_reason = close_reason + "_PARTIAL_OK";
+      return true;
+   }
+
+   ResetManagedTradeTracking();
+   g_entry_block_bar_time = exit_bar_time_server;
+   action_reason = close_reason + "_PARTIAL_CLOSE_OK";
+   return true;
+}
+
+bool ApplyManagedPointExitRules(const datetime current_bar_time_server, const int hold_bars, string &action_reason)
+{
+   const int exit_rule_count = ArraySize(g_effective_exit_rule_types);
+   if(exit_rule_count <= 0)
+      return true;
+
+   bool has_point_rule = false;
+   for(int i = 0; i < exit_rule_count; i++)
+   {
+      if(!g_effective_exit_rule_enabled[i])
+         continue;
+      const string rule_type = g_effective_exit_rule_types[i];
+      if(rule_type == "break_even" ||
+         rule_type == "trailing_stop" ||
+         rule_type == "partial_stop_loss" ||
+         rule_type == "partial_take_profit")
+      {
+         has_point_rule = true;
+         break;
+      }
+   }
+
+   if(!has_point_rule)
+      return true;
+
+   MqlTick tick;
+   double favorable_points = 0.0;
+   double adverse_points = 0.0;
+   double close_price = 0.0;
+   if(!ComputeManagedPositionPointState(tick, favorable_points, adverse_points, close_price))
+   {
+      action_reason = "POINT_EXIT_TICK_UNAVAILABLE";
+      return false;
+   }
+
+   if(favorable_points > g_managed_peak_favorable_points)
+      g_managed_peak_favorable_points = favorable_points;
+
+   for(int i = 0; i < exit_rule_count; i++)
+   {
+      if(!g_effective_exit_rule_enabled[i])
+         continue;
+      if(i < ArraySize(g_managed_exit_rule_triggered) && g_managed_exit_rule_triggered[i])
+         continue;
+      if(g_effective_exit_rule_min_hold_bars[i] > 0 && hold_bars < g_effective_exit_rule_min_hold_bars[i])
+         continue;
+
+      const string rule_type = g_effective_exit_rule_types[i];
+      if(rule_type == "break_even")
+      {
+         const double trigger_points = g_effective_exit_rule_trigger_points[i];
+         const double offset_points = g_effective_exit_rule_offset_points[i];
+         if(trigger_points > 0.0 &&
+            g_managed_peak_favorable_points >= trigger_points &&
+            favorable_points <= offset_points + 1e-6)
+         {
+            return ExecuteManagedFullClose("BREAK_EVEN_STOP", current_bar_time_server, action_reason);
+         }
+      }
+      else if(rule_type == "trailing_stop")
+      {
+         const double trigger_points = g_effective_exit_rule_trigger_points[i];
+         const double distance_points = g_effective_exit_rule_distance_points[i];
+         if(trigger_points > 0.0 &&
+            distance_points > 0.0 &&
+            g_managed_peak_favorable_points >= trigger_points &&
+            (g_managed_peak_favorable_points - favorable_points) >= distance_points - 1e-6)
+         {
+            return ExecuteManagedFullClose("TRAIL_STOP", current_bar_time_server, action_reason);
+         }
+      }
+      else if(rule_type == "partial_stop_loss")
+      {
+         const double trigger_points = g_effective_exit_rule_trigger_points[i];
+         const double close_fraction = g_effective_exit_rule_close_fraction[i];
+         if(trigger_points > 0.0 &&
+            close_fraction > 0.0 &&
+            adverse_points >= trigger_points - 1e-6)
+         {
+            return ExecuteManagedPartialClose(i, "PARTIAL_STOP_LOSS", close_fraction, current_bar_time_server, action_reason);
+         }
+      }
+      else if(rule_type == "partial_take_profit")
+      {
+         const double trigger_points = g_effective_exit_rule_trigger_points[i];
+         const double close_fraction = g_effective_exit_rule_close_fraction[i];
+         if(trigger_points > 0.0 &&
+            close_fraction > 0.0 &&
+            favorable_points >= trigger_points - 1e-6)
+         {
+            return ExecuteManagedPartialClose(i, "PARTIAL_TAKE_PROFIT", close_fraction, current_bar_time_server, action_reason);
+         }
+      }
+   }
+
    return true;
 }
 
@@ -3258,6 +4227,7 @@ bool AppendClosedTradeLedger(const string close_reason, const datetime exit_bar_
    }
 
    const double exit_price = HistoryDealGetDouble(close_deal_ticket, DEAL_PRICE);
+   const double exit_volume = HistoryDealGetDouble(close_deal_ticket, DEAL_VOLUME);
    const datetime exit_time_server = (datetime)HistoryDealGetInteger(close_deal_ticket, DEAL_TIME);
    const double gross_profit = HistoryDealGetDouble(close_deal_ticket, DEAL_PROFIT);
    const double swap = HistoryDealGetDouble(close_deal_ticket, DEAL_SWAP);
@@ -3293,7 +4263,7 @@ bool AppendClosedTradeLedger(const string close_reason, const datetime exit_bar_
       EscapeCsv((string)g_managed_position_ticket) + "," +
       EscapeCsv((string)g_managed_position_identifier) + "," +
       EscapeCsv(g_managed_entry_decision_text) + "," +
-      EscapeCsv(CsvDouble(g_managed_entry_volume, 2)) + "," +
+      EscapeCsv(CsvDouble((exit_volume > 0.0) ? exit_volume : g_managed_entry_volume, 2)) + "," +
       EscapeCsv(TimeToString(g_managed_entry_time_server, TIME_DATE | TIME_SECONDS)) + "," +
       EscapeCsv(TimeToString(exit_time_server, TIME_DATE | TIME_SECONDS)) + "," +
       EscapeCsv(TimeToString(g_managed_entry_bar_time_server, TIME_DATE | TIME_SECONDS)) + "," +
@@ -3397,10 +4367,18 @@ bool ManageOpenPositionOnTick(string &action_reason)
       }
    }
 
+   const datetime current_bar_time_server = iTime(_Symbol, PERIOD_M5, 0) + PeriodSeconds(PERIOD_M5);
+   const int hold_bars = (g_managed_entry_bar_time_server > 0 && current_bar_time_server >= g_managed_entry_bar_time_server)
+      ? (int)((current_bar_time_server - g_managed_entry_bar_time_server) / PeriodSeconds(PERIOD_M5))
+      : 0;
+   if(!ApplyManagedPointExitRules(current_bar_time_server, hold_bars, action_reason))
+      return false;
+   if(StringLen(action_reason) > 0)
+      return true;
+
    if(!g_effective_time_exit_enabled)
       return true;
 
-   const datetime current_bar_time_server = iTime(_Symbol, PERIOD_M5, 0) + PeriodSeconds(PERIOD_M5);
    string hold_context = "BASE";
    const int effective_max_hold_bars = ResolveDynamicMaxHoldBars(current_bar_time_server, hold_context);
    if(entry_bar_shift < effective_max_hold_bars)
@@ -3611,16 +4589,19 @@ bool ExecuteTradeDecision(const int decision, const datetime bar_time_server, st
 
 bool RunShadowCycle(const datetime bar_time_server, const string cycle_tag)
 {
+   ResetExternalAlignmentTelemetry();
    string feature_mode = FeatureModeToString(InpFeatureMode);
    string skip_reason = "";
    string decision_reason = "SKIPPED";
    string trade_action_reason = "";
+   string planned_risk_context = "SKIPPED";
    double features[];
    float outputs[];
    ulong feature_checksum = 0;
    double p_short = 0.0;
    double p_flat = 0.0;
    double p_long = 0.0;
+   double planned_risk_pct_multiplier = 1.0;
    bool row_ready = false;
    bool feature_vector_complete = false;
    int feature_ready_count = 0;
@@ -3628,21 +4609,27 @@ bool RunShadowCycle(const datetime bar_time_server, const string cycle_tag)
 
    if(!CheckRuntimeReady(skip_reason))
    {
+      RecordGovernanceObservation(skip_reason, false, p_short, p_flat, p_long, decision, planned_risk_context, planned_risk_pct_multiplier);
       AppendShadowLog(bar_time_server, feature_mode, feature_ready_count, false, skip_reason, feature_checksum, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, "", 0.0);
+      AppendGovernanceLog(bar_time_server, cycle_tag, false, skip_reason, DecisionToString(decision), decision_reason, "", p_short, p_flat, p_long, false);
       Log(StringFormat("%s skipped: %s", cycle_tag, skip_reason));
       return false;
    }
 
    if(!BuildStage1FeatureVector(bar_time_server, features, feature_mode, feature_ready_count, feature_vector_complete, skip_reason))
    {
+      RecordGovernanceObservation(skip_reason, false, p_short, p_flat, p_long, decision, planned_risk_context, planned_risk_pct_multiplier);
       AppendShadowLog(bar_time_server, feature_mode, feature_ready_count, false, skip_reason, feature_checksum, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, "", 0.0);
+      AppendGovernanceLog(bar_time_server, cycle_tag, false, skip_reason, DecisionToString(decision), decision_reason, "", p_short, p_flat, p_long, false);
       Log(StringFormat("%s skipped: %s", cycle_tag, skip_reason));
       return false;
    }
 
    if(!AuditFeatureVector(features, skip_reason))
    {
+      RecordGovernanceObservation(skip_reason, false, p_short, p_flat, p_long, decision, planned_risk_context, planned_risk_pct_multiplier);
       AppendShadowLog(bar_time_server, feature_mode, feature_ready_count, false, skip_reason, feature_checksum, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, "", 0.0);
+      AppendGovernanceLog(bar_time_server, cycle_tag, false, skip_reason, DecisionToString(decision), decision_reason, "", p_short, p_flat, p_long, false);
       Log(StringFormat("%s skipped: %s", cycle_tag, skip_reason));
       return false;
    }
@@ -3653,14 +4640,18 @@ bool RunShadowCycle(const datetime bar_time_server, const string cycle_tag)
    {
       skip_reason = "PARTIAL_FEATURE_VECTOR";
       decision_reason = "INFERENCE_SKIPPED";
+      RecordGovernanceObservation(skip_reason, false, p_short, p_flat, p_long, decision, planned_risk_context, planned_risk_pct_multiplier);
       AppendShadowLog(bar_time_server, feature_mode, feature_ready_count, false, skip_reason, feature_checksum, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, "", 0.0);
+      AppendGovernanceLog(bar_time_server, cycle_tag, false, skip_reason, DecisionToString(decision), decision_reason, "", p_short, p_flat, p_long, false);
       Log(StringFormat("%s skipped: %s mode=%s ready=%d", cycle_tag, skip_reason, feature_mode, feature_ready_count));
       return false;
    }
 
    if(!RunInference(features, outputs, skip_reason))
    {
+      RecordGovernanceObservation(skip_reason, false, p_short, p_flat, p_long, decision, planned_risk_context, planned_risk_pct_multiplier);
       AppendShadowLog(bar_time_server, feature_mode, feature_ready_count, false, skip_reason, feature_checksum, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, "", 0.0);
+      AppendGovernanceLog(bar_time_server, cycle_tag, false, skip_reason, DecisionToString(decision), decision_reason, "", p_short, p_flat, p_long, false);
       Log(StringFormat("%s inference failed: %s", cycle_tag, skip_reason));
       return false;
    }
@@ -3671,6 +4662,10 @@ bool RunShadowCycle(const datetime bar_time_server, const string cycle_tag)
 
    decision = DecideShadowSignal(outputs, decision_reason);
    row_ready = true;
+   if(decision != 0)
+      planned_risk_pct_multiplier = ResolveDynamicRiskPctMultiplier(decision, bar_time_server, planned_risk_context);
+   else
+      planned_risk_context = "NO_SIGNAL";
 
    string exit_action_reason = "";
    if(!ManageOpenPositionOnNewBar(bar_time_server, p_short, p_flat, p_long, exit_action_reason))
@@ -3678,8 +4673,17 @@ bool RunShadowCycle(const datetime bar_time_server, const string cycle_tag)
    else if(InpEnableTrading && exit_action_reason != "")
       Log(StringFormat("%s exit action: %s", cycle_tag, exit_action_reason));
 
+   RecordGovernanceObservation(skip_reason, true, p_short, p_flat, p_long, decision, planned_risk_context, planned_risk_pct_multiplier);
+
    string entry_action_reason = "";
-   if(!ExecuteTradeDecision(decision, bar_time_server, entry_action_reason))
+   bool entry_blocked_this_bar = false;
+   if(InpEnableTrading && decision != 0 && g_governance_entry_blocked)
+   {
+      entry_blocked_this_bar = true;
+      entry_action_reason = "ENTRY_BLOCKED_GOVERNANCE_" + g_governance_reason;
+      Log(StringFormat("%s governance blocked entry: %s", cycle_tag, g_governance_reason));
+   }
+   else if(!ExecuteTradeDecision(decision, bar_time_server, entry_action_reason))
       Log(StringFormat("%s trade action failed: %s", cycle_tag, entry_action_reason));
    else if(InpEnableTrading && entry_action_reason != "" && entry_action_reason != "NO_ENTRY_SIGNAL")
       Log(StringFormat("%s trade action: %s", cycle_tag, entry_action_reason));
@@ -3691,6 +4695,7 @@ bool RunShadowCycle(const datetime bar_time_server, const string cycle_tag)
    else
       trade_action_reason = entry_action_reason;
    AppendShadowLog(bar_time_server, feature_mode, feature_ready_count, row_ready, "", feature_checksum, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, trade_action_reason, g_last_trade_fill_price);
+   AppendGovernanceLog(bar_time_server, cycle_tag, row_ready, "", DecisionToString(decision), decision_reason, trade_action_reason, p_short, p_flat, p_long, entry_blocked_this_bar);
 
    Log(StringFormat(
       "%s bar=%s mode=%s ready=%d p_short=%.6f p_flat=%.6f p_long=%.6f decision=%s reason=%s",
@@ -3727,12 +4732,44 @@ int OnInit()
       return INIT_PARAMETERS_INCORRECT;
    }
 
+   if(InpEnableGovernance)
+   {
+      if(InpGovernanceWindowBars <= 0)
+      {
+         Log("InpGovernanceWindowBars must be positive");
+         return INIT_PARAMETERS_INCORRECT;
+      }
+      if(InpGovernanceMinSamples <= 0 || InpGovernanceMinSamples > InpGovernanceWindowBars)
+      {
+         Log("InpGovernanceMinSamples must be between 1 and InpGovernanceWindowBars");
+         return INIT_PARAMETERS_INCORRECT;
+      }
+      if(InpGovernanceMaxOperationalSkipRate < 0.0 || InpGovernanceMaxOperationalSkipRate > 1.0 ||
+         InpGovernanceMaxExternalSkipRate < 0.0 || InpGovernanceMaxExternalSkipRate > 1.0 ||
+         InpGovernanceMaxFeatureSkipRate < 0.0 || InpGovernanceMaxFeatureSkipRate > 1.0 ||
+         InpGovernanceMaxArgmaxClassShare < 0.0 || InpGovernanceMaxArgmaxClassShare > 1.0 ||
+         InpGovernanceMaxExtremeConfidenceRate < 0.0 || InpGovernanceMaxExtremeConfidenceRate > 1.0 ||
+         InpGovernanceExtremeConfidenceThreshold < 0.0 || InpGovernanceExtremeConfidenceThreshold > 1.0 ||
+         InpGovernanceMinNormalizedEntropy < 0.0 || InpGovernanceMinNormalizedEntropy > 1.0)
+      {
+         Log("governance rate thresholds must stay within [0,1]");
+         return INIT_PARAMETERS_INCORRECT;
+      }
+      if(InpGovernanceMaxConsecutiveOperationalSkips <= 0)
+      {
+         Log("InpGovernanceMaxConsecutiveOperationalSkips must be positive");
+         return INIT_PARAMETERS_INCORRECT;
+      }
+   }
+
    if(!LoadRuntimeConfig())
       return INIT_FAILED;
 
    ResetManagedTradeTracking();
+   ResetGovernanceState();
    EnsureLogHeader();
    EnsureTradeLedgerHeader();
+   EnsureGovernanceLogHeader();
    g_trade.SetExpertMagicNumber((ulong)InpMagicNumber);
    g_trade.SetDeviationInPoints(InpTradeDeviationPoints);
 

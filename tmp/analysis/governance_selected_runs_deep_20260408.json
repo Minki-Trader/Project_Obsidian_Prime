@@ -1,0 +1,1364 @@
+[
+  {
+    "code": "05DP",
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DP_05ca_margin0675_hold5_0001\\mt5_attempts\\att_0007\\tester_attempt_summary.json",
+    "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_05dp_05ca_margin0675_hold5_v1\\logs\\att_0007_governance.csv",
+    "from_date": "2025.10.01",
+    "to_date": "2026.03.01",
+    "headline_return_pct": 68.574,
+    "headline_pf": 1.492530238170483,
+    "headline_dd_pct": 19.393561462311947,
+    "trade_count": 275,
+    "long_count": 122,
+    "short_count": 153,
+    "no_trade_rate": 0.8675055514433753,
+    "ready_rate": 0.23393939393939395,
+    "external_mismatch_count": 8976,
+    "contract_skip_count": 22119,
+    "top_skip_reasons": {
+      "HANDLE_NOT_READY_EMA9_-1": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 1540,
+      "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1147,
+      "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 2467,
+      "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 3809,
+      "SESSION_CASH_OPEN_NOT_FOUND": 13143,
+      "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas": 11,
+      "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_TSLA.xnas": 1
+    },
+    "ready_row_gap": 35,
+    "latest_gov_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+    "latest_external_skip_rate": 0.263889,
+    "latest_argmax_share": 0.506667,
+    "latest_entropy": 0.978061,
+    "latest_risk_overlay_rate": 0.0,
+    "full_window_rows": 28828,
+    "signal_window_rows": 13547,
+    "mean_op_skip_rate": 0.3109668371375052,
+    "p90_op_skip_rate": 0.513889,
+    "mean_external_skip_rate": 0.3109668371375052,
+    "p90_external_skip_rate": 0.513889,
+    "mean_feature_skip_rate": 0.0,
+    "p90_consecutive_skips": 27.0,
+    "mean_argmax_share": 0.6668484233409611,
+    "p90_argmax_share": 0.903226,
+    "mean_entropy": 0.9432051245294161,
+    "p10_entropy": 0.876962,
+    "mean_extreme_conf_rate": 0.0,
+    "mean_risk_overlay_rate": 0.0,
+    "p90_risk_overlay_rate": 0.0,
+    "mean_signal_samples": 4.458651311225197,
+    "top_gov_reasons": [
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+        13572
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+        6062
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        5616
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+        1032
+      ],
+      [
+        "EXTERNAL_SKIP_RATE",
+        1029
+      ],
+      [
+        "WITHIN_LIMITS",
+        673
+      ]
+    ]
+  },
+  {
+    "code": "07E",
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\07_motif_transplant\\02_runs\\active\\07E_05et_fd_motif_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+    "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_07e_05et_fd_motif_v1\\logs\\att_0003_governance.csv",
+    "from_date": "2025.10.01",
+    "to_date": "2026.03.01",
+    "headline_return_pct": 80.262,
+    "headline_pf": 1.3555569337633342,
+    "headline_dd_pct": 19.602479941648433,
+    "trade_count": 297,
+    "long_count": 15,
+    "short_count": 282,
+    "no_trade_rate": 0.8569948186528498,
+    "ready_rate": 0.23393939393939395,
+    "external_mismatch_count": 8976,
+    "contract_skip_count": 22119,
+    "top_skip_reasons": {
+      "HANDLE_NOT_READY_EMA9_-1": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 1540,
+      "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1147,
+      "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 2467,
+      "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 3809,
+      "SESSION_CASH_OPEN_NOT_FOUND": 13143,
+      "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas": 11,
+      "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_TSLA.xnas": 1
+    },
+    "ready_row_gap": 35,
+    "latest_gov_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+    "latest_external_skip_rate": 0.263889,
+    "latest_argmax_share": 0.44,
+    "latest_entropy": 0.983222,
+    "latest_risk_overlay_rate": 0.0,
+    "full_window_rows": 28828,
+    "signal_window_rows": 13045,
+    "mean_op_skip_rate": 0.3109668371375052,
+    "p90_op_skip_rate": 0.513889,
+    "mean_external_skip_rate": 0.3109668371375052,
+    "p90_external_skip_rate": 0.513889,
+    "mean_feature_skip_rate": 0.0,
+    "p90_consecutive_skips": 27.0,
+    "mean_argmax_share": 0.7265042467612112,
+    "p90_argmax_share": 0.939394,
+    "mean_entropy": 0.9417388201609812,
+    "p10_entropy": 0.859412,
+    "mean_extreme_conf_rate": 0.0,
+    "mean_risk_overlay_rate": 0.0,
+    "p90_risk_overlay_rate": 0.0,
+    "mean_signal_samples": 4.815491882891633,
+    "top_gov_reasons": [
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+        12246
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+        7388
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        5390
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+        1258
+      ],
+      [
+        "EXTERNAL_SKIP_RATE",
+        917
+      ],
+      [
+        "WITHIN_LIMITS",
+        673
+      ]
+    ]
+  },
+  {
+    "code": "08C",
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\08_strict_wfo_shortlist\\02_runs\\active\\08C_2501_05et_core_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+    "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_08c_2501_05et_core_0001_v1\\logs\\att_0003_governance.csv",
+    "from_date": "2025.10.01",
+    "to_date": "2026.03.01",
+    "headline_return_pct": 43.518,
+    "headline_pf": 1.2395785162185373,
+    "headline_dd_pct": 28.442876682744217,
+    "trade_count": 291,
+    "long_count": 69,
+    "short_count": 222,
+    "no_trade_rate": 0.8568467801628423,
+    "ready_rate": 0.23393939393939395,
+    "external_mismatch_count": 8976,
+    "contract_skip_count": 22119,
+    "top_skip_reasons": {
+      "HANDLE_NOT_READY_EMA9_-1": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 1540,
+      "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1147,
+      "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 2467,
+      "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 3809,
+      "SESSION_CASH_OPEN_NOT_FOUND": 13143,
+      "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas": 11,
+      "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_TSLA.xnas": 1
+    },
+    "ready_row_gap": 35,
+    "latest_gov_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+    "latest_external_skip_rate": 0.263889,
+    "latest_argmax_share": 0.533333,
+    "latest_entropy": 0.971063,
+    "latest_risk_overlay_rate": 0.0,
+    "full_window_rows": 28828,
+    "signal_window_rows": 11893,
+    "mean_op_skip_rate": 0.3109668371375052,
+    "p90_op_skip_rate": 0.513889,
+    "mean_external_skip_rate": 0.3109668371375052,
+    "p90_external_skip_rate": 0.513889,
+    "mean_feature_skip_rate": 0.0,
+    "p90_consecutive_skips": 27.0,
+    "mean_argmax_share": 0.65757034053645,
+    "p90_argmax_share": 0.9258154000000006,
+    "mean_entropy": 0.9376134701084672,
+    "p10_entropy": 0.858909,
+    "mean_extreme_conf_rate": 0.0,
+    "mean_risk_overlay_rate": 0.0,
+    "p90_risk_overlay_rate": 0.0,
+    "mean_signal_samples": 4.819446371583183,
+    "top_gov_reasons": [
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+        13852
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        5856
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+        5782
+      ],
+      [
+        "EXTERNAL_SKIP_RATE",
+        1007
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+        792
+      ],
+      [
+        "WITHIN_LIMITS",
+        673
+      ]
+    ]
+  },
+  {
+    "code": "09C",
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\09_05et_local_probe\\02_runs\\active\\09C_2501_05et_margin0700_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+    "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_09c_2501_05et_margin0700_0001_v1\\logs\\att_0003_governance.csv",
+    "from_date": "2025.10.01",
+    "to_date": "2026.03.01",
+    "headline_return_pct": 49.09,
+    "headline_pf": 1.268207397694367,
+    "headline_dd_pct": 28.291699661651425,
+    "trade_count": 286,
+    "long_count": 69,
+    "short_count": 217,
+    "no_trade_rate": 0.8601036269430051,
+    "ready_rate": 0.23393939393939395,
+    "external_mismatch_count": 8976,
+    "contract_skip_count": 22119,
+    "top_skip_reasons": {
+      "HANDLE_NOT_READY_EMA9_-1": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 1540,
+      "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1147,
+      "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 2467,
+      "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 3809,
+      "SESSION_CASH_OPEN_NOT_FOUND": 13143,
+      "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas": 11,
+      "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_TSLA.xnas": 1
+    },
+    "ready_row_gap": 35,
+    "latest_gov_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+    "latest_external_skip_rate": 0.263889,
+    "latest_argmax_share": 0.533333,
+    "latest_entropy": 0.971063,
+    "latest_risk_overlay_rate": 0.0,
+    "full_window_rows": 28828,
+    "signal_window_rows": 11811,
+    "mean_op_skip_rate": 0.3109668371375052,
+    "p90_op_skip_rate": 0.513889,
+    "mean_external_skip_rate": 0.3109668371375052,
+    "p90_external_skip_rate": 0.513889,
+    "mean_feature_skip_rate": 0.0,
+    "p90_consecutive_skips": 27.0,
+    "mean_argmax_share": 0.6580163868427736,
+    "p90_argmax_share": 0.925926,
+    "mean_entropy": 0.9374034085174836,
+    "p10_entropy": 0.858909,
+    "mean_extreme_conf_rate": 0.0,
+    "mean_risk_overlay_rate": 0.0,
+    "p90_risk_overlay_rate": 0.0,
+    "mean_signal_samples": 4.70955321215485,
+    "top_gov_reasons": [
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+        13852
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        5856
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+        5782
+      ],
+      [
+        "EXTERNAL_SKIP_RATE",
+        1007
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+        792
+      ],
+      [
+        "WITHIN_LIMITS",
+        673
+      ]
+    ]
+  },
+  {
+    "code": "10C",
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\10_09c_overlay_gate\\02_runs\\active\\10C_2501_lp02_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+    "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_10c_2501_lp02_0001_v1\\logs\\att_0003_governance.csv",
+    "from_date": "2025.10.01",
+    "to_date": "2026.03.01",
+    "headline_return_pct": 51.542,
+    "headline_pf": 1.300480376839307,
+    "headline_dd_pct": 24.332860757676368,
+    "trade_count": 286,
+    "long_count": 69,
+    "short_count": 217,
+    "no_trade_rate": 0.8601036269430051,
+    "ready_rate": 0.23393939393939395,
+    "external_mismatch_count": 8976,
+    "contract_skip_count": 22119,
+    "top_skip_reasons": {
+      "HANDLE_NOT_READY_EMA9_-1": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 1540,
+      "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1147,
+      "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 2467,
+      "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 3809,
+      "SESSION_CASH_OPEN_NOT_FOUND": 13143,
+      "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas": 11,
+      "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_TSLA.xnas": 1
+    },
+    "ready_row_gap": 35,
+    "latest_gov_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+    "latest_external_skip_rate": 0.263889,
+    "latest_argmax_share": 0.533333,
+    "latest_entropy": 0.971063,
+    "latest_risk_overlay_rate": 0.0,
+    "full_window_rows": 28828,
+    "signal_window_rows": 11811,
+    "mean_op_skip_rate": 0.3109668371375052,
+    "p90_op_skip_rate": 0.513889,
+    "mean_external_skip_rate": 0.3109668371375052,
+    "p90_external_skip_rate": 0.513889,
+    "mean_feature_skip_rate": 0.0,
+    "p90_consecutive_skips": 27.0,
+    "mean_argmax_share": 0.6580163868427736,
+    "p90_argmax_share": 0.925926,
+    "mean_entropy": 0.9374034085174836,
+    "p10_entropy": 0.858909,
+    "mean_extreme_conf_rate": 0.0,
+    "mean_risk_overlay_rate": 0.2733687154347642,
+    "p90_risk_overlay_rate": 1.0,
+    "mean_signal_samples": 4.70955321215485,
+    "top_gov_reasons": [
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+        13852
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        5856
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+        5782
+      ],
+      [
+        "EXTERNAL_SKIP_RATE",
+        1007
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+        792
+      ],
+      [
+        "WITHIN_LIMITS",
+        673
+      ]
+    ]
+  },
+  {
+    "code": "11B",
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\11_09c_overlay_local_probe\\02_runs\\active\\11B_2501_mon065_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+    "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_11b_2501_mon065_0001_v1\\logs\\att_0003_governance.csv",
+    "from_date": "2025.10.01",
+    "to_date": "2026.03.01",
+    "headline_return_pct": 51.39,
+    "headline_pf": 1.3005649849688263,
+    "headline_dd_pct": 24.349028481126318,
+    "trade_count": 286,
+    "long_count": 69,
+    "short_count": 217,
+    "no_trade_rate": 0.8601036269430051,
+    "ready_rate": 0.23393939393939395,
+    "external_mismatch_count": 8976,
+    "contract_skip_count": 22119,
+    "top_skip_reasons": {
+      "HANDLE_NOT_READY_EMA9_-1": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 1540,
+      "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1147,
+      "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 2467,
+      "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 3809,
+      "SESSION_CASH_OPEN_NOT_FOUND": 13143,
+      "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas": 11,
+      "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_TSLA.xnas": 1
+    },
+    "ready_row_gap": 35,
+    "latest_gov_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+    "latest_external_skip_rate": 0.263889,
+    "latest_argmax_share": 0.533333,
+    "latest_entropy": 0.971063,
+    "latest_risk_overlay_rate": 0.0,
+    "full_window_rows": 28828,
+    "signal_window_rows": 11811,
+    "mean_op_skip_rate": 0.3109668371375052,
+    "p90_op_skip_rate": 0.513889,
+    "mean_external_skip_rate": 0.3109668371375052,
+    "p90_external_skip_rate": 0.513889,
+    "mean_feature_skip_rate": 0.0,
+    "p90_consecutive_skips": 27.0,
+    "mean_argmax_share": 0.6580163868427736,
+    "p90_argmax_share": 0.925926,
+    "mean_entropy": 0.9374034085174836,
+    "p10_entropy": 0.858909,
+    "mean_extreme_conf_rate": 0.0,
+    "mean_risk_overlay_rate": 0.2733687154347642,
+    "p90_risk_overlay_rate": 1.0,
+    "mean_signal_samples": 4.70955321215485,
+    "top_gov_reasons": [
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+        13852
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        5856
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+        5782
+      ],
+      [
+        "EXTERNAL_SKIP_RATE",
+        1007
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+        792
+      ],
+      [
+        "WITHIN_LIMITS",
+        673
+      ]
+    ]
+  },
+  {
+    "code": "12B",
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\12_09c_overlay_fine_probe\\02_runs\\active\\12B_2501_m06_p0625_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+    "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_12b_2501_m06_p0625_0001_v1\\logs\\att_0003_governance.csv",
+    "from_date": "2025.10.01",
+    "to_date": "2026.03.01",
+    "headline_return_pct": 50.705999999999996,
+    "headline_pf": 1.300558367811459,
+    "headline_dd_pct": 23.942725737486974,
+    "trade_count": 286,
+    "long_count": 69,
+    "short_count": 217,
+    "no_trade_rate": 0.8601036269430051,
+    "ready_rate": 0.23393939393939395,
+    "external_mismatch_count": 8976,
+    "contract_skip_count": 22119,
+    "top_skip_reasons": {
+      "HANDLE_NOT_READY_EMA9_-1": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 1540,
+      "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1147,
+      "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 2467,
+      "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 3809,
+      "SESSION_CASH_OPEN_NOT_FOUND": 13143,
+      "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas": 11,
+      "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_TSLA.xnas": 1
+    },
+    "ready_row_gap": 35,
+    "latest_gov_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+    "latest_external_skip_rate": 0.263889,
+    "latest_argmax_share": 0.533333,
+    "latest_entropy": 0.971063,
+    "latest_risk_overlay_rate": 0.0,
+    "full_window_rows": 28828,
+    "signal_window_rows": 11811,
+    "mean_op_skip_rate": 0.3109668371375052,
+    "p90_op_skip_rate": 0.513889,
+    "mean_external_skip_rate": 0.3109668371375052,
+    "p90_external_skip_rate": 0.513889,
+    "mean_feature_skip_rate": 0.0,
+    "p90_consecutive_skips": 27.0,
+    "mean_argmax_share": 0.6580163868427736,
+    "p90_argmax_share": 0.925926,
+    "mean_entropy": 0.9374034085174836,
+    "p10_entropy": 0.858909,
+    "mean_extreme_conf_rate": 0.0,
+    "mean_risk_overlay_rate": 0.2733687154347642,
+    "p90_risk_overlay_rate": 1.0,
+    "mean_signal_samples": 4.70955321215485,
+    "top_gov_reasons": [
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+        13852
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        5856
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+        5782
+      ],
+      [
+        "EXTERNAL_SKIP_RATE",
+        1007
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+        792
+      ],
+      [
+        "WITHIN_LIMITS",
+        673
+      ]
+    ]
+  },
+  {
+    "code": "13C",
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\13_09c_overlay_micro_probe\\02_runs\\active\\13C_2501_m055_p06375_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+    "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_13c_2501_m055_p06375_0001_v1\\logs\\att_0003_governance.csv",
+    "from_date": "2025.10.01",
+    "to_date": "2026.03.01",
+    "headline_return_pct": 49.762,
+    "headline_pf": 1.2967676526717558,
+    "headline_dd_pct": 24.244221575182426,
+    "trade_count": 286,
+    "long_count": 69,
+    "short_count": 217,
+    "no_trade_rate": 0.8601036269430051,
+    "ready_rate": 0.23393939393939395,
+    "external_mismatch_count": 8976,
+    "contract_skip_count": 22119,
+    "top_skip_reasons": {
+      "HANDLE_NOT_READY_EMA9_-1": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 1540,
+      "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1147,
+      "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 2467,
+      "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 3809,
+      "SESSION_CASH_OPEN_NOT_FOUND": 13143,
+      "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas": 11,
+      "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_TSLA.xnas": 1
+    },
+    "ready_row_gap": 35,
+    "latest_gov_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+    "latest_external_skip_rate": 0.263889,
+    "latest_argmax_share": 0.533333,
+    "latest_entropy": 0.971063,
+    "latest_risk_overlay_rate": 0.0,
+    "full_window_rows": 28828,
+    "signal_window_rows": 11811,
+    "mean_op_skip_rate": 0.3109668371375052,
+    "p90_op_skip_rate": 0.513889,
+    "mean_external_skip_rate": 0.3109668371375052,
+    "p90_external_skip_rate": 0.513889,
+    "mean_feature_skip_rate": 0.0,
+    "p90_consecutive_skips": 27.0,
+    "mean_argmax_share": 0.6580163868427736,
+    "p90_argmax_share": 0.925926,
+    "mean_entropy": 0.9374034085174836,
+    "p10_entropy": 0.858909,
+    "mean_extreme_conf_rate": 0.0,
+    "mean_risk_overlay_rate": 0.2733687154347642,
+    "p90_risk_overlay_rate": 1.0,
+    "mean_signal_samples": 4.70955321215485,
+    "top_gov_reasons": [
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+        13852
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        5856
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+        5782
+      ],
+      [
+        "EXTERNAL_SKIP_RATE",
+        1007
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+        792
+      ],
+      [
+        "WITHIN_LIMITS",
+        673
+      ]
+    ]
+  },
+  {
+    "code": "14A",
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\14_13d_short_regime_detector\\02_runs\\active\\14A_2501_ref_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+    "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_14a_2501_ref_0001_v1\\logs\\att_0003_governance.csv",
+    "from_date": "2025.10.01",
+    "to_date": "2026.03.01",
+    "headline_return_pct": 51.98400000000001,
+    "headline_pf": 1.3088733348385642,
+    "headline_dd_pct": 23.263545691436793,
+    "trade_count": 286,
+    "long_count": 69,
+    "short_count": 217,
+    "no_trade_rate": 0.8601036269430051,
+    "ready_rate": 0.23393939393939395,
+    "external_mismatch_count": 8976,
+    "contract_skip_count": 22119,
+    "top_skip_reasons": {
+      "HANDLE_NOT_READY_EMA9_-1": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 1540,
+      "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1147,
+      "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 2467,
+      "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 3809,
+      "SESSION_CASH_OPEN_NOT_FOUND": 13143,
+      "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas": 11,
+      "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_TSLA.xnas": 1
+    },
+    "ready_row_gap": 35,
+    "latest_gov_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+    "latest_external_skip_rate": 0.263889,
+    "latest_argmax_share": 0.533333,
+    "latest_entropy": 0.971063,
+    "latest_risk_overlay_rate": 0.0,
+    "full_window_rows": 28828,
+    "signal_window_rows": 11811,
+    "mean_op_skip_rate": 0.3109668371375052,
+    "p90_op_skip_rate": 0.513889,
+    "mean_external_skip_rate": 0.3109668371375052,
+    "p90_external_skip_rate": 0.513889,
+    "mean_feature_skip_rate": 0.0,
+    "p90_consecutive_skips": 27.0,
+    "mean_argmax_share": 0.6580163868427736,
+    "p90_argmax_share": 0.925926,
+    "mean_entropy": 0.9374034085174836,
+    "p10_entropy": 0.858909,
+    "mean_extreme_conf_rate": 0.0,
+    "mean_risk_overlay_rate": 0.2733687154347642,
+    "p90_risk_overlay_rate": 1.0,
+    "mean_signal_samples": 4.70955321215485,
+    "top_gov_reasons": [
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+        13852
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        5856
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+        5782
+      ],
+      [
+        "EXTERNAL_SKIP_RATE",
+        1007
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+        792
+      ],
+      [
+        "WITHIN_LIMITS",
+        673
+      ]
+    ]
+  },
+  {
+    "code": "15A",
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\15_13d_server_hour_short_detector\\02_runs\\active\\15A_2501_ref_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+    "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_15a_2501_ref_0001_v1\\logs\\att_0003_governance.csv",
+    "from_date": "2025.10.01",
+    "to_date": "2026.03.01",
+    "headline_return_pct": 51.98400000000001,
+    "headline_pf": 1.3088733348385642,
+    "headline_dd_pct": 23.263545691436793,
+    "trade_count": 286,
+    "long_count": 69,
+    "short_count": 217,
+    "no_trade_rate": 0.8601036269430051,
+    "ready_rate": 0.23393939393939395,
+    "external_mismatch_count": 8976,
+    "contract_skip_count": 22119,
+    "top_skip_reasons": {
+      "HANDLE_NOT_READY_EMA9_-1": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 1540,
+      "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1147,
+      "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 2467,
+      "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 3809,
+      "SESSION_CASH_OPEN_NOT_FOUND": 13143,
+      "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas": 11,
+      "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_TSLA.xnas": 1
+    },
+    "ready_row_gap": 35,
+    "latest_gov_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+    "latest_external_skip_rate": 0.263889,
+    "latest_argmax_share": 0.533333,
+    "latest_entropy": 0.971063,
+    "latest_risk_overlay_rate": 0.0,
+    "full_window_rows": 28828,
+    "signal_window_rows": 11811,
+    "mean_op_skip_rate": 0.3109668371375052,
+    "p90_op_skip_rate": 0.513889,
+    "mean_external_skip_rate": 0.3109668371375052,
+    "p90_external_skip_rate": 0.513889,
+    "mean_feature_skip_rate": 0.0,
+    "p90_consecutive_skips": 27.0,
+    "mean_argmax_share": 0.6580163868427736,
+    "p90_argmax_share": 0.925926,
+    "mean_entropy": 0.9374034085174836,
+    "p10_entropy": 0.858909,
+    "mean_extreme_conf_rate": 0.0,
+    "mean_risk_overlay_rate": 0.2733687154347642,
+    "p90_risk_overlay_rate": 1.0,
+    "mean_signal_samples": 4.70955321215485,
+    "top_gov_reasons": [
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+        13852
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        5856
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+        5782
+      ],
+      [
+        "EXTERNAL_SKIP_RATE",
+        1007
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+        792
+      ],
+      [
+        "WITHIN_LIMITS",
+        673
+      ]
+    ]
+  },
+  {
+    "code": "17E",
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\17_09c_directional_core_fork\\02_runs\\active\\17E_2501_ovr_balanced_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+    "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_17e_2501_ovr_balanced_0001_v1\\logs\\att_0003_governance.csv",
+    "from_date": "2025.10.01",
+    "to_date": "2026.03.01",
+    "headline_return_pct": 38.344,
+    "headline_pf": 1.499726313045745,
+    "headline_dd_pct": 17.97160918265498,
+    "trade_count": 126,
+    "long_count": 1,
+    "short_count": 125,
+    "no_trade_rate": 0.9376757957068838,
+    "ready_rate": 0.23393939393939395,
+    "external_mismatch_count": 8976,
+    "contract_skip_count": 22119,
+    "top_skip_reasons": {
+      "HANDLE_NOT_READY_EMA9_-1": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 1540,
+      "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1147,
+      "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 2467,
+      "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 3809,
+      "SESSION_CASH_OPEN_NOT_FOUND": 13143,
+      "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas": 11,
+      "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_TSLA.xnas": 1
+    },
+    "ready_row_gap": 35,
+    "latest_gov_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+    "latest_external_skip_rate": 0.263889,
+    "latest_argmax_share": 0.493333,
+    "latest_entropy": 0.976963,
+    "latest_risk_overlay_rate": null,
+    "full_window_rows": 28828,
+    "signal_window_rows": 8158,
+    "mean_op_skip_rate": 0.3109668371375052,
+    "p90_op_skip_rate": 0.513889,
+    "mean_external_skip_rate": 0.3109668371375052,
+    "p90_external_skip_rate": 0.513889,
+    "mean_feature_skip_rate": 0.0,
+    "p90_consecutive_skips": 27.0,
+    "mean_argmax_share": 0.6336837087521452,
+    "p90_argmax_share": 0.884615,
+    "mean_entropy": 0.9574707058102476,
+    "p10_entropy": 0.9080979,
+    "mean_extreme_conf_rate": 0.0,
+    "mean_risk_overlay_rate": 0.0,
+    "p90_risk_overlay_rate": 0.0,
+    "mean_signal_samples": 2.102955459969474,
+    "top_gov_reasons": [
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+        14535
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        6074
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+        5099
+      ],
+      [
+        "EXTERNAL_SKIP_RATE",
+        923
+      ],
+      [
+        "WITHIN_LIMITS",
+        673
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+        574
+      ]
+    ]
+  },
+  {
+    "code": "18E",
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\18_directional_core_overlay_matrix\\02_runs\\active\\18E_2501_17e_ph20_0001\\mt5_attempts\\att_0004\\tester_attempt_summary.json",
+    "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_18e_2501_17e_ph20_0001_v1\\logs\\att_0004_governance.csv",
+    "from_date": "2025.10.01",
+    "to_date": "2026.03.01",
+    "headline_return_pct": 38.477999999999994,
+    "headline_pf": 1.5343424524371616,
+    "headline_dd_pct": 14.505022311181309,
+    "trade_count": 130,
+    "long_count": 1,
+    "short_count": 129,
+    "no_trade_rate": 0.9376757957068838,
+    "ready_rate": 0.23393939393939395,
+    "external_mismatch_count": 8976,
+    "contract_skip_count": 22119,
+    "top_skip_reasons": {
+      "HANDLE_NOT_READY_EMA9_-1": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 1540,
+      "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1147,
+      "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 2467,
+      "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 3809,
+      "SESSION_CASH_OPEN_NOT_FOUND": 13143,
+      "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas": 11,
+      "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_TSLA.xnas": 1
+    },
+    "ready_row_gap": 35,
+    "latest_gov_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+    "latest_external_skip_rate": 0.263889,
+    "latest_argmax_share": 0.493333,
+    "latest_entropy": 0.976963,
+    "latest_risk_overlay_rate": null,
+    "full_window_rows": 28828,
+    "signal_window_rows": 8158,
+    "mean_op_skip_rate": 0.3109668371375052,
+    "p90_op_skip_rate": 0.513889,
+    "mean_external_skip_rate": 0.3109668371375052,
+    "p90_external_skip_rate": 0.513889,
+    "mean_feature_skip_rate": 0.0,
+    "p90_consecutive_skips": 27.0,
+    "mean_argmax_share": 0.6336837087521452,
+    "p90_argmax_share": 0.884615,
+    "mean_entropy": 0.9574707058102476,
+    "p10_entropy": 0.9080979,
+    "mean_extreme_conf_rate": 0.0,
+    "mean_risk_overlay_rate": 0.2579513618533954,
+    "p90_risk_overlay_rate": 1.0,
+    "mean_signal_samples": 2.102955459969474,
+    "top_gov_reasons": [
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+        14535
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        6074
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+        5099
+      ],
+      [
+        "EXTERNAL_SKIP_RATE",
+        923
+      ],
+      [
+        "WITHIN_LIMITS",
+        673
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+        574
+      ]
+    ]
+  },
+  {
+    "code": "19A",
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\19_18e_recent_regime_emphasis\\02_runs\\active\\19A_2501_ref_ph20_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+    "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_19a_2501_ref_ph20_0001_v1\\logs\\att_0003_governance.csv",
+    "from_date": "2025.10.01",
+    "to_date": "2026.03.01",
+    "headline_return_pct": 38.477999999999994,
+    "headline_pf": 1.5343424524371616,
+    "headline_dd_pct": 14.505022311181309,
+    "trade_count": 130,
+    "long_count": 1,
+    "short_count": 129,
+    "no_trade_rate": 0.9376757957068838,
+    "ready_rate": 0.23393939393939395,
+    "external_mismatch_count": 8976,
+    "contract_skip_count": 22119,
+    "top_skip_reasons": {
+      "HANDLE_NOT_READY_EMA9_-1": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 1540,
+      "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1147,
+      "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 2467,
+      "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 3809,
+      "SESSION_CASH_OPEN_NOT_FOUND": 13143,
+      "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas": 11,
+      "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_TSLA.xnas": 1
+    },
+    "ready_row_gap": 35,
+    "latest_gov_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+    "latest_external_skip_rate": 0.263889,
+    "latest_argmax_share": 0.493333,
+    "latest_entropy": 0.976963,
+    "latest_risk_overlay_rate": null,
+    "full_window_rows": 28828,
+    "signal_window_rows": 8158,
+    "mean_op_skip_rate": 0.3109668371375052,
+    "p90_op_skip_rate": 0.513889,
+    "mean_external_skip_rate": 0.3109668371375052,
+    "p90_external_skip_rate": 0.513889,
+    "mean_feature_skip_rate": 0.0,
+    "p90_consecutive_skips": 27.0,
+    "mean_argmax_share": 0.6336837087521452,
+    "p90_argmax_share": 0.884615,
+    "mean_entropy": 0.9574707058102476,
+    "p10_entropy": 0.9080979,
+    "mean_extreme_conf_rate": 0.0,
+    "mean_risk_overlay_rate": 0.2579513618533954,
+    "p90_risk_overlay_rate": 1.0,
+    "mean_signal_samples": 2.102955459969474,
+    "top_gov_reasons": [
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+        14535
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        6074
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+        5099
+      ],
+      [
+        "EXTERNAL_SKIP_RATE",
+        923
+      ],
+      [
+        "WITHIN_LIMITS",
+        673
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+        574
+      ]
+    ]
+  },
+  {
+    "code": "20A",
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\20_18e_specialist_mixture\\02_runs\\active\\20A_2501_ref_17e_ph20_0001\\mt5_attempts\\att_0005\\tester_attempt_summary.json",
+    "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_20a_2501_ref_17e_ph20_0001_v1\\logs\\att_0005_governance.csv",
+    "from_date": "2025.10.01",
+    "to_date": "2026.03.01",
+    "headline_return_pct": 38.477999999999994,
+    "headline_pf": 1.5343424524371616,
+    "headline_dd_pct": 14.505022311181309,
+    "trade_count": 130,
+    "long_count": 1,
+    "short_count": 129,
+    "no_trade_rate": 0.9376757957068838,
+    "ready_rate": 0.23393939393939395,
+    "external_mismatch_count": 8976,
+    "contract_skip_count": 22119,
+    "top_skip_reasons": {
+      "HANDLE_NOT_READY_EMA9_-1": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 1540,
+      "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1147,
+      "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 2467,
+      "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 3809,
+      "SESSION_CASH_OPEN_NOT_FOUND": 13143,
+      "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas": 11,
+      "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_TSLA.xnas": 1
+    },
+    "ready_row_gap": 35,
+    "latest_gov_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+    "latest_external_skip_rate": 0.263889,
+    "latest_argmax_share": 0.493333,
+    "latest_entropy": 0.976963,
+    "latest_risk_overlay_rate": null,
+    "full_window_rows": 28828,
+    "signal_window_rows": 8158,
+    "mean_op_skip_rate": 0.3109668371375052,
+    "p90_op_skip_rate": 0.513889,
+    "mean_external_skip_rate": 0.3109668371375052,
+    "p90_external_skip_rate": 0.513889,
+    "mean_feature_skip_rate": 0.0,
+    "p90_consecutive_skips": 27.0,
+    "mean_argmax_share": 0.6336837087521452,
+    "p90_argmax_share": 0.884615,
+    "mean_entropy": 0.9574707058102476,
+    "p10_entropy": 0.9080979,
+    "mean_extreme_conf_rate": 0.0,
+    "mean_risk_overlay_rate": 0.2579513618533954,
+    "p90_risk_overlay_rate": 1.0,
+    "mean_signal_samples": 2.102955459969474,
+    "top_gov_reasons": [
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+        14535
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        6074
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+        5099
+      ],
+      [
+        "EXTERNAL_SKIP_RATE",
+        923
+      ],
+      [
+        "WITHIN_LIMITS",
+        673
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+        574
+      ]
+    ]
+  },
+  {
+    "code": "21e18",
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\21_retrain_cadence_wfo\\02_runs\\active\\21e18_2501_long14m\\mt5_attempts\\att_0006\\tester_attempt_summary.json",
+    "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_18e_2501_17e_ph20_0001_v1\\logs\\att_0006_governance.csv",
+    "from_date": "2025.10.01",
+    "to_date": "2026.03.01",
+    "headline_return_pct": 38.477999999999994,
+    "headline_pf": 1.5343424524371616,
+    "headline_dd_pct": 14.505022311181309,
+    "trade_count": 130,
+    "long_count": 1,
+    "short_count": 129,
+    "no_trade_rate": 0.9376757957068838,
+    "ready_rate": 0.23393939393939395,
+    "external_mismatch_count": 8976,
+    "contract_skip_count": 22119,
+    "top_skip_reasons": {
+      "HANDLE_NOT_READY_EMA9_-1": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 1540,
+      "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1147,
+      "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 2467,
+      "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 3809,
+      "SESSION_CASH_OPEN_NOT_FOUND": 13143,
+      "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas": 11,
+      "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_TSLA.xnas": 1
+    },
+    "ready_row_gap": 35,
+    "latest_gov_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+    "latest_external_skip_rate": 0.263889,
+    "latest_argmax_share": 0.493333,
+    "latest_entropy": 0.976963,
+    "latest_risk_overlay_rate": null,
+    "full_window_rows": 28828,
+    "signal_window_rows": 8158,
+    "mean_op_skip_rate": 0.3109668371375052,
+    "p90_op_skip_rate": 0.513889,
+    "mean_external_skip_rate": 0.3109668371375052,
+    "p90_external_skip_rate": 0.513889,
+    "mean_feature_skip_rate": 0.0,
+    "p90_consecutive_skips": 27.0,
+    "mean_argmax_share": 0.6336837087521452,
+    "p90_argmax_share": 0.884615,
+    "mean_entropy": 0.9574707058102476,
+    "p10_entropy": 0.9080979,
+    "mean_extreme_conf_rate": 0.0,
+    "mean_risk_overlay_rate": 0.2579513618533954,
+    "p90_risk_overlay_rate": 1.0,
+    "mean_signal_samples": 2.102955459969474,
+    "top_gov_reasons": [
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+        14535
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        6074
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+        5099
+      ],
+      [
+        "EXTERNAL_SKIP_RATE",
+        923
+      ],
+      [
+        "WITHIN_LIMITS",
+        673
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+        574
+      ]
+    ]
+  },
+  {
+    "code": "21P_m2602",
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\21_retrain_cadence_wfo\\02_runs\\active\\21P_2501_mt5_2m_long14m_0001\\m2602\\mt5_attempts\\att_0004\\tester_attempt_summary.json",
+    "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_21p_2501_2m_202602_v1\\logs\\att_0004_governance.csv",
+    "from_date": "2026.02.01",
+    "to_date": "2026.03.01",
+    "headline_return_pct": 63.55113836610982,
+    "headline_pf": 2.533724589606192,
+    "headline_dd_pct": 6.537119596821094,
+    "trade_count": 99,
+    "long_count": 48,
+    "short_count": 51,
+    "no_trade_rate": 0.8280155642023346,
+    "ready_rate": 0.23478896400511604,
+    "external_mismatch_count": 1699,
+    "contract_skip_count": 4187,
+    "top_skip_reasons": {
+      "HANDLE_NOT_READY_EMA9_-1": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 243,
+      "SESSION_CASH_OPEN_NOT_FOUND": 2488,
+      "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 777,
+      "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 527,
+      "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 152
+    },
+    "ready_row_gap": 0,
+    "latest_gov_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+    "latest_external_skip_rate": 0.263889,
+    "latest_argmax_share": 0.706667,
+    "latest_entropy": 0.897338,
+    "latest_risk_overlay_rate": 0.0,
+    "full_window_rows": 5426,
+    "signal_window_rows": 3433,
+    "mean_op_skip_rate": 0.3094350770364909,
+    "p90_op_skip_rate": 0.506944,
+    "mean_external_skip_rate": 0.3094350770364909,
+    "p90_external_skip_rate": 0.506944,
+    "mean_feature_skip_rate": 0.0,
+    "p90_consecutive_skips": 29.0,
+    "mean_argmax_share": 0.6625728170696185,
+    "p90_argmax_share": 0.909091,
+    "mean_entropy": 0.8459005787940577,
+    "p10_entropy": 0.7202,
+    "mean_extreme_conf_rate": 0.0,
+    "mean_risk_overlay_rate": 0.3095354197494902,
+    "p90_risk_overlay_rate": 1.0,
+    "mean_signal_samples": 5.643383708072244,
+    "top_gov_reasons": [
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+        2931
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        1233
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+        726
+      ],
+      [
+        "WITHIN_LIMITS",
+        211
+      ],
+      [
+        "EXTERNAL_SKIP_RATE",
+        177
+      ],
+      [
+        "EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        56
+      ]
+    ]
+  },
+  {
+    "code": "22A",
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22A_05dp_base_hold5_0001\\mt5_attempts\\att_0007\\tester_attempt_summary.json",
+    "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_22a_05dp_base_hold5_v1\\logs\\att_0007_governance.csv",
+    "from_date": "2025.10.01",
+    "to_date": "2026.03.01",
+    "headline_return_pct": 68.574,
+    "headline_pf": 1.492530238170483,
+    "headline_dd_pct": 19.393561462311947,
+    "trade_count": 275,
+    "long_count": 122,
+    "short_count": 153,
+    "no_trade_rate": 0.8675055514433753,
+    "ready_rate": 0.23393939393939395,
+    "external_mismatch_count": 8976,
+    "contract_skip_count": 22119,
+    "top_skip_reasons": {
+      "HANDLE_NOT_READY_EMA9_-1": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 1540,
+      "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 1147,
+      "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 2467,
+      "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 3809,
+      "SESSION_CASH_OPEN_NOT_FOUND": 13143,
+      "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas": 11,
+      "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_TSLA.xnas": 1
+    },
+    "ready_row_gap": 35,
+    "latest_gov_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+    "latest_external_skip_rate": 0.263889,
+    "latest_argmax_share": 0.506667,
+    "latest_entropy": 0.978061,
+    "latest_risk_overlay_rate": 0.0,
+    "full_window_rows": 28828,
+    "signal_window_rows": 13547,
+    "mean_op_skip_rate": 0.3109668371375052,
+    "p90_op_skip_rate": 0.513889,
+    "mean_external_skip_rate": 0.3109668371375052,
+    "p90_external_skip_rate": 0.513889,
+    "mean_feature_skip_rate": 0.0,
+    "p90_consecutive_skips": 27.0,
+    "mean_argmax_share": 0.6668484233409611,
+    "p90_argmax_share": 0.903226,
+    "mean_entropy": 0.9432051245294161,
+    "p10_entropy": 0.876962,
+    "mean_extreme_conf_rate": 0.0,
+    "mean_risk_overlay_rate": 0.0,
+    "p90_risk_overlay_rate": 0.0,
+    "mean_signal_samples": 4.458651311225197,
+    "top_gov_reasons": [
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+        13572
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+        6062
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        5616
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+        1032
+      ],
+      [
+        "EXTERNAL_SKIP_RATE",
+        1029
+      ],
+      [
+        "WITHIN_LIMITS",
+        673
+      ]
+    ]
+  },
+  {
+    "code": "06H",
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\06_segmented_risk_validation\\02_runs\\active\\06H_2407_05I_01\\mt5_attempts\\att_0005\\tester_attempt_summary.json",
+    "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_06h_2407_05i_01\\logs\\att_0005_governance.csv",
+    "from_date": "2025.04.01",
+    "to_date": "2025.09.01",
+    "headline_return_pct": 429728.016,
+    "headline_pf": 14.502845027672901,
+    "headline_dd_pct": 6.456900446605977,
+    "trade_count": 812,
+    "long_count": 412,
+    "short_count": 400,
+    "no_trade_rate": 0.6539164888753429,
+    "ready_rate": 0.2215469799790675,
+    "external_mismatch_count": 9902,
+    "contract_skip_count": 23056,
+    "top_skip_reasons": {
+      "HANDLE_NOT_READY_EMA9_-1": 1,
+      "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 3524,
+      "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 969,
+      "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 4618,
+      "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 791,
+      "SESSION_CASH_OPEN_NOT_FOUND": 13154
+    },
+    "ready_row_gap": 0,
+    "latest_gov_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+    "latest_external_skip_rate": 0.409722,
+    "latest_argmax_share": 0.742424,
+    "latest_entropy": 0.878234,
+    "latest_risk_overlay_rate": 0.0,
+    "full_window_rows": 29572,
+    "signal_window_rows": 19371,
+    "mean_op_skip_rate": 0.3341468714662519,
+    "p90_op_skip_rate": 0.527778,
+    "mean_external_skip_rate": 0.3341468714662519,
+    "p90_external_skip_rate": 0.527778,
+    "mean_feature_skip_rate": 0.0,
+    "p90_consecutive_skips": 28.0,
+    "mean_argmax_share": 0.6831020898766197,
+    "p90_argmax_share": 0.926829,
+    "mean_entropy": 0.8468085355428216,
+    "p10_entropy": 0.678822,
+    "mean_extreme_conf_rate": 0.00167851246708998,
+    "mean_risk_overlay_rate": 0.0,
+    "p90_risk_overlay_rate": 0.0,
+    "mean_signal_samples": 11.03100906262681,
+    "top_gov_reasons": [
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+        15195
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        6634
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+        5126
+      ],
+      [
+        "EXTERNAL_SKIP_RATE",
+        954
+      ],
+      [
+        "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+        727
+      ],
+      [
+        "WITHIN_LIMITS",
+        378
+      ]
+    ]
+  }
+]
