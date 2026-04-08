@@ -1,0 +1,275 @@
+{
+  "generated_at_utc": "2026-04-08T22:49:43.100880+00:00",
+  "runs": {
+    "22Q": {
+      "label": "risk_baseline_time_exit",
+      "hist_2024": {
+        "return_pct": 26.002,
+        "profit_factor": 1.1036,
+        "trade_count": 410,
+        "max_dd_pct": 25.433,
+        "worst_week": -51.72,
+        "ulcer_index": 10.553
+      },
+      "validation": {
+        "return_pct": 193.808,
+        "profit_factor": 1.4354,
+        "trade_count": 463,
+        "max_dd_pct": 20.824,
+        "worst_week": -140.73,
+        "ulcer_index": 8.649
+      },
+      "test": {
+        "return_pct": 71.068,
+        "profit_factor": 1.3199,
+        "trade_count": 302,
+        "max_dd_pct": 27.423,
+        "worst_week": -117.39,
+        "ulcer_index": 13.066
+      },
+      "test_risk_context": {
+        "position_count": 302,
+        "avg_initial_risk_amount": 11.031,
+        "risk_context_counts": {
+          "BASE": 215,
+          "NY_POSTCASH": 60,
+          "MONDAY": 24,
+          "MONDAY|NY_POSTCASH": 3
+        },
+        "risk_multiplier_counts": {
+          "1.0000": 215,
+          "0.7000": 60,
+          "0.7500": 24,
+          "0.5250": 3
+        },
+        "close_reason_counts": {
+          "BROKER_SL": 70,
+          "TIME_EXIT": 162,
+          "TIME_EXIT_NY_POSTCASH": 70
+        },
+        "partial_close_volumes": {}
+      }
+    },
+    "22R": {
+      "label": "risk_psl45_qtr_h3",
+      "hist_2024": {
+        "return_pct": 25.488,
+        "profit_factor": 1.1018,
+        "trade_count": 476,
+        "max_dd_pct": 25.342,
+        "worst_week": -51.9,
+        "ulcer_index": 10.549
+      },
+      "validation": {
+        "return_pct": 183.788,
+        "profit_factor": 1.4179,
+        "trade_count": 587,
+        "max_dd_pct": 20.44,
+        "worst_week": -134.93,
+        "ulcer_index": 8.466
+      },
+      "test": {
+        "return_pct": 71.514,
+        "profit_factor": 1.3252,
+        "trade_count": 382,
+        "max_dd_pct": 27.125,
+        "worst_week": -117.38,
+        "ulcer_index": 12.793
+      },
+      "test_risk_context": {
+        "position_count": 302,
+        "avg_initial_risk_amount": 11.039,
+        "risk_context_counts": {
+          "BASE": 215,
+          "NY_POSTCASH": 60,
+          "MONDAY": 24,
+          "MONDAY|NY_POSTCASH": 3
+        },
+        "risk_multiplier_counts": {
+          "1.0000": 215,
+          "0.7000": 60,
+          "0.7500": 24,
+          "0.5250": 3
+        },
+        "close_reason_counts": {
+          "BROKER_SL": 70,
+          "TIME_EXIT": 162,
+          "TIME_EXIT_NY_POSTCASH": 70,
+          "PARTIAL_STOP_LOSS": 80
+        },
+        "partial_close_volumes": {
+          "0.02": 33,
+          "0.01": 10,
+          "0.03": 23,
+          "0.04": 7,
+          "0.05": 4,
+          "0.07": 1,
+          "0.08": 1,
+          "0.09": 1
+        }
+      },
+      "test_position_comparison": {
+        "shared_position_count": 302,
+        "base_only_positions": 0,
+        "variant_only_positions": 0,
+        "shared_delta_vs_baseline": 2.23,
+        "mean_winner_clip_rate": 0.0596,
+        "mean_loser_mitigation_rate": 0.0252
+      },
+      "hist_position_comparison": {
+        "shared_position_count": 408,
+        "base_only_positions": 2,
+        "variant_only_positions": 2,
+        "shared_delta_vs_baseline": -0.1,
+        "mean_winner_clip_rate": 0.0343,
+        "mean_loser_mitigation_rate": 0.0129
+      }
+    },
+    "22S": {
+      "label": "risk_psl45_p10_h3",
+      "hist_2024": {
+        "return_pct": 21.516,
+        "profit_factor": 1.0854,
+        "trade_count": 452,
+        "max_dd_pct": 25.392,
+        "worst_week": -51.65,
+        "ulcer_index": 10.447
+      },
+      "validation": {
+        "return_pct": 191.362,
+        "profit_factor": 1.4313,
+        "trade_count": 553,
+        "max_dd_pct": 20.693,
+        "worst_week": -138.5,
+        "ulcer_index": 8.581
+      },
+      "test": {
+        "return_pct": 65.412,
+        "profit_factor": 1.296,
+        "trade_count": 352,
+        "max_dd_pct": 27.734,
+        "worst_week": -113.3,
+        "ulcer_index": 13.182
+      },
+      "test_risk_context": {
+        "position_count": 301,
+        "avg_initial_risk_amount": 10.833,
+        "risk_context_counts": {
+          "BASE": 215,
+          "NY_POSTCASH": 59,
+          "MONDAY": 24,
+          "MONDAY|NY_POSTCASH": 3
+        },
+        "risk_multiplier_counts": {
+          "1.0000": 215,
+          "0.7000": 59,
+          "0.7500": 24,
+          "0.5250": 3
+        },
+        "close_reason_counts": {
+          "BROKER_SL": 75,
+          "TIME_EXIT": 159,
+          "TIME_EXIT_NY_POSTCASH": 67,
+          "PARTIAL_STOP_LOSS": 51
+        },
+        "partial_close_volumes": {
+          "0.01": 45,
+          "0.02": 4,
+          "0.03": 2
+        }
+      },
+      "test_position_comparison": {
+        "shared_position_count": 299,
+        "base_only_positions": 3,
+        "variant_only_positions": 2,
+        "shared_delta_vs_baseline": -21.52,
+        "mean_winner_clip_rate": 0.0273,
+        "mean_loser_mitigation_rate": 0.0366
+      },
+      "hist_position_comparison": {
+        "shared_position_count": 406,
+        "base_only_positions": 4,
+        "variant_only_positions": 3,
+        "shared_delta_vs_baseline": -2.86,
+        "mean_winner_clip_rate": 0.01,
+        "mean_loser_mitigation_rate": 0.0099
+      }
+    },
+    "22T": {
+      "label": "risk_psl45_p30_h3",
+      "hist_2024": {
+        "return_pct": 25.458,
+        "profit_factor": 1.1018,
+        "trade_count": 476,
+        "max_dd_pct": 25.325,
+        "worst_week": -52.46,
+        "ulcer_index": 10.551
+      },
+      "validation": {
+        "return_pct": 182.03,
+        "profit_factor": 1.4152,
+        "trade_count": 587,
+        "max_dd_pct": 20.443,
+        "worst_week": -133.38,
+        "ulcer_index": 8.446
+      },
+      "test": {
+        "return_pct": 71.468,
+        "profit_factor": 1.3253,
+        "trade_count": 382,
+        "max_dd_pct": 27.037,
+        "worst_week": -117.68,
+        "ulcer_index": 12.741
+      },
+      "test_risk_context": {
+        "position_count": 302,
+        "avg_initial_risk_amount": 11.037,
+        "risk_context_counts": {
+          "BASE": 215,
+          "NY_POSTCASH": 60,
+          "MONDAY": 24,
+          "MONDAY|NY_POSTCASH": 3
+        },
+        "risk_multiplier_counts": {
+          "1.0000": 215,
+          "0.7000": 60,
+          "0.7500": 24,
+          "0.5250": 3
+        },
+        "close_reason_counts": {
+          "BROKER_SL": 70,
+          "TIME_EXIT": 162,
+          "TIME_EXIT_NY_POSTCASH": 70,
+          "PARTIAL_STOP_LOSS": 80
+        },
+        "partial_close_volumes": {
+          "0.02": 22,
+          "0.01": 7,
+          "0.03": 28,
+          "0.04": 10,
+          "0.05": 6,
+          "0.06": 4,
+          "0.08": 1,
+          "0.09": 1,
+          "0.10": 1
+        }
+      },
+      "test_position_comparison": {
+        "shared_position_count": 302,
+        "base_only_positions": 0,
+        "variant_only_positions": 0,
+        "shared_delta_vs_baseline": 2.0,
+        "mean_winner_clip_rate": 0.0746,
+        "mean_loser_mitigation_rate": 0.029
+      },
+      "hist_position_comparison": {
+        "shared_position_count": 408,
+        "base_only_positions": 2,
+        "variant_only_positions": 2,
+        "shared_delta_vs_baseline": -0.25,
+        "mean_winner_clip_rate": 0.0392,
+        "mean_loser_mitigation_rate": 0.0144
+      }
+    }
+  }
+}

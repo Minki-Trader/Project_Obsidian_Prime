@@ -1,0 +1,273 @@
+{
+  "generated_at_utc": "2026-04-08T14:11:37.666741+00:00",
+  "runs": {
+    "22A": {
+      "label": "baseline_time_exit",
+      "validation": {
+        "return_pct": 122.57,
+        "profit_factor": 1.5553,
+        "trade_count": 405,
+        "max_dd_pct": 12.603
+      },
+      "test": {
+        "return_pct": 68.574,
+        "profit_factor": 1.4925,
+        "trade_count": 275,
+        "max_dd_pct": 19.394
+      }
+    },
+    "22D": {
+      "label": "psl45_half_h1",
+      "validation": {
+        "return_pct": 82.834,
+        "profit_factor": 1.3944,
+        "trade_count": 611,
+        "max_dd_pct": 10.417
+      },
+      "test": {
+        "return_pct": 53.346,
+        "profit_factor": 1.3934,
+        "trade_count": 411,
+        "max_dd_pct": 15.218
+      },
+      "test_partial_events": {
+        "event_count": 136,
+        "hold_distribution": {
+          "1": 57,
+          "2": 43,
+          "3": 15,
+          "4": 14,
+          "5": 7
+        },
+        "baseline_class_mix": {
+          "loser": 100,
+          "winner": 36
+        },
+        "partial_close_volumes": {
+          "0.05": 136
+        }
+      },
+      "test_position_comparison": {
+        "shared_delta_vs_22A": -76.14,
+        "mean_winner_clip_rate": 0.5128,
+        "mean_loser_mitigation_rate": 0.1052
+      }
+    },
+    "22F": {
+      "label": "psl45_qtr_h2",
+      "validation": {
+        "return_pct": 108.676,
+        "profit_factor": 1.4947,
+        "trade_count": 596,
+        "max_dd_pct": 11.252
+      },
+      "test": {
+        "return_pct": 64.488,
+        "profit_factor": 1.465,
+        "trade_count": 403,
+        "max_dd_pct": 18.009
+      },
+      "test_partial_events": {
+        "event_count": 128,
+        "hold_distribution": {
+          "2": 87,
+          "3": 17,
+          "4": 17,
+          "5": 7
+        },
+        "baseline_class_mix": {
+          "loser": 99,
+          "winner": 29
+        },
+        "partial_close_volumes": {
+          "0.02": 128
+        }
+      },
+      "test_position_comparison": {
+        "shared_delta_vs_22A": -20.43,
+        "mean_winner_clip_rate": 0.2001,
+        "mean_loser_mitigation_rate": 0.0367
+      }
+    },
+    "22L": {
+      "label": "psl45_p20_h2",
+      "validation": {
+        "return_pct": 108.676,
+        "profit_factor": 1.4947,
+        "trade_count": 596,
+        "max_dd_pct": 11.252
+      },
+      "test": {
+        "return_pct": 64.488,
+        "profit_factor": 1.465,
+        "trade_count": 403,
+        "max_dd_pct": 18.009
+      },
+      "test_partial_events": {
+        "event_count": 128,
+        "hold_distribution": {
+          "2": 87,
+          "3": 17,
+          "4": 17,
+          "5": 7
+        },
+        "baseline_class_mix": {
+          "loser": 99,
+          "winner": 29
+        },
+        "partial_close_volumes": {
+          "0.02": 128
+        }
+      },
+      "test_position_comparison": {
+        "shared_delta_vs_22A": -20.43,
+        "mean_winner_clip_rate": 0.2001,
+        "mean_loser_mitigation_rate": 0.0367
+      }
+    },
+    "22M": {
+      "label": "psl45_qtr_h3",
+      "validation": {
+        "return_pct": 115.468,
+        "profit_factor": 1.5191,
+        "trade_count": 579,
+        "max_dd_pct": 11.598
+      },
+      "test": {
+        "return_pct": 64.644,
+        "profit_factor": 1.4618,
+        "trade_count": 393,
+        "max_dd_pct": 18.235
+      },
+      "test_partial_events": {
+        "event_count": 118,
+        "hold_distribution": {
+          "3": 89,
+          "4": 21,
+          "5": 8
+        },
+        "baseline_class_mix": {
+          "loser": 96,
+          "winner": 22
+        },
+        "partial_close_volumes": {
+          "0.02": 118
+        }
+      },
+      "test_position_comparison": {
+        "shared_delta_vs_22A": -19.65,
+        "mean_winner_clip_rate": 0.1699,
+        "mean_loser_mitigation_rate": 0.0308
+      }
+    },
+    "22N": {
+      "label": "psl45_p20_h3",
+      "validation": {
+        "return_pct": 115.468,
+        "profit_factor": 1.5191,
+        "trade_count": 579,
+        "max_dd_pct": 11.598
+      },
+      "test": {
+        "return_pct": 64.644,
+        "profit_factor": 1.4618,
+        "trade_count": 393,
+        "max_dd_pct": 18.235
+      },
+      "test_partial_events": {
+        "event_count": 118,
+        "hold_distribution": {
+          "3": 89,
+          "4": 21,
+          "5": 8
+        },
+        "baseline_class_mix": {
+          "loser": 96,
+          "winner": 22
+        },
+        "partial_close_volumes": {
+          "0.02": 118
+        }
+      },
+      "test_position_comparison": {
+        "shared_delta_vs_22A": -19.65,
+        "mean_winner_clip_rate": 0.1699,
+        "mean_loser_mitigation_rate": 0.0308
+      }
+    },
+    "22O": {
+      "label": "psl45_p10_h3",
+      "validation": {
+        "return_pct": 119.106,
+        "profit_factor": 1.5377,
+        "trade_count": 579,
+        "max_dd_pct": 11.878
+      },
+      "test": {
+        "return_pct": 66.68,
+        "profit_factor": 1.4779,
+        "trade_count": 393,
+        "max_dd_pct": 18.806
+      },
+      "test_partial_events": {
+        "event_count": 118,
+        "hold_distribution": {
+          "3": 89,
+          "4": 21,
+          "5": 8
+        },
+        "baseline_class_mix": {
+          "loser": 96,
+          "winner": 22
+        },
+        "partial_close_volumes": {
+          "0.01": 118
+        }
+      },
+      "test_position_comparison": {
+        "shared_delta_vs_22A": -9.47,
+        "mean_winner_clip_rate": 0.0846,
+        "mean_loser_mitigation_rate": 0.0156
+      }
+    },
+    "22P": {
+      "label": "psl45_p30_h3",
+      "validation": {
+        "return_pct": 112.074,
+        "profit_factor": 1.5022,
+        "trade_count": 579,
+        "max_dd_pct": 11.535
+      },
+      "test": {
+        "return_pct": 62.788,
+        "profit_factor": 1.4476,
+        "trade_count": 393,
+        "max_dd_pct": 17.629
+      },
+      "test_partial_events": {
+        "event_count": 118,
+        "hold_distribution": {
+          "3": 89,
+          "4": 21,
+          "5": 8
+        },
+        "baseline_class_mix": {
+          "loser": 96,
+          "winner": 22
+        },
+        "partial_close_volumes": {
+          "0.03": 118
+        }
+      },
+      "test_position_comparison": {
+        "shared_delta_vs_22A": -28.93,
+        "mean_winner_clip_rate": 0.254,
+        "mean_loser_mitigation_rate": 0.0464
+      }
+    }
+  },
+  "alias_pairs": [
+    "22F == 22L",
+    "22M == 22N"
+  ]
+}
