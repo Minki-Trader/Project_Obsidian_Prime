@@ -156,6 +156,8 @@ double   g_effective_exit_rule_trigger_points[];
 double   g_effective_exit_rule_offset_points[];
 double   g_effective_exit_rule_distance_points[];
 double   g_effective_exit_rule_close_fraction[];
+double   g_effective_exit_rule_max_direction_margin[];
+double   g_effective_exit_rule_max_signal_entropy[];
 bool     g_runtime_config_loaded = false;
 datetime g_entry_block_bar_time = 0;
 bool     g_managed_trade_active = false;
@@ -790,6 +792,8 @@ bool EnsureExitRuleCapacity(const int rule_index)
    ArrayResize(g_effective_exit_rule_offset_points, new_size);
    ArrayResize(g_effective_exit_rule_distance_points, new_size);
    ArrayResize(g_effective_exit_rule_close_fraction, new_size);
+   ArrayResize(g_effective_exit_rule_max_direction_margin, new_size);
+   ArrayResize(g_effective_exit_rule_max_signal_entropy, new_size);
    for(int i = current_size; i < new_size; i++)
    {
       g_effective_exit_rule_types[i] = "";
@@ -801,6 +805,8 @@ bool EnsureExitRuleCapacity(const int rule_index)
       g_effective_exit_rule_offset_points[i] = 0.0;
       g_effective_exit_rule_distance_points[i] = 0.0;
       g_effective_exit_rule_close_fraction[i] = 0.0;
+      g_effective_exit_rule_max_direction_margin[i] = EMPTY_VALUE;
+      g_effective_exit_rule_max_signal_entropy[i] = EMPTY_VALUE;
    }
    return true;
 }
@@ -905,6 +911,16 @@ bool TryApplyExitRuleRuntimeKey(const string key, const string value)
       g_effective_exit_rule_close_fraction[rule_index] = StringToDouble(value);
       return true;
    }
+   if(suffix == "max_direction_margin")
+   {
+      g_effective_exit_rule_max_direction_margin[rule_index] = StringToDouble(value);
+      return true;
+   }
+   if(suffix == "max_signal_entropy")
+   {
+      g_effective_exit_rule_max_signal_entropy[rule_index] = StringToDouble(value);
+      return true;
+   }
    return false;
 }
 
@@ -970,6 +986,8 @@ void ResetEffectiveRuntimeConfig()
    ArrayResize(g_effective_exit_rule_offset_points, 0);
    ArrayResize(g_effective_exit_rule_distance_points, 0);
    ArrayResize(g_effective_exit_rule_close_fraction, 0);
+   ArrayResize(g_effective_exit_rule_max_direction_margin, 0);
+   ArrayResize(g_effective_exit_rule_max_signal_entropy, 0);
    g_runtime_config_loaded = false;
 }
 
@@ -1786,6 +1804,18 @@ double ComputeNormalizedMaxProbability(const double p_short, const double p_flat
    if(total <= 0.0)
       return EMPTY_VALUE;
    return MathMax(p_short, MathMax(p_flat, p_long)) / total;
+}
+
+double ComputeManagedDirectionalMargin(const double p_short, const double p_flat, const double p_long)
+{
+   if(!IsUsableValue(p_short) || !IsUsableValue(p_flat) || !IsUsableValue(p_long))
+      return EMPTY_VALUE;
+
+   if(g_managed_position_type == POSITION_TYPE_BUY)
+      return p_long - MathMax(p_short, p_flat);
+   if(g_managed_position_type == POSITION_TYPE_SELL)
+      return p_short - MathMax(p_long, p_flat);
+   return EMPTY_VALUE;
 }
 
 void ResetGovernanceState()
@@ -4414,7 +4444,7 @@ bool ManageOpenPositionOnNewBar(
 )
 {
    action_reason = "";
-   if(!InpEnableTrading || !g_effective_flat_exit_enabled)
+   if(!InpEnableTrading)
       return true;
 
    if(!SelectManagedPosition())
@@ -4427,31 +4457,70 @@ bool ManageOpenPositionOnNewBar(
       return true;
 
    const int hold_bars = (int)((bar_time_server - g_managed_entry_bar_time_server) / PeriodSeconds(PERIOD_M5));
-   if(hold_bars < g_effective_flat_exit_min_hold_bars)
+   const int exit_rule_count = ArraySize(g_effective_exit_rule_types);
+   if(exit_rule_count <= 0)
       return true;
 
-   if(p_flat < g_effective_flat_exit_min_probability)
-      return true;
+   const double directional_margin = ComputeManagedDirectionalMargin(p_short, p_flat, p_long);
+   const double normalized_entropy = ComputeNormalizedSignalEntropy(p_short, p_flat, p_long);
 
-   ResetLastError();
-   if(!g_trade.PositionClose(_Symbol, InpTradeDeviationPoints))
+   for(int i = 0; i < exit_rule_count; i++)
    {
-      action_reason = StringFormat("FLAT_EXIT_CLOSE_FAIL_%d", GetLastError());
-      return false;
+      if(!g_effective_exit_rule_enabled[i])
+         continue;
+      if(g_effective_exit_rule_min_hold_bars[i] > 0 && hold_bars < g_effective_exit_rule_min_hold_bars[i])
+         continue;
+
+      const string rule_type = g_effective_exit_rule_types[i];
+      if(rule_type == "flat_exit_guard")
+      {
+         const double min_flat_probability = g_effective_exit_rule_min_flat_probability[i];
+         if(min_flat_probability > 0.0 && p_flat >= min_flat_probability)
+            return ExecuteManagedFullClose("FLAT_EXIT", bar_time_server, action_reason);
+      }
+      else if(rule_type == "state_exit_guard")
+      {
+         const double min_flat_probability = g_effective_exit_rule_min_flat_probability[i];
+         const double max_direction_margin = g_effective_exit_rule_max_direction_margin[i];
+         const double max_signal_entropy = g_effective_exit_rule_max_signal_entropy[i];
+
+         bool flat_triggered = false;
+         bool margin_triggered = false;
+         bool entropy_triggered = false;
+         bool any_condition_configured = false;
+
+         if(min_flat_probability > 0.0)
+         {
+            any_condition_configured = true;
+            flat_triggered = (p_flat >= min_flat_probability);
+         }
+         if(IsUsableValue(max_direction_margin))
+         {
+            any_condition_configured = true;
+            margin_triggered = IsUsableValue(directional_margin) && directional_margin <= max_direction_margin;
+         }
+         if(IsUsableValue(max_signal_entropy))
+         {
+            any_condition_configured = true;
+            entropy_triggered = IsUsableValue(normalized_entropy) && normalized_entropy >= max_signal_entropy;
+         }
+
+         if(!any_condition_configured)
+            continue;
+         if(!(flat_triggered || margin_triggered || entropy_triggered))
+            continue;
+
+         string close_reason = "STATE_EXIT";
+         if(flat_triggered)
+            close_reason += "_FLAT";
+         if(margin_triggered)
+            close_reason += "_MARGIN";
+         if(entropy_triggered)
+            close_reason += "_ENTROPY";
+         return ExecuteManagedFullClose(close_reason, bar_time_server, action_reason);
+      }
    }
 
-   const ulong close_deal_ticket = g_trade.ResultDeal();
-   if(!AppendClosedTradeLedger("FLAT_EXIT", bar_time_server, close_deal_ticket))
-      Log("trade ledger append failed after flat exit");
-
-   ResetManagedTradeTracking();
-   g_entry_block_bar_time = bar_time_server;
-   action_reason = StringFormat(
-      "FLAT_EXIT_CLOSE_OK_%.3f_%.3f_%.3f",
-      p_short,
-      p_flat,
-      p_long
-   );
    return true;
 }
 
