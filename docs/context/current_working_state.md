@@ -9,16 +9,21 @@
 1. `AGENTS.md`
 2. `docs/context/stage_reporting_standard.md`
 3. `docs/context/regular_experiment_roadmap_20260409.md`
-4. `stages/27_vol_adaptive_overlay/00_spec/stage_brief.md`
-5. `stages/27_vol_adaptive_overlay/03_reviews/review_index.md`
-6. `stages/27_vol_adaptive_overlay/04_selected/selection_status.md`
-7. `stages/26_gov_adaptive_overlay/04_selected/selection_status.md`
-8. `stages/25_soft_contextual_control/04_selected/selection_status.md`
-9. `stages/24_gated_specialist_overlay/04_selected/selection_status.md`
+4. `stages/28_retrain_feature_checks/00_spec/stage_brief.md`
+5. `stages/28_retrain_feature_checks/03_reviews/review_index.md`
+6. `stages/28_retrain_feature_checks/04_selected/selection_status.md`
+7. `stages/27_vol_adaptive_overlay/04_selected/selection_status.md`
+8. `stages/26_gov_adaptive_overlay/04_selected/selection_status.md`
+9. `stages/25_soft_contextual_control/04_selected/selection_status.md`
 10. `foundation/reports/governance_selected_runs_standard_20260409.md`
 
 ## Current Decisions
 
+- Stage 28 current wave: `feature_simplification_wave1`
+- Stage 28 lineage full-reference rebuild: `28A_18e_full54_ph20_0001`
+- Stage 28 best lineage compact arm: `28B_18e_persist48_ph20_0001`
+- Stage 28 lineage decision: `reopen_lineage_followup`
+- current regular operating reference remains: `27A_26a_volref_0001`
 - Stage 27 regular incumbent: `27A_26a_volref_0001`
 - Stage 27 regular shadow challenger: `27D_26a_vl110h085_0001`
 - Stage 26 regular incumbent seed behind Stage 27: `26A_25d_govref_0001`
@@ -46,10 +51,14 @@
 - Stage 25 converted the next roadmap item into a soft contextual short cleanup wave and promoted `25D` over the inherited `24A` baseline.
 - Stage 26 turned governance telemetry into non-blocking risk tapers and kept the observe-only baseline (`26A`) while promoting `26C` only to shadow challenger status.
 - Stage 27 reused the EA's ATR14/ATR50 regime ratio as a volatility-aware risk overlay and kept the inherited baseline (`27A`) while promoting `27D` only to shadow challenger status.
+- Stage 28 reopened the `17E/18E` lineage only as a bounded feature-simplification check and found that the `28B` persistence-only compact fork beat the rebuilt `28A` full-reference arm on both validation and OOS.
 - Selected-run governance reporting now has a richer standard report instead of the sparse legacy summary.
 
 ## Current Follow-Up Bias
 
+- keep `27A` as the live regular lane even after Stage 28; the feature-simplification check was lineage-specific and not a direct operating-lane challenge
+- treat `28B` as the reopened `18E`-lineage compact follow-up candidate; it beat the rebuilt `28A` full-reference arm on validation and test while lowering OOS DD
+- treat `28D` as a misleading hist-heavy read; it looked strong on `hist_2024` but collapsed on validation and did not earn follow-up priority
 - keep `27A` as the carry-forward regular baseline; the volatility-adaptive wave improved containment but gave up too much headline return to justify promotion
 - treat `27D` as the best Stage 27 internal arm; it was the least bad two-sided bucket but still cost too much non-OOS and OOS headline return
 - treat `27B` as the clearest high-vol containment read; it reduced DD the most, but the headline sacrifice was too large for the regular lane
@@ -59,10 +68,10 @@
 - keep `25D` as the pre-Stage-26 operating seed; it improved the regular OOS headline and cleaned up both weak short pockets
 - treat `25C` as the best non-promoted Stage 25 internal arm; it helped the postcash short pocket but did less overall than `25D`
 - keep `24A` as the inherited pre-Stage-25 reference; the gated specialist line remains closed diagnostic context only
-- move the roadmap forward to Stage 28 rather than widening the Stage 27 volatility bucket sweep immediately
-- Keep `23A` as the carry-forward regular baseline.
-- Keep `23C` as the first serious state-conditioned exit challenger.
-- Treat `23D` as a redundancy result and `23B` as a closed diagnostic arm.
-- Keep `22Q` as the source operating reference behind `23A`.
-- Keep `22R` as the containment challenger worth shadowing for the Stage 22 line.
-- Treat `22A` and `22O` as structural-scout context, not as the final operating scoreboard.
+- move Stage 28 to the deferred `event-triggered retrain` wave rather than widening the Stage 28 compact subset sweep immediately
+- keep `23A` as the carry-forward regular baseline
+- keep `23C` as the first serious state-conditioned exit challenger
+- treat `23D` as a redundancy result and `23B` as a closed diagnostic arm
+- keep `22Q` as the source operating reference behind `23A`
+- keep `22R` as the containment challenger worth shadowing for the Stage 22 line
+- treat `22A` and `22O` as structural-scout context, not as the final operating scoreboard

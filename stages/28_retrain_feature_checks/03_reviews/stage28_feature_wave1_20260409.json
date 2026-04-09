@@ -1,0 +1,1498 @@
+{
+  "reviewed_on": "2026-04-09",
+  "stage": "28_retrain_feature_checks",
+  "wave": "feature_simplification_wave1",
+  "inherited_lineage_reference": "18E_2501_17e_ph20_0001",
+  "current_regular_reference_unchanged": "27A_26a_volref_0001",
+  "best_compact_code": "28B",
+  "decision": "reopen_lineage_followup",
+  "runs": {
+    "28A": {
+      "folder": "28A_18e_full54_ph20_0001",
+      "label": "full 17E feature reference under 18E PH20 overlay",
+      "offline": {
+        "generated_at_utc": "2026-04-09T14:55:09.199106+00:00",
+        "feature_count": 54,
+        "feature_names": [
+          "log_return_1",
+          "log_return_3",
+          "hl_range",
+          "close_open_ratio",
+          "gap_percent",
+          "close_prev_close_ratio",
+          "return_zscore_20",
+          "hl_zscore_50",
+          "overnight_return",
+          "return_1_over_atr_14",
+          "close_ema20_ratio",
+          "close_ema50_ratio",
+          "ema9_ema20_diff",
+          "ema20_ema50_diff",
+          "ema50_ema200_diff",
+          "ema20_ema50_spread_zscore_50",
+          "sma50_sma200_ratio",
+          "rsi_14",
+          "rsi_50",
+          "rsi_14_slope_3",
+          "rsi_14_minus_50",
+          "stoch_kd_diff",
+          "stochrsi_kd_diff",
+          "ppo_hist_12_26_9",
+          "roc_12",
+          "trix_15",
+          "atr_14",
+          "atr_50",
+          "atr_14_over_atr_50",
+          "bollinger_width_20",
+          "bb_position_20",
+          "bb_squeeze",
+          "historical_vol_20",
+          "historical_vol_5_over_20",
+          "is_us_cash_open",
+          "minutes_from_cash_open",
+          "is_first_30m_after_open",
+          "is_last_30m_before_cash_close",
+          "vix_change_1",
+          "vix_zscore_20",
+          "us10yr_change_1",
+          "us10yr_zscore_20",
+          "usdx_change_1",
+          "usdx_zscore_20",
+          "nvda_xnas_log_return_1",
+          "aapl_xnas_log_return_1",
+          "msft_xnas_log_return_1",
+          "amzn_xnas_log_return_1",
+          "mega8_equal_return_1",
+          "top3_weighted_return_1",
+          "mega8_pos_breadth_1",
+          "mega8_dispersion_5",
+          "us100_minus_mega8_equal_return_1",
+          "us100_minus_top3_weighted_return_1"
+        ],
+        "split_metrics": {
+          "train": {
+            "rows": 34695,
+            "macro_f1": 0.4297503870758624,
+            "balanced_accuracy": 0.4314768463519964,
+            "accuracy": 0.5151750972762645,
+            "log_loss": 1.0451941255671455
+          },
+          "validation": {
+            "rows": 11756,
+            "macro_f1": 0.4460059869023321,
+            "balanced_accuracy": 0.45096343500715613,
+            "accuracy": 0.5377679482817285,
+            "log_loss": 1.0266110986561112
+          },
+          "test": {
+            "rows": 6720,
+            "macro_f1": 0.44766639136146075,
+            "balanced_accuracy": 0.46343971962849834,
+            "accuracy": 0.5467261904761904,
+            "log_loss": 1.0144222069737676
+          }
+        }
+      },
+      "hist_2024": {
+        "headline": {
+          "net_profit": 216.02,
+          "return_pct": 43.204,
+          "trade_count": 157,
+          "win_rate": 0.5477707006369427,
+          "profit_factor": 1.6670166121163466,
+          "expectancy_per_trade": 1.3759235668789809,
+          "max_dd_pct": 11.701215011072767,
+          "recovery_factor": 3.6832054560954797,
+          "extra": {
+            "final_balance": 716.02,
+            "initial_deposit": 500.0
+          }
+        },
+        "risk": {
+          "max_dd_pct": 10.691999999999997,
+          "max_dd_amount": 53.45999999999998,
+          "equity_dd_pct": 11.701215011072767,
+          "equity_dd_amount": 58.650000000000034,
+          "time_under_water": 30417300.0,
+          "longest_recovery_duration": 20130000.0,
+          "worst_day": -14.26,
+          "worst_week": -25.04,
+          "min_free_margin": 432.03,
+          "margin_call_proximity": null,
+          "ulcer_index": 4.848551465912844,
+          "consecutive_losses": 6,
+          "extra": {
+            "min_balance": 446.54,
+            "min_equity": 442.58
+          }
+        },
+        "diagnostics": {
+          "avg_win": 6.277674418604651,
+          "avg_loss": -4.561408450704225,
+          "payoff_ratio": 1.3762579007007048,
+          "avg_hold": 3.605095541401274,
+          "hold_distribution": {
+            "p50": 4.0,
+            "p90": 4.0
+          },
+          "long_count": 0,
+          "short_count": 157,
+          "long_expectancy": null,
+          "short_expectancy": 1.3759235668789809,
+          "mfe_mean": 5.985923566878981,
+          "mfe_median": 4.25,
+          "mfe_p90": 14.142,
+          "mae_mean": 3.875796178343949,
+          "mae_median": 3.33,
+          "mae_p90": 7.540000000000002,
+          "realized_over_mfe": -2.376033235945169,
+          "win_trade_mae": 2.151627906976744,
+          "loss_trade_mfe": 2.5212676056338026,
+          "rule_pass_rates": {
+            "long_signal_rate": 0.0,
+            "short_signal_rate": 0.030783582089552237
+          },
+          "no_trade_rate": 0.9692164179104478,
+          "extra": {
+            "decision_reason_breakdown": {
+              "SKIPPED": 56999,
+              "SHORT_MARGIN_FAIL": 8585,
+              "SHORT_FILTERS_OK": 429,
+              "THRESHOLD_FAIL": 4909,
+              "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 13
+            },
+            "trade_close_reason_breakdown": {
+              "TIME_EXIT": 104,
+              "BROKER_SL": 16,
+              "TIME_EXIT_NY_POSTCASH": 37
+            },
+            "no_trade_count": 13507,
+            "mfe_mae_unit": "account_currency"
+          }
+        },
+        "execution": {
+          "skip_rate": 0.8035384506942976,
+          "external_mismatch_count": 25108,
+          "contract_skip_count": 56998
+        },
+        "governance": {
+          "row_count": 70935,
+          "mean_external_skip_rate": 0.3535851805314725,
+          "mean_argmax_class_share": 0.5724409627546345,
+          "mean_entropy": 0.9716922033054849,
+          "mean_overlay_rate": 0.33896743030394905,
+          "latest_state": "OK",
+          "latest_reason": "WITHIN_LIMITS"
+        },
+        "attempt_summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\28_retrain_feature_checks\\02_runs\\active\\28A_18e_full54_ph20_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+        "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28a_18e_full54_ph20_v1\\logs\\att_0001_trades.csv",
+        "shadow_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28a_18e_full54_ph20_v1\\logs\\att_0001_shadow.csv",
+        "governance_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28a_18e_full54_ph20_v1\\logs\\att_0001_governance.csv"
+      },
+      "validation": {
+        "headline": {
+          "net_profit": -27.599999999999998,
+          "return_pct": -5.52,
+          "trade_count": 153,
+          "win_rate": 0.47058823529411764,
+          "profit_factor": 0.9293611793611795,
+          "expectancy_per_trade": -0.1803921568627451,
+          "max_dd_pct": 14.800933032955193,
+          "recovery_factor": -0.37176724137931055,
+          "extra": {
+            "final_balance": 472.4,
+            "initial_deposit": 500.0
+          }
+        },
+        "risk": {
+          "max_dd_pct": 14.57034372501998,
+          "max_dd_amount": 72.90999999999997,
+          "equity_dd_pct": 14.800933032955193,
+          "equity_dd_amount": 74.23999999999995,
+          "time_under_water": 23440200.0,
+          "longest_recovery_duration": 23004600.0,
+          "worst_day": -14.01,
+          "worst_week": -35.769999999999996,
+          "min_free_margin": 400.25,
+          "margin_call_proximity": null,
+          "ulcer_index": 8.157370462720166,
+          "consecutive_losses": 8,
+          "extra": {
+            "min_balance": 427.49,
+            "min_equity": 427.35
+          }
+        },
+        "diagnostics": {
+          "avg_win": 5.043333333333333,
+          "avg_loss": -4.823703703703703,
+          "payoff_ratio": 1.0455313267813269,
+          "avg_hold": 3.4379084967320264,
+          "hold_distribution": {
+            "p50": 4.0,
+            "p90": 4.0
+          },
+          "long_count": 7,
+          "short_count": 146,
+          "long_expectancy": 4.911428571428571,
+          "short_expectancy": -0.42452054794520544,
+          "mfe_mean": 4.757516339869281,
+          "mfe_median": 3.02,
+          "mfe_p90": 11.310000000000016,
+          "mae_mean": 4.094117647058823,
+          "mae_median": 3.88,
+          "mae_p90": 8.622,
+          "realized_over_mfe": -5.064790212450123,
+          "win_trade_mae": 2.165972222222222,
+          "loss_trade_mfe": 2.2298765432098766,
+          "rule_pass_rates": {
+            "long_signal_rate": 0.0013610071452875127,
+            "short_signal_rate": 0.03342973800612453
+          },
+          "no_trade_rate": 0.965209254848588,
+          "extra": {
+            "decision_reason_breakdown": {
+              "SKIPPED": 41053,
+              "SHORT_MARGIN_FAIL": 7582,
+              "SHORT_FILTERS_OK": 393,
+              "THRESHOLD_FAIL": 3660,
+              "DUAL_SIGNAL_LONG_WINS": 16,
+              "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 105
+            },
+            "trade_close_reason_breakdown": {
+              "BROKER_SL": 27,
+              "TIME_EXIT": 75,
+              "TIME_EXIT_NY_POSTCASH": 51
+            },
+            "no_trade_count": 11347,
+            "mfe_mae_unit": "account_currency"
+          }
+        },
+        "execution": {
+          "skip_rate": 0.7773864303433127,
+          "external_mismatch_count": 17350,
+          "contract_skip_count": 41052
+        },
+        "governance": {
+          "row_count": 52809,
+          "mean_external_skip_rate": 0.3279948212993997,
+          "mean_argmax_class_share": 0.5764838159025923,
+          "mean_entropy": 0.9543800584669437,
+          "mean_overlay_rate": 0.44272408860871887,
+          "latest_state": "ALERT",
+          "latest_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE"
+        },
+        "attempt_summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\28_retrain_feature_checks\\02_runs\\active\\28A_18e_full54_ph20_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json",
+        "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28a_18e_full54_ph20_v1\\logs\\att_0002_trades.csv",
+        "shadow_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28a_18e_full54_ph20_v1\\logs\\att_0002_shadow.csv",
+        "governance_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28a_18e_full54_ph20_v1\\logs\\att_0002_governance.csv"
+      },
+      "test": {
+        "headline": {
+          "net_profit": 192.39,
+          "return_pct": 38.477999999999994,
+          "trade_count": 130,
+          "win_rate": 0.5230769230769231,
+          "profit_factor": 1.5343424524371616,
+          "expectancy_per_trade": 1.479923076923077,
+          "max_dd_pct": 14.505022311181309,
+          "recovery_factor": 2.4356247626281786,
+          "extra": {
+            "final_balance": 692.39,
+            "initial_deposit": 500.0
+          }
+        },
+        "risk": {
+          "max_dd_pct": 14.07317610756007,
+          "max_dd_amount": 76.62000000000006,
+          "equity_dd_pct": 14.505022311181309,
+          "equity_dd_amount": 78.99000000000007,
+          "time_under_water": 12717300.0,
+          "longest_recovery_duration": 5615400.0,
+          "worst_day": -28.32,
+          "worst_week": -39.92,
+          "min_free_margin": 447.18,
+          "margin_call_proximity": null,
+          "ulcer_index": 6.542225876264124,
+          "consecutive_losses": 8,
+          "extra": {
+            "min_balance": 467.82,
+            "min_equity": 465.58
+          }
+        },
+        "diagnostics": {
+          "avg_win": 8.124117647058824,
+          "avg_loss": -5.807258064516129,
+          "payoff_ratio": 1.3989592948691767,
+          "avg_hold": 3.6153846153846154,
+          "hold_distribution": {
+            "p50": 4.0,
+            "p90": 4.0
+          },
+          "long_count": 1,
+          "short_count": 129,
+          "long_expectancy": -11.21,
+          "short_expectancy": 1.5782945736434109,
+          "mfe_mean": 7.667076923076923,
+          "mfe_median": 4.35,
+          "mfe_p90": 16.151,
+          "mae_mean": 4.964846153846154,
+          "mae_median": 4.505,
+          "mae_p90": 9.898000000000001,
+          "realized_over_mfe": -2.896301281453263,
+          "win_trade_mae": 2.8754411764705883,
+          "loss_trade_mfe": 2.962258064516129,
+          "rule_pass_rates": {
+            "long_signal_rate": 0.00029607698001480384,
+            "short_signal_rate": 0.06202812731310141
+          },
+          "no_trade_rate": 0.9376757957068838,
+          "extra": {
+            "decision_reason_breakdown": {
+              "SKIPPED": 22120,
+              "SHORT_MARGIN_FAIL": 4106,
+              "THRESHOLD_FAIL": 2223,
+              "SHORT_FILTERS_OK": 419,
+              "DUAL_SIGNAL_LONG_WINS": 2,
+              "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 5
+            },
+            "trade_close_reason_breakdown": {
+              "TIME_EXIT": 88,
+              "TIME_EXIT_NY_POSTCASH": 24,
+              "BROKER_SL": 18
+            },
+            "no_trade_count": 6334,
+            "mfe_mae_unit": "account_currency"
+          }
+        },
+        "execution": {
+          "skip_rate": 0.7660606060606061,
+          "external_mismatch_count": 8976,
+          "contract_skip_count": 22119
+        },
+        "governance": {
+          "row_count": 28875,
+          "mean_external_skip_rate": 0.311891254961039,
+          "mean_argmax_class_share": 0.5732114171774892,
+          "mean_entropy": 0.9574750557048183,
+          "mean_overlay_rate": 0.2579513618533954,
+          "latest_state": "OK",
+          "latest_reason": "WITHIN_LIMITS"
+        },
+        "attempt_summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\28_retrain_feature_checks\\02_runs\\active\\28A_18e_full54_ph20_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+        "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28a_18e_full54_ph20_v1\\logs\\att_0003_trades.csv",
+        "shadow_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28a_18e_full54_ph20_v1\\logs\\att_0003_shadow.csv",
+        "governance_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28a_18e_full54_ph20_v1\\logs\\att_0003_governance.csv"
+      }
+    },
+    "28B": {
+      "folder": "28B_18e_persist48_ph20_0001",
+      "label": "persistence-only compact fork under 18E PH20 overlay",
+      "offline": {
+        "generated_at_utc": "2026-04-09T14:55:10.149217+00:00",
+        "feature_count": 48,
+        "feature_names": [
+          "log_return_1",
+          "log_return_3",
+          "hl_range",
+          "close_open_ratio",
+          "gap_percent",
+          "close_prev_close_ratio",
+          "return_zscore_20",
+          "hl_zscore_50",
+          "overnight_return",
+          "return_1_over_atr_14",
+          "close_ema20_ratio",
+          "close_ema50_ratio",
+          "ema9_ema20_diff",
+          "ema20_ema50_diff",
+          "ema50_ema200_diff",
+          "ema20_ema50_spread_zscore_50",
+          "sma50_sma200_ratio",
+          "rsi_14",
+          "rsi_50",
+          "rsi_14_slope_3",
+          "rsi_14_minus_50",
+          "stoch_kd_diff",
+          "stochrsi_kd_diff",
+          "ppo_hist_12_26_9",
+          "roc_12",
+          "trix_15",
+          "atr_14",
+          "atr_50",
+          "atr_14_over_atr_50",
+          "bollinger_width_20",
+          "bb_position_20",
+          "bb_squeeze",
+          "historical_vol_20",
+          "historical_vol_5_over_20",
+          "is_us_cash_open",
+          "minutes_from_cash_open",
+          "is_first_30m_after_open",
+          "is_last_30m_before_cash_close",
+          "nvda_xnas_log_return_1",
+          "aapl_xnas_log_return_1",
+          "msft_xnas_log_return_1",
+          "amzn_xnas_log_return_1",
+          "mega8_equal_return_1",
+          "top3_weighted_return_1",
+          "mega8_pos_breadth_1",
+          "mega8_dispersion_5",
+          "us100_minus_mega8_equal_return_1",
+          "us100_minus_top3_weighted_return_1"
+        ],
+        "split_metrics": {
+          "train": {
+            "rows": 34695,
+            "macro_f1": 0.4288686720802161,
+            "balanced_accuracy": 0.4303619174371494,
+            "accuracy": 0.5156074362300043,
+            "log_loss": 1.0456825267126664
+          },
+          "validation": {
+            "rows": 11756,
+            "macro_f1": 0.4528410573579564,
+            "balanced_accuracy": 0.45902517480350796,
+            "accuracy": 0.5429567880231371,
+            "log_loss": 1.0264700000635507
+          },
+          "test": {
+            "rows": 6720,
+            "macro_f1": 0.45643507654186033,
+            "balanced_accuracy": 0.47414045086396156,
+            "accuracy": 0.553422619047619,
+            "log_loss": 1.0140392184800278
+          }
+        }
+      },
+      "hist_2024": {
+        "headline": {
+          "net_profit": 171.1,
+          "return_pct": 34.22,
+          "trade_count": 141,
+          "win_rate": 0.5531914893617021,
+          "profit_factor": 1.5282983913298547,
+          "expectancy_per_trade": 1.2134751773049646,
+          "max_dd_pct": 7.5870932207279616,
+          "recovery_factor": 3.4502923976608164,
+          "extra": {
+            "final_balance": 671.1,
+            "initial_deposit": 500.0
+          }
+        },
+        "risk": {
+          "max_dd_pct": 6.87236481629004,
+          "max_dd_amount": 43.139999999999986,
+          "equity_dd_pct": 7.5870932207279616,
+          "equity_dd_amount": 49.59000000000003,
+          "time_under_water": 26867100.0,
+          "longest_recovery_duration": 4815600.0,
+          "worst_day": -20.63,
+          "worst_week": -22.37,
+          "min_free_margin": 444.21,
+          "margin_call_proximity": null,
+          "ulcer_index": 2.9321548782028244,
+          "consecutive_losses": 5,
+          "extra": {
+            "min_balance": 479.3,
+            "min_equity": 478.96
+          }
+        },
+        "diagnostics": {
+          "avg_win": 6.345769230769231,
+          "avg_loss": -5.1407936507936505,
+          "payoff_ratio": 1.234394854535652,
+          "avg_hold": 3.602836879432624,
+          "hold_distribution": {
+            "p50": 4.0,
+            "p90": 4.0
+          },
+          "long_count": 0,
+          "short_count": 141,
+          "long_expectancy": null,
+          "short_expectancy": 1.2134751773049646,
+          "mfe_mean": 6.1792907801418435,
+          "mfe_median": 4.61,
+          "mfe_p90": 12.68,
+          "mae_mean": 4.289716312056738,
+          "mae_median": 3.64,
+          "mae_p90": 8.81,
+          "realized_over_mfe": -3.2830172953886088,
+          "win_trade_mae": 2.5276923076923077,
+          "loss_trade_mfe": 2.66031746031746,
+          "rule_pass_rates": {
+            "long_signal_rate": 0.0,
+            "short_signal_rate": 0.030424799081515498
+          },
+          "no_trade_rate": 0.9695752009184845,
+          "extra": {
+            "decision_reason_breakdown": {
+              "SKIPPED": 56999,
+              "SHORT_MARGIN_FAIL": 8596,
+              "THRESHOLD_FAIL": 4903,
+              "SHORT_FILTERS_OK": 424,
+              "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 13
+            },
+            "trade_close_reason_breakdown": {
+              "TIME_EXIT_NY_POSTCASH": 32,
+              "TIME_EXIT": 94,
+              "BROKER_SL": 15
+            },
+            "no_trade_count": 13512,
+            "mfe_mae_unit": "account_currency"
+          }
+        },
+        "execution": {
+          "skip_rate": 0.8035384506942976,
+          "external_mismatch_count": 25108,
+          "contract_skip_count": 56998
+        },
+        "governance": {
+          "row_count": 70935,
+          "mean_external_skip_rate": 0.3535851805314725,
+          "mean_argmax_class_share": 0.5784725036018891,
+          "mean_entropy": 0.9719085059389756,
+          "mean_overlay_rate": 0.33235878492864285,
+          "latest_state": "OK",
+          "latest_reason": "WITHIN_LIMITS"
+        },
+        "attempt_summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\28_retrain_feature_checks\\02_runs\\active\\28B_18e_persist48_ph20_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+        "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28b_18e_persist48_ph20_v1\\logs\\att_0001_trades.csv",
+        "shadow_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28b_18e_persist48_ph20_v1\\logs\\att_0001_shadow.csv",
+        "governance_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28b_18e_persist48_ph20_v1\\logs\\att_0001_governance.csv"
+      },
+      "validation": {
+        "headline": {
+          "net_profit": 50.01,
+          "return_pct": 10.001999999999999,
+          "trade_count": 127,
+          "win_rate": 0.44881889763779526,
+          "profit_factor": 1.1454074957113365,
+          "expectancy_per_trade": 0.3937795275590551,
+          "max_dd_pct": 14.401815663434753,
+          "recovery_factor": 0.5794901506373112,
+          "extra": {
+            "final_balance": 550.01,
+            "initial_deposit": 500.0
+          }
+        },
+        "risk": {
+          "max_dd_pct": 14.189923582428978,
+          "max_dd_amount": 84.86000000000001,
+          "equity_dd_pct": 14.401815663434753,
+          "equity_dd_amount": 86.30000000000007,
+          "time_under_water": 22043700.0,
+          "longest_recovery_duration": 7766400.0,
+          "worst_day": -14.759999999999998,
+          "worst_week": -23.220000000000002,
+          "min_free_margin": 448.13,
+          "margin_call_proximity": null,
+          "ulcer_index": 5.2555938289615005,
+          "consecutive_losses": 10,
+          "extra": {
+            "min_balance": 470.41,
+            "min_equity": 470.17
+          }
+        },
+        "diagnostics": {
+          "avg_win": 6.911228070175438,
+          "avg_loss": -4.913285714285714,
+          "payoff_ratio": 1.4066407842069046,
+          "avg_hold": 3.4881889763779528,
+          "hold_distribution": {
+            "p50": 4.0,
+            "p90": 4.0
+          },
+          "long_count": 5,
+          "short_count": 122,
+          "long_expectancy": 3.508,
+          "short_expectancy": 0.26614754098360655,
+          "mfe_mean": 5.982047244094488,
+          "mfe_median": 3.49,
+          "mfe_p90": 13.788,
+          "mae_mean": 4.579763779527559,
+          "mae_median": 3.93,
+          "mae_p90": 10.116,
+          "realized_over_mfe": -3.052322332298999,
+          "win_trade_mae": 2.789824561403509,
+          "loss_trade_mfe": 3.0694285714285714,
+          "rule_pass_rates": {
+            "long_signal_rate": 0.0011058183055461042,
+            "short_signal_rate": 0.032749234433480774
+          },
+          "no_trade_rate": 0.9661449472609731,
+          "extra": {
+            "decision_reason_breakdown": {
+              "SKIPPED": 41053,
+              "SHORT_MARGIN_FAIL": 7626,
+              "THRESHOLD_FAIL": 3631,
+              "SHORT_FILTERS_OK": 385,
+              "DUAL_SIGNAL_LONG_WINS": 13,
+              "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 101
+            },
+            "trade_close_reason_breakdown": {
+              "TIME_EXIT": 66,
+              "TIME_EXIT_NY_POSTCASH": 42,
+              "BROKER_SL": 19
+            },
+            "no_trade_count": 11358,
+            "mfe_mae_unit": "account_currency"
+          }
+        },
+        "execution": {
+          "skip_rate": 0.7773864303433127,
+          "external_mismatch_count": 17350,
+          "contract_skip_count": 41052
+        },
+        "governance": {
+          "row_count": 52809,
+          "mean_external_skip_rate": 0.3279948212993997,
+          "mean_argmax_class_share": 0.5799373831165142,
+          "mean_entropy": 0.9545740819230009,
+          "mean_overlay_rate": 0.4462189671351351,
+          "latest_state": "ALERT",
+          "latest_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE"
+        },
+        "attempt_summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\28_retrain_feature_checks\\02_runs\\active\\28B_18e_persist48_ph20_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json",
+        "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28b_18e_persist48_ph20_v1\\logs\\att_0002_trades.csv",
+        "shadow_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28b_18e_persist48_ph20_v1\\logs\\att_0002_shadow.csv",
+        "governance_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28b_18e_persist48_ph20_v1\\logs\\att_0002_governance.csv"
+      },
+      "test": {
+        "headline": {
+          "net_profit": 225.1,
+          "return_pct": 45.019999999999996,
+          "trade_count": 126,
+          "win_rate": 0.5158730158730159,
+          "profit_factor": 1.6553320329558356,
+          "expectancy_per_trade": 1.7865079365079364,
+          "max_dd_pct": 10.93993830520777,
+          "recovery_factor": 3.670906718851928,
+          "extra": {
+            "final_balance": 725.1,
+            "initial_deposit": 500.0
+          }
+        },
+        "risk": {
+          "max_dd_pct": 10.310629083034588,
+          "max_dd_amount": 56.65999999999997,
+          "equity_dd_pct": 10.93993830520777,
+          "equity_dd_amount": 61.319999999999936,
+          "time_under_water": 12800100.0,
+          "longest_recovery_duration": 6037200.0,
+          "worst_day": -21.769999999999996,
+          "worst_week": -20.24,
+          "min_free_margin": 447.18,
+          "margin_call_proximity": null,
+          "ulcer_index": 5.216274439754374,
+          "consecutive_losses": 10,
+          "extra": {
+            "min_balance": 492.87,
+            "min_equity": 490.81
+          }
+        },
+        "diagnostics": {
+          "avg_win": 8.747538461538461,
+          "avg_loss": -5.630983606557377,
+          "payoff_ratio": 1.5534654463123996,
+          "avg_hold": 3.6825396825396823,
+          "hold_distribution": {
+            "p50": 4.0,
+            "p90": 4.0
+          },
+          "long_count": 0,
+          "short_count": 126,
+          "long_expectancy": null,
+          "short_expectancy": 1.7865079365079364,
+          "mfe_mean": 8.141984126984127,
+          "mfe_median": 4.895,
+          "mfe_p90": 17.104999999999997,
+          "mae_mean": 5.0476190476190474,
+          "mae_median": 4.29,
+          "mae_p90": 9.985,
+          "realized_over_mfe": -1.681323190473469,
+          "win_trade_mae": 2.928923076923077,
+          "loss_trade_mfe": 3.69327868852459,
+          "rule_pass_rates": {
+            "long_signal_rate": 0.0,
+            "short_signal_rate": 0.06084381939304219
+          },
+          "no_trade_rate": 0.9391561806069578,
+          "extra": {
+            "decision_reason_breakdown": {
+              "SKIPPED": 22120,
+              "SHORT_MARGIN_FAIL": 4170,
+              "THRESHOLD_FAIL": 2172,
+              "SHORT_FILTERS_OK": 411,
+              "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 2
+            },
+            "trade_close_reason_breakdown": {
+              "TIME_EXIT": 91,
+              "TIME_EXIT_NY_POSTCASH": 19,
+              "BROKER_SL": 16
+            },
+            "no_trade_count": 6344,
+            "mfe_mae_unit": "account_currency"
+          }
+        },
+        "execution": {
+          "skip_rate": 0.7660606060606061,
+          "external_mismatch_count": 8976,
+          "contract_skip_count": 22119
+        },
+        "governance": {
+          "row_count": 28875,
+          "mean_external_skip_rate": 0.311891254961039,
+          "mean_argmax_class_share": 0.5782684497662338,
+          "mean_entropy": 0.957781325183593,
+          "mean_overlay_rate": 0.24730789174543163,
+          "latest_state": "OK",
+          "latest_reason": "WITHIN_LIMITS"
+        },
+        "attempt_summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\28_retrain_feature_checks\\02_runs\\active\\28B_18e_persist48_ph20_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+        "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28b_18e_persist48_ph20_v1\\logs\\att_0003_trades.csv",
+        "shadow_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28b_18e_persist48_ph20_v1\\logs\\att_0003_shadow.csv",
+        "governance_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28b_18e_persist48_ph20_v1\\logs\\att_0003_governance.csv"
+      }
+    },
+    "28C": {
+      "folder": "28C_18e_sessionless50_ph20_0001",
+      "label": "sessionless compact fork under 18E PH20 overlay",
+      "offline": {
+        "generated_at_utc": "2026-04-09T14:55:11.531989+00:00",
+        "feature_count": 50,
+        "feature_names": [
+          "log_return_1",
+          "log_return_3",
+          "hl_range",
+          "close_open_ratio",
+          "gap_percent",
+          "close_prev_close_ratio",
+          "return_zscore_20",
+          "hl_zscore_50",
+          "overnight_return",
+          "return_1_over_atr_14",
+          "close_ema20_ratio",
+          "close_ema50_ratio",
+          "ema9_ema20_diff",
+          "ema20_ema50_diff",
+          "ema50_ema200_diff",
+          "ema20_ema50_spread_zscore_50",
+          "sma50_sma200_ratio",
+          "rsi_14",
+          "rsi_50",
+          "rsi_14_slope_3",
+          "rsi_14_minus_50",
+          "stoch_kd_diff",
+          "stochrsi_kd_diff",
+          "ppo_hist_12_26_9",
+          "roc_12",
+          "trix_15",
+          "atr_14",
+          "atr_50",
+          "atr_14_over_atr_50",
+          "bollinger_width_20",
+          "bb_position_20",
+          "bb_squeeze",
+          "historical_vol_20",
+          "historical_vol_5_over_20",
+          "vix_change_1",
+          "vix_zscore_20",
+          "us10yr_change_1",
+          "us10yr_zscore_20",
+          "usdx_change_1",
+          "usdx_zscore_20",
+          "nvda_xnas_log_return_1",
+          "aapl_xnas_log_return_1",
+          "msft_xnas_log_return_1",
+          "amzn_xnas_log_return_1",
+          "mega8_equal_return_1",
+          "top3_weighted_return_1",
+          "mega8_pos_breadth_1",
+          "mega8_dispersion_5",
+          "us100_minus_mega8_equal_return_1",
+          "us100_minus_top3_weighted_return_1"
+        ],
+        "split_metrics": {
+          "train": {
+            "rows": 34695,
+            "macro_f1": 0.42958884392257396,
+            "balanced_accuracy": 0.43131204777087606,
+            "accuracy": 0.5153480328577604,
+            "log_loss": 1.0454892912990363
+          },
+          "validation": {
+            "rows": 11756,
+            "macro_f1": 0.4455537327813879,
+            "balanced_accuracy": 0.45124884730481885,
+            "accuracy": 0.5381082000680504,
+            "log_loss": 1.0258188093119942
+          },
+          "test": {
+            "rows": 6720,
+            "macro_f1": 0.4427592684871688,
+            "balanced_accuracy": 0.45739057159671453,
+            "accuracy": 0.5495535714285714,
+            "log_loss": 1.008636116207747
+          }
+        }
+      },
+      "hist_2024": {
+        "headline": {
+          "net_profit": 182.74,
+          "return_pct": 36.548,
+          "trade_count": 141,
+          "win_rate": 0.524822695035461,
+          "profit_factor": 1.6150169959277085,
+          "expectancy_per_trade": 1.2960283687943264,
+          "max_dd_pct": 11.717175747660757,
+          "recovery_factor": 3.1115273284522385,
+          "extra": {
+            "final_balance": 682.74,
+            "initial_deposit": 500.0
+          }
+        },
+        "risk": {
+          "max_dd_pct": 11.427999999999997,
+          "max_dd_amount": 57.139999999999986,
+          "equity_dd_pct": 11.717175747660757,
+          "equity_dd_amount": 58.73000000000002,
+          "time_under_water": 31283100.0,
+          "longest_recovery_duration": 21426000.0,
+          "worst_day": -20.01,
+          "worst_week": -21.07,
+          "min_free_margin": 419.54,
+          "margin_call_proximity": null,
+          "ulcer_index": 6.739757876543743,
+          "consecutive_losses": 6,
+          "extra": {
+            "min_balance": 442.86,
+            "min_equity": 442.5
+          }
+        },
+        "diagnostics": {
+          "avg_win": 6.48472972972973,
+          "avg_loss": -4.434776119402985,
+          "payoff_ratio": 1.462245117934547,
+          "avg_hold": 3.595744680851064,
+          "hold_distribution": {
+            "p50": 4.0,
+            "p90": 4.0
+          },
+          "long_count": 0,
+          "short_count": 141,
+          "long_expectancy": null,
+          "short_expectancy": 1.2960283687943264,
+          "mfe_mean": 5.714042553191489,
+          "mfe_median": 3.59,
+          "mfe_p90": 13.57,
+          "mae_mean": 4.009078014184397,
+          "mae_median": 3.52,
+          "mae_p90": 7.72,
+          "realized_over_mfe": -1.8169263970394172,
+          "win_trade_mae": 2.342027027027027,
+          "loss_trade_mfe": 2.1441791044776117,
+          "rule_pass_rates": {
+            "long_signal_rate": 0.0,
+            "short_signal_rate": 0.02906142365097589
+          },
+          "no_trade_rate": 0.9709385763490241,
+          "extra": {
+            "decision_reason_breakdown": {
+              "SKIPPED": 56999,
+              "SHORT_MARGIN_FAIL": 8641,
+              "SHORT_FILTERS_OK": 405,
+              "THRESHOLD_FAIL": 4880,
+              "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 10
+            },
+            "trade_close_reason_breakdown": {
+              "TIME_EXIT": 91,
+              "BROKER_SL": 15,
+              "TIME_EXIT_NY_POSTCASH": 35
+            },
+            "no_trade_count": 13531,
+            "mfe_mae_unit": "account_currency"
+          }
+        },
+        "execution": {
+          "skip_rate": 0.8035384506942976,
+          "external_mismatch_count": 25108,
+          "contract_skip_count": 56998
+        },
+        "governance": {
+          "row_count": 70935,
+          "mean_external_skip_rate": 0.3535851805314725,
+          "mean_argmax_class_share": 0.5769364149573554,
+          "mean_entropy": 0.9708221444242645,
+          "mean_overlay_rate": 0.33861816454545457,
+          "latest_state": "OK",
+          "latest_reason": "WITHIN_LIMITS"
+        },
+        "attempt_summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\28_retrain_feature_checks\\02_runs\\active\\28C_18e_sessionless50_ph20_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+        "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28c_18e_sessionless50_ph20_v1\\logs\\att_0001_trades.csv",
+        "shadow_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28c_18e_sessionless50_ph20_v1\\logs\\att_0001_shadow.csv",
+        "governance_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28c_18e_sessionless50_ph20_v1\\logs\\att_0001_governance.csv"
+      },
+      "validation": {
+        "headline": {
+          "net_profit": -16.44,
+          "return_pct": -3.288,
+          "trade_count": 162,
+          "win_rate": 0.4506172839506173,
+          "profit_factor": 0.9599024390243902,
+          "expectancy_per_trade": -0.10148148148148149,
+          "max_dd_pct": 14.03879466240269,
+          "recovery_factor": -0.22291525423728797,
+          "extra": {
+            "final_balance": 483.56,
+            "initial_deposit": 500.0
+          }
+        },
+        "risk": {
+          "max_dd_pct": 13.564235581324393,
+          "max_dd_amount": 71.12000000000006,
+          "equity_dd_pct": 14.03879466240269,
+          "equity_dd_amount": 73.75000000000006,
+          "time_under_water": 23343000.0,
+          "longest_recovery_duration": 8985600.0,
+          "worst_day": -13.72,
+          "worst_week": -31.850000000000005,
+          "min_free_margin": 425.59,
+          "margin_call_proximity": null,
+          "ulcer_index": 6.473797956622541,
+          "consecutive_losses": 7,
+          "extra": {
+            "min_balance": 452.43,
+            "min_equity": 451.58
+          }
+        },
+        "diagnostics": {
+          "avg_win": 5.391232876712329,
+          "avg_loss": -4.606741573033708,
+          "payoff_ratio": 1.170292014700969,
+          "avg_hold": 3.4753086419753085,
+          "hold_distribution": {
+            "p50": 4.0,
+            "p90": 4.0
+          },
+          "long_count": 7,
+          "short_count": 155,
+          "long_expectancy": 1.1128571428571428,
+          "short_expectancy": -0.1563225806451613,
+          "mfe_mean": 5.054012345679013,
+          "mfe_median": 3.26,
+          "mfe_p90": 12.781000000000004,
+          "mae_mean": 4.033580246913581,
+          "mae_median": 3.35,
+          "mae_p90": 8.757,
+          "realized_over_mfe": -5.309390288723301,
+          "win_trade_mae": 2.204794520547945,
+          "loss_trade_mfe": 2.6053932584269663,
+          "rule_pass_rates": {
+            "long_signal_rate": 0.0011058183055461042,
+            "short_signal_rate": 0.03785301122830895
+          },
+          "no_trade_rate": 0.9610411704661449,
+          "extra": {
+            "decision_reason_breakdown": {
+              "SKIPPED": 41053,
+              "SHORT_MARGIN_FAIL": 7551,
+              "SHORT_FILTERS_OK": 445,
+              "THRESHOLD_FAIL": 3653,
+              "DUAL_SIGNAL_LONG_WINS": 12,
+              "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 94,
+              "LONG_FILTERS_OK": 1
+            },
+            "trade_close_reason_breakdown": {
+              "BROKER_SL": 25,
+              "TIME_EXIT": 80,
+              "TIME_EXIT_NY_POSTCASH": 57
+            },
+            "no_trade_count": 11298,
+            "mfe_mae_unit": "account_currency"
+          }
+        },
+        "execution": {
+          "skip_rate": 0.7773864303433127,
+          "external_mismatch_count": 17350,
+          "contract_skip_count": 41052
+        },
+        "governance": {
+          "row_count": 52809,
+          "mean_external_skip_rate": 0.3279948212993997,
+          "mean_argmax_class_share": 0.5745921445397565,
+          "mean_entropy": 0.9542427462638559,
+          "mean_overlay_rate": 0.4227013269314331,
+          "latest_state": "ALERT",
+          "latest_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE"
+        },
+        "attempt_summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\28_retrain_feature_checks\\02_runs\\active\\28C_18e_sessionless50_ph20_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json",
+        "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28c_18e_sessionless50_ph20_v1\\logs\\att_0002_trades.csv",
+        "shadow_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28c_18e_sessionless50_ph20_v1\\logs\\att_0002_shadow.csv",
+        "governance_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28c_18e_sessionless50_ph20_v1\\logs\\att_0002_governance.csv"
+      },
+      "test": {
+        "headline": {
+          "net_profit": 149.83,
+          "return_pct": 29.966000000000005,
+          "trade_count": 155,
+          "win_rate": 0.5032258064516129,
+          "profit_factor": 1.3550642210531305,
+          "expectancy_per_trade": 0.9666451612903226,
+          "max_dd_pct": 14.039217074292983,
+          "recovery_factor": 1.8886928022185825,
+          "extra": {
+            "final_balance": 649.83,
+            "initial_deposit": 500.0
+          }
+        },
+        "risk": {
+          "max_dd_pct": 13.36260041098449,
+          "max_dd_amount": 74.60000000000002,
+          "equity_dd_pct": 14.039217074292983,
+          "equity_dd_amount": 79.32999999999993,
+          "time_under_water": 12802800.0,
+          "longest_recovery_duration": 5617200.0,
+          "worst_day": -22.630000000000003,
+          "worst_week": -35.07000000000001,
+          "min_free_margin": 444.78,
+          "margin_call_proximity": null,
+          "ulcer_index": 7.875885988658887,
+          "consecutive_losses": 9,
+          "extra": {
+            "min_balance": 463.77,
+            "min_equity": 463.43
+          }
+        },
+        "diagnostics": {
+          "avg_win": 7.330897435897437,
+          "avg_loss": -5.480259740259741,
+          "payoff_ratio": 1.3376916028345005,
+          "avg_hold": 3.6129032258064515,
+          "hold_distribution": {
+            "p50": 4.0,
+            "p90": 4.0
+          },
+          "long_count": 1,
+          "short_count": 154,
+          "long_expectancy": 4.68,
+          "short_expectancy": 0.9425324675324676,
+          "mfe_mean": 6.874258064516129,
+          "mfe_median": 4.3,
+          "mfe_p90": 14.538,
+          "mae_mean": 4.570903225806451,
+          "mae_median": 3.83,
+          "mae_p90": 9.308,
+          "realized_over_mfe": -5.097763803588338,
+          "win_trade_mae": 2.505384615384615,
+          "loss_trade_mfe": 3.0953246753246755,
+          "rule_pass_rates": {
+            "long_signal_rate": 0.00014803849000740192,
+            "short_signal_rate": 0.07638786084381939
+          },
+          "no_trade_rate": 0.9234641006661732,
+          "extra": {
+            "decision_reason_breakdown": {
+              "SKIPPED": 22120,
+              "SHORT_MARGIN_FAIL": 4030,
+              "THRESHOLD_FAIL": 2207,
+              "SHORT_FILTERS_OK": 516,
+              "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 1,
+              "DUAL_SIGNAL_LONG_WINS": 1
+            },
+            "trade_close_reason_breakdown": {
+              "TIME_EXIT": 103,
+              "BROKER_SL": 22,
+              "TIME_EXIT_NY_POSTCASH": 30
+            },
+            "no_trade_count": 6238,
+            "mfe_mae_unit": "account_currency"
+          }
+        },
+        "execution": {
+          "skip_rate": 0.7660606060606061,
+          "external_mismatch_count": 8976,
+          "contract_skip_count": 22119
+        },
+        "governance": {
+          "row_count": 28875,
+          "mean_external_skip_rate": 0.311891254961039,
+          "mean_argmax_class_share": 0.58078911608658,
+          "mean_entropy": 0.9568844987461939,
+          "mean_overlay_rate": 0.2405181723419041,
+          "latest_state": "OK",
+          "latest_reason": "WITHIN_LIMITS"
+        },
+        "attempt_summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\28_retrain_feature_checks\\02_runs\\active\\28C_18e_sessionless50_ph20_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+        "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28c_18e_sessionless50_ph20_v1\\logs\\att_0003_trades.csv",
+        "shadow_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28c_18e_sessionless50_ph20_v1\\logs\\att_0003_shadow.csv",
+        "governance_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28c_18e_sessionless50_ph20_v1\\logs\\att_0003_governance.csv"
+      }
+    },
+    "28D": {
+      "folder": "28D_18e_extless44_ph20_0001",
+      "label": "external-breadthless compact fork under 18E PH20 overlay",
+      "offline": {
+        "generated_at_utc": "2026-04-09T14:55:12.367514+00:00",
+        "feature_count": 44,
+        "feature_names": [
+          "log_return_1",
+          "log_return_3",
+          "hl_range",
+          "close_open_ratio",
+          "gap_percent",
+          "close_prev_close_ratio",
+          "return_zscore_20",
+          "hl_zscore_50",
+          "overnight_return",
+          "return_1_over_atr_14",
+          "close_ema20_ratio",
+          "close_ema50_ratio",
+          "ema9_ema20_diff",
+          "ema20_ema50_diff",
+          "ema50_ema200_diff",
+          "ema20_ema50_spread_zscore_50",
+          "sma50_sma200_ratio",
+          "rsi_14",
+          "rsi_50",
+          "rsi_14_slope_3",
+          "rsi_14_minus_50",
+          "stoch_kd_diff",
+          "stochrsi_kd_diff",
+          "ppo_hist_12_26_9",
+          "roc_12",
+          "trix_15",
+          "atr_14",
+          "atr_50",
+          "atr_14_over_atr_50",
+          "bollinger_width_20",
+          "bb_position_20",
+          "bb_squeeze",
+          "historical_vol_20",
+          "historical_vol_5_over_20",
+          "is_us_cash_open",
+          "minutes_from_cash_open",
+          "is_first_30m_after_open",
+          "is_last_30m_before_cash_close",
+          "vix_change_1",
+          "vix_zscore_20",
+          "us10yr_change_1",
+          "us10yr_zscore_20",
+          "usdx_change_1",
+          "usdx_zscore_20"
+        ],
+        "split_metrics": {
+          "train": {
+            "rows": 34695,
+            "macro_f1": 0.4283702735257311,
+            "balanced_accuracy": 0.4303303373323662,
+            "accuracy": 0.5121775471970025,
+            "log_loss": 1.046213950956203
+          },
+          "validation": {
+            "rows": 11756,
+            "macro_f1": 0.4464307533799164,
+            "balanced_accuracy": 0.4515879141236818,
+            "accuracy": 0.5373426335488262,
+            "log_loss": 1.0263017190001376
+          },
+          "test": {
+            "rows": 6720,
+            "macro_f1": 0.44650746662210916,
+            "balanced_accuracy": 0.4633817256125747,
+            "accuracy": 0.544047619047619,
+            "log_loss": 1.0167451563842014
+          }
+        }
+      },
+      "hist_2024": {
+        "headline": {
+          "net_profit": 327.64,
+          "return_pct": 65.52799999999999,
+          "trade_count": 147,
+          "win_rate": 0.6326530612244898,
+          "profit_factor": 2.129014472777395,
+          "expectancy_per_trade": 2.2288435374149658,
+          "max_dd_pct": 6.4086374542240225,
+          "recovery_factor": 8.069950738916251,
+          "extra": {
+            "final_balance": 827.64,
+            "initial_deposit": 500.0
+          }
+        },
+        "risk": {
+          "max_dd_pct": 5.262737581855941,
+          "max_dd_amount": 32.950000000000045,
+          "equity_dd_pct": 6.4086374542240225,
+          "equity_dd_amount": 40.60000000000002,
+          "time_under_water": 29379300.0,
+          "longest_recovery_duration": 5180700.0,
+          "worst_day": -13.68,
+          "worst_week": -22.07,
+          "min_free_margin": 471.09,
+          "margin_call_proximity": null,
+          "ulcer_index": 2.343191598407639,
+          "consecutive_losses": 4,
+          "extra": {
+            "min_balance": 489.71,
+            "min_equity": 489.18
+          }
+        },
+        "diagnostics": {
+          "avg_win": 6.643440860215054,
+          "avg_loss": -5.374074074074074,
+          "payoff_ratio": 1.2362019519352616,
+          "avg_hold": 3.6258503401360542,
+          "hold_distribution": {
+            "p50": 4.0,
+            "p90": 4.0
+          },
+          "long_count": 0,
+          "short_count": 147,
+          "long_expectancy": null,
+          "short_expectancy": 2.2288435374149658,
+          "mfe_mean": 6.9648299319727895,
+          "mfe_median": 4.83,
+          "mfe_p90": 16.678000000000004,
+          "mae_mean": 4.123469387755102,
+          "mae_median": 3.3,
+          "mae_p90": 8.32,
+          "realized_over_mfe": -1.8362490575660568,
+          "win_trade_mae": 2.4788172043010754,
+          "loss_trade_mfe": 2.61,
+          "rule_pass_rates": {
+            "long_signal_rate": 0.0,
+            "short_signal_rate": 0.029850746268656716
+          },
+          "no_trade_rate": 0.9701492537313433,
+          "extra": {
+            "decision_reason_breakdown": {
+              "SKIPPED": 56999,
+              "SHORT_MARGIN_FAIL": 8822,
+              "SHORT_FILTERS_OK": 416,
+              "THRESHOLD_FAIL": 4686,
+              "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 12
+            },
+            "trade_close_reason_breakdown": {
+              "TIME_EXIT": 95,
+              "TIME_EXIT_NY_POSTCASH": 39,
+              "BROKER_SL": 13
+            },
+            "no_trade_count": 13520,
+            "mfe_mae_unit": "account_currency"
+          }
+        },
+        "execution": {
+          "skip_rate": 0.8035384506942976,
+          "external_mismatch_count": 25108,
+          "contract_skip_count": 56998
+        },
+        "governance": {
+          "row_count": 70935,
+          "mean_external_skip_rate": 0.3535851805314725,
+          "mean_argmax_class_share": 0.5704397591738916,
+          "mean_entropy": 0.9729702626770795,
+          "mean_overlay_rate": 0.38004579659004156,
+          "latest_state": "OK",
+          "latest_reason": "WITHIN_LIMITS"
+        },
+        "attempt_summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\28_retrain_feature_checks\\02_runs\\active\\28D_18e_extless44_ph20_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+        "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28d_18e_extless44_ph20_v1\\logs\\att_0001_trades.csv",
+        "shadow_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28d_18e_extless44_ph20_v1\\logs\\att_0001_shadow.csv",
+        "governance_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28d_18e_extless44_ph20_v1\\logs\\att_0001_governance.csv"
+      },
+      "validation": {
+        "headline": {
+          "net_profit": -114.02,
+          "return_pct": -22.804,
+          "trade_count": 148,
+          "win_rate": 0.4391891891891892,
+          "profit_factor": 0.7030961122828946,
+          "expectancy_per_trade": -0.7704054054054054,
+          "max_dd_pct": 28.34574043477453,
+          "recovery_factor": -0.7467417643591594,
+          "extra": {
+            "final_balance": 385.98,
+            "initial_deposit": 500.0
+          }
+        },
+        "risk": {
+          "max_dd_pct": 28.207131298476646,
+          "max_dd_amount": 151.64999999999998,
+          "equity_dd_pct": 28.34574043477453,
+          "equity_dd_amount": 152.68999999999994,
+          "time_under_water": 23370300.0,
+          "longest_recovery_duration": 18672000.0,
+          "worst_day": -13.059999999999999,
+          "worst_week": -18.21,
+          "min_free_margin": 361.47,
+          "margin_call_proximity": null,
+          "ulcer_index": 14.741124497187986,
+          "consecutive_losses": 6,
+          "extra": {
+            "min_balance": 385.98,
+            "min_equity": 385.98
+          }
+        },
+        "diagnostics": {
+          "avg_win": 4.154,
+          "avg_loss": -4.626867469879517,
+          "payoff_ratio": 0.897799651068927,
+          "avg_hold": 3.4054054054054053,
+          "hold_distribution": {
+            "p50": 4.0,
+            "p90": 4.0
+          },
+          "long_count": 7,
+          "short_count": 141,
+          "long_expectancy": 2.8728571428571428,
+          "short_expectancy": -0.9512765957446808,
+          "mfe_mean": 4.001418918918919,
+          "mfe_median": 2.5949999999999998,
+          "mfe_p90": 9.825000000000005,
+          "mae_mean": 3.9817567567567567,
+          "mae_median": 3.2649999999999997,
+          "mae_p90": 7.831,
+          "realized_over_mfe": -5.720059336958583,
+          "win_trade_mae": 2.058153846153846,
+          "loss_trade_mfe": 2.059638554216867,
+          "rule_pass_rates": {
+            "long_signal_rate": 0.0012759441987070432,
+            "short_signal_rate": 0.034365430418509695
+          },
+          "no_trade_rate": 0.9643586253827833,
+          "extra": {
+            "decision_reason_breakdown": {
+              "SKIPPED": 41053,
+              "SHORT_MARGIN_FAIL": 7670,
+              "SHORT_FILTERS_OK": 404,
+              "THRESHOLD_FAIL": 3563,
+              "DUAL_SIGNAL_LONG_WINS": 15,
+              "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 104
+            },
+            "trade_close_reason_breakdown": {
+              "BROKER_SL": 26,
+              "TIME_EXIT": 70,
+              "TIME_EXIT_NY_POSTCASH": 52
+            },
+            "no_trade_count": 11337,
+            "mfe_mae_unit": "account_currency"
+          }
+        },
+        "execution": {
+          "skip_rate": 0.7773864303433127,
+          "external_mismatch_count": 17350,
+          "contract_skip_count": 41052
+        },
+        "governance": {
+          "row_count": 52809,
+          "mean_external_skip_rate": 0.3279948212993997,
+          "mean_argmax_class_share": 0.5744717472211176,
+          "mean_entropy": 0.9547382851098576,
+          "mean_overlay_rate": 0.44200543365190226,
+          "latest_state": "ALERT",
+          "latest_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE"
+        },
+        "attempt_summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\28_retrain_feature_checks\\02_runs\\active\\28D_18e_extless44_ph20_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json",
+        "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28d_18e_extless44_ph20_v1\\logs\\att_0002_trades.csv",
+        "shadow_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28d_18e_extless44_ph20_v1\\logs\\att_0002_shadow.csv",
+        "governance_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28d_18e_extless44_ph20_v1\\logs\\att_0002_governance.csv"
+      },
+      "test": {
+        "headline": {
+          "net_profit": 189.36,
+          "return_pct": 37.872,
+          "trade_count": 131,
+          "win_rate": 0.5419847328244275,
+          "profit_factor": 1.528894226740776,
+          "expectancy_per_trade": 1.445496183206107,
+          "max_dd_pct": 12.014642436919846,
+          "recovery_factor": 2.9435722058137763,
+          "extra": {
+            "final_balance": 689.36,
+            "initial_deposit": 500.0
+          }
+        },
+        "risk": {
+          "max_dd_pct": 11.021626492453242,
+          "max_dd_amount": 61.18999999999994,
+          "equity_dd_pct": 12.014642436919846,
+          "equity_dd_amount": 64.32999999999993,
+          "time_under_water": 12881400.0,
+          "longest_recovery_duration": 5354400.0,
+          "worst_day": -27.35,
+          "worst_week": -32.83,
+          "min_free_margin": 439.09,
+          "margin_call_proximity": null,
+          "ulcer_index": 5.622709417931619,
+          "consecutive_losses": 9,
+          "extra": {
+            "min_balance": 473.97,
+            "min_equity": 471.1
+          }
+        },
+        "diagnostics": {
+          "avg_win": 7.709718309859155,
+          "avg_loss": -5.9671666666666665,
+          "payoff_ratio": 1.2920232902034727,
+          "avg_hold": 3.6259541984732824,
+          "hold_distribution": {
+            "p50": 4.0,
+            "p90": 4.0
+          },
+          "long_count": 0,
+          "short_count": 131,
+          "long_expectancy": null,
+          "short_expectancy": 1.445496183206107,
+          "mfe_mean": 7.293129770992366,
+          "mfe_median": 4.17,
+          "mfe_p90": 15.33,
+          "mae_mean": 4.884580152671756,
+          "mae_median": 4.27,
+          "mae_p90": 10.06,
+          "realized_over_mfe": -3.631158407712737,
+          "win_trade_mae": 2.9414084507042255,
+          "loss_trade_mfe": 2.8208333333333333,
+          "rule_pass_rates": {
+            "long_signal_rate": 0.0,
+            "short_signal_rate": 0.06558105107327905
+          },
+          "no_trade_rate": 0.934418948926721,
+          "extra": {
+            "decision_reason_breakdown": {
+              "SKIPPED": 22120,
+              "SHORT_MARGIN_FAIL": 4175,
+              "SHORT_FILTERS_OK": 443,
+              "THRESHOLD_FAIL": 2134,
+              "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 3
+            },
+            "trade_close_reason_breakdown": {
+              "BROKER_SL": 17,
+              "TIME_EXIT": 89,
+              "TIME_EXIT_NY_POSTCASH": 25
+            },
+            "no_trade_count": 6312,
+            "mfe_mae_unit": "account_currency"
+          }
+        },
+        "execution": {
+          "skip_rate": 0.7660606060606061,
+          "external_mismatch_count": 8976,
+          "contract_skip_count": 22119
+        },
+        "governance": {
+          "row_count": 28875,
+          "mean_external_skip_rate": 0.311891254961039,
+          "mean_argmax_class_share": 0.570490790995671,
+          "mean_entropy": 0.9581116373813362,
+          "mean_overlay_rate": 0.2339399043726,
+          "latest_state": "OK",
+          "latest_reason": "WITHIN_LIMITS"
+        },
+        "attempt_summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\28_retrain_feature_checks\\02_runs\\active\\28D_18e_extless44_ph20_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+        "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28d_18e_extless44_ph20_v1\\logs\\att_0003_trades.csv",
+        "shadow_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28d_18e_extless44_ph20_v1\\logs\\att_0003_shadow.csv",
+        "governance_log_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_28d_18e_extless44_ph20_v1\\logs\\att_0003_governance.csv"
+      }
+    }
+  }
+}
