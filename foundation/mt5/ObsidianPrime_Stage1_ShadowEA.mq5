@@ -76,6 +76,7 @@ bool     g_log_header_written  = false;
 bool     g_trade_ledger_header_written = false;
 bool     g_governance_log_header_written = false;
 long     g_onnx_handle         = INVALID_HANDLE;
+long     g_short_gate_onnx_handle = INVALID_HANDLE;
 uint     g_onnx_run_flags      = 0;
 int      g_handle_ema9         = INVALID_HANDLE;
 int      g_handle_ema20        = INVALID_HANDLE;
@@ -95,11 +96,14 @@ ulong    g_input_shape[];
 ulong    g_output_shape[];
 float    g_input_tensor[];
 float    g_output_tensor[];
+float    g_short_gate_output_tensor[];
 CTrade   g_trade;
 int      g_effective_feature_count = OP_FEATURE_COUNT;
 string   g_effective_feature_names[];
 string   g_effective_onnx_model_path = "";
 bool     g_effective_onnx_use_common_files = false;
+string   g_effective_short_gate_onnx_model_path = "";
+bool     g_effective_short_gate_onnx_use_common_files = false;
 double   g_effective_short_threshold = 0.0;
 double   g_effective_long_threshold = 0.0;
 double   g_effective_min_margin = 0.0;
@@ -143,10 +147,20 @@ int      g_effective_flat_exit_min_hold_bars = 1;
 bool     g_effective_threshold_rule_enabled = true;
 bool     g_effective_margin_rule_enabled = false;
 bool     g_effective_prob_diff_rule_enabled = false;
+bool     g_effective_specialist_short_gate_enabled = false;
+double   g_effective_specialist_short_gate_min_aux_short_probability = 0.0;
+double   g_effective_specialist_short_gate_min_aux_short_margin = EMPTY_VALUE;
+string   g_effective_short_gate_source_label = "";
 string   g_effective_experiment_id = "";
 string   g_effective_bundle_version = "";
 string   g_effective_logic_family = "";
 string   g_effective_feature_fingerprint = "";
+string   g_effective_filter_rule_types[];
+bool     g_effective_filter_rule_enabled[];
+double   g_effective_filter_rule_min_margin[];
+double   g_effective_filter_rule_min_probability_diff[];
+double   g_effective_filter_rule_min_aux_short_probability[];
+double   g_effective_filter_rule_min_aux_short_margin[];
 string   g_effective_exit_rule_types[];
 bool     g_effective_exit_rule_enabled[];
 int      g_effective_exit_rule_max_hold_bars[];
@@ -218,6 +232,12 @@ double   g_governance_current_max_probability = EMPTY_VALUE;
 bool     g_governance_current_extreme_confidence = false;
 string   g_governance_current_risk_context = "BASE";
 double   g_governance_current_risk_pct_multiplier = 1.0;
+bool     g_current_aux_gate_active = false;
+bool     g_current_aux_gate_passed = false;
+string   g_current_aux_gate_reason = "";
+double   g_current_aux_p_short = EMPTY_VALUE;
+double   g_current_aux_p_flat = EMPTY_VALUE;
+double   g_current_aux_p_long = EMPTY_VALUE;
 
 enum ENUM_OP_GOV_SKIP_CATEGORY
 {
@@ -811,6 +831,76 @@ bool EnsureExitRuleCapacity(const int rule_index)
    return true;
 }
 
+bool EnsureFilterRuleCapacity(const int rule_index)
+{
+   if(rule_index < 0)
+      return false;
+
+   const int current_size = ArraySize(g_effective_filter_rule_types);
+   if(current_size > rule_index)
+      return true;
+
+   const int new_size = rule_index + 1;
+   ArrayResize(g_effective_filter_rule_types, new_size);
+   ArrayResize(g_effective_filter_rule_enabled, new_size);
+   ArrayResize(g_effective_filter_rule_min_margin, new_size);
+   ArrayResize(g_effective_filter_rule_min_probability_diff, new_size);
+   ArrayResize(g_effective_filter_rule_min_aux_short_probability, new_size);
+   ArrayResize(g_effective_filter_rule_min_aux_short_margin, new_size);
+   for(int i = current_size; i < new_size; i++)
+   {
+      g_effective_filter_rule_types[i] = "";
+      g_effective_filter_rule_enabled[i] = true;
+      g_effective_filter_rule_min_margin[i] = 0.0;
+      g_effective_filter_rule_min_probability_diff[i] = 0.0;
+      g_effective_filter_rule_min_aux_short_probability[i] = 0.0;
+      g_effective_filter_rule_min_aux_short_margin[i] = EMPTY_VALUE;
+   }
+   return true;
+}
+
+void FinalizeFilterRuntimeConfig()
+{
+   g_effective_margin_rule_enabled = (InpMinMargin > 0.0);
+   g_effective_min_margin = InpMinMargin;
+   g_effective_prob_diff_rule_enabled = false;
+   g_effective_min_probability_diff = 0.0;
+   g_effective_specialist_short_gate_enabled = false;
+   g_effective_specialist_short_gate_min_aux_short_probability = 0.0;
+   g_effective_specialist_short_gate_min_aux_short_margin = EMPTY_VALUE;
+
+   const int filter_rule_count = ArraySize(g_effective_filter_rule_types);
+   if(filter_rule_count <= 0)
+      return;
+
+   g_effective_margin_rule_enabled = false;
+   g_effective_prob_diff_rule_enabled = false;
+
+   for(int i = 0; i < filter_rule_count; i++)
+   {
+      if(!g_effective_filter_rule_enabled[i])
+         continue;
+
+      const string rule_type = g_effective_filter_rule_types[i];
+      if(rule_type == "max_probability_margin")
+      {
+         g_effective_margin_rule_enabled = true;
+         g_effective_min_margin = g_effective_filter_rule_min_margin[i];
+      }
+      else if(rule_type == "probability_difference")
+      {
+         g_effective_prob_diff_rule_enabled = true;
+         g_effective_min_probability_diff = g_effective_filter_rule_min_probability_diff[i];
+      }
+      else if(rule_type == "specialist_short_gate")
+      {
+         g_effective_specialist_short_gate_enabled = true;
+         g_effective_specialist_short_gate_min_aux_short_probability = g_effective_filter_rule_min_aux_short_probability[i];
+         g_effective_specialist_short_gate_min_aux_short_margin = g_effective_filter_rule_min_aux_short_margin[i];
+      }
+   }
+}
+
 void FinalizeExitRuleRuntimeConfig()
 {
    g_effective_time_exit_enabled = false;
@@ -846,6 +936,57 @@ void FinalizeExitRuleRuntimeConfig()
             g_effective_flat_exit_min_hold_bars = g_effective_exit_rule_min_hold_bars[i];
       }
    }
+}
+
+bool TryApplyFilterRuleRuntimeKey(const string key, const string value)
+{
+   if(StringSubstr(key, 0, 8) != "filters_")
+      return false;
+
+   const int second_underscore = StringFind(key, "_", 8);
+   if(second_underscore <= 8)
+      return false;
+
+   const string index_text = StringSubstr(key, 8, second_underscore - 8);
+   const int rule_index = (int)StringToInteger(index_text);
+   if(rule_index < 0 || !EnsureFilterRuleCapacity(rule_index))
+      return false;
+
+   const string suffix = StringSubstr(key, second_underscore + 1);
+   bool bool_value = false;
+   if(suffix == "type")
+   {
+      g_effective_filter_rule_types[rule_index] = value;
+      return true;
+   }
+   if(suffix == "enabled")
+   {
+      if(!ParseBoolText(value, bool_value))
+         return false;
+      g_effective_filter_rule_enabled[rule_index] = bool_value;
+      return true;
+   }
+   if(suffix == "min_margin")
+   {
+      g_effective_filter_rule_min_margin[rule_index] = StringToDouble(value);
+      return true;
+   }
+   if(suffix == "min_probability_diff")
+   {
+      g_effective_filter_rule_min_probability_diff[rule_index] = StringToDouble(value);
+      return true;
+   }
+   if(suffix == "min_aux_short_probability")
+   {
+      g_effective_filter_rule_min_aux_short_probability[rule_index] = StringToDouble(value);
+      return true;
+   }
+   if(suffix == "min_aux_short_margin")
+   {
+      g_effective_filter_rule_min_aux_short_margin[rule_index] = StringToDouble(value);
+      return true;
+   }
+   return false;
 }
 
 bool TryApplyExitRuleRuntimeKey(const string key, const string value)
@@ -930,6 +1071,8 @@ void ResetEffectiveRuntimeConfig()
    ArrayResize(g_effective_feature_names, 0);
    g_effective_onnx_model_path = InpOnnxModelPath;
    g_effective_onnx_use_common_files = InpOnnxUseCommonFiles;
+   g_effective_short_gate_onnx_model_path = "";
+   g_effective_short_gate_onnx_use_common_files = false;
    g_effective_short_threshold = InpShortThreshold;
    g_effective_long_threshold = InpLongThreshold;
    g_effective_min_margin = InpMinMargin;
@@ -973,10 +1116,20 @@ void ResetEffectiveRuntimeConfig()
    g_effective_threshold_rule_enabled = true;
    g_effective_margin_rule_enabled = (InpMinMargin > 0.0);
    g_effective_prob_diff_rule_enabled = false;
+   g_effective_specialist_short_gate_enabled = false;
+   g_effective_specialist_short_gate_min_aux_short_probability = 0.0;
+   g_effective_specialist_short_gate_min_aux_short_margin = EMPTY_VALUE;
+   g_effective_short_gate_source_label = "";
    g_effective_experiment_id = "";
    g_effective_bundle_version = "";
    g_effective_logic_family = "";
    g_effective_feature_fingerprint = "";
+   ArrayResize(g_effective_filter_rule_types, 0);
+   ArrayResize(g_effective_filter_rule_enabled, 0);
+   ArrayResize(g_effective_filter_rule_min_margin, 0);
+   ArrayResize(g_effective_filter_rule_min_probability_diff, 0);
+   ArrayResize(g_effective_filter_rule_min_aux_short_probability, 0);
+   ArrayResize(g_effective_filter_rule_min_aux_short_margin, 0);
    ArrayResize(g_effective_exit_rule_types, 0);
    ArrayResize(g_effective_exit_rule_enabled, 0);
    ArrayResize(g_effective_exit_rule_max_hold_bars, 0);
@@ -1066,6 +1219,20 @@ bool ApplyRuntimeConfigKeyValue(const string key, const string value)
       g_effective_onnx_model_path = value;
       return true;
    }
+   if(key == "short_gate_onnx_model_path")
+   {
+      g_effective_short_gate_onnx_model_path = value;
+      return true;
+   }
+   if(key == "short_gate_onnx_use_common_files")
+   {
+      return ParseBoolText(value, g_effective_short_gate_onnx_use_common_files);
+   }
+   if(key == "short_gate_source_label")
+   {
+      g_effective_short_gate_source_label = value;
+      return true;
+   }
    if(StringFind(key, "feature_") == 0)
    {
       const int suffix_index = StringFind(key, "_name", 8);
@@ -1085,6 +1252,8 @@ bool ApplyRuntimeConfigKeyValue(const string key, const string value)
    {
       return ParseBoolText(value, g_effective_onnx_use_common_files);
    }
+   if(TryApplyFilterRuleRuntimeKey(key, value))
+      return true;
    if(key == "entry_0_enabled")
    {
       return ParseBoolText(value, g_effective_threshold_rule_enabled);
@@ -1097,37 +1266,6 @@ bool ApplyRuntimeConfigKeyValue(const string key, const string value)
    if(key == "entry_0_long_threshold")
    {
       g_effective_long_threshold = StringToDouble(value);
-      return true;
-   }
-   if(key == "filters_0_type")
-   {
-      if(value == "max_probability_margin")
-         g_effective_margin_rule_enabled = true;
-      if(value == "probability_difference")
-         g_effective_prob_diff_rule_enabled = true;
-      return true;
-   }
-   if(key == "filters_0_enabled")
-   {
-      if(!ParseBoolText(value, bool_value))
-         return false;
-      if(!bool_value)
-      {
-         g_effective_margin_rule_enabled = false;
-         g_effective_prob_diff_rule_enabled = false;
-      }
-      return true;
-   }
-   if(key == "filters_0_min_margin")
-   {
-      g_effective_margin_rule_enabled = true;
-      g_effective_min_margin = StringToDouble(value);
-      return true;
-   }
-   if(key == "filters_0_min_probability_diff")
-   {
-      g_effective_prob_diff_rule_enabled = true;
-      g_effective_min_probability_diff = StringToDouble(value);
       return true;
    }
    if(key == "fixed_lot")
@@ -1355,6 +1493,7 @@ bool LoadRuntimeConfig()
       ));
       return false;
    }
+   FinalizeFilterRuntimeConfig();
    FinalizeExitRuleRuntimeConfig();
    if(g_effective_sizing_mode == "fixed_lot" && g_effective_fixed_lot <= 0.0)
    {
@@ -1467,10 +1606,14 @@ bool LoadRuntimeConfig()
    }
    g_runtime_config_loaded = true;
    Log(StringFormat(
-      "runtime config loaded experiment=%s logic=%s onnx=%s feature_count=%d sizing_mode=%s fixed_lot=%.4f risk_pct=%.4f capital_base=%s monday_risk_mult=%.4f monday_long_mult=%.4f monday_short_mult=%.4f ny_postcash_risk_mult=%.4f ny_postcash_hold_cap=%d taper_start=%d taper_mid=%d taper_late=%d taper_mults=%.4f/%.4f/%.4f stop_model=%s stop_execution_mode=%s stop_policy=%s stop_atr_period=%d stop_atr_mult=%.4f long_mult=%.4f short_mult=%.4f low_thr=%.4f high_thr=%.4f low_mult=%.4f mid_mult=%.4f high_mult=%.4f threshold_enabled=%s short=%.6f long=%.6f margin_enabled=%s margin=%.6f diff_enabled=%s diff=%.6f time_exit=%s hold=%d flat_exit=%s flat_min=%.6f flat_min_hold=%d",
+      "runtime config loaded experiment=%s logic=%s onnx=%s short_gate_onnx=%s short_gate_enabled=%s short_gate_prob=%.6f short_gate_margin=%.6f feature_count=%d sizing_mode=%s fixed_lot=%.4f risk_pct=%.4f capital_base=%s monday_risk_mult=%.4f monday_long_mult=%.4f monday_short_mult=%.4f ny_postcash_risk_mult=%.4f ny_postcash_hold_cap=%d taper_start=%d taper_mid=%d taper_late=%d taper_mults=%.4f/%.4f/%.4f stop_model=%s stop_execution_mode=%s stop_policy=%s stop_atr_period=%d stop_atr_mult=%.4f long_mult=%.4f short_mult=%.4f low_thr=%.4f high_thr=%.4f low_mult=%.4f mid_mult=%.4f high_mult=%.4f threshold_enabled=%s short=%.6f long=%.6f margin_enabled=%s margin=%.6f diff_enabled=%s diff=%.6f time_exit=%s hold=%d flat_exit=%s flat_min=%.6f flat_min_hold=%d",
       g_effective_experiment_id,
       g_effective_logic_family,
       g_effective_onnx_model_path,
+      g_effective_short_gate_onnx_model_path,
+      g_effective_specialist_short_gate_enabled ? "true" : "false",
+      g_effective_specialist_short_gate_min_aux_short_probability,
+      g_effective_specialist_short_gate_min_aux_short_margin,
       g_effective_feature_count,
       g_effective_sizing_mode,
       g_effective_fixed_lot,
@@ -1632,6 +1775,16 @@ string DecisionToString(const int decision)
    if(decision < 0)
       return "SHORT";
    return "NO_TRADE";
+}
+
+void ResetCurrentAuxGateTelemetry()
+{
+   g_current_aux_gate_active = false;
+   g_current_aux_gate_passed = false;
+   g_current_aux_gate_reason = "";
+   g_current_aux_p_short = EMPTY_VALUE;
+   g_current_aux_p_flat = EMPTY_VALUE;
+   g_current_aux_p_long = EMPTY_VALUE;
 }
 
 string EscapeCsv(const string value)
@@ -2112,7 +2265,7 @@ bool EnsureLogHeader()
 
    string header =
       "event_timestamp_gmt,bar_time_server,symbol,timeframe,feature_mode,feature_ready_count,row_ready,skip_reason,feature_checksum,"
-      "p_short,p_flat,p_long,decision,decision_reason,cycle_tag,trade_action_reason,trade_fill_price,"
+      "p_short,p_flat,p_long,aux_p_short,aux_p_flat,aux_p_long,aux_gate_active,aux_gate_passed,aux_gate_reason,decision,decision_reason,cycle_tag,trade_action_reason,trade_fill_price,"
       "bid,ask,spread_points,balance,equity,margin,free_margin,floating_profit,managed_position_count,"
       "external_alignment_mode,external_relaxed_scope,external_fallback_used,external_fallback_count,external_fallback_details,model_path";
    FileWriteString(handle, header + "\r\n");
@@ -2267,6 +2420,12 @@ void AppendShadowLog(
       EscapeCsv(DoubleToString(p_short, 6)) + "," +
       EscapeCsv(DoubleToString(p_flat, 6)) + "," +
       EscapeCsv(DoubleToString(p_long, 6)) + "," +
+      EscapeCsv(CsvDouble(g_current_aux_p_short, 6)) + "," +
+      EscapeCsv(CsvDouble(g_current_aux_p_flat, 6)) + "," +
+      EscapeCsv(CsvDouble(g_current_aux_p_long, 6)) + "," +
+      EscapeCsv(g_current_aux_gate_active ? "true" : "false") + "," +
+      EscapeCsv(g_current_aux_gate_passed ? "true" : "false") + "," +
+      EscapeCsv(g_current_aux_gate_reason) + "," +
       EscapeCsv(decision) + "," +
       EscapeCsv(decision_reason) + "," +
       EscapeCsv(cycle_tag) + "," +
@@ -3591,9 +3750,9 @@ bool BuildInputTensor(const double &features[])
    return true;
 }
 
-bool RunInference(const double &features[], float &outputs[], string &skip_reason)
+bool RunInferenceWithHandle(const long handle, float &buffer[], const double &features[], float &outputs[], string &skip_reason)
 {
-   if(g_onnx_handle == INVALID_HANDLE)
+   if(handle == INVALID_HANDLE)
    {
       skip_reason = "MODEL_HANDLE_INVALID";
       return false;
@@ -3605,11 +3764,11 @@ bool RunInference(const double &features[], float &outputs[], string &skip_reaso
       return false;
    }
 
-   ArrayResize(g_output_tensor, OP_OUTPUT_COUNT);
-   ArrayInitialize(g_output_tensor, 0.0);
+   ArrayResize(buffer, OP_OUTPUT_COUNT);
+   ArrayInitialize(buffer, 0.0);
 
    ResetLastError();
-   if(!OnnxRun(g_onnx_handle, g_onnx_run_flags, g_input_tensor, g_output_tensor))
+   if(!OnnxRun(handle, g_onnx_run_flags, g_input_tensor, buffer))
    {
       skip_reason = StringFormat("ONNX_RUN_FAIL_%d", GetLastError());
       return false;
@@ -3618,16 +3777,26 @@ bool RunInference(const double &features[], float &outputs[], string &skip_reaso
    ArrayResize(outputs, OP_OUTPUT_COUNT);
    for(int i = 0; i < OP_OUTPUT_COUNT; i++)
    {
-      double value = (double)g_output_tensor[i];
+      double value = (double)buffer[i];
       if(!MathIsValidNumber(value) || MathAbs(value) >= (EMPTY_VALUE / 2.0))
       {
          skip_reason = StringFormat("OUTPUT_INVALID_%d", i);
          return false;
       }
-      outputs[i] = g_output_tensor[i];
+      outputs[i] = buffer[i];
    }
 
    return true;
+}
+
+bool RunInference(const double &features[], float &outputs[], string &skip_reason)
+{
+   return RunInferenceWithHandle(g_onnx_handle, g_output_tensor, features, outputs, skip_reason);
+}
+
+bool RunShortGateInference(const double &features[], float &outputs[], string &skip_reason)
+{
+   return RunInferenceWithHandle(g_short_gate_onnx_handle, g_short_gate_output_tensor, features, outputs, skip_reason);
 }
 
 bool PassDirectionFilters(
@@ -3676,7 +3845,94 @@ bool PassDirectionFilters(
    return true;
 }
 
-int DecideShadowSignal(const float &outputs[], string &decision_reason)
+bool EvaluateSpecialistShortGate(
+   const double &features[],
+   bool &gate_passed,
+   string &gate_reason,
+   string &skip_reason
+)
+{
+   gate_passed = true;
+   gate_reason = "SHORT_GATE_INACTIVE";
+   skip_reason = "";
+   ResetCurrentAuxGateTelemetry();
+
+   if(!g_effective_specialist_short_gate_enabled)
+   {
+      g_current_aux_gate_passed = true;
+      g_current_aux_gate_reason = gate_reason;
+      return true;
+   }
+
+   g_current_aux_gate_active = true;
+   if(g_short_gate_onnx_handle == INVALID_HANDLE)
+   {
+      skip_reason = "SHORT_GATE_MODEL_NOT_READY";
+      g_current_aux_gate_reason = "SHORT_GATE_RUNTIME_FAIL";
+      return false;
+   }
+
+   float aux_outputs[];
+   string aux_skip_reason = "";
+   if(!RunShortGateInference(features, aux_outputs, aux_skip_reason))
+   {
+      skip_reason = "SHORT_GATE_" + aux_skip_reason;
+      g_current_aux_gate_reason = "SHORT_GATE_RUNTIME_FAIL";
+      return false;
+   }
+
+   if(ArraySize(aux_outputs) < OP_OUTPUT_COUNT)
+   {
+      skip_reason = "SHORT_GATE_OUTPUT_SIZE_INVALID";
+      g_current_aux_gate_reason = "SHORT_GATE_RUNTIME_FAIL";
+      return false;
+   }
+
+   const double aux_short = (double)aux_outputs[0];
+   const double aux_flat = (double)aux_outputs[1];
+   const double aux_long = (double)aux_outputs[2];
+   const double aux_margin = aux_short - MathMax(aux_flat, aux_long);
+
+   g_current_aux_p_short = aux_short;
+   g_current_aux_p_flat = aux_flat;
+   g_current_aux_p_long = aux_long;
+
+   bool any_condition_configured = false;
+   bool prob_ok = true;
+   bool margin_ok = true;
+   if(g_effective_specialist_short_gate_min_aux_short_probability > 0.0)
+   {
+      any_condition_configured = true;
+      prob_ok = (aux_short >= g_effective_specialist_short_gate_min_aux_short_probability);
+   }
+   if(IsUsableValue(g_effective_specialist_short_gate_min_aux_short_margin))
+   {
+      any_condition_configured = true;
+      margin_ok = (aux_margin >= g_effective_specialist_short_gate_min_aux_short_margin);
+   }
+
+   gate_passed = (!any_condition_configured || (prob_ok && margin_ok));
+   if(gate_passed)
+      gate_reason = "SHORT_GATE_OK";
+   else if(!prob_ok && !margin_ok)
+      gate_reason = "SHORT_GATE_FAIL_AUX_SHORT_AND_MARGIN";
+   else if(!prob_ok)
+      gate_reason = "SHORT_GATE_FAIL_AUX_SHORT";
+   else
+      gate_reason = "SHORT_GATE_FAIL_AUX_MARGIN";
+
+   g_current_aux_gate_passed = gate_passed;
+   g_current_aux_gate_reason = gate_reason;
+   return true;
+}
+
+int DecideShadowSignal(
+   const float &outputs[],
+   const bool short_gate_evaluated,
+   const bool short_gate_passed,
+   const string short_gate_reason,
+   string &decision_reason
+)
 {
    if(ArraySize(outputs) < OP_OUTPUT_COUNT)
    {
@@ -3701,7 +3957,12 @@ int DecideShadowSignal(const float &outputs[], string &decision_reason)
    {
       if(PassDirectionFilters(p_short, p_flat, p_long, -1, decision_reason))
       {
-         decision_reason = "SHORT_FILTERS_OK";
+         if(short_gate_evaluated && !short_gate_passed)
+         {
+            decision_reason = short_gate_reason;
+            return 0;
+         }
+         decision_reason = short_gate_evaluated ? "SHORT_FILTERS_OK_GATE_OK" : "SHORT_FILTERS_OK";
          return -1;
       }
       return 0;
@@ -3726,7 +3987,12 @@ int DecideShadowSignal(const float &outputs[], string &decision_reason)
       }
       if(p_short > p_long && PassDirectionFilters(p_short, p_flat, p_long, -1, decision_reason))
       {
-         decision_reason = "DUAL_SIGNAL_SHORT_WINS";
+         if(short_gate_evaluated && !short_gate_passed)
+         {
+            decision_reason = short_gate_reason;
+            return 0;
+         }
+         decision_reason = short_gate_evaluated ? "DUAL_SIGNAL_SHORT_WINS_GATE_OK" : "DUAL_SIGNAL_SHORT_WINS";
          return -1;
       }
 
@@ -3767,20 +4033,61 @@ bool CheckRuntimeReady(string &skip_reason)
    return true;
 }
 
-bool DumpModelIoSummary()
+bool DumpModelIoSummaryForHandle(const long handle, const string model_label)
 {
-   if(!InpDumpModelIo || g_onnx_handle == INVALID_HANDLE)
+   if(!InpDumpModelIo || handle == INVALID_HANDLE)
       return true;
 
-   const long input_count = OnnxGetInputCount(g_onnx_handle);
-   const long output_count = OnnxGetOutputCount(g_onnx_handle);
-   Log(StringFormat("ONNX io counts inputs=%d outputs=%d", (int)input_count, (int)output_count));
+   const long input_count = OnnxGetInputCount(handle);
+   const long output_count = OnnxGetOutputCount(handle);
+   Log(StringFormat("ONNX %s io counts inputs=%d outputs=%d", model_label, (int)input_count, (int)output_count));
 
    if(input_count > 0)
-      Log(StringFormat("ONNX input[0] name=%s", OnnxGetInputName(g_onnx_handle, 0)));
+      Log(StringFormat("ONNX %s input[0] name=%s", model_label, OnnxGetInputName(handle, 0)));
    if(output_count > 0)
-      Log(StringFormat("ONNX output[0] name=%s", OnnxGetOutputName(g_onnx_handle, 0)));
+      Log(StringFormat("ONNX %s output[0] name=%s", model_label, OnnxGetOutputName(handle, 0)));
 
+   return true;
+}
+
+bool LoadConfiguredOnnxHandle(
+   const string model_path,
+   const bool use_common_files,
+   long &handle,
+   float &buffer[],
+   const string model_label
+)
+{
+   uint create_flags = 0;
+   if(InpOnnxUseCommonFiles)
+      create_flags |= ONNX_COMMON_FOLDER;
+   if(use_common_files)
+      create_flags |= ONNX_COMMON_FOLDER;
+
+   ResetLastError();
+   handle = OnnxCreate(model_path, create_flags);
+   if(handle == INVALID_HANDLE)
+   {
+      Log(StringFormat("OnnxCreate failed err=%d label=%s path=%s", GetLastError(), model_label, model_path));
+      return false;
+   }
+
+   ResetLastError();
+   if(!OnnxSetInputShape(handle, 0, g_input_shape))
+   {
+      Log(StringFormat("OnnxSetInputShape failed err=%d label=%s", GetLastError(), model_label));
+      OnnxRelease(handle);
+      handle = INVALID_HANDLE;
+      return false;
+   }
+
+   ResetLastError();
+   if(!OnnxSetOutputShape(handle, 0, g_output_shape))
+      Log(StringFormat("OnnxSetOutputShape warning err=%d label=%s; continuing with smoke validation", GetLastError(), model_label));
+
+   ArrayResize(buffer, OP_OUTPUT_COUNT);
+   ArrayInitialize(buffer, 0.0);
+   DumpModelIoSummaryForHandle(handle, model_label);
    return true;
 }
 
@@ -3794,49 +4101,51 @@ bool LoadShadowModel()
    g_output_shape[0] = 1;
    g_output_shape[1] = OP_OUTPUT_COUNT;
 
-   uint create_flags = 0;
-   if(InpOnnxUseCommonFiles)
-      create_flags |= ONNX_COMMON_FOLDER;
-   if(g_effective_onnx_use_common_files)
-      create_flags |= ONNX_COMMON_FOLDER;
-
    g_onnx_run_flags = 0;
    if(InpUseCpuOnly)
       g_onnx_run_flags |= ONNX_USE_CPU_ONLY;
 
-   ResetLastError();
-   g_onnx_handle = OnnxCreate(g_effective_onnx_model_path, create_flags);
-   if(g_onnx_handle == INVALID_HANDLE)
-   {
-      Log(StringFormat("OnnxCreate failed err=%d path=%s", GetLastError(), g_effective_onnx_model_path));
-      return false;
-   }
-
-   ResetLastError();
-   if(!OnnxSetInputShape(g_onnx_handle, 0, g_input_shape))
-   {
-      Log(StringFormat("OnnxSetInputShape failed err=%d", GetLastError()));
-      OnnxRelease(g_onnx_handle);
-      g_onnx_handle = INVALID_HANDLE;
-      return false;
-   }
-
-   ResetLastError();
-   if(!OnnxSetOutputShape(g_onnx_handle, 0, g_output_shape))
-      Log(StringFormat("OnnxSetOutputShape warning err=%d; continuing with smoke validation", GetLastError()));
-
    ArrayResize(g_input_tensor, g_effective_feature_count);
-   ArrayResize(g_output_tensor, OP_OUTPUT_COUNT);
    ArrayInitialize(g_input_tensor, 0.0);
-   ArrayInitialize(g_output_tensor, 0.0);
-
-   DumpModelIoSummary();
+   if(!LoadConfiguredOnnxHandle(
+      g_effective_onnx_model_path,
+      g_effective_onnx_use_common_files,
+      g_onnx_handle,
+      g_output_tensor,
+      "primary"
+   ))
+      return false;
+   if(g_effective_specialist_short_gate_enabled)
+   {
+      if(g_effective_short_gate_onnx_model_path == "")
+      {
+         Log("short gate enabled but short_gate_onnx_model_path is empty");
+         ReleaseShadowModel();
+         return false;
+      }
+      if(!LoadConfiguredOnnxHandle(
+         g_effective_short_gate_onnx_model_path,
+         g_effective_short_gate_onnx_use_common_files,
+         g_short_gate_onnx_handle,
+         g_short_gate_output_tensor,
+         "short_gate"
+      ))
+      {
+         ReleaseShadowModel();
+         return false;
+      }
+   }
    g_shadow_ready = true;
    return true;
 }
 
 void ReleaseShadowModel()
 {
+   if(g_short_gate_onnx_handle != INVALID_HANDLE)
+   {
+      OnnxRelease(g_short_gate_onnx_handle);
+      g_short_gate_onnx_handle = INVALID_HANDLE;
+   }
    if(g_onnx_handle != INVALID_HANDLE)
    {
       OnnxRelease(g_onnx_handle);
@@ -4659,6 +4968,7 @@ bool ExecuteTradeDecision(const int decision, const datetime bar_time_server, st
 bool RunShadowCycle(const datetime bar_time_server, const string cycle_tag)
 {
    ResetExternalAlignmentTelemetry();
+   ResetCurrentAuxGateTelemetry();
    string feature_mode = FeatureModeToString(InpFeatureMode);
    string skip_reason = "";
    string decision_reason = "SKIPPED";
@@ -4729,7 +5039,27 @@ bool RunShadowCycle(const datetime bar_time_server, const string cycle_tag)
    p_flat = (double)outputs[1];
    p_long = (double)outputs[2];
 
-   decision = DecideShadowSignal(outputs, decision_reason);
+   const bool short_candidate = (p_short >= g_effective_short_threshold);
+   const bool long_candidate = (p_long >= g_effective_long_threshold);
+   const bool short_gate_relevant = (short_candidate && (!long_candidate || p_short > p_long));
+   bool short_gate_evaluated = false;
+   bool short_gate_passed = true;
+   string short_gate_reason = "SHORT_GATE_INACTIVE";
+   if(g_effective_specialist_short_gate_enabled && short_gate_relevant)
+   {
+      short_gate_evaluated = true;
+      if(!EvaluateSpecialistShortGate(features, short_gate_passed, short_gate_reason, skip_reason))
+      {
+         decision_reason = "SHORT_GATE_RUNTIME_FAIL";
+         RecordGovernanceObservation(skip_reason, false, p_short, p_flat, p_long, decision, planned_risk_context, planned_risk_pct_multiplier);
+         AppendShadowLog(bar_time_server, feature_mode, feature_ready_count, false, skip_reason, feature_checksum, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, "", 0.0);
+         AppendGovernanceLog(bar_time_server, cycle_tag, false, skip_reason, DecisionToString(decision), decision_reason, "", p_short, p_flat, p_long, false);
+         Log(StringFormat("%s short gate failed: %s", cycle_tag, skip_reason));
+         return false;
+      }
+   }
+
+   decision = DecideShadowSignal(outputs, short_gate_evaluated, short_gate_passed, short_gate_reason, decision_reason);
    row_ready = true;
    if(decision != 0)
       planned_risk_pct_multiplier = ResolveDynamicRiskPctMultiplier(decision, bar_time_server, planned_risk_context);

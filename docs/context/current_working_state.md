@@ -9,14 +9,17 @@
 1. `AGENTS.md`
 2. `docs/context/stage_reporting_standard.md`
 3. `docs/context/regular_experiment_roadmap_20260409.md`
-4. `stages/23_state_conditioned_exit/00_spec/stage_brief.md`
-5. `stages/23_state_conditioned_exit/03_reviews/review_index.md`
-6. `stages/23_state_conditioned_exit/04_selected/selection_status.md`
-7. `stages/22_point_exit_management/04_selected/selection_status.md`
-8. `foundation/reports/governance_selected_runs_standard_20260409.md`
+4. `stages/24_gated_specialist_overlay/00_spec/stage_brief.md`
+5. `stages/24_gated_specialist_overlay/03_reviews/review_index.md`
+6. `stages/24_gated_specialist_overlay/04_selected/selection_status.md`
+7. `stages/23_state_conditioned_exit/04_selected/selection_status.md`
+8. `stages/22_point_exit_management/04_selected/selection_status.md`
+9. `foundation/reports/governance_selected_runs_standard_20260409.md`
 
 ## Current Decisions
 
+- Stage 24 regular incumbent: `24A_23a_base_gate_ref_0001`
+- Stage 24 best internal gate arm: `24B_23a_17csg040_gate_0001`
 - Stage 23 regular incumbent: `23A_22q_base_stateexit_ref_0001`
 - Stage 23 regular shadow challenger: `23C_22q_margin004_h2_risk2_0001`
 - Stage 22 regular incumbent: `22Q_05dp_base_risk2_dirsplit_postcash_0001`
@@ -32,10 +35,14 @@
 - Stage 22 was re-read under `risk_pct` execution, which changed the operating judgment from the earlier fixed-lot scouting read.
 - Stage 23 opened the first regular `state-conditioned exit` wave on top of `22Q`.
 - The first state-exit wave kept the inherited baseline (`23A`) and promoted `23C` to shadow challenger status only.
+- Stage 24 opened the `17C short specialist as gate` retry and kept the inherited baseline (`24A`); the gate arms improved some non-OOS reads but materially hurt the regular OOS window.
 - Selected-run governance reporting now has a richer standard report instead of the sparse legacy summary.
 
 ## Current Follow-Up Bias
 
+- keep `24A` as the carry-forward regular baseline; the gated specialist line is not promotion-ready
+- treat `24B` as the best internal gate arm, but read it as a closed diagnostic result rather than a live shadow promotion candidate
+- move the roadmap forward to Stage 25 rather than widening the Stage 24 gate sweep immediately
 - Keep `23A` as the carry-forward regular baseline.
 - Keep `23C` as the first serious state-conditioned exit challenger.
 - Treat `23D` as a redundancy result and `23B` as a closed diagnostic arm.

@@ -62,6 +62,15 @@ def find_artifact_id_by_role(bundle: ExperimentBundle, role: str) -> str:
     return matches[0]
 
 
+def find_optional_artifact_id_by_role(bundle: ExperimentBundle, role: str) -> str | None:
+    matches = [artifact.artifact_id for artifact in bundle.artifacts if artifact.role == role]
+    if not matches:
+        return None
+    if len(matches) > 1:
+        raise ValueError(f"bundle has multiple artifacts for role '{role}': {matches}")
+    return matches[0]
+
+
 def get_artifact(bundle: ExperimentBundle, artifact_id: str):
     for artifact in bundle.artifacts:
         if artifact.artifact_id == artifact_id:
@@ -111,6 +120,8 @@ def build_runtime_config_lines(
     onnx_relative_path: str,
     feature_schema_relative_path: str,
     feature_names: list[str],
+    short_gate_onnx_relative_path: str | None = None,
+    short_gate_source_label: str | None = None,
 ) -> list[str]:
     lines = [
         "# Project Obsidian Prime MT5 runtime config",
@@ -139,6 +150,11 @@ def build_runtime_config_lines(
         f"max_concurrent_positions={bundle.runtime_snapshot.max_concurrent_positions}",
         f"cost_behavior={bundle.runtime_snapshot.cost_behavior}",
     ]
+    if short_gate_onnx_relative_path is not None:
+        lines.append(f"short_gate_onnx_model_path={short_gate_onnx_relative_path}")
+        lines.append("short_gate_onnx_use_common_files=true")
+    if short_gate_source_label:
+        lines.append(f"short_gate_source_label={short_gate_source_label}")
     if bundle.runtime_snapshot.risk_pct is not None:
         lines.append(f"risk_pct={bundle.runtime_snapshot.risk_pct}")
     if bundle.runtime_snapshot.capital_base is not None:
@@ -168,6 +184,8 @@ def build_runtime_config_lines(
     if bundle.runtime_snapshot.stop_high_atr_mult is not None:
         lines.append(f"stop_high_atr_mult={bundle.runtime_snapshot.stop_high_atr_mult}")
     for key, value in sorted(bundle.runtime_snapshot.extra.items()):
+        if key == "short_gate_source_label":
+            continue
         if isinstance(value, bool):
             lines.append(f"{key}={'true' if value else 'false'}")
         elif isinstance(value, (int, float, str)):
@@ -190,13 +208,22 @@ def main() -> int:
 
     onnx_artifact = get_artifact(bundle, find_artifact_id_by_role(bundle, "onnx_model"))
     feature_schema_artifact = get_artifact(bundle, bundle.feature_schema.feature_schema_artifact_id)
+    short_gate_artifact_id = find_optional_artifact_id_by_role(bundle, "short_gate_onnx_model")
+    short_gate_artifact = get_artifact(bundle, short_gate_artifact_id) if short_gate_artifact_id is not None else None
 
     onnx_source_path = resolve_bundle_artifact_path(bundle_path, onnx_artifact.path)
     feature_schema_source_path = resolve_bundle_artifact_path(bundle_path, feature_schema_artifact.path)
+    short_gate_source_path = (
+        resolve_bundle_artifact_path(bundle_path, short_gate_artifact.path)
+        if short_gate_artifact is not None
+        else None
+    )
     if not onnx_source_path.exists():
         raise FileNotFoundError(f"missing ONNX artifact source: {onnx_source_path}")
     if not feature_schema_source_path.exists():
         raise FileNotFoundError(f"missing feature schema artifact source: {feature_schema_source_path}")
+    if short_gate_source_path is not None and not short_gate_source_path.exists():
+        raise FileNotFoundError(f"missing short gate ONNX artifact source: {short_gate_source_path}")
 
     feature_schema_payload = json.loads(feature_schema_source_path.read_text(encoding="utf-8-sig"))
     feature_names = feature_schema_payload.get("feature_names")
@@ -210,11 +237,14 @@ def main() -> int:
 
     onnx_target_path = runtime_dir / "model.onnx"
     feature_schema_target_path = runtime_dir / "feature_schema.json"
+    short_gate_target_path = runtime_dir / "short_gate_aux.onnx"
     runtime_config_path = runtime_dir / "mt5_runtime_config.txt"
     summary_path = runtime_dir / "mt5_runtime_compile_summary.json"
 
     shutil.copy2(onnx_source_path, onnx_target_path)
     shutil.copy2(feature_schema_source_path, feature_schema_target_path)
+    if short_gate_source_path is not None:
+        shutil.copy2(short_gate_source_path, short_gate_target_path)
 
     if args.copy_bundle:
         shutil.copy2(bundle_path, runtime_dir / "experiment_bundle.json")
@@ -226,6 +256,12 @@ def main() -> int:
         onnx_relative_path=(common_relative_root / "model.onnx").as_posix().replace("/", "\\"),
         feature_schema_relative_path=(common_relative_root / "feature_schema.json").as_posix().replace("/", "\\"),
         feature_names=feature_names,
+        short_gate_onnx_relative_path=(
+            (common_relative_root / "short_gate_aux.onnx").as_posix().replace("/", "\\")
+            if short_gate_source_path is not None
+            else None
+        ),
+        short_gate_source_label=bundle.runtime_snapshot.extra.get("short_gate_source_label"),
     )
     write_text(runtime_config_path, "\n".join(runtime_config_lines) + "\n")
 
@@ -238,6 +274,7 @@ def main() -> int:
         "runtime_config_path": str(runtime_config_path.as_posix()),
         "onnx_target_path": str(onnx_target_path.as_posix()),
         "feature_schema_target_path": str(feature_schema_target_path.as_posix()),
+        "short_gate_target_path": str(short_gate_target_path.as_posix()) if short_gate_source_path is not None else None,
         "logic_family": detect_logic_family(bundle),
         "feature_count": bundle.feature_schema.feature_count,
         "bundle_integrity_hash": bundle.compatibility.bundle_integrity_hash,
