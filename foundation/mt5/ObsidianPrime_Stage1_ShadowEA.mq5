@@ -116,6 +116,11 @@ double   g_effective_monday_risk_pct_mult = 1.0;
 double   g_effective_ny_postcash_risk_pct_mult = 1.0;
 double   g_effective_monday_long_risk_pct_mult = 1.0;
 double   g_effective_monday_short_risk_pct_mult = 1.0;
+double   g_effective_governance_signal_taper_max_argmax_share = 0.0;
+double   g_effective_governance_signal_taper_min_entropy = 0.0;
+double   g_effective_governance_signal_taper_mult = 1.0;
+double   g_effective_governance_external_taper_max_skip_rate = 0.0;
+double   g_effective_governance_external_taper_mult = 1.0;
 int      g_effective_ny_postcash_hold_cap_bars = 0;
 int      g_effective_long_hold_cap_bars = 0;
 int      g_effective_short_hold_cap_bars = 0;
@@ -445,6 +450,57 @@ double ResolveDynamicRiskPctMultiplier(const int decision, const datetime bar_ti
    {
       multiplier *= g_effective_ny_postcash_risk_pct_mult;
       AppendRiskContextTag(tags, "NY_POSTCASH");
+   }
+
+   if(InpEnableGovernance && InpGovernanceWindowBars > 0 && g_governance_window_samples >= InpGovernanceMinSamples)
+   {
+      string governance_tags = "";
+      double governance_multiplier = 1.0;
+
+      const bool signal_taper_enabled =
+         g_effective_governance_signal_taper_mult > 0.0 &&
+         MathAbs(g_effective_governance_signal_taper_mult - 1.0) > 0.0000001 &&
+         (
+            g_effective_governance_signal_taper_max_argmax_share > 0.0 ||
+            g_effective_governance_signal_taper_min_entropy > 0.0
+         );
+      if(signal_taper_enabled)
+      {
+         bool signal_breach = false;
+         if(g_effective_governance_signal_taper_max_argmax_share > 0.0 &&
+            g_governance_inference_samples > 0 &&
+            g_governance_max_argmax_class_share > g_effective_governance_signal_taper_max_argmax_share)
+         {
+            signal_breach = true;
+         }
+         if(g_effective_governance_signal_taper_min_entropy > 0.0 &&
+            IsUsableValue(g_governance_avg_signal_entropy) &&
+            g_governance_avg_signal_entropy < g_effective_governance_signal_taper_min_entropy)
+         {
+            signal_breach = true;
+         }
+         if(signal_breach)
+         {
+            governance_multiplier *= g_effective_governance_signal_taper_mult;
+            AppendRiskContextTag(governance_tags, "GOV_SIGNAL");
+         }
+      }
+
+      if(g_effective_governance_external_taper_mult > 0.0 &&
+         MathAbs(g_effective_governance_external_taper_mult - 1.0) > 0.0000001 &&
+         g_effective_governance_external_taper_max_skip_rate > 0.0 &&
+         g_governance_external_skip_rate > g_effective_governance_external_taper_max_skip_rate)
+      {
+         governance_multiplier *= g_effective_governance_external_taper_mult;
+         AppendRiskContextTag(governance_tags, "GOV_EXTERNAL");
+      }
+
+      if(governance_multiplier > 0.0 && MathAbs(governance_multiplier - 1.0) > 0.0000001)
+      {
+         multiplier *= governance_multiplier;
+         if(StringLen(governance_tags) > 0)
+            AppendRiskContextTag(tags, governance_tags);
+      }
    }
 
    if(StringLen(tags) > 0)
@@ -1227,6 +1283,11 @@ void ResetEffectiveRuntimeConfig()
    g_effective_ny_postcash_risk_pct_mult = 1.0;
    g_effective_monday_long_risk_pct_mult = 1.0;
    g_effective_monday_short_risk_pct_mult = 1.0;
+   g_effective_governance_signal_taper_max_argmax_share = 0.0;
+   g_effective_governance_signal_taper_min_entropy = 0.0;
+   g_effective_governance_signal_taper_mult = 1.0;
+   g_effective_governance_external_taper_max_skip_rate = 0.0;
+   g_effective_governance_external_taper_mult = 1.0;
    g_effective_ny_postcash_hold_cap_bars = 0;
    g_effective_long_hold_cap_bars = 0;
    g_effective_short_hold_cap_bars = 0;
@@ -1458,6 +1519,31 @@ bool ApplyRuntimeConfigKeyValue(const string key, const string value)
    if(key == "ny_postcash_risk_pct_mult")
    {
       g_effective_ny_postcash_risk_pct_mult = StringToDouble(value);
+      return true;
+   }
+   if(key == "governance_signal_taper_max_argmax_share")
+   {
+      g_effective_governance_signal_taper_max_argmax_share = StringToDouble(value);
+      return true;
+   }
+   if(key == "governance_signal_taper_min_entropy")
+   {
+      g_effective_governance_signal_taper_min_entropy = StringToDouble(value);
+      return true;
+   }
+   if(key == "governance_signal_taper_mult")
+   {
+      g_effective_governance_signal_taper_mult = StringToDouble(value);
+      return true;
+   }
+   if(key == "governance_external_taper_max_skip_rate")
+   {
+      g_effective_governance_external_taper_max_skip_rate = StringToDouble(value);
+      return true;
+   }
+   if(key == "governance_external_taper_mult")
+   {
+      g_effective_governance_external_taper_mult = StringToDouble(value);
       return true;
    }
    if(key == "ny_postcash_hold_cap_bars")
@@ -1783,10 +1869,22 @@ bool LoadRuntimeConfig()
             return false;
          }
       }
+      if((g_effective_governance_signal_taper_max_argmax_share < 0.0 || g_effective_governance_signal_taper_max_argmax_share > 1.0) ||
+         (g_effective_governance_signal_taper_min_entropy < 0.0 || g_effective_governance_signal_taper_min_entropy > 1.0) ||
+         (g_effective_governance_external_taper_max_skip_rate < 0.0 || g_effective_governance_external_taper_max_skip_rate > 1.0))
+      {
+         Log("runtime config has governance taper thresholds outside [0,1]");
+         return false;
+      }
+      if(g_effective_governance_signal_taper_mult <= 0.0 || g_effective_governance_external_taper_mult <= 0.0)
+      {
+         Log("runtime config has invalid governance taper multiplier");
+         return false;
+      }
    }
    g_runtime_config_loaded = true;
    Log(StringFormat(
-      "runtime config loaded experiment=%s logic=%s onnx=%s short_gate_onnx=%s short_gate_enabled=%s short_gate_prob=%.6f short_gate_margin=%.6f feature_count=%d sizing_mode=%s fixed_lot=%.4f risk_pct=%.4f capital_base=%s monday_risk_mult=%.4f monday_long_mult=%.4f monday_short_mult=%.4f ny_postcash_risk_mult=%.4f ny_postcash_hold_cap=%d long_hold_cap=%d short_hold_cap=%d postcash_long_hold_cap=%d postcash_short_hold_cap=%d taper_start=%d taper_mid=%d taper_late=%d taper_mults=%.4f/%.4f/%.4f stop_model=%s stop_execution_mode=%s stop_policy=%s stop_atr_period=%d stop_atr_mult=%.4f long_mult=%.4f short_mult=%.4f low_thr=%.4f high_thr=%.4f low_mult=%.4f mid_mult=%.4f high_mult=%.4f threshold_enabled=%s short=%.6f long=%.6f margin_enabled=%s margin=%.6f diff_enabled=%s diff=%.6f time_exit=%s hold=%d flat_exit=%s flat_min=%.6f flat_min_hold=%d",
+      "runtime config loaded experiment=%s logic=%s onnx=%s short_gate_onnx=%s short_gate_enabled=%s short_gate_prob=%.6f short_gate_margin=%.6f feature_count=%d sizing_mode=%s fixed_lot=%.4f risk_pct=%.4f capital_base=%s monday_risk_mult=%.4f monday_long_mult=%.4f monday_short_mult=%.4f ny_postcash_risk_mult=%.4f gov_signal_argmax=%.4f gov_signal_entropy=%.4f gov_signal_mult=%.4f gov_external_skip=%.4f gov_external_mult=%.4f ny_postcash_hold_cap=%d long_hold_cap=%d short_hold_cap=%d postcash_long_hold_cap=%d postcash_short_hold_cap=%d taper_start=%d taper_mid=%d taper_late=%d taper_mults=%.4f/%.4f/%.4f stop_model=%s stop_execution_mode=%s stop_policy=%s stop_atr_period=%d stop_atr_mult=%.4f long_mult=%.4f short_mult=%.4f low_thr=%.4f high_thr=%.4f low_mult=%.4f mid_mult=%.4f high_mult=%.4f threshold_enabled=%s short=%.6f long=%.6f margin_enabled=%s margin=%.6f diff_enabled=%s diff=%.6f time_exit=%s hold=%d flat_exit=%s flat_min=%.6f flat_min_hold=%d",
       g_effective_experiment_id,
       g_effective_logic_family,
       g_effective_onnx_model_path,
@@ -1803,6 +1901,11 @@ bool LoadRuntimeConfig()
       g_effective_monday_long_risk_pct_mult,
       g_effective_monday_short_risk_pct_mult,
       g_effective_ny_postcash_risk_pct_mult,
+      g_effective_governance_signal_taper_max_argmax_share,
+      g_effective_governance_signal_taper_min_entropy,
+      g_effective_governance_signal_taper_mult,
+      g_effective_governance_external_taper_max_skip_rate,
+      g_effective_governance_external_taper_mult,
       g_effective_ny_postcash_hold_cap_bars,
       g_effective_long_hold_cap_bars,
       g_effective_short_hold_cap_bars,
