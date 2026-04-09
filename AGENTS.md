@@ -63,6 +63,10 @@ This workspace is the FPMarkets `US100` M5 data, feature, and modeling pipeline 
 - Treat opposite-signal immediate exit and max-hold-bar behavior as logic-specific experiment settings declared in the rule stack, not as global defaults.
 - For optimization experiments, default position sizing to fixed `0.1` lot unless the user explicitly changes it.
 - Prefer broker-native tester cost behavior in real-tick runs. Do not invent extra commission assumptions when the account does not use commission.
+- For stages that change exit behavior, sizing, or execution semantics, keep two scoreboards from the first serious review onward:
+  - `structural_scout`: the frozen scouting read, usually fixed-lot / simpler execution assumptions used to understand rule behavior
+  - `regular_risk_execution`: the intended operating read, using the live-like risk sizing and execution stack
+- Do not promote a new operating incumbent from `structural_scout` alone. Treat it as hypothesis-shaping evidence unless a matching `regular_risk_execution` read also exists.
 
 ## Experiment Bundle Defaults
 
@@ -212,6 +216,8 @@ This workspace is the FPMarkets `US100` M5 data, feature, and modeling pipeline 
   - `runtime_warning_counts`
   - `data_readiness_failures`
   - `broker_constraint_events`
+- When rendering human-facing governance or telemetry summaries, keep the core comparison fields explicit for every run. If a value is unavailable, render an explicit `n/a` note instead of leaving an ambiguous `None`.
+- When a new telemetry field becomes part of selection logic, backfill the current incumbent/reference family before using that field as a promotion gate.
 - In `results.cross_split`, keep `stability` as a dedicated layer rather than mixing it into per-split metrics.
 - Keep `stability` ready to carry at least:
   - validation/test gap metrics
@@ -295,8 +301,22 @@ This workspace is the FPMarkets `US100` M5 data, feature, and modeling pipeline 
 - One run should have one folder with all of its local outputs together.
 - Keep a short stage brief in `00_spec/` so a new thread can recover the stage goal quickly.
 - Keep a short selected-summary note in `04_selected/` so the current best choice is always obvious.
+- Keep a `03_reviews/review_index.md` in active later-stage work so the latest diagnostic chain and current read can be recovered without opening every report.
+- Use a standard `04_selected/selection_status.md` layout for active stages:
+  - `Current Read`
+  - `Promotion Gates`
+  - `Scoreboards`
+  - `Headline`
+  - `Risk`
+  - `Diagnostics`
+  - `Execution`
+  - `Decision`
+  - `Follow-Up Bias`
+  - `Report Refs`
+- When the active branch is materially ahead of `main`, keep `docs/context/current_working_state.md` updated with the latest branch-only references and decisions.
 - When resuming work in a new thread, read in this order:
   - `AGENTS.md`
+  - `docs/context/current_working_state.md` when it exists
   - relevant contract docs in `docs/contracts/`
   - relevant stage `00_spec/`
   - latest `03_reviews/`

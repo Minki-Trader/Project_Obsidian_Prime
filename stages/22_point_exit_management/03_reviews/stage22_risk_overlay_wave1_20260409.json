@@ -1,6 +1,100 @@
 {
-  "generated_at_utc": "2026-04-08T22:49:43.100880+00:00",
-  "runs": {
+  "generated_at_utc": "2026-04-09T10:00:57.577653+00:00",
+  "reviewed_on": "2026-04-09",
+  "structural_scout": {
+    "22A": {
+      "label": "baseline_time_exit",
+      "validation": {
+        "return_pct": 122.57,
+        "profit_factor": 1.5553,
+        "trade_count": 405,
+        "max_dd_pct": 12.603
+      },
+      "test": {
+        "return_pct": 68.574,
+        "profit_factor": 1.4925,
+        "trade_count": 275,
+        "max_dd_pct": 19.394
+      },
+      "test_position_comparison": {
+        "shared_delta_vs_22A": 0.0,
+        "mean_winner_clip_rate": 0.0,
+        "mean_loser_mitigation_rate": 0.0
+      },
+      "test_partial_events": {}
+    },
+    "22O": {
+      "label": "psl45_p10_h3",
+      "validation": {
+        "return_pct": 119.106,
+        "profit_factor": 1.5377,
+        "trade_count": 579,
+        "max_dd_pct": 11.878
+      },
+      "test": {
+        "return_pct": 66.68,
+        "profit_factor": 1.4779,
+        "trade_count": 393,
+        "max_dd_pct": 18.806
+      },
+      "test_position_comparison": {
+        "shared_delta_vs_22A": -9.47,
+        "mean_winner_clip_rate": 0.0846,
+        "mean_loser_mitigation_rate": 0.0156
+      },
+      "test_partial_events": {
+        "event_count": 118,
+        "hold_distribution": {
+          "3": 89,
+          "4": 21,
+          "5": 8
+        },
+        "baseline_class_mix": {
+          "loser": 96,
+          "winner": 22
+        },
+        "partial_close_volumes": {
+          "0.01": 118
+        }
+      }
+    },
+    "22P": {
+      "label": "psl45_p30_h3",
+      "validation": {
+        "return_pct": 112.074,
+        "profit_factor": 1.5022,
+        "trade_count": 579,
+        "max_dd_pct": 11.535
+      },
+      "test": {
+        "return_pct": 62.788,
+        "profit_factor": 1.4476,
+        "trade_count": 393,
+        "max_dd_pct": 17.629
+      },
+      "test_position_comparison": {
+        "shared_delta_vs_22A": -28.93,
+        "mean_winner_clip_rate": 0.254,
+        "mean_loser_mitigation_rate": 0.0464
+      },
+      "test_partial_events": {
+        "event_count": 118,
+        "hold_distribution": {
+          "3": 89,
+          "4": 21,
+          "5": 8
+        },
+        "baseline_class_mix": {
+          "loser": 96,
+          "winner": 22
+        },
+        "partial_close_volumes": {
+          "0.03": 118
+        }
+      }
+    }
+  },
+  "regular_risk_execution": {
     "22Q": {
       "label": "risk_baseline_time_exit",
       "hist_2024": {
@@ -26,6 +120,29 @@
         "max_dd_pct": 27.423,
         "worst_week": -117.39,
         "ulcer_index": 13.066
+      },
+      "test_risk": {
+        "ulcer_index": 13.066,
+        "worst_week": -117.39,
+        "consecutive_losses": 9,
+        "min_free_margin": 415.74,
+        "time_under_water": 12859800.0
+      },
+      "test_diagnostics": {
+        "no_trade_rate": 0.8675,
+        "long_count": 139,
+        "short_count": 163,
+        "long_expectancy": 0.307,
+        "short_expectancy": 1.918,
+        "avg_hold": 4.0
+      },
+      "test_execution": {
+        "skip_rate": 0.7661,
+        "external_mismatch_count": 8976,
+        "fill_rate": null,
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "contract_skip_count": 22119
       },
       "test_risk_context": {
         "position_count": 302,
@@ -75,6 +192,29 @@
         "max_dd_pct": 27.125,
         "worst_week": -117.38,
         "ulcer_index": 12.793
+      },
+      "test_risk": {
+        "ulcer_index": 12.793,
+        "worst_week": -117.38,
+        "consecutive_losses": 15,
+        "min_free_margin": 416.07,
+        "time_under_water": 12777900.0
+      },
+      "test_diagnostics": {
+        "no_trade_rate": 0.8675,
+        "long_count": 169,
+        "short_count": 213,
+        "long_expectancy": 0.23,
+        "short_expectancy": 1.496,
+        "avg_hold": 3.86
+      },
+      "test_execution": {
+        "skip_rate": 0.7661,
+        "external_mismatch_count": 8976,
+        "fill_rate": null,
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "contract_skip_count": 22119
       },
       "test_risk_context": {
         "position_count": 302,
@@ -151,6 +291,29 @@
         "worst_week": -113.3,
         "ulcer_index": 13.182
       },
+      "test_risk": {
+        "ulcer_index": 13.182,
+        "worst_week": -113.3,
+        "consecutive_losses": 12,
+        "min_free_margin": 421.7,
+        "time_under_water": 12861300.0
+      },
+      "test_diagnostics": {
+        "no_trade_rate": 0.8675,
+        "long_count": 167,
+        "short_count": 185,
+        "long_expectancy": 0.216,
+        "short_expectancy": 1.573,
+        "avg_hold": 3.96
+      },
+      "test_execution": {
+        "skip_rate": 0.7661,
+        "external_mismatch_count": 8976,
+        "fill_rate": null,
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "contract_skip_count": 22119
+      },
       "test_risk_context": {
         "position_count": 301,
         "avg_initial_risk_amount": 10.833,
@@ -221,6 +384,29 @@
         "worst_week": -117.68,
         "ulcer_index": 12.741
       },
+      "test_risk": {
+        "ulcer_index": 12.741,
+        "worst_week": -117.68,
+        "consecutive_losses": 15,
+        "min_free_margin": 416.66,
+        "time_under_water": 12778500.0
+      },
+      "test_diagnostics": {
+        "no_trade_rate": 0.8675,
+        "long_count": 169,
+        "short_count": 213,
+        "long_expectancy": 0.224,
+        "short_expectancy": 1.5,
+        "avg_hold": 3.86
+      },
+      "test_execution": {
+        "skip_rate": 0.7661,
+        "external_mismatch_count": 8976,
+        "fill_rate": null,
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "contract_skip_count": 22119
+      },
       "test_risk_context": {
         "position_count": 302,
         "avg_initial_risk_amount": 11.037,
@@ -271,5 +457,12 @@
         "mean_loser_mitigation_rate": 0.0144
       }
     }
+  },
+  "current_read": {
+    "structural_scout_incumbent": "22A_05dp_base_hold5_0001",
+    "structural_scout_challenger": "22O_05dp_psl45_p10_h3_0001",
+    "regular_incumbent": "22Q_05dp_base_risk2_dirsplit_postcash_0001",
+    "regular_shadow_challenger": "22R_05dp_psl45_qtr_h3_risk2_0001",
+    "decision": "keep_incumbent"
   }
 }
