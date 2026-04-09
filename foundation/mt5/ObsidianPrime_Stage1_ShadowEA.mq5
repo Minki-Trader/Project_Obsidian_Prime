@@ -117,6 +117,10 @@ double   g_effective_ny_postcash_risk_pct_mult = 1.0;
 double   g_effective_monday_long_risk_pct_mult = 1.0;
 double   g_effective_monday_short_risk_pct_mult = 1.0;
 int      g_effective_ny_postcash_hold_cap_bars = 0;
+int      g_effective_long_hold_cap_bars = 0;
+int      g_effective_short_hold_cap_bars = 0;
+int      g_effective_ny_postcash_long_hold_cap_bars = 0;
+int      g_effective_ny_postcash_short_hold_cap_bars = 0;
 int      g_effective_ny_clock_taper_start_minute = -1;
 int      g_effective_ny_clock_taper_mid_minute = -1;
 int      g_effective_ny_clock_taper_late_minute = -1;
@@ -157,7 +161,11 @@ string   g_effective_logic_family = "";
 string   g_effective_feature_fingerprint = "";
 string   g_effective_filter_rule_types[];
 bool     g_effective_filter_rule_enabled[];
+string   g_effective_filter_rule_context[];
+string   g_effective_filter_rule_direction[];
 double   g_effective_filter_rule_min_margin[];
+double   g_effective_filter_rule_threshold_add[];
+double   g_effective_filter_rule_min_margin_add[];
 double   g_effective_filter_rule_min_probability_diff[];
 double   g_effective_filter_rule_min_aux_short_probability[];
 double   g_effective_filter_rule_min_aux_short_margin[];
@@ -444,12 +452,105 @@ double ResolveDynamicRiskPctMultiplier(const int decision, const datetime bar_ti
    return multiplier;
 }
 
-int ResolveDynamicMaxHoldBars(const datetime bar_time_server, string &hold_context)
+bool ResolveNewYorkContext(const datetime bar_time_server, bool &is_monday, bool &is_postcash)
+{
+   is_monday = false;
+   is_postcash = false;
+   if(bar_time_server <= 0)
+      return false;
+
+   const datetime ny_time = ConvertUtcToNewYork(bar_time_server);
+   MqlDateTime ny_struct;
+   ZeroMemory(ny_struct);
+   if(!TimeToStruct(ny_time, ny_struct))
+      return false;
+
+   is_monday = (ny_struct.day_of_week == 1);
+   const int minutes_of_day = (ny_struct.hour * 60) + ny_struct.min;
+   is_postcash = (minutes_of_day >= (16 * 60));
+   return true;
+}
+
+bool ContextRuleMatches(const string rule_context, const bool is_monday, const bool is_postcash)
+{
+   string normalized_context = rule_context;
+   StringToLower(normalized_context);
+
+   if(normalized_context == "" || normalized_context == "always" || normalized_context == "any")
+      return true;
+   if(normalized_context == "monday")
+      return is_monday;
+   if(normalized_context == "ny_postcash" || normalized_context == "postcash")
+      return is_postcash;
+   if(normalized_context == "monday_or_postcash")
+      return (is_monday || is_postcash);
+   if(normalized_context == "monday_postcash")
+      return (is_monday && is_postcash);
+   return false;
+}
+
+bool DirectionRuleMatches(const string rule_direction, const int decision_direction)
+{
+   string normalized_direction = rule_direction;
+   StringToLower(normalized_direction);
+
+   if(normalized_direction == "" || normalized_direction == "any" || normalized_direction == "both")
+      return true;
+   if(normalized_direction == "long")
+      return (decision_direction > 0);
+   if(normalized_direction == "short")
+      return (decision_direction < 0);
+   return false;
+}
+
+void ResolveContextualEntryAdjustments(
+   const int decision_direction,
+   const datetime bar_time_server,
+   double &threshold_add,
+   double &min_margin_add
+)
+{
+   threshold_add = 0.0;
+   min_margin_add = 0.0;
+
+   bool is_monday = false;
+   bool is_postcash = false;
+   ResolveNewYorkContext(bar_time_server, is_monday, is_postcash);
+
+   const int filter_rule_count = ArraySize(g_effective_filter_rule_types);
+   for(int i = 0; i < filter_rule_count; i++)
+   {
+      if(!g_effective_filter_rule_enabled[i])
+         continue;
+      if(g_effective_filter_rule_types[i] != "contextual_soft_suppressor")
+         continue;
+      if(!DirectionRuleMatches(g_effective_filter_rule_direction[i], decision_direction))
+         continue;
+      if(!ContextRuleMatches(g_effective_filter_rule_context[i], is_monday, is_postcash))
+         continue;
+
+      threshold_add += g_effective_filter_rule_threshold_add[i];
+      min_margin_add += g_effective_filter_rule_min_margin_add[i];
+   }
+}
+
+int ResolveDynamicMaxHoldBars(const datetime bar_time_server, const int direction, string &hold_context)
 {
    hold_context = "BASE";
    int resolved_hold_bars = g_effective_max_hold_bars;
    if(bar_time_server <= 0 || resolved_hold_bars <= 0)
       return resolved_hold_bars;
+
+   if(direction > 0 && g_effective_long_hold_cap_bars > 0 && g_effective_long_hold_cap_bars < resolved_hold_bars)
+   {
+      resolved_hold_bars = g_effective_long_hold_cap_bars;
+      hold_context = "LONG";
+   }
+   else if(direction < 0 && g_effective_short_hold_cap_bars > 0 && g_effective_short_hold_cap_bars < resolved_hold_bars)
+   {
+      resolved_hold_bars = g_effective_short_hold_cap_bars;
+      hold_context = "SHORT";
+   }
 
    const datetime ny_time = ConvertUtcToNewYork(bar_time_server);
    MqlDateTime ny_struct;
@@ -462,6 +563,19 @@ int ResolveDynamicMaxHoldBars(const datetime bar_time_server, string &hold_conte
    {
       resolved_hold_bars = g_effective_ny_postcash_hold_cap_bars;
       hold_context = "NY_POSTCASH";
+   }
+   if(minutes_of_day >= (16 * 60))
+   {
+      if(direction > 0 && g_effective_ny_postcash_long_hold_cap_bars > 0 && g_effective_ny_postcash_long_hold_cap_bars < resolved_hold_bars)
+      {
+         resolved_hold_bars = g_effective_ny_postcash_long_hold_cap_bars;
+         hold_context = "NY_POSTCASH_LONG";
+      }
+      else if(direction < 0 && g_effective_ny_postcash_short_hold_cap_bars > 0 && g_effective_ny_postcash_short_hold_cap_bars < resolved_hold_bars)
+      {
+         resolved_hold_bars = g_effective_ny_postcash_short_hold_cap_bars;
+         hold_context = "NY_POSTCASH_SHORT";
+      }
    }
    return resolved_hold_bars;
 }
@@ -843,7 +957,11 @@ bool EnsureFilterRuleCapacity(const int rule_index)
    const int new_size = rule_index + 1;
    ArrayResize(g_effective_filter_rule_types, new_size);
    ArrayResize(g_effective_filter_rule_enabled, new_size);
+   ArrayResize(g_effective_filter_rule_context, new_size);
+   ArrayResize(g_effective_filter_rule_direction, new_size);
    ArrayResize(g_effective_filter_rule_min_margin, new_size);
+   ArrayResize(g_effective_filter_rule_threshold_add, new_size);
+   ArrayResize(g_effective_filter_rule_min_margin_add, new_size);
    ArrayResize(g_effective_filter_rule_min_probability_diff, new_size);
    ArrayResize(g_effective_filter_rule_min_aux_short_probability, new_size);
    ArrayResize(g_effective_filter_rule_min_aux_short_margin, new_size);
@@ -851,7 +969,11 @@ bool EnsureFilterRuleCapacity(const int rule_index)
    {
       g_effective_filter_rule_types[i] = "";
       g_effective_filter_rule_enabled[i] = true;
+      g_effective_filter_rule_context[i] = "";
+      g_effective_filter_rule_direction[i] = "";
       g_effective_filter_rule_min_margin[i] = 0.0;
+      g_effective_filter_rule_threshold_add[i] = 0.0;
+      g_effective_filter_rule_min_margin_add[i] = 0.0;
       g_effective_filter_rule_min_probability_diff[i] = 0.0;
       g_effective_filter_rule_min_aux_short_probability[i] = 0.0;
       g_effective_filter_rule_min_aux_short_margin[i] = EMPTY_VALUE;
@@ -971,6 +1093,26 @@ bool TryApplyFilterRuleRuntimeKey(const string key, const string value)
       g_effective_filter_rule_min_margin[rule_index] = StringToDouble(value);
       return true;
    }
+   if(suffix == "context")
+   {
+      g_effective_filter_rule_context[rule_index] = value;
+      return true;
+   }
+   if(suffix == "direction")
+   {
+      g_effective_filter_rule_direction[rule_index] = value;
+      return true;
+   }
+   if(suffix == "threshold_add")
+   {
+      g_effective_filter_rule_threshold_add[rule_index] = StringToDouble(value);
+      return true;
+   }
+   if(suffix == "min_margin_add")
+   {
+      g_effective_filter_rule_min_margin_add[rule_index] = StringToDouble(value);
+      return true;
+   }
    if(suffix == "min_probability_diff")
    {
       g_effective_filter_rule_min_probability_diff[rule_index] = StringToDouble(value);
@@ -1086,6 +1228,10 @@ void ResetEffectiveRuntimeConfig()
    g_effective_monday_long_risk_pct_mult = 1.0;
    g_effective_monday_short_risk_pct_mult = 1.0;
    g_effective_ny_postcash_hold_cap_bars = 0;
+   g_effective_long_hold_cap_bars = 0;
+   g_effective_short_hold_cap_bars = 0;
+   g_effective_ny_postcash_long_hold_cap_bars = 0;
+   g_effective_ny_postcash_short_hold_cap_bars = 0;
    g_effective_ny_clock_taper_start_minute = -1;
    g_effective_ny_clock_taper_mid_minute = -1;
    g_effective_ny_clock_taper_late_minute = -1;
@@ -1126,7 +1272,11 @@ void ResetEffectiveRuntimeConfig()
    g_effective_feature_fingerprint = "";
    ArrayResize(g_effective_filter_rule_types, 0);
    ArrayResize(g_effective_filter_rule_enabled, 0);
+   ArrayResize(g_effective_filter_rule_context, 0);
+   ArrayResize(g_effective_filter_rule_direction, 0);
    ArrayResize(g_effective_filter_rule_min_margin, 0);
+   ArrayResize(g_effective_filter_rule_threshold_add, 0);
+   ArrayResize(g_effective_filter_rule_min_margin_add, 0);
    ArrayResize(g_effective_filter_rule_min_probability_diff, 0);
    ArrayResize(g_effective_filter_rule_min_aux_short_probability, 0);
    ArrayResize(g_effective_filter_rule_min_aux_short_margin, 0);
@@ -1313,6 +1463,26 @@ bool ApplyRuntimeConfigKeyValue(const string key, const string value)
    if(key == "ny_postcash_hold_cap_bars")
    {
       g_effective_ny_postcash_hold_cap_bars = (int)StringToInteger(value);
+      return true;
+   }
+   if(key == "long_hold_cap_bars")
+   {
+      g_effective_long_hold_cap_bars = (int)StringToInteger(value);
+      return true;
+   }
+   if(key == "short_hold_cap_bars")
+   {
+      g_effective_short_hold_cap_bars = (int)StringToInteger(value);
+      return true;
+   }
+   if(key == "ny_postcash_long_hold_cap_bars")
+   {
+      g_effective_ny_postcash_long_hold_cap_bars = (int)StringToInteger(value);
+      return true;
+   }
+   if(key == "ny_postcash_short_hold_cap_bars")
+   {
+      g_effective_ny_postcash_short_hold_cap_bars = (int)StringToInteger(value);
       return true;
    }
    if(key == "ny_clock_taper_start_minute")
@@ -1582,6 +1752,16 @@ bool LoadRuntimeConfig()
          Log("runtime config has invalid ny_postcash_hold_cap_bars for risk_pct sizing");
          return false;
       }
+      if(g_effective_long_hold_cap_bars < 0 || g_effective_short_hold_cap_bars < 0)
+      {
+         Log("runtime config has invalid direction hold cap for risk_pct sizing");
+         return false;
+      }
+      if(g_effective_ny_postcash_long_hold_cap_bars < 0 || g_effective_ny_postcash_short_hold_cap_bars < 0)
+      {
+         Log("runtime config has invalid ny_postcash direction hold cap for risk_pct sizing");
+         return false;
+      }
       if(g_effective_ny_clock_taper_start_minute >= 0 ||
          g_effective_ny_clock_taper_mid_minute >= 0 ||
          g_effective_ny_clock_taper_late_minute >= 0)
@@ -1606,7 +1786,7 @@ bool LoadRuntimeConfig()
    }
    g_runtime_config_loaded = true;
    Log(StringFormat(
-      "runtime config loaded experiment=%s logic=%s onnx=%s short_gate_onnx=%s short_gate_enabled=%s short_gate_prob=%.6f short_gate_margin=%.6f feature_count=%d sizing_mode=%s fixed_lot=%.4f risk_pct=%.4f capital_base=%s monday_risk_mult=%.4f monday_long_mult=%.4f monday_short_mult=%.4f ny_postcash_risk_mult=%.4f ny_postcash_hold_cap=%d taper_start=%d taper_mid=%d taper_late=%d taper_mults=%.4f/%.4f/%.4f stop_model=%s stop_execution_mode=%s stop_policy=%s stop_atr_period=%d stop_atr_mult=%.4f long_mult=%.4f short_mult=%.4f low_thr=%.4f high_thr=%.4f low_mult=%.4f mid_mult=%.4f high_mult=%.4f threshold_enabled=%s short=%.6f long=%.6f margin_enabled=%s margin=%.6f diff_enabled=%s diff=%.6f time_exit=%s hold=%d flat_exit=%s flat_min=%.6f flat_min_hold=%d",
+      "runtime config loaded experiment=%s logic=%s onnx=%s short_gate_onnx=%s short_gate_enabled=%s short_gate_prob=%.6f short_gate_margin=%.6f feature_count=%d sizing_mode=%s fixed_lot=%.4f risk_pct=%.4f capital_base=%s monday_risk_mult=%.4f monday_long_mult=%.4f monday_short_mult=%.4f ny_postcash_risk_mult=%.4f ny_postcash_hold_cap=%d long_hold_cap=%d short_hold_cap=%d postcash_long_hold_cap=%d postcash_short_hold_cap=%d taper_start=%d taper_mid=%d taper_late=%d taper_mults=%.4f/%.4f/%.4f stop_model=%s stop_execution_mode=%s stop_policy=%s stop_atr_period=%d stop_atr_mult=%.4f long_mult=%.4f short_mult=%.4f low_thr=%.4f high_thr=%.4f low_mult=%.4f mid_mult=%.4f high_mult=%.4f threshold_enabled=%s short=%.6f long=%.6f margin_enabled=%s margin=%.6f diff_enabled=%s diff=%.6f time_exit=%s hold=%d flat_exit=%s flat_min=%.6f flat_min_hold=%d",
       g_effective_experiment_id,
       g_effective_logic_family,
       g_effective_onnx_model_path,
@@ -1624,6 +1804,10 @@ bool LoadRuntimeConfig()
       g_effective_monday_short_risk_pct_mult,
       g_effective_ny_postcash_risk_pct_mult,
       g_effective_ny_postcash_hold_cap_bars,
+      g_effective_long_hold_cap_bars,
+      g_effective_short_hold_cap_bars,
+      g_effective_ny_postcash_long_hold_cap_bars,
+      g_effective_ny_postcash_short_hold_cap_bars,
       g_effective_ny_clock_taper_start_minute,
       g_effective_ny_clock_taper_mid_minute,
       g_effective_ny_clock_taper_late_minute,
@@ -3804,6 +3988,7 @@ bool PassDirectionFilters(
    const double p_flat,
    const double p_long,
    const int direction,
+   const datetime bar_time_server,
    string &filter_reason
 )
 {
@@ -3824,11 +4009,19 @@ bool PassDirectionFilters(
       opposing_direction = p_long;
    }
 
-   if(g_effective_margin_rule_enabled)
+   double min_margin_add = 0.0;
+   double ignored_threshold_add = 0.0;
+   ResolveContextualEntryAdjustments(direction, bar_time_server, ignored_threshold_add, min_margin_add);
+
+   const bool effective_margin_enabled = (g_effective_margin_rule_enabled || min_margin_add > 0.0);
+   const double effective_min_margin = g_effective_min_margin + min_margin_add + (ignored_threshold_add * 0.0);
+   if(effective_margin_enabled)
    {
-      if((selected - comparator) < g_effective_min_margin)
+      if((selected - comparator) < effective_min_margin)
       {
          filter_reason = (direction > 0) ? "LONG_MARGIN_FAIL" : "SHORT_MARGIN_FAIL";
+         if(min_margin_add > 0.0)
+            filter_reason += "_SOFT_CONTEXT";
          return false;
       }
    }
@@ -3928,6 +4121,7 @@ bool EvaluateSpecialistShortGate(
 
 int DecideShadowSignal(
    const float &outputs[],
+   const datetime bar_time_server,
    const bool short_gate_evaluated,
    const bool short_gate_passed,
    const string short_gate_reason,
@@ -3950,12 +4144,19 @@ int DecideShadowSignal(
       return 0;
    }
 
-   const bool short_candidate = (p_short >= g_effective_short_threshold);
-   const bool long_candidate  = (p_long >= g_effective_long_threshold);
+   double short_threshold_add = 0.0;
+   double short_min_margin_add = 0.0;
+   ResolveContextualEntryAdjustments(-1, bar_time_server, short_threshold_add, short_min_margin_add);
+   double long_threshold_add = 0.0;
+   double long_min_margin_add = 0.0;
+   ResolveContextualEntryAdjustments(1, bar_time_server, long_threshold_add, long_min_margin_add);
+
+   const bool short_candidate = (p_short >= (g_effective_short_threshold + short_threshold_add + (short_min_margin_add * 0.0)));
+   const bool long_candidate  = (p_long >= (g_effective_long_threshold + long_threshold_add + (long_min_margin_add * 0.0)));
 
    if(short_candidate && !long_candidate)
    {
-      if(PassDirectionFilters(p_short, p_flat, p_long, -1, decision_reason))
+      if(PassDirectionFilters(p_short, p_flat, p_long, -1, bar_time_server, decision_reason))
       {
          if(short_gate_evaluated && !short_gate_passed)
          {
@@ -3970,7 +4171,7 @@ int DecideShadowSignal(
 
    if(long_candidate && !short_candidate)
    {
-      if(PassDirectionFilters(p_short, p_flat, p_long, 1, decision_reason))
+      if(PassDirectionFilters(p_short, p_flat, p_long, 1, bar_time_server, decision_reason))
       {
          decision_reason = "LONG_FILTERS_OK";
          return 1;
@@ -3980,12 +4181,12 @@ int DecideShadowSignal(
 
    if(short_candidate && long_candidate)
    {
-      if(p_long > p_short && PassDirectionFilters(p_short, p_flat, p_long, 1, decision_reason))
+      if(p_long > p_short && PassDirectionFilters(p_short, p_flat, p_long, 1, bar_time_server, decision_reason))
       {
          decision_reason = "DUAL_SIGNAL_LONG_WINS";
          return 1;
       }
-      if(p_short > p_long && PassDirectionFilters(p_short, p_flat, p_long, -1, decision_reason))
+      if(p_short > p_long && PassDirectionFilters(p_short, p_flat, p_long, -1, bar_time_server, decision_reason))
       {
          if(short_gate_evaluated && !short_gate_passed)
          {
@@ -4719,7 +4920,8 @@ bool ManageOpenPositionOnTick(string &action_reason)
       return true;
 
    string hold_context = "BASE";
-   const int effective_max_hold_bars = ResolveDynamicMaxHoldBars(current_bar_time_server, hold_context);
+   const int managed_direction = (g_managed_position_type == POSITION_TYPE_BUY) ? 1 : -1;
+   const int effective_max_hold_bars = ResolveDynamicMaxHoldBars(current_bar_time_server, managed_direction, hold_context);
    if(entry_bar_shift < effective_max_hold_bars)
       return true;
 
@@ -5059,7 +5261,7 @@ bool RunShadowCycle(const datetime bar_time_server, const string cycle_tag)
       }
    }
 
-   decision = DecideShadowSignal(outputs, short_gate_evaluated, short_gate_passed, short_gate_reason, decision_reason);
+   decision = DecideShadowSignal(outputs, bar_time_server, short_gate_evaluated, short_gate_passed, short_gate_reason, decision_reason);
    row_ready = true;
    if(decision != 0)
       planned_risk_pct_multiplier = ResolveDynamicRiskPctMultiplier(decision, bar_time_server, planned_risk_context);

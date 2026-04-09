@@ -1,8 +1,8 @@
 # Regular Experiment Roadmap
 
 - updated_on: `2026-04-09`
-- current_operating_reference: `22Q_05dp_base_risk2_dirsplit_postcash_0001`
-- current_shadow_challenger: `22R_05dp_psl45_qtr_h3_risk2_0001`
+- current_operating_reference: `25D_24a_monpost_t050_m030_psh2_0001`
+- current_shadow_challenger: `25C_24a_postshort_t050_m030_0001`
 - roadmap_source: `ranked synthesis of external proposal reviews plus repo-grounded gap analysis`
 
 ## Ordered Roadmap
