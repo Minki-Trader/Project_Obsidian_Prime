@@ -9,17 +9,19 @@
 1. `AGENTS.md`
 2. `docs/context/stage_reporting_standard.md`
 3. `docs/context/regular_experiment_roadmap_20260409.md`
-4. `stages/26_gov_adaptive_overlay/00_spec/stage_brief.md`
-5. `stages/26_gov_adaptive_overlay/03_reviews/review_index.md`
-6. `stages/26_gov_adaptive_overlay/04_selected/selection_status.md`
-7. `stages/25_soft_contextual_control/04_selected/selection_status.md`
-8. `stages/24_gated_specialist_overlay/04_selected/selection_status.md`
-9. `stages/23_state_conditioned_exit/04_selected/selection_status.md`
+4. `stages/27_vol_adaptive_overlay/00_spec/stage_brief.md`
+5. `stages/27_vol_adaptive_overlay/03_reviews/review_index.md`
+6. `stages/27_vol_adaptive_overlay/04_selected/selection_status.md`
+7. `stages/26_gov_adaptive_overlay/04_selected/selection_status.md`
+8. `stages/25_soft_contextual_control/04_selected/selection_status.md`
+9. `stages/24_gated_specialist_overlay/04_selected/selection_status.md`
 10. `foundation/reports/governance_selected_runs_standard_20260409.md`
 
 ## Current Decisions
 
-- Stage 26 regular incumbent: `26A_25d_govref_0001`
+- Stage 27 regular incumbent: `27A_26a_volref_0001`
+- Stage 27 regular shadow challenger: `27D_26a_vl110h085_0001`
+- Stage 26 regular incumbent seed behind Stage 27: `26A_25d_govref_0001`
 - Stage 26 regular shadow challenger: `26C_25d_gext085_0001`
 - Stage 25 regular incumbent seed behind Stage 26: `25D_24a_monpost_t050_m030_psh2_0001`
 - Stage 25 best internal non-promoted arm: `25C_24a_postshort_t050_m030_0001`
@@ -43,17 +45,21 @@
 - Stage 24 opened the `17C short specialist as gate` retry and kept the inherited baseline (`24A`); the gate arms improved some non-OOS reads but materially hurt the regular OOS window.
 - Stage 25 converted the next roadmap item into a soft contextual short cleanup wave and promoted `25D` over the inherited `24A` baseline.
 - Stage 26 turned governance telemetry into non-blocking risk tapers and kept the observe-only baseline (`26A`) while promoting `26C` only to shadow challenger status.
+- Stage 27 reused the EA's ATR14/ATR50 regime ratio as a volatility-aware risk overlay and kept the inherited baseline (`27A`) while promoting `27D` only to shadow challenger status.
 - Selected-run governance reporting now has a richer standard report instead of the sparse legacy summary.
 
 ## Current Follow-Up Bias
 
-- keep `26A` as the carry-forward regular baseline; the governance-led wave did not show a large enough overlay gain to justify immediate promotion
+- keep `27A` as the carry-forward regular baseline; the volatility-adaptive wave improved containment but gave up too much headline return to justify promotion
+- treat `27D` as the best Stage 27 internal arm; it was the least bad two-sided bucket but still cost too much non-OOS and OOS headline return
+- treat `27B` as the clearest high-vol containment read; it reduced DD the most, but the headline sacrifice was too large for the regular lane
+- keep `26A` as the pre-Stage-27 operating seed; the governance-led wave did not show a large enough overlay gain to justify immediate promotion
 - treat `26C` as the best Stage 26 internal arm; the external skip taper produced a small positive read across windows but the edge was too small to count as a true incumbent replacement
 - treat `26B` as an over-strong signal taper; it improved containment but starved too much headline return
 - keep `25D` as the pre-Stage-26 operating seed; it improved the regular OOS headline and cleaned up both weak short pockets
 - treat `25C` as the best non-promoted Stage 25 internal arm; it helped the postcash short pocket but did less overall than `25D`
 - keep `24A` as the inherited pre-Stage-25 reference; the gated specialist line remains closed diagnostic context only
-- move the roadmap forward to Stage 27 rather than widening the Stage 26 governance sweep immediately
+- move the roadmap forward to Stage 28 rather than widening the Stage 27 volatility bucket sweep immediately
 - Keep `23A` as the carry-forward regular baseline.
 - Keep `23C` as the first serious state-conditioned exit challenger.
 - Treat `23D` as a redundancy result and `23B` as a closed diagnostic arm.

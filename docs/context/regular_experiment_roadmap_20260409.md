@@ -1,8 +1,8 @@
 # Regular Experiment Roadmap
 
 - updated_on: `2026-04-09`
-- current_operating_reference: `26A_25d_govref_0001`
-- current_shadow_challenger: `26C_25d_gext085_0001`
+- current_operating_reference: `27A_26a_volref_0001`
+- current_shadow_challenger: `27D_26a_vl110h085_0001`
 - roadmap_source: `ranked synthesis of external proposal reviews plus repo-grounded gap analysis`
 
 ## Ordered Roadmap
