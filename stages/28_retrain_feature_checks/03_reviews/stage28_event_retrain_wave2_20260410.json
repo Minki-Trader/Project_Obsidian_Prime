@@ -1,0 +1,39 @@
+{
+  "reviewed_on": "2026-04-10",
+  "wave": "event_triggered_retrain_wave1",
+  "regular_operating_reference_unchanged": "27A_26a_volref_0001",
+  "lineage_reference": "28B_18e_persist48_ph20_0001",
+  "decision": "keep_fixed_carry_reference",
+  "fixed_carry_reference": "28E_28b_fixedcarry_long14m_0001",
+  "best_shadow_candidate": "28G_28b_negpf_trigger_long14m_0001",
+  "lineage_followup_candidate": null,
+  "scoreboard": {
+    "28E": {
+      "run_name": "28E_28b_fixedcarry_long14m_0001",
+      "return_pct": 58.13400000000001,
+      "profit_factor": 1.4074717880423353,
+      "trade_count": 253,
+      "max_dd_pct": 14.408910640452275,
+      "positive_months": 7,
+      "retrain_month_count": 0
+    },
+    "28F": {
+      "run_name": "28F_28b_2m_monthly_long14m_0001",
+      "return_pct": -22.87,
+      "profit_factor": 0.9546678083956726,
+      "trade_count": 1414,
+      "max_dd_pct": 50.404,
+      "positive_months": 5,
+      "retrain_month_count": 14
+    },
+    "28G": {
+      "run_name": "28G_28b_negpf_trigger_long14m_0001",
+      "return_pct": 18.383999999999997,
+      "profit_factor": 1.0213807717267671,
+      "trade_count": 1439,
+      "max_dd_pct": 40.09125699146306,
+      "positive_months": 6,
+      "retrain_month_count": 7
+    }
+  }
+}

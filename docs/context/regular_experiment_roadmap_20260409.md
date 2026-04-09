@@ -1,9 +1,9 @@
 # Regular Experiment Roadmap
 
-- updated_on: `2026-04-09`
+- updated_on: `2026-04-10`
 - current_operating_reference: `27A_26a_volref_0001`
 - current_shadow_challenger: `27D_26a_vl110h085_0001`
-- lineage_followup_candidate: `28B_18e_persist48_ph20_0001`
+- lineage_followup_candidate: `28E_28b_fixedcarry_long14m_0001`
 - roadmap_source: `ranked synthesis of external proposal reviews plus repo-grounded gap analysis`
 
 ## Ordered Roadmap
@@ -30,7 +30,8 @@
    - test retraining only on drift events, not on calendar cadence
    - revisit feature-fork simplification on the `17E/18E` lineage instead of the older `09C` lineage
    - wave1 feature simplification result: `28B` beat the rebuilt `28A` full-reference arm and reopened the lineage for follow-up
-   - next move inside Stage 28: run the deferred `event-triggered retrain` wave instead of widening the compact subset grid immediately
+   - wave2 event-trigger result: fixed carry `28E` beat both blind monthly retrain `28F` and bounded event-trigger retrain `28G`
+   - current Stage 28 read: keep `28E` only as an internal lineage reference; do not widen the retrain branch without a stronger trigger hypothesis
 
 7. `Diagnostic sidecar` `macro mismatch root-cause` -- `Claude`
    - keep alignment relaxation closed as a promotion path

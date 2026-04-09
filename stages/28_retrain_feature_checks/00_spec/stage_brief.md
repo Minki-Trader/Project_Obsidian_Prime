@@ -1,8 +1,8 @@
 # Stage 28 Retrain Feature Checks
 
 - stage: `28_retrain_feature_checks`
-- updated_on: `2026-04-09`
-- current_wave: `wave1_feature_simplification`
+- updated_on: `2026-04-10`
+- current_wave: `wave2_event_triggered_retrain`
 - roadmap_anchor: `Stage 28 event-triggered retrain and feature simplification checks`
 
 ## Purpose
@@ -22,6 +22,15 @@
   - `28C` sessionless compact fork
   - `28D` external-breadthless compact fork
 
+## Wave 2 Scope
+
+- use `28B_18e_persist48_ph20_0001` as the reopened compact lineage anchor
+- compare three stitched long-window reads on `2025-01-01 <= t < 2026-03-01`:
+  - `28E` fixed carry of the compact lineage
+  - `28F` blind monthly `2M` retrain of the compact lineage
+  - `28G` bounded month-level event-trigger retrain using `prev_month_return < 0 or PF < 1`
+- keep this wave inside the lineage lane only; do not treat it as a direct operating replacement path for `27A`
+
 ## Evaluation Rules
 
 - use the standard fixed chronology:
@@ -32,7 +41,9 @@
 - treat this wave as a `lineage check`, not as a direct promotion stage over `27A`
 - only reopen the `18E` branch for further work if a compact arm beats the rebuilt `28A` full-reference arm without creating a worse cross-split drag profile
 
-## Deferred Wave
+## Current Read
 
-- `event-triggered retrain` stays inside Stage 28 as a later wave
-- do not start the retrain branch until the feature simplification check is closed
+- `28B` was good enough to reopen the lineage, but the retrain add-on was not
+- `28E` fixed carry is now the internal stitched reference for the reopened compact branch
+- `28F` blind monthly retrain repeated the broad Stage 21 failure pattern
+- `28G` event-trigger retrain was less bad than blind monthly retrain, but still clearly worse than `28E`
