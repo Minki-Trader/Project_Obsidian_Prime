@@ -16,6 +16,7 @@
 8. `stages/26_gov_adaptive_overlay/04_selected/selection_status.md`
 9. `stages/25_soft_contextual_control/04_selected/selection_status.md`
 10. `foundation/reports/governance_selected_runs_standard_20260409.md`
+11. `docs/context/workspace_review_20260410.md`
 
 ## Current Decisions
 
@@ -56,6 +57,7 @@
 - Stage 28 reopened the `17E/18E` lineage only as a bounded feature-simplification check and found that the `28B` persistence-only compact fork beat the rebuilt `28A` full-reference arm on both validation and OOS.
 - Stage 28 wave 2 then tested month-level retrain logic on that reopened compact lineage and found that both blind monthly retrain (`28F`) and bounded event-trigger retrain (`28G`) underperformed the fixed-carry compact read (`28E`).
 - Selected-run governance reporting now has a richer standard report instead of the sparse legacy summary.
+- latest repository structure review: `docs/context/workspace_review_20260410.md`
 
 ## Current Follow-Up Bias
 
