@@ -1,7 +1,7 @@
 # Current Working State
 
 - updated_on: `2026-04-10`
-- active_branch: `codex/governance-stage22-ablation`
+- active_branch: `work`
 - main_base_note: `main is behind the active Stage 22 + governance line; use this note before assuming main reflects the latest decision chain`
 
 ## Read This First
