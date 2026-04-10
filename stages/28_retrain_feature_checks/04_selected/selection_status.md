@@ -1,7 +1,7 @@
 ﻿# Selection Status
 
 - stage: `28_retrain_feature_checks`
-- wave: `event_triggered_retrain_wave1`
+- wave: `wave2_event_triggered_retrain`
 - status: `completed`
 - lineage_reference: `28B_18e_persist48_ph20_0001`
 - fixed_carry_reference: `28E_28b_fixedcarry_long14m_0001`

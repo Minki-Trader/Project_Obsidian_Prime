@@ -1,4 +1,4 @@
-﻿# Stage 28 Event-Triggered Retrain Wave 1
+﻿# Stage 28 Event-Triggered Retrain Wave 2
 
 - reviewed_on: `2026-04-10`
 - purpose: `test whether the reopened 28B compact lineage behaves better under bounded month-level retrain triggers than under blind monthly cadence`
