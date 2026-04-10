@@ -19,7 +19,7 @@
 
 ## Current Decisions
 
-- Stage 28 current wave: `event_triggered_retrain_wave1`
+- Stage 28 current wave: `wave2_event_triggered_retrain`
 - Stage 28 lineage full-reference rebuild: `28A_18e_full54_ph20_0001`
 - Stage 28 best lineage compact arm: `28B_18e_persist48_ph20_0001`
 - Stage 28 stitched fixed-carry reference: `28E_28b_fixedcarry_long14m_0001`
@@ -73,7 +73,7 @@
 - keep `25D` as the pre-Stage-26 operating seed; it improved the regular OOS headline and cleaned up both weak short pockets
 - treat `25C` as the best non-promoted Stage 25 internal arm; it helped the postcash short pocket but did less overall than `25D`
 - keep `24A` as the inherited pre-Stage-25 reference; the gated specialist line remains closed diagnostic context only
-- treat Stage 28 event-trigger retrain as completed for wave 1; only reopen it if a stronger trigger hypothesis appears
+- treat Stage 28 event-trigger retrain as completed for wave 2; only reopen it if a stronger trigger hypothesis appears
 - keep `23A` as the carry-forward regular baseline
 - keep `23C` as the first serious state-conditioned exit challenger
 - treat `23D` as a redundancy result and `23B` as a closed diagnostic arm
