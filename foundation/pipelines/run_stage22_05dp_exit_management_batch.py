@@ -29,6 +29,7 @@ class WindowSpec:
     split_name: str
     from_date: str
     to_date: str
+    use_for_point_derivation: bool = True
 
 
 @dataclass(frozen=True)
@@ -61,6 +62,7 @@ WINDOW_SPECS = [
         split_name="oos_2501",
         from_date="2025.10.01",
         to_date="2026.03.01",
+        use_for_point_derivation=False,
     ),
 ]
 
@@ -686,7 +688,8 @@ def main() -> int:
     for window in WINDOW_SPECS:
         runtime_id = f"exp_22a_05dp_base_{window.window_id}_v1"
         _, summary_path = run_window(baseline_bundle, window, runtime_id)
-        baseline_summary_paths.append(summary_path)
+        if window.use_for_point_derivation:
+            baseline_summary_paths.append(summary_path)
         baseline_window_results[window.window_id] = collect_window_result(baseline_spec, window, summary_path)
 
     distribution = build_price_point_distribution(baseline_summary_paths)
