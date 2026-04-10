@@ -15,7 +15,12 @@ catboost_info/
 data/
 
 # Stage run artifacts and tester outputs
-stages/*/02_runs/
+stages/*/02_runs/*
+!stages/*/02_runs/
+!stages/*/02_runs/active/
+!stages/*/02_runs/archived/
+!stages/*/02_runs/active/.gitkeep
+!stages/*/02_runs/archived/.gitkeep
 **/mt5_attempts/
 **/artifacts/
 
