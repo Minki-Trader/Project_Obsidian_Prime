@@ -119,18 +119,30 @@ double   g_effective_monday_short_risk_pct_mult = 1.0;
 double   g_effective_governance_signal_taper_max_argmax_share = 0.0;
 double   g_effective_governance_signal_taper_min_entropy = 0.0;
 double   g_effective_governance_signal_taper_mult = 1.0;
+string   g_effective_governance_signal_taper_mode = "either";
+int      g_effective_governance_signal_taper_duration_bars = 1;
 double   g_effective_governance_external_taper_max_skip_rate = 0.0;
 double   g_effective_governance_external_taper_mult = 1.0;
+int      g_effective_governance_external_taper_duration_bars = 1;
+string   g_effective_governance_overlay_context = "any";
+string   g_effective_governance_overlay_direction = "both";
 double   g_effective_vol_risk_low_threshold = 0.0;
 double   g_effective_vol_risk_high_threshold = 0.0;
 double   g_effective_vol_risk_low_mult = 1.0;
 double   g_effective_vol_risk_mid_mult = 1.0;
 double   g_effective_vol_risk_high_mult = 1.0;
+string   g_effective_vol_overlay_context = "any";
+string   g_effective_vol_overlay_direction = "both";
 int      g_effective_ny_postcash_hold_cap_bars = 0;
 int      g_effective_long_hold_cap_bars = 0;
 int      g_effective_short_hold_cap_bars = 0;
+int      g_effective_monday_long_hold_cap_bars = 0;
+int      g_effective_monday_short_hold_cap_bars = 0;
 int      g_effective_ny_postcash_long_hold_cap_bars = 0;
 int      g_effective_ny_postcash_short_hold_cap_bars = 0;
+int      g_effective_vol_high_hold_cap_bars = 0;
+int      g_effective_vol_high_long_hold_cap_bars = 0;
+int      g_effective_vol_high_short_hold_cap_bars = 0;
 int      g_effective_ny_clock_taper_start_minute = -1;
 int      g_effective_ny_clock_taper_mid_minute = -1;
 int      g_effective_ny_clock_taper_late_minute = -1;
@@ -158,12 +170,25 @@ bool     g_effective_time_exit_enabled = true;
 bool     g_effective_flat_exit_enabled = false;
 double   g_effective_flat_exit_min_probability = 0.0;
 int      g_effective_flat_exit_min_hold_bars = 1;
+int      g_effective_state_exit_reentry_lock_bars = 0;
+bool     g_effective_state_exit_outside_bar_suppress_enabled = false;
+string   g_effective_state_exit_outside_bar_direction = "both";
+double   g_effective_state_exit_outside_bar_min_range_atr14 = 0.0;
+string   g_effective_state_exit_outside_bar_trigger_scope = "margin_only";
 bool     g_effective_threshold_rule_enabled = true;
 bool     g_effective_margin_rule_enabled = false;
 bool     g_effective_prob_diff_rule_enabled = false;
 bool     g_effective_specialist_short_gate_enabled = false;
 double   g_effective_specialist_short_gate_min_aux_short_probability = 0.0;
 double   g_effective_specialist_short_gate_min_aux_short_margin = EMPTY_VALUE;
+string   g_effective_specialist_short_gate_context = "any";
+string   g_effective_specialist_short_gate_fail_mode = "hard_reject";
+double   g_effective_specialist_short_gate_soft_threshold_add = 0.0;
+double   g_effective_specialist_short_gate_soft_min_margin_add = 0.0;
+double   g_effective_specialist_short_gate_confidence_reject_below = 0.0;
+double   g_effective_specialist_short_gate_confidence_penalty_below = 0.0;
+double   g_effective_short_gate_max_primary_margin_apply = EMPTY_VALUE;
+double   g_effective_specialist_short_gate_min_primary_direction_margin = EMPTY_VALUE;
 string   g_effective_short_gate_source_label = "";
 string   g_effective_experiment_id = "";
 string   g_effective_bundle_version = "";
@@ -181,6 +206,7 @@ double   g_effective_filter_rule_min_aux_short_probability[];
 double   g_effective_filter_rule_min_aux_short_margin[];
 string   g_effective_exit_rule_types[];
 bool     g_effective_exit_rule_enabled[];
+string   g_effective_exit_rule_direction[];
 int      g_effective_exit_rule_max_hold_bars[];
 double   g_effective_exit_rule_min_flat_probability[];
 int      g_effective_exit_rule_min_hold_bars[];
@@ -243,6 +269,11 @@ double   g_governance_max_argmax_class_share = 0.0;
 double   g_governance_extreme_confidence_rate = 0.0;
 double   g_governance_avg_signal_entropy = EMPTY_VALUE;
 double   g_governance_risk_overlay_rate = EMPTY_VALUE;
+int      g_governance_signal_taper_future_bars_remaining = 0;
+int      g_governance_external_taper_future_bars_remaining = 0;
+bool     g_governance_signal_taper_active_this_bar = false;
+bool     g_governance_external_taper_active_this_bar = false;
+datetime g_governance_overlay_state_bar_time = 0;
 string   g_governance_current_skip_category = "NONE";
 string   g_governance_current_argmax_class = "";
 double   g_governance_current_signal_entropy = EMPTY_VALUE;
@@ -253,6 +284,8 @@ double   g_governance_current_risk_pct_multiplier = 1.0;
 bool     g_current_aux_gate_active = false;
 bool     g_current_aux_gate_passed = false;
 string   g_current_aux_gate_reason = "";
+double   g_current_aux_gate_threshold_penalty_add = 0.0;
+double   g_current_aux_gate_min_margin_penalty_add = 0.0;
 double   g_current_aux_p_short = EMPTY_VALUE;
 double   g_current_aux_p_flat = EMPTY_VALUE;
 double   g_current_aux_p_long = EMPTY_VALUE;
@@ -457,42 +490,35 @@ double ResolveDynamicRiskPctMultiplier(const int decision, const datetime bar_ti
       AppendRiskContextTag(tags, "NY_POSTCASH");
    }
 
-   if(g_effective_vol_risk_low_threshold > 0.0 && g_effective_vol_risk_high_threshold > 0.0)
+   if(g_effective_vol_risk_low_threshold > 0.0 &&
+      g_effective_vol_risk_high_threshold > 0.0 &&
+      OverlayContextDirectionMatches(g_effective_vol_overlay_context, g_effective_vol_overlay_direction, bar_time_server, decision))
    {
-      double atr14_values[];
-      double atr50_values[];
-      string reason = "";
-      if(CopyIndicatorBufferWindow(g_handle_atr14, 0, 1, 1, atr14_values, "ATR14", reason) &&
-         CopyIndicatorBufferWindow(g_handle_atr50, 0, 1, 1, atr50_values, "ATR50", reason))
+      double regime_ratio = EMPTY_VALUE;
+      if(ResolveAtr14Over50Ratio(regime_ratio))
       {
-         const double atr14 = atr14_values[0];
-         const double atr50 = atr50_values[0];
-         if(IsUsableValue(atr14) && IsUsableValue(atr50) && atr14 > 0.0 && atr50 > 0.0)
+         double vol_mult = 1.0;
+         string vol_tag = "";
+         if(regime_ratio < g_effective_vol_risk_low_threshold)
          {
-            const double regime_ratio = atr14 / atr50;
-            double vol_mult = 1.0;
-            string vol_tag = "";
-            if(regime_ratio < g_effective_vol_risk_low_threshold)
-            {
-               vol_mult = g_effective_vol_risk_low_mult;
-               vol_tag = "VOL_LOW";
-            }
-            else if(regime_ratio > g_effective_vol_risk_high_threshold)
-            {
-               vol_mult = g_effective_vol_risk_high_mult;
-               vol_tag = "VOL_HIGH";
-            }
-            else
-            {
-               vol_mult = g_effective_vol_risk_mid_mult;
-               vol_tag = "VOL_MID";
-            }
+            vol_mult = g_effective_vol_risk_low_mult;
+            vol_tag = "VOL_LOW";
+         }
+         else if(regime_ratio > g_effective_vol_risk_high_threshold)
+         {
+            vol_mult = g_effective_vol_risk_high_mult;
+            vol_tag = "VOL_HIGH";
+         }
+         else
+         {
+            vol_mult = g_effective_vol_risk_mid_mult;
+            vol_tag = "VOL_MID";
+         }
 
-            if(vol_mult > 0.0 && MathAbs(vol_mult - 1.0) > 0.0000001)
-            {
-               multiplier *= vol_mult;
-               AppendRiskContextTag(tags, vol_tag);
-            }
+         if(vol_mult > 0.0 && MathAbs(vol_mult - 1.0) > 0.0000001)
+         {
+            multiplier *= vol_mult;
+            AppendRiskContextTag(tags, vol_tag);
          }
       }
    }
@@ -502,6 +528,41 @@ double ResolveDynamicRiskPctMultiplier(const int decision, const datetime bar_ti
       string governance_tags = "";
       double governance_multiplier = 1.0;
 
+      const bool governance_context_match = OverlayContextDirectionMatches(
+         g_effective_governance_overlay_context,
+         g_effective_governance_overlay_direction,
+         bar_time_server,
+         decision
+      );
+      const bool new_governance_bar = (bar_time_server != g_governance_overlay_state_bar_time);
+
+      const bool argmax_breach =
+         g_effective_governance_signal_taper_max_argmax_share > 0.0 &&
+         g_governance_inference_samples > 0 &&
+         g_governance_max_argmax_class_share > g_effective_governance_signal_taper_max_argmax_share;
+      const bool entropy_breach =
+         g_effective_governance_signal_taper_min_entropy > 0.0 &&
+         IsUsableValue(g_governance_avg_signal_entropy) &&
+         g_governance_avg_signal_entropy < g_effective_governance_signal_taper_min_entropy;
+
+      string signal_mode = g_effective_governance_signal_taper_mode;
+      StringToLower(signal_mode);
+      bool signal_breach = false;
+      if(signal_mode == "argmax_only")
+         signal_breach = argmax_breach;
+      else if(signal_mode == "entropy_only")
+         signal_breach = entropy_breach;
+      else if(signal_mode == "both")
+      {
+         if(g_effective_governance_signal_taper_max_argmax_share > 0.0 &&
+            g_effective_governance_signal_taper_min_entropy > 0.0)
+            signal_breach = (argmax_breach && entropy_breach);
+         else
+            signal_breach = (argmax_breach || entropy_breach);
+      }
+      else
+         signal_breach = (argmax_breach || entropy_breach);
+
       const bool signal_taper_enabled =
          g_effective_governance_signal_taper_mult > 0.0 &&
          MathAbs(g_effective_governance_signal_taper_mult - 1.0) > 0.0000001 &&
@@ -509,32 +570,54 @@ double ResolveDynamicRiskPctMultiplier(const int decision, const datetime bar_ti
             g_effective_governance_signal_taper_max_argmax_share > 0.0 ||
             g_effective_governance_signal_taper_min_entropy > 0.0
          );
-      if(signal_taper_enabled)
+      const bool external_taper_enabled =
+         g_effective_governance_external_taper_mult > 0.0 &&
+         MathAbs(g_effective_governance_external_taper_mult - 1.0) > 0.0000001 &&
+         g_effective_governance_external_taper_max_skip_rate > 0.0;
+      const bool external_breach =
+         external_taper_enabled &&
+         g_governance_external_skip_rate > g_effective_governance_external_taper_max_skip_rate;
+
+      if(new_governance_bar)
       {
-         bool signal_breach = false;
-         if(g_effective_governance_signal_taper_max_argmax_share > 0.0 &&
-            g_governance_inference_samples > 0 &&
-            g_governance_max_argmax_class_share > g_effective_governance_signal_taper_max_argmax_share)
+         if(signal_taper_enabled)
          {
-            signal_breach = true;
+            if(signal_breach)
+               g_governance_signal_taper_future_bars_remaining = MathMax(g_effective_governance_signal_taper_duration_bars - 1, 0);
+            else if(g_governance_signal_taper_future_bars_remaining > 0)
+               g_governance_signal_taper_future_bars_remaining--;
+            g_governance_signal_taper_active_this_bar = (signal_breach || g_governance_signal_taper_future_bars_remaining > 0);
          }
-         if(g_effective_governance_signal_taper_min_entropy > 0.0 &&
-            IsUsableValue(g_governance_avg_signal_entropy) &&
-            g_governance_avg_signal_entropy < g_effective_governance_signal_taper_min_entropy)
+         else
          {
-            signal_breach = true;
+            g_governance_signal_taper_future_bars_remaining = 0;
+            g_governance_signal_taper_active_this_bar = false;
          }
-         if(signal_breach)
+
+         if(external_taper_enabled)
          {
-            governance_multiplier *= g_effective_governance_signal_taper_mult;
-            AppendRiskContextTag(governance_tags, "GOV_SIGNAL");
+            if(external_breach)
+               g_governance_external_taper_future_bars_remaining = MathMax(g_effective_governance_external_taper_duration_bars - 1, 0);
+            else if(g_governance_external_taper_future_bars_remaining > 0)
+               g_governance_external_taper_future_bars_remaining--;
+            g_governance_external_taper_active_this_bar = (external_breach || g_governance_external_taper_future_bars_remaining > 0);
          }
+         else
+         {
+            g_governance_external_taper_future_bars_remaining = 0;
+            g_governance_external_taper_active_this_bar = false;
+         }
+
+         g_governance_overlay_state_bar_time = bar_time_server;
       }
 
-      if(g_effective_governance_external_taper_mult > 0.0 &&
-         MathAbs(g_effective_governance_external_taper_mult - 1.0) > 0.0000001 &&
-         g_effective_governance_external_taper_max_skip_rate > 0.0 &&
-         g_governance_external_skip_rate > g_effective_governance_external_taper_max_skip_rate)
+      if(signal_taper_enabled && g_governance_signal_taper_active_this_bar && governance_context_match)
+      {
+         governance_multiplier *= g_effective_governance_signal_taper_mult;
+         AppendRiskContextTag(governance_tags, "GOV_SIGNAL");
+      }
+
+      if(external_taper_enabled && g_governance_external_taper_active_this_bar && governance_context_match)
       {
          governance_multiplier *= g_effective_governance_external_taper_mult;
          AppendRiskContextTag(governance_tags, "GOV_EXTERNAL");
@@ -557,6 +640,20 @@ bool ResolveNewYorkContext(const datetime bar_time_server, bool &is_monday, bool
 {
    is_monday = false;
    is_postcash = false;
+   bool is_late_session = false;
+   return ResolveNewYorkContextFlags(bar_time_server, is_monday, is_postcash, is_late_session);
+}
+
+bool ResolveNewYorkContextFlags(
+   const datetime bar_time_server,
+   bool &is_monday,
+   bool &is_postcash,
+   bool &is_late_session
+)
+{
+   is_monday = false;
+   is_postcash = false;
+   is_late_session = false;
    if(bar_time_server <= 0)
       return false;
 
@@ -569,7 +666,73 @@ bool ResolveNewYorkContext(const datetime bar_time_server, bool &is_monday, bool
    is_monday = (ny_struct.day_of_week == 1);
    const int minutes_of_day = (ny_struct.hour * 60) + ny_struct.min;
    is_postcash = (minutes_of_day >= (16 * 60));
+   is_late_session = (minutes_of_day >= (15 * 60 + 30) && minutes_of_day < (16 * 60));
    return true;
+}
+
+bool ContextRuleMatchesBarTime(const string rule_context, const datetime bar_time_server)
+{
+   bool is_monday = false;
+   bool is_postcash = false;
+   bool is_late_session = false;
+   ResolveNewYorkContextFlags(bar_time_server, is_monday, is_postcash, is_late_session);
+
+   string normalized_context = rule_context;
+   StringToLower(normalized_context);
+   if(normalized_context == "late_session" ||
+      normalized_context == "ny_late_session" ||
+      normalized_context == "cash_close_late")
+   {
+      return is_late_session;
+   }
+   if(normalized_context == "monday_or_late_session")
+      return (is_monday || is_late_session);
+   return ContextRuleMatches(normalized_context, is_monday, is_postcash);
+}
+
+bool OverlayContextDirectionMatches(
+   const string overlay_context,
+   const string overlay_direction,
+   const datetime bar_time_server,
+   const int decision_direction
+)
+{
+   return ContextRuleMatchesBarTime(overlay_context, bar_time_server) &&
+          DirectionRuleMatches(overlay_direction, decision_direction);
+}
+
+bool ResolveAtr14Over50Ratio(double &regime_ratio)
+{
+   regime_ratio = EMPTY_VALUE;
+
+   double atr14_values[];
+   double atr50_values[];
+   string reason = "";
+   if(!CopyIndicatorBufferWindow(g_handle_atr14, 0, 1, 1, atr14_values, "ATR14", reason))
+      return false;
+   if(!CopyIndicatorBufferWindow(g_handle_atr50, 0, 1, 1, atr50_values, "ATR50", reason))
+      return false;
+
+   const double atr14 = atr14_values[0];
+   const double atr50 = atr50_values[0];
+   if(!IsUsableValue(atr14) || !IsUsableValue(atr50) || atr14 <= 0.0 || atr50 <= 0.0)
+      return false;
+
+   regime_ratio = atr14 / atr50;
+   return IsUsableValue(regime_ratio) && regime_ratio > 0.0;
+}
+
+bool IsStateExitCloseReason(const string close_reason)
+{
+   return StringFind(close_reason, "STATE_EXIT") == 0;
+}
+
+datetime ResolveEntryBlockUntilBarTime(const string close_reason, const datetime exit_bar_time_server)
+{
+   datetime block_until = exit_bar_time_server;
+   if(IsStateExitCloseReason(close_reason) && g_effective_state_exit_reentry_lock_bars > 0)
+      block_until += (datetime)(g_effective_state_exit_reentry_lock_bars * PeriodSeconds(PERIOD_M5));
+   return block_until;
 }
 
 bool ContextRuleMatches(const string rule_context, const bool is_monday, const bool is_postcash)
@@ -604,6 +767,62 @@ bool DirectionRuleMatches(const string rule_direction, const int decision_direct
    return false;
 }
 
+bool ShouldSuppressStateExitOnOutsideBar(
+   const int managed_direction,
+   const bool flat_triggered,
+   const bool margin_triggered,
+   const bool entropy_triggered
+)
+{
+   if(!g_effective_state_exit_outside_bar_suppress_enabled)
+      return false;
+   if(!DirectionRuleMatches(g_effective_state_exit_outside_bar_direction, managed_direction))
+      return false;
+
+   string trigger_scope = g_effective_state_exit_outside_bar_trigger_scope;
+   StringToLower(trigger_scope);
+   if(trigger_scope == "margin_only")
+   {
+      if(!margin_triggered || flat_triggered || entropy_triggered)
+         return false;
+   }
+   else if(!(flat_triggered || margin_triggered || entropy_triggered))
+      return false;
+
+   MqlRates rates[];
+   string skip_reason = "";
+   if(!LoadClosedRates(2, rates, skip_reason))
+      return false;
+
+   const int total_bars = ArraySize(rates);
+   if(total_bars < 2)
+      return false;
+
+   const MqlRates current_bar = rates[total_bars - 1];
+   const MqlRates previous_bar = rates[total_bars - 2];
+   const bool adverse_close = (managed_direction > 0) ? (current_bar.close < current_bar.open) : (current_bar.close > current_bar.open);
+   if(!adverse_close)
+      return false;
+   if(!(current_bar.high > previous_bar.high && current_bar.low < previous_bar.low))
+      return false;
+
+   if(g_effective_state_exit_outside_bar_min_range_atr14 > 0.0)
+   {
+      double atr14_prev_values[];
+      if(!CopyIndicatorBufferWindow(g_handle_atr14, 0, 2, 1, atr14_prev_values, "ATR14_PREV", skip_reason))
+         return false;
+      const double atr14_prev = atr14_prev_values[0];
+      if(!IsUsableValue(atr14_prev) || atr14_prev <= 0.0)
+         return false;
+
+      const double range_atr14 = (current_bar.high - current_bar.low) / atr14_prev;
+      if(!IsUsableValue(range_atr14) || range_atr14 < g_effective_state_exit_outside_bar_min_range_atr14)
+         return false;
+   }
+
+   return true;
+}
+
 void ResolveContextualEntryAdjustments(
    const int decision_direction,
    const datetime bar_time_server,
@@ -614,10 +833,6 @@ void ResolveContextualEntryAdjustments(
    threshold_add = 0.0;
    min_margin_add = 0.0;
 
-   bool is_monday = false;
-   bool is_postcash = false;
-   ResolveNewYorkContext(bar_time_server, is_monday, is_postcash);
-
    const int filter_rule_count = ArraySize(g_effective_filter_rule_types);
    for(int i = 0; i < filter_rule_count; i++)
    {
@@ -627,7 +842,7 @@ void ResolveContextualEntryAdjustments(
          continue;
       if(!DirectionRuleMatches(g_effective_filter_rule_direction[i], decision_direction))
          continue;
-      if(!ContextRuleMatches(g_effective_filter_rule_context[i], is_monday, is_postcash))
+      if(!ContextRuleMatchesBarTime(g_effective_filter_rule_context[i], bar_time_server))
          continue;
 
       threshold_add += g_effective_filter_rule_threshold_add[i];
@@ -659,6 +874,20 @@ int ResolveDynamicMaxHoldBars(const datetime bar_time_server, const int directio
    if(!TimeToStruct(ny_time, ny_struct))
       return resolved_hold_bars;
 
+   if(ny_struct.day_of_week == 1)
+   {
+      if(direction > 0 && g_effective_monday_long_hold_cap_bars > 0 && g_effective_monday_long_hold_cap_bars < resolved_hold_bars)
+      {
+         resolved_hold_bars = g_effective_monday_long_hold_cap_bars;
+         hold_context = "MONDAY_LONG";
+      }
+      else if(direction < 0 && g_effective_monday_short_hold_cap_bars > 0 && g_effective_monday_short_hold_cap_bars < resolved_hold_bars)
+      {
+         resolved_hold_bars = g_effective_monday_short_hold_cap_bars;
+         hold_context = "MONDAY_SHORT";
+      }
+   }
+
    const int minutes_of_day = (ny_struct.hour * 60) + ny_struct.min;
    if(g_effective_ny_postcash_hold_cap_bars > 0 && minutes_of_day >= (16 * 60) && g_effective_ny_postcash_hold_cap_bars < resolved_hold_bars)
    {
@@ -676,6 +905,37 @@ int ResolveDynamicMaxHoldBars(const datetime bar_time_server, const int directio
       {
          resolved_hold_bars = g_effective_ny_postcash_short_hold_cap_bars;
          hold_context = "NY_POSTCASH_SHORT";
+      }
+   }
+
+   if(g_effective_vol_high_hold_cap_bars > 0 ||
+      g_effective_vol_high_long_hold_cap_bars > 0 ||
+      g_effective_vol_high_short_hold_cap_bars > 0)
+   {
+      const int decision_direction = direction;
+      if(OverlayContextDirectionMatches(g_effective_vol_overlay_context, g_effective_vol_overlay_direction, bar_time_server, decision_direction))
+      {
+         double regime_ratio = EMPTY_VALUE;
+         if(ResolveAtr14Over50Ratio(regime_ratio) &&
+            g_effective_vol_risk_high_threshold > 0.0 &&
+            regime_ratio > g_effective_vol_risk_high_threshold)
+         {
+            if(g_effective_vol_high_hold_cap_bars > 0 && g_effective_vol_high_hold_cap_bars < resolved_hold_bars)
+            {
+               resolved_hold_bars = g_effective_vol_high_hold_cap_bars;
+               hold_context = "VOL_HIGH";
+            }
+            if(direction > 0 && g_effective_vol_high_long_hold_cap_bars > 0 && g_effective_vol_high_long_hold_cap_bars < resolved_hold_bars)
+            {
+               resolved_hold_bars = g_effective_vol_high_long_hold_cap_bars;
+               hold_context = "VOL_HIGH_LONG";
+            }
+            else if(direction < 0 && g_effective_vol_high_short_hold_cap_bars > 0 && g_effective_vol_high_short_hold_cap_bars < resolved_hold_bars)
+            {
+               resolved_hold_bars = g_effective_vol_high_short_hold_cap_bars;
+               hold_context = "VOL_HIGH_SHORT";
+            }
+         }
       }
    }
    return resolved_hold_bars;
@@ -1027,6 +1287,7 @@ bool EnsureExitRuleCapacity(const int rule_index)
    ArrayResize(g_effective_exit_rule_offset_points, new_size);
    ArrayResize(g_effective_exit_rule_distance_points, new_size);
    ArrayResize(g_effective_exit_rule_close_fraction, new_size);
+   ArrayResize(g_effective_exit_rule_direction, new_size);
    ArrayResize(g_effective_exit_rule_max_direction_margin, new_size);
    ArrayResize(g_effective_exit_rule_max_signal_entropy, new_size);
    for(int i = current_size; i < new_size; i++)
@@ -1040,6 +1301,7 @@ bool EnsureExitRuleCapacity(const int rule_index)
       g_effective_exit_rule_offset_points[i] = 0.0;
       g_effective_exit_rule_distance_points[i] = 0.0;
       g_effective_exit_rule_close_fraction[i] = 0.0;
+      g_effective_exit_rule_direction[i] = "";
       g_effective_exit_rule_max_direction_margin[i] = EMPTY_VALUE;
       g_effective_exit_rule_max_signal_entropy[i] = EMPTY_VALUE;
    }
@@ -1120,6 +1382,9 @@ void FinalizeFilterRuntimeConfig()
          g_effective_specialist_short_gate_enabled = true;
          g_effective_specialist_short_gate_min_aux_short_probability = g_effective_filter_rule_min_aux_short_probability[i];
          g_effective_specialist_short_gate_min_aux_short_margin = g_effective_filter_rule_min_aux_short_margin[i];
+         if(StringLen(g_effective_filter_rule_context[i]) > 0 &&
+            (g_effective_specialist_short_gate_context == "" || g_effective_specialist_short_gate_context == "any"))
+            g_effective_specialist_short_gate_context = g_effective_filter_rule_context[i];
       }
    }
 }
@@ -1295,6 +1560,11 @@ bool TryApplyExitRuleRuntimeKey(const string key, const string value)
       g_effective_exit_rule_close_fraction[rule_index] = StringToDouble(value);
       return true;
    }
+   if(suffix == "direction")
+   {
+      g_effective_exit_rule_direction[rule_index] = value;
+      return true;
+   }
    if(suffix == "max_direction_margin")
    {
       g_effective_exit_rule_max_direction_margin[rule_index] = StringToDouble(value);
@@ -1331,16 +1601,28 @@ void ResetEffectiveRuntimeConfig()
    g_effective_governance_signal_taper_max_argmax_share = 0.0;
    g_effective_governance_signal_taper_min_entropy = 0.0;
    g_effective_governance_signal_taper_mult = 1.0;
+   g_effective_governance_signal_taper_mode = "either";
+   g_effective_governance_signal_taper_duration_bars = 1;
    g_effective_governance_external_taper_max_skip_rate = 0.0;
    g_effective_governance_external_taper_mult = 1.0;
+   g_effective_governance_external_taper_duration_bars = 1;
+   g_effective_governance_overlay_context = "any";
+   g_effective_governance_overlay_direction = "both";
    g_effective_vol_risk_low_threshold = 0.0;
    g_effective_vol_risk_high_threshold = 0.0;
    g_effective_vol_risk_low_mult = 1.0;
    g_effective_vol_risk_mid_mult = 1.0;
    g_effective_vol_risk_high_mult = 1.0;
+   g_effective_vol_overlay_context = "any";
+   g_effective_vol_overlay_direction = "both";
+   g_effective_vol_high_hold_cap_bars = 0;
+   g_effective_vol_high_long_hold_cap_bars = 0;
+   g_effective_vol_high_short_hold_cap_bars = 0;
    g_effective_ny_postcash_hold_cap_bars = 0;
    g_effective_long_hold_cap_bars = 0;
    g_effective_short_hold_cap_bars = 0;
+   g_effective_monday_long_hold_cap_bars = 0;
+   g_effective_monday_short_hold_cap_bars = 0;
    g_effective_ny_postcash_long_hold_cap_bars = 0;
    g_effective_ny_postcash_short_hold_cap_bars = 0;
    g_effective_ny_clock_taper_start_minute = -1;
@@ -1376,6 +1658,19 @@ void ResetEffectiveRuntimeConfig()
    g_effective_specialist_short_gate_enabled = false;
    g_effective_specialist_short_gate_min_aux_short_probability = 0.0;
    g_effective_specialist_short_gate_min_aux_short_margin = EMPTY_VALUE;
+   g_effective_specialist_short_gate_context = "any";
+   g_effective_specialist_short_gate_fail_mode = "hard_reject";
+   g_effective_specialist_short_gate_soft_threshold_add = 0.0;
+   g_effective_specialist_short_gate_soft_min_margin_add = 0.0;
+   g_effective_specialist_short_gate_confidence_reject_below = 0.0;
+   g_effective_specialist_short_gate_confidence_penalty_below = 0.0;
+   g_effective_short_gate_max_primary_margin_apply = EMPTY_VALUE;
+   g_effective_specialist_short_gate_min_primary_direction_margin = EMPTY_VALUE;
+   g_effective_state_exit_reentry_lock_bars = 0;
+   g_effective_state_exit_outside_bar_suppress_enabled = false;
+   g_effective_state_exit_outside_bar_direction = "both";
+   g_effective_state_exit_outside_bar_min_range_atr14 = 0.0;
+   g_effective_state_exit_outside_bar_trigger_scope = "margin_only";
    g_effective_short_gate_source_label = "";
    g_effective_experiment_id = "";
    g_effective_bundle_version = "";
@@ -1400,8 +1695,19 @@ void ResetEffectiveRuntimeConfig()
    ArrayResize(g_effective_exit_rule_offset_points, 0);
    ArrayResize(g_effective_exit_rule_distance_points, 0);
    ArrayResize(g_effective_exit_rule_close_fraction, 0);
+   ArrayResize(g_effective_exit_rule_direction, 0);
    ArrayResize(g_effective_exit_rule_max_direction_margin, 0);
    ArrayResize(g_effective_exit_rule_max_signal_entropy, 0);
+   g_governance_signal_taper_future_bars_remaining = 0;
+   g_governance_external_taper_future_bars_remaining = 0;
+   g_governance_signal_taper_active_this_bar = false;
+   g_governance_external_taper_active_this_bar = false;
+   g_governance_overlay_state_bar_time = 0;
+   g_current_aux_gate_active = false;
+   g_current_aux_gate_passed = false;
+   g_current_aux_gate_reason = "";
+   g_current_aux_gate_threshold_penalty_add = 0.0;
+   g_current_aux_gate_min_margin_penalty_add = 0.0;
    g_runtime_config_loaded = false;
 }
 
@@ -1586,6 +1892,17 @@ bool ApplyRuntimeConfigKeyValue(const string key, const string value)
       g_effective_governance_signal_taper_mult = StringToDouble(value);
       return true;
    }
+   if(key == "governance_signal_taper_mode")
+   {
+      g_effective_governance_signal_taper_mode = value;
+      StringToLower(g_effective_governance_signal_taper_mode);
+      return true;
+   }
+   if(key == "governance_signal_taper_duration_bars")
+   {
+      g_effective_governance_signal_taper_duration_bars = (int)StringToInteger(value);
+      return true;
+   }
    if(key == "governance_external_taper_max_skip_rate")
    {
       g_effective_governance_external_taper_max_skip_rate = StringToDouble(value);
@@ -1594,6 +1911,21 @@ bool ApplyRuntimeConfigKeyValue(const string key, const string value)
    if(key == "governance_external_taper_mult")
    {
       g_effective_governance_external_taper_mult = StringToDouble(value);
+      return true;
+   }
+   if(key == "governance_external_taper_duration_bars")
+   {
+      g_effective_governance_external_taper_duration_bars = (int)StringToInteger(value);
+      return true;
+   }
+   if(key == "governance_overlay_context")
+   {
+      g_effective_governance_overlay_context = value;
+      return true;
+   }
+   if(key == "governance_overlay_direction")
+   {
+      g_effective_governance_overlay_direction = value;
       return true;
    }
    if(key == "vol_risk_low_threshold")
@@ -1621,6 +1953,31 @@ bool ApplyRuntimeConfigKeyValue(const string key, const string value)
       g_effective_vol_risk_high_mult = StringToDouble(value);
       return true;
    }
+   if(key == "vol_overlay_context")
+   {
+      g_effective_vol_overlay_context = value;
+      return true;
+   }
+   if(key == "vol_overlay_direction")
+   {
+      g_effective_vol_overlay_direction = value;
+      return true;
+   }
+   if(key == "vol_high_hold_cap_bars")
+   {
+      g_effective_vol_high_hold_cap_bars = (int)StringToInteger(value);
+      return true;
+   }
+   if(key == "vol_high_long_hold_cap_bars")
+   {
+      g_effective_vol_high_long_hold_cap_bars = (int)StringToInteger(value);
+      return true;
+   }
+   if(key == "vol_high_short_hold_cap_bars")
+   {
+      g_effective_vol_high_short_hold_cap_bars = (int)StringToInteger(value);
+      return true;
+   }
    if(key == "ny_postcash_hold_cap_bars")
    {
       g_effective_ny_postcash_hold_cap_bars = (int)StringToInteger(value);
@@ -1634,6 +1991,16 @@ bool ApplyRuntimeConfigKeyValue(const string key, const string value)
    if(key == "short_hold_cap_bars")
    {
       g_effective_short_hold_cap_bars = (int)StringToInteger(value);
+      return true;
+   }
+   if(key == "monday_long_hold_cap_bars")
+   {
+      g_effective_monday_long_hold_cap_bars = (int)StringToInteger(value);
+      return true;
+   }
+   if(key == "monday_short_hold_cap_bars")
+   {
+      g_effective_monday_short_hold_cap_bars = (int)StringToInteger(value);
       return true;
    }
    if(key == "ny_postcash_long_hold_cap_bars")
@@ -1754,6 +2121,73 @@ bool ApplyRuntimeConfigKeyValue(const string key, const string value)
    if(key == "external_max_stale_bars")
    {
       g_effective_external_max_stale_bars = (int)StringToInteger(value);
+      return true;
+   }
+   if(key == "state_exit_reentry_lock_bars")
+   {
+      g_effective_state_exit_reentry_lock_bars = (int)StringToInteger(value);
+      return true;
+   }
+   if(key == "state_exit_outside_bar_suppress_enabled")
+   {
+      return ParseBoolText(value, g_effective_state_exit_outside_bar_suppress_enabled);
+   }
+   if(key == "state_exit_outside_bar_direction")
+   {
+      g_effective_state_exit_outside_bar_direction = value;
+      StringToLower(g_effective_state_exit_outside_bar_direction);
+      return true;
+   }
+   if(key == "state_exit_outside_bar_min_range_atr14")
+   {
+      g_effective_state_exit_outside_bar_min_range_atr14 = StringToDouble(value);
+      return true;
+   }
+   if(key == "state_exit_outside_bar_trigger_scope")
+   {
+      g_effective_state_exit_outside_bar_trigger_scope = value;
+      StringToLower(g_effective_state_exit_outside_bar_trigger_scope);
+      return true;
+   }
+   if(key == "specialist_short_gate_context")
+   {
+      g_effective_specialist_short_gate_context = value;
+      return true;
+   }
+   if(key == "specialist_short_gate_fail_mode")
+   {
+      g_effective_specialist_short_gate_fail_mode = value;
+      StringToLower(g_effective_specialist_short_gate_fail_mode);
+      return true;
+   }
+   if(key == "specialist_short_gate_soft_threshold_add")
+   {
+      g_effective_specialist_short_gate_soft_threshold_add = StringToDouble(value);
+      return true;
+   }
+   if(key == "specialist_short_gate_soft_min_margin_add")
+   {
+      g_effective_specialist_short_gate_soft_min_margin_add = StringToDouble(value);
+      return true;
+   }
+   if(key == "specialist_short_gate_confidence_reject_below")
+   {
+      g_effective_specialist_short_gate_confidence_reject_below = StringToDouble(value);
+      return true;
+   }
+   if(key == "specialist_short_gate_confidence_penalty_below")
+   {
+      g_effective_specialist_short_gate_confidence_penalty_below = StringToDouble(value);
+      return true;
+   }
+   if(key == "specialist_short_gate_max_primary_direction_margin_to_apply")
+   {
+      g_effective_short_gate_max_primary_margin_apply = StringToDouble(value);
+      return true;
+   }
+   if(key == "specialist_short_gate_min_primary_direction_margin")
+   {
+      g_effective_specialist_short_gate_min_primary_direction_margin = StringToDouble(value);
       return true;
    }
    if(key == "position_0_enabled")
@@ -1977,6 +2411,75 @@ bool LoadRuntimeConfig()
          return false;
       }
    }
+   if(g_effective_state_exit_reentry_lock_bars < 0)
+   {
+      Log("runtime config has invalid state_exit_reentry_lock_bars");
+      return false;
+   }
+   if(g_effective_state_exit_outside_bar_min_range_atr14 < 0.0)
+   {
+      Log("runtime config has invalid state_exit_outside_bar_min_range_atr14");
+      return false;
+   }
+   if(g_effective_state_exit_outside_bar_suppress_enabled)
+   {
+      const string outside_bar_direction = g_effective_state_exit_outside_bar_direction;
+      if(outside_bar_direction != "" &&
+         outside_bar_direction != "any" &&
+         outside_bar_direction != "both" &&
+         outside_bar_direction != "long" &&
+         outside_bar_direction != "short")
+      {
+         Log("runtime config has invalid state_exit_outside_bar_direction");
+         return false;
+      }
+
+      const string outside_bar_scope = g_effective_state_exit_outside_bar_trigger_scope;
+      if(outside_bar_scope != "margin_only" && outside_bar_scope != "any")
+      {
+         Log("runtime config has invalid state_exit_outside_bar_trigger_scope");
+         return false;
+      }
+   }
+   if(g_effective_monday_long_hold_cap_bars < 0 || g_effective_monday_short_hold_cap_bars < 0)
+   {
+      Log("runtime config has invalid monday direction hold cap");
+      return false;
+   }
+   if(g_effective_vol_high_hold_cap_bars < 0 ||
+      g_effective_vol_high_long_hold_cap_bars < 0 ||
+      g_effective_vol_high_short_hold_cap_bars < 0)
+   {
+      Log("runtime config has invalid volatility hold cap");
+      return false;
+   }
+   if(g_effective_governance_signal_taper_duration_bars <= 0 ||
+      g_effective_governance_external_taper_duration_bars <= 0)
+   {
+      Log("runtime config has invalid governance taper duration");
+      return false;
+   }
+   if(g_effective_specialist_short_gate_soft_threshold_add < 0.0 ||
+      g_effective_specialist_short_gate_soft_min_margin_add < 0.0)
+   {
+      Log("runtime config has invalid specialist soft-penalty add");
+      return false;
+   }
+   if((g_effective_specialist_short_gate_confidence_reject_below < 0.0 ||
+       g_effective_specialist_short_gate_confidence_reject_below > 1.0) ||
+      (g_effective_specialist_short_gate_confidence_penalty_below < 0.0 ||
+       g_effective_specialist_short_gate_confidence_penalty_below > 1.0))
+   {
+      Log("runtime config has specialist confidence thresholds outside [0,1]");
+      return false;
+   }
+   if(g_effective_specialist_short_gate_confidence_reject_below > 0.0 &&
+      g_effective_specialist_short_gate_confidence_penalty_below > 0.0 &&
+      g_effective_specialist_short_gate_confidence_reject_below >= g_effective_specialist_short_gate_confidence_penalty_below)
+   {
+      Log("runtime config has invalid specialist confidence band ordering");
+      return false;
+   }
    g_runtime_config_loaded = true;
    Log(StringFormat(
       "runtime config loaded experiment=%s logic=%s onnx=%s short_gate_onnx=%s short_gate_enabled=%s short_gate_prob=%.6f short_gate_margin=%.6f feature_count=%d sizing_mode=%s fixed_lot=%.4f risk_pct=%.4f capital_base=%s monday_risk_mult=%.4f monday_long_mult=%.4f monday_short_mult=%.4f ny_postcash_risk_mult=%.4f vol_low_thr=%.4f vol_high_thr=%.4f vol_mults=%.4f/%.4f/%.4f gov_signal_argmax=%.4f gov_signal_entropy=%.4f gov_signal_mult=%.4f gov_external_skip=%.4f gov_external_mult=%.4f ny_postcash_hold_cap=%d long_hold_cap=%d short_hold_cap=%d postcash_long_hold_cap=%d postcash_short_hold_cap=%d taper_start=%d taper_mid=%d taper_late=%d taper_mults=%.4f/%.4f/%.4f stop_model=%s stop_execution_mode=%s stop_policy=%s stop_atr_period=%d stop_atr_mult=%.4f long_mult=%.4f short_mult=%.4f low_thr=%.4f high_thr=%.4f low_mult=%.4f mid_mult=%.4f high_mult=%.4f threshold_enabled=%s short=%.6f long=%.6f margin_enabled=%s margin=%.6f diff_enabled=%s diff=%.6f time_exit=%s hold=%d flat_exit=%s flat_min=%.6f flat_min_hold=%d",
@@ -2169,6 +2672,8 @@ void ResetCurrentAuxGateTelemetry()
    g_current_aux_gate_active = false;
    g_current_aux_gate_passed = false;
    g_current_aux_gate_reason = "";
+   g_current_aux_gate_threshold_penalty_add = 0.0;
+   g_current_aux_gate_min_margin_penalty_add = 0.0;
    g_current_aux_p_short = EMPTY_VALUE;
    g_current_aux_p_flat = EMPTY_VALUE;
    g_current_aux_p_long = EMPTY_VALUE;
@@ -4212,18 +4717,25 @@ bool PassDirectionFilters(
       opposing_direction = p_long;
    }
 
-   double min_margin_add = 0.0;
-   double ignored_threshold_add = 0.0;
-   ResolveContextualEntryAdjustments(direction, bar_time_server, ignored_threshold_add, min_margin_add);
+   double contextual_threshold_add = 0.0;
+   double contextual_min_margin_add = 0.0;
+   ResolveContextualEntryAdjustments(direction, bar_time_server, contextual_threshold_add, contextual_min_margin_add);
+   const double gate_min_margin_add = (direction < 0) ? g_current_aux_gate_min_margin_penalty_add : 0.0;
+   const bool has_soft_context = (contextual_min_margin_add > 0.0);
+   const bool has_soft_gate = (gate_min_margin_add > 0.0);
 
-   const bool effective_margin_enabled = (g_effective_margin_rule_enabled || min_margin_add > 0.0);
-   const double effective_min_margin = g_effective_min_margin + min_margin_add + (ignored_threshold_add * 0.0);
+   const bool effective_margin_enabled = (g_effective_margin_rule_enabled || contextual_min_margin_add > 0.0 || gate_min_margin_add > 0.0);
+   const double effective_min_margin = g_effective_min_margin + contextual_min_margin_add + gate_min_margin_add;
    if(effective_margin_enabled)
    {
       if((selected - comparator) < effective_min_margin)
       {
          filter_reason = (direction > 0) ? "LONG_MARGIN_FAIL" : "SHORT_MARGIN_FAIL";
-         if(min_margin_add > 0.0)
+         if(has_soft_context && has_soft_gate)
+            filter_reason += "_SOFT_CONTEXT_GATE";
+         else if(has_soft_gate)
+            filter_reason += "_SOFT_GATE";
+         else if(has_soft_context)
             filter_reason += "_SOFT_CONTEXT";
          return false;
       }
@@ -4243,6 +4755,8 @@ bool PassDirectionFilters(
 
 bool EvaluateSpecialistShortGate(
    const double &features[],
+   const datetime bar_time_server,
+   const double primary_short_margin,
    bool &gate_passed,
    string &gate_reason,
    string &skip_reason
@@ -4255,6 +4769,26 @@ bool EvaluateSpecialistShortGate(
 
    if(!g_effective_specialist_short_gate_enabled)
    {
+      g_current_aux_gate_passed = true;
+      g_current_aux_gate_reason = gate_reason;
+      return true;
+   }
+
+   if(!ContextRuleMatchesBarTime(g_effective_specialist_short_gate_context, bar_time_server))
+   {
+      gate_passed = true;
+      gate_reason = "SHORT_GATE_CONTEXT_SKIP";
+      g_current_aux_gate_passed = true;
+      g_current_aux_gate_reason = gate_reason;
+      return true;
+   }
+
+   if(IsUsableValue(g_effective_short_gate_max_primary_margin_apply) &&
+      IsUsableValue(primary_short_margin) &&
+      primary_short_margin > g_effective_short_gate_max_primary_margin_apply)
+   {
+      gate_passed = true;
+      gate_reason = "SHORT_GATE_PRIMARY_MARGIN_SKIP";
       g_current_aux_gate_passed = true;
       g_current_aux_gate_reason = gate_reason;
       return true;
@@ -4296,6 +4830,9 @@ bool EvaluateSpecialistShortGate(
    bool any_condition_configured = false;
    bool prob_ok = true;
    bool margin_ok = true;
+   bool primary_margin_ok = true;
+   bool confidence_reject = false;
+   bool confidence_penalty = false;
    if(g_effective_specialist_short_gate_min_aux_short_probability > 0.0)
    {
       any_condition_configured = true;
@@ -4306,16 +4843,80 @@ bool EvaluateSpecialistShortGate(
       any_condition_configured = true;
       margin_ok = (aux_margin >= g_effective_specialist_short_gate_min_aux_short_margin);
    }
+   if(IsUsableValue(g_effective_specialist_short_gate_min_primary_direction_margin))
+   {
+      any_condition_configured = true;
+      primary_margin_ok = IsUsableValue(primary_short_margin) &&
+                          primary_short_margin >= g_effective_specialist_short_gate_min_primary_direction_margin;
+   }
 
-   gate_passed = (!any_condition_configured || (prob_ok && margin_ok));
-   if(gate_passed)
-      gate_reason = "SHORT_GATE_OK";
-   else if(!prob_ok && !margin_ok)
-      gate_reason = "SHORT_GATE_FAIL_AUX_SHORT_AND_MARGIN";
-   else if(!prob_ok)
-      gate_reason = "SHORT_GATE_FAIL_AUX_SHORT";
+   if(g_effective_specialist_short_gate_confidence_reject_below > 0.0 ||
+      g_effective_specialist_short_gate_confidence_penalty_below > 0.0)
+   {
+      if(g_effective_specialist_short_gate_confidence_reject_below > 0.0 &&
+         aux_short < g_effective_specialist_short_gate_confidence_reject_below)
+      {
+         confidence_reject = true;
+      }
+      else if(g_effective_specialist_short_gate_confidence_penalty_below > 0.0 &&
+              aux_short < g_effective_specialist_short_gate_confidence_penalty_below)
+      {
+         confidence_penalty = true;
+      }
+   }
+
+   string fail_mode = g_effective_specialist_short_gate_fail_mode;
+   StringToLower(fail_mode);
+   const bool use_soft_penalty = (fail_mode == "soft_penalty" || fail_mode == "soft" || fail_mode == "penalty");
+   const bool base_gate_passed = (!any_condition_configured || (prob_ok && margin_ok && primary_margin_ok));
+
+   if(confidence_reject)
+   {
+      gate_passed = false;
+      gate_reason = "SHORT_GATE_CONFIDENCE_REJECT";
+   }
+   else if(!base_gate_passed)
+   {
+      if(use_soft_penalty)
+      {
+         gate_passed = true;
+         g_current_aux_gate_threshold_penalty_add = g_effective_specialist_short_gate_soft_threshold_add;
+         g_current_aux_gate_min_margin_penalty_add = g_effective_specialist_short_gate_soft_min_margin_add;
+         gate_reason = "SHORT_GATE_SOFT_PENALTY";
+      }
+      else if(!prob_ok && !margin_ok)
+      {
+         gate_passed = false;
+         gate_reason = "SHORT_GATE_FAIL_AUX_SHORT_AND_MARGIN";
+      }
+      else if(!prob_ok)
+      {
+         gate_passed = false;
+         gate_reason = "SHORT_GATE_FAIL_AUX_SHORT";
+      }
+      else if(!margin_ok)
+      {
+         gate_passed = false;
+         gate_reason = "SHORT_GATE_FAIL_AUX_MARGIN";
+      }
+      else
+      {
+         gate_passed = false;
+         gate_reason = "SHORT_GATE_FAIL_PRIMARY_MARGIN";
+      }
+   }
+   else if(confidence_penalty)
+   {
+      gate_passed = true;
+      g_current_aux_gate_threshold_penalty_add = g_effective_specialist_short_gate_soft_threshold_add;
+      g_current_aux_gate_min_margin_penalty_add = g_effective_specialist_short_gate_soft_min_margin_add;
+      gate_reason = "SHORT_GATE_CONFIDENCE_PENALTY";
+   }
    else
-      gate_reason = "SHORT_GATE_FAIL_AUX_MARGIN";
+   {
+      gate_passed = true;
+      gate_reason = "SHORT_GATE_OK";
+   }
 
    g_current_aux_gate_passed = gate_passed;
    g_current_aux_gate_reason = gate_reason;
@@ -4350,6 +4951,8 @@ int DecideShadowSignal(
    double short_threshold_add = 0.0;
    double short_min_margin_add = 0.0;
    ResolveContextualEntryAdjustments(-1, bar_time_server, short_threshold_add, short_min_margin_add);
+   short_threshold_add += g_current_aux_gate_threshold_penalty_add;
+   short_min_margin_add += g_current_aux_gate_min_margin_penalty_add;
    double long_threshold_add = 0.0;
    double long_min_margin_add = 0.0;
    ResolveContextualEntryAdjustments(1, bar_time_server, long_threshold_add, long_min_margin_add);
@@ -4783,7 +5386,7 @@ bool ExecuteManagedFullClose(const string close_reason, const datetime exit_bar_
       Log(StringFormat("trade ledger append failed after %s", close_reason));
 
    ResetManagedTradeTracking();
-   g_entry_block_bar_time = exit_bar_time_server;
+   g_entry_block_bar_time = ResolveEntryBlockUntilBarTime(close_reason, exit_bar_time_server);
    action_reason = close_reason + "_CLOSE_OK";
    return true;
 }
@@ -4847,7 +5450,7 @@ bool ExecuteManagedPartialClose(
    }
 
    ResetManagedTradeTracking();
-   g_entry_block_bar_time = exit_bar_time_server;
+   g_entry_block_bar_time = ResolveEntryBlockUntilBarTime(close_reason, exit_bar_time_server);
    action_reason = close_reason + "_PARTIAL_CLOSE_OK";
    return true;
 }
@@ -4890,9 +5493,12 @@ bool ApplyManagedPointExitRules(const datetime current_bar_time_server, const in
    if(favorable_points > g_managed_peak_favorable_points)
       g_managed_peak_favorable_points = favorable_points;
 
+   const int managed_direction = (g_managed_position_type == POSITION_TYPE_BUY) ? 1 : -1;
    for(int i = 0; i < exit_rule_count; i++)
    {
       if(!g_effective_exit_rule_enabled[i])
+         continue;
+      if(!DirectionRuleMatches(g_effective_exit_rule_direction[i], managed_direction))
          continue;
       if(i < ArraySize(g_managed_exit_rule_triggered) && g_managed_exit_rule_triggered[i])
          continue;
@@ -5055,7 +5661,7 @@ bool ManageOpenPositionOnTick(string &action_reason)
          {
             if(!AppendClosedTradeLedger(close_reason, exit_bar_time_server, close_deal_ticket))
                Log("trade ledger append failed after broker-native close");
-            g_entry_block_bar_time = exit_bar_time_server;
+            g_entry_block_bar_time = ResolveEntryBlockUntilBarTime(close_reason, exit_bar_time_server);
             action_reason = close_reason;
          }
          ResetManagedTradeTracking();
@@ -5104,7 +5710,7 @@ bool ManageOpenPositionOnTick(string &action_reason)
             Log("trade ledger append failed after hard stop");
 
          ResetManagedTradeTracking();
-         g_entry_block_bar_time = exit_bar_time_server;
+         g_entry_block_bar_time = ResolveEntryBlockUntilBarTime("HARD_STOP", exit_bar_time_server);
          action_reason = "HARD_STOP_CLOSE_OK";
          return true;
       }
@@ -5144,7 +5750,7 @@ bool ManageOpenPositionOnTick(string &action_reason)
       Log("trade ledger append failed after time exit");
 
    ResetManagedTradeTracking();
-   g_entry_block_bar_time = exit_bar_time_server;
+   g_entry_block_bar_time = ResolveEntryBlockUntilBarTime(time_exit_close_reason, exit_bar_time_server);
    action_reason = "TIME_EXIT_CLOSE_OK";
    return true;
 }
@@ -5177,10 +5783,13 @@ bool ManageOpenPositionOnNewBar(
 
    const double directional_margin = ComputeManagedDirectionalMargin(p_short, p_flat, p_long);
    const double normalized_entropy = ComputeNormalizedSignalEntropy(p_short, p_flat, p_long);
+   const int managed_direction = (g_managed_position_type == POSITION_TYPE_BUY) ? 1 : -1;
 
    for(int i = 0; i < exit_rule_count; i++)
    {
       if(!g_effective_exit_rule_enabled[i])
+         continue;
+      if(!DirectionRuleMatches(g_effective_exit_rule_direction[i], managed_direction))
          continue;
       if(g_effective_exit_rule_min_hold_bars[i] > 0 && hold_bars < g_effective_exit_rule_min_hold_bars[i])
          continue;
@@ -5190,7 +5799,12 @@ bool ManageOpenPositionOnNewBar(
       {
          const double min_flat_probability = g_effective_exit_rule_min_flat_probability[i];
          if(min_flat_probability > 0.0 && p_flat >= min_flat_probability)
+         {
+            const double close_fraction = g_effective_exit_rule_close_fraction[i];
+            if(close_fraction > 0.0 && close_fraction < 1.0)
+               return ExecuteManagedPartialClose(i, "FLAT_EXIT", close_fraction, bar_time_server, action_reason);
             return ExecuteManagedFullClose("FLAT_EXIT", bar_time_server, action_reason);
+         }
       }
       else if(rule_type == "state_exit_guard")
       {
@@ -5223,6 +5837,11 @@ bool ManageOpenPositionOnNewBar(
             continue;
          if(!(flat_triggered || margin_triggered || entropy_triggered))
             continue;
+         if(ShouldSuppressStateExitOnOutsideBar(managed_direction, flat_triggered, margin_triggered, entropy_triggered))
+         {
+            action_reason = "STATE_EXIT_SUPPRESSED_OUTSIDE_BAR";
+            continue;
+         }
 
          string close_reason = "STATE_EXIT";
          if(flat_triggered)
@@ -5231,6 +5850,9 @@ bool ManageOpenPositionOnNewBar(
             close_reason += "_MARGIN";
          if(entropy_triggered)
             close_reason += "_ENTROPY";
+         const double close_fraction = g_effective_exit_rule_close_fraction[i];
+         if(close_fraction > 0.0 && close_fraction < 1.0)
+            return ExecuteManagedPartialClose(i, close_reason, close_fraction, bar_time_server, action_reason);
          return ExecuteManagedFullClose(close_reason, bar_time_server, action_reason);
       }
    }
@@ -5245,19 +5867,20 @@ bool ExecuteTradeDecision(const int decision, const datetime bar_time_server, st
    if(!InpEnableTrading)
       return true;
 
-   if(bar_time_server > g_entry_block_bar_time)
-      g_entry_block_bar_time = 0;
-
    if(decision == 0)
    {
       action_reason = "NO_ENTRY_SIGNAL";
       return true;
    }
 
-   if(g_entry_block_bar_time == bar_time_server)
+   if(g_entry_block_bar_time > 0)
    {
-      action_reason = "ENTRY_BLOCKED_AFTER_EXIT";
-      return true;
+      if(bar_time_server <= g_entry_block_bar_time)
+      {
+         action_reason = "ENTRY_BLOCKED_AFTER_EXIT";
+         return true;
+      }
+      g_entry_block_bar_time = 0;
    }
 
    if(CountManagedPositions() >= g_effective_max_concurrent_positions)
@@ -5443,6 +6066,7 @@ bool RunShadowCycle(const datetime bar_time_server, const string cycle_tag)
    p_short = (double)outputs[0];
    p_flat = (double)outputs[1];
    p_long = (double)outputs[2];
+   const double primary_short_margin = p_short - MathMax(p_flat, p_long);
 
    const bool short_candidate = (p_short >= g_effective_short_threshold);
    const bool long_candidate = (p_long >= g_effective_long_threshold);
@@ -5453,7 +6077,7 @@ bool RunShadowCycle(const datetime bar_time_server, const string cycle_tag)
    if(g_effective_specialist_short_gate_enabled && short_gate_relevant)
    {
       short_gate_evaluated = true;
-      if(!EvaluateSpecialistShortGate(features, short_gate_passed, short_gate_reason, skip_reason))
+      if(!EvaluateSpecialistShortGate(features, bar_time_server, primary_short_margin, short_gate_passed, short_gate_reason, skip_reason))
       {
          decision_reason = "SHORT_GATE_RUNTIME_FAIL";
          RecordGovernanceObservation(skip_reason, false, p_short, p_flat, p_long, decision, planned_risk_context, planned_risk_pct_multiplier);

@@ -33,6 +33,9 @@ UTC = timezone.utc
 DEFAULT_TERMINAL_PATH = Path(r"C:\Program Files\MetaTrader 5\terminal64.exe")
 CONTRACT_SKIP_PREFIXES = ("SESSION_", "EXTERNAL_TIMESTAMP_MISMATCH_")
 STARTUP_SKIP_MARKERS = ("NOT_READY", "WARMUP", "MODEL_NOT_READY")
+MT5_TESTER_MODEL_VALUES = {
+    "real_ticks": 4,
+}
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -253,6 +256,14 @@ def refresh_leaderboard_markdown() -> Path:
     return write_markdown_report(root=ROOT_DIR / "stages", split="validation", sort_by="return_pct")
 
 
+def resolve_tester_model_value(tester_model: str) -> int:
+    try:
+        return MT5_TESTER_MODEL_VALUES[tester_model]
+    except KeyError as exc:
+        allowed = ", ".join(sorted(MT5_TESTER_MODEL_VALUES))
+        raise ValueError(f"unsupported tester_model={tester_model!r}; expected one of: {allowed}") from exc
+
+
 def build_tester_ini_text(
     bundle: ExperimentBundle,
     *,
@@ -282,7 +293,7 @@ def build_tester_ini_text(
     governance_min_normalized_entropy: float,
 ) -> str:
     runtime_config_relative = f"Project_Obsidian_Prime\\runtime\\{runtime_id}\\mt5_runtime_config.txt"
-    tester_model_value = 4 if bundle.runtime_snapshot.tester_model == "real_ticks" else 1
+    tester_model_value = resolve_tester_model_value(bundle.runtime_snapshot.tester_model)
     lines = [
         "[Tester]",
         r"Expert=Project_Obsidian_Prime\foundation\mt5\ObsidianPrime_Stage1_ShadowEA.ex5",

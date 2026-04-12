@@ -1,0 +1,269 @@
+{
+  "reviewed_on": "2026-04-12",
+  "reference": {
+    "run_name": "34A_29n_refcarry_0001",
+    "label": "34A regular carry",
+    "experiment_id": "exp_34a_29n_refcarry_v1",
+    "stage_id": "34A",
+    "runtime_extra": {
+      "monday_risk_pct_mult": 0.75,
+      "ny_postcash_risk_pct_mult": 0.7,
+      "ny_postcash_hold_cap_bars": 3,
+      "session_overlay_label": "postcash_hold_cut",
+      "risk_overlay_reference": "18E_19A_reference",
+      "monday_short_hold_cap_bars": 2,
+      "ny_postcash_short_hold_cap_bars": 2,
+      "soft_context_label": "stage29_wave2_state_exit_h2_margin004",
+      "stage29_wave2_label": "state_exit_h2_margin004",
+      "stage34_mainline_label": "29n_refcarry"
+    },
+    "splits": {
+      "validation": {
+        "return_pct": 196.808,
+        "profit_factor": 1.5716941560591888,
+        "max_dd_pct": 12.774833464603724,
+        "trade_count": 404,
+        "long_expectancy": 2.8252682926829267,
+        "short_expectancy": 2.0344723618090454
+      },
+      "test": {
+        "return_pct": 99.556,
+        "profit_factor": 1.4827659780816604,
+        "max_dd_pct": 18.40602358289529,
+        "trade_count": 285,
+        "long_expectancy": 0.6007801418439715,
+        "short_expectancy": 2.8685416666666668
+      },
+      "hist_2024": {
+        "return_pct": 39.367999999999995,
+        "profit_factor": 1.2020923809817148,
+        "max_dd_pct": 14.13121845710165,
+        "trade_count": 343,
+        "long_expectancy": 0.16972413793103444,
+        "short_expectancy": 0.8698484848484848
+      }
+    }
+  },
+  "candidates": [
+    {
+      "run_name": "34B_29s_refcarry_0001",
+      "label": "34B shadow carry",
+      "experiment_id": "exp_34b_29s_refcarry_v1",
+      "stage_id": "34B",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "ny_postcash_hold_cap_bars": 3,
+        "session_overlay_label": "postcash_hold_cut",
+        "risk_overlay_reference": "18E_19A_reference",
+        "monday_short_hold_cap_bars": 2,
+        "ny_postcash_short_hold_cap_bars": 2,
+        "governance_overlay_label": "weak_pocket_short_fusion_d3",
+        "governance_signal_taper_max_argmax_share": 0.82,
+        "governance_signal_taper_min_entropy": 0.9,
+        "governance_signal_taper_mult": 0.9,
+        "governance_signal_taper_mode": "either",
+        "governance_signal_taper_duration_bars": 3,
+        "governance_external_taper_max_skip_rate": 0.34,
+        "governance_external_taper_mult": 0.9,
+        "governance_external_taper_duration_bars": 3,
+        "governance_overlay_context": "monday_or_postcash",
+        "governance_overlay_direction": "short",
+        "soft_context_label": "stage29_wave2_state_exit_h2_margin004_gweak",
+        "stage29_wave2_label": "state_exit_h2_margin004_gweak",
+        "stage34_mainline_label": "29s_refcarry"
+      },
+      "splits": {
+        "validation": {
+          "return_pct": 197.53,
+          "profit_factor": 1.5809910938033107,
+          "max_dd_pct": 12.735722704382304,
+          "trade_count": 404,
+          "long_expectancy": 2.8324878048780486,
+          "short_expectancy": 2.045175879396985
+        },
+        "test": {
+          "return_pct": 100.59399999999998,
+          "profit_factor": 1.4883014251873714,
+          "max_dd_pct": 18.451167006571502,
+          "trade_count": 285,
+          "long_expectancy": 0.5934042553191489,
+          "short_expectancy": 2.9118055555555555
+        },
+        "hist_2024": {
+          "return_pct": 39.099999999999994,
+          "profit_factor": 1.20086923464198,
+          "max_dd_pct": 14.082711212949956,
+          "trade_count": 343,
+          "long_expectancy": 0.16613793103448268,
+          "short_expectancy": 0.8657070707070706
+        }
+      },
+      "deltas": {
+        "validation": {
+          "return_pct_delta": 0.7220000000000084,
+          "profit_factor_delta": 0.00929693774412188,
+          "max_dd_pct_delta": -0.03911076022141913
+        },
+        "test": {
+          "return_pct_delta": 1.0379999999999825,
+          "profit_factor_delta": 0.005535447105710967,
+          "max_dd_pct_delta": 0.045143423676211825
+        },
+        "hist_2024": {
+          "return_pct_delta": -0.2680000000000007,
+          "profit_factor_delta": -0.0012231463397347486,
+          "max_dd_pct_delta": -0.048507244151693385
+        }
+      },
+      "score": 4.867968706041325,
+      "test_non_regression": true
+    },
+    {
+      "run_name": "34C_29n_outbarlong_0001",
+      "label": "34C 29N + outbar long",
+      "experiment_id": "exp_34c_29n_outbarlong_v1",
+      "stage_id": "34C",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "ny_postcash_hold_cap_bars": 3,
+        "session_overlay_label": "postcash_hold_cut",
+        "risk_overlay_reference": "18E_19A_reference",
+        "monday_short_hold_cap_bars": 2,
+        "ny_postcash_short_hold_cap_bars": 2,
+        "soft_context_label": "stage29_wave2_state_exit_h2_margin004",
+        "stage29_wave2_label": "state_exit_h2_margin004",
+        "stage34_mainline_label": "29n_outbar_long",
+        "state_exit_outside_bar_suppress_enabled": true,
+        "state_exit_outside_bar_direction": "long",
+        "state_exit_outside_bar_min_range_atr14": 0.0,
+        "state_exit_outside_bar_trigger_scope": "margin_only"
+      },
+      "splits": {
+        "validation": {
+          "return_pct": 196.778,
+          "profit_factor": 1.5740683474435349,
+          "max_dd_pct": 12.77611262791799,
+          "trade_count": 404,
+          "long_expectancy": 2.8361463414634143,
+          "short_expectancy": 2.0225125628140703
+        },
+        "test": {
+          "return_pct": 99.556,
+          "profit_factor": 1.4827659780816604,
+          "max_dd_pct": 18.40602358289529,
+          "trade_count": 285,
+          "long_expectancy": 0.6007801418439715,
+          "short_expectancy": 2.8685416666666668
+        },
+        "hist_2024": {
+          "return_pct": 45.815999999999995,
+          "profit_factor": 1.232752839812237,
+          "max_dd_pct": 14.18552459322985,
+          "trade_count": 343,
+          "long_expectancy": 0.4348965517241379,
+          "short_expectancy": 0.8384848484848484
+        }
+      },
+      "deltas": {
+        "validation": {
+          "return_pct_delta": -0.030000000000001137,
+          "profit_factor_delta": 0.002374191384346025,
+          "max_dd_pct_delta": 0.001279163314267251
+        },
+        "test": {
+          "return_pct_delta": 0.0,
+          "profit_factor_delta": 0.0,
+          "max_dd_pct_delta": 0.0
+        },
+        "hist_2024": {
+          "return_pct_delta": 6.448,
+          "profit_factor_delta": 0.030660458830522153,
+          "max_dd_pct_delta": 0.05430613612820068
+        }
+      },
+      "score": 7.053528484916731,
+      "test_non_regression": true
+    },
+    {
+      "run_name": "34D_29s_outbarlong_0001",
+      "label": "34D 29S + outbar long",
+      "experiment_id": "exp_34d_29s_outbarlong_v1",
+      "stage_id": "34D",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "ny_postcash_hold_cap_bars": 3,
+        "session_overlay_label": "postcash_hold_cut",
+        "risk_overlay_reference": "18E_19A_reference",
+        "monday_short_hold_cap_bars": 2,
+        "ny_postcash_short_hold_cap_bars": 2,
+        "governance_overlay_label": "weak_pocket_short_fusion_d3",
+        "governance_signal_taper_max_argmax_share": 0.82,
+        "governance_signal_taper_min_entropy": 0.9,
+        "governance_signal_taper_mult": 0.9,
+        "governance_signal_taper_mode": "either",
+        "governance_signal_taper_duration_bars": 3,
+        "governance_external_taper_max_skip_rate": 0.34,
+        "governance_external_taper_mult": 0.9,
+        "governance_external_taper_duration_bars": 3,
+        "governance_overlay_context": "monday_or_postcash",
+        "governance_overlay_direction": "short",
+        "soft_context_label": "stage29_wave2_state_exit_h2_margin004_gweak",
+        "stage29_wave2_label": "state_exit_h2_margin004_gweak",
+        "stage34_mainline_label": "29s_outbar_long",
+        "state_exit_outside_bar_suppress_enabled": true,
+        "state_exit_outside_bar_direction": "long",
+        "state_exit_outside_bar_min_range_atr14": 0.0,
+        "state_exit_outside_bar_trigger_scope": "margin_only"
+      },
+      "splits": {
+        "validation": {
+          "return_pct": 197.52,
+          "profit_factor": 1.583157173730765,
+          "max_dd_pct": 12.736149153178014,
+          "trade_count": 404,
+          "long_expectancy": 2.836,
+          "short_expectancy": 2.0413065326633166
+        },
+        "test": {
+          "return_pct": 100.59399999999998,
+          "profit_factor": 1.4883014251873714,
+          "max_dd_pct": 18.451167006571502,
+          "trade_count": 285,
+          "long_expectancy": 0.5934042553191489,
+          "short_expectancy": 2.9118055555555555
+        },
+        "hist_2024": {
+          "return_pct": 46.373999999999995,
+          "profit_factor": 1.235992794113157,
+          "max_dd_pct": 14.191629090500873,
+          "trade_count": 343,
+          "long_expectancy": 0.4356551724137931,
+          "short_expectancy": 0.852020202020202
+        }
+      },
+      "deltas": {
+        "validation": {
+          "return_pct_delta": 0.7120000000000175,
+          "profit_factor_delta": 0.011463017671576203,
+          "max_dd_pct_delta": -0.03868431142571005
+        },
+        "test": {
+          "return_pct_delta": 1.0379999999999825,
+          "profit_factor_delta": 0.005535447105710967,
+          "max_dd_pct_delta": 0.045143423676211825
+        },
+        "hist_2024": {
+          "return_pct_delta": 7.006,
+          "profit_factor_delta": 0.03390041313144221,
+          "max_dd_pct_delta": 0.06041063339922381
+        }
+      },
+      "score": 12.865775117513639,
+      "test_non_regression": true
+    }
+  ],
+  "best_non_regression_run": "34D_29s_outbarlong_0001"
+}
