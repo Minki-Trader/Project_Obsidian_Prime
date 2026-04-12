@@ -1,7 +1,7 @@
 # Current Working State
 
 - updated_on: `2026-04-12`
-- active_branch: `codex/stage35-34d-runtime-handoff`
+- active_branch: `codex/stage36-outbar-localization-diagnostic`
 - main_base_note: `main is behind the active Stage 22 + governance line; use this note before assuming main reflects the latest decision chain`
 
 ## Read This First
@@ -9,39 +9,46 @@
 1. `AGENTS.md`
 2. `docs/context/stage_reporting_standard.md`
 3. `docs/context/regular_experiment_roadmap_20260409.md`
-4. `stages/35_candle_sidecar_simplification_check/00_spec/stage_brief.md`
-5. `stages/35_candle_sidecar_simplification_check/03_reviews/review_index.md`
-6. `stages/35_candle_sidecar_simplification_check/04_selected/selection_status.md`
-7. `stages/34_outside_bar_mainline_promotion/00_spec/stage_brief.md`
-8. `stages/34_outside_bar_mainline_promotion/03_reviews/review_index.md`
-9. `stages/34_outside_bar_mainline_promotion/04_selected/selection_status.md`
-10. `stages/34_outside_bar_mainline_promotion/04_selected/runtime_handoff_status.md`
-11. `stages/33_outside_bar_state_exit_followup/00_spec/stage_brief.md`
-12. `stages/33_outside_bar_state_exit_followup/03_reviews/review_index.md`
-13. `stages/33_outside_bar_state_exit_followup/04_selected/selection_status.md`
-14. `stages/32_candle_pattern_exit_diagnostic/00_spec/stage_brief.md`
-15. `stages/32_candle_pattern_exit_diagnostic/03_reviews/review_index.md`
-16. `stages/32_candle_pattern_exit_diagnostic/04_selected/selection_status.md`
-17. `stages/31_impulse_candle_exit_diagnostic/00_spec/stage_brief.md`
-18. `stages/31_impulse_candle_exit_diagnostic/03_reviews/review_index.md`
-19. `stages/31_impulse_candle_exit_diagnostic/04_selected/selection_status.md`
-20. `stages/30_macro_mismatch_root_cause/00_spec/stage_brief.md`
-21. `stages/30_macro_mismatch_root_cause/03_reviews/review_index.md`
-22. `stages/30_macro_mismatch_root_cause/04_selected/selection_status.md`
-23. `docs/context/stage23_27_wave2_crosssplit_synthesis_20260412.md`
-24. `stages/29_fusion_long_repair/00_spec/stage_brief.md`
-25. `stages/29_fusion_long_repair/03_reviews/review_index.md`
-26. `stages/29_fusion_long_repair/04_selected/selection_status.md`
-27. `stages/28_retrain_feature_checks/00_spec/stage_brief.md`
-28. `stages/28_retrain_feature_checks/03_reviews/review_index.md`
-29. `stages/28_retrain_feature_checks/04_selected/selection_status.md`
-30. `stages/27_vol_adaptive_overlay/04_selected/selection_status.md`
-31. `stages/26_gov_adaptive_overlay/04_selected/selection_status.md`
-32. `stages/25_soft_contextual_control/04_selected/selection_status.md`
-33. `foundation/reports/governance_selected_runs_standard_20260409.md`
+4. `stages/36_outside_bar_localization_diagnostic/00_spec/stage_brief.md`
+5. `stages/36_outside_bar_localization_diagnostic/03_reviews/review_index.md`
+6. `stages/36_outside_bar_localization_diagnostic/04_selected/selection_status.md`
+7. `stages/35_candle_sidecar_simplification_check/00_spec/stage_brief.md`
+8. `stages/35_candle_sidecar_simplification_check/03_reviews/review_index.md`
+9. `stages/35_candle_sidecar_simplification_check/04_selected/selection_status.md`
+10. `stages/34_outside_bar_mainline_promotion/00_spec/stage_brief.md`
+11. `stages/34_outside_bar_mainline_promotion/03_reviews/review_index.md`
+12. `stages/34_outside_bar_mainline_promotion/04_selected/selection_status.md`
+13. `stages/34_outside_bar_mainline_promotion/04_selected/runtime_handoff_status.md`
+14. `stages/33_outside_bar_state_exit_followup/00_spec/stage_brief.md`
+15. `stages/33_outside_bar_state_exit_followup/03_reviews/review_index.md`
+16. `stages/33_outside_bar_state_exit_followup/04_selected/selection_status.md`
+17. `stages/32_candle_pattern_exit_diagnostic/00_spec/stage_brief.md`
+18. `stages/32_candle_pattern_exit_diagnostic/03_reviews/review_index.md`
+19. `stages/32_candle_pattern_exit_diagnostic/04_selected/selection_status.md`
+20. `stages/31_impulse_candle_exit_diagnostic/00_spec/stage_brief.md`
+21. `stages/31_impulse_candle_exit_diagnostic/03_reviews/review_index.md`
+22. `stages/31_impulse_candle_exit_diagnostic/04_selected/selection_status.md`
+23. `stages/30_macro_mismatch_root_cause/00_spec/stage_brief.md`
+24. `stages/30_macro_mismatch_root_cause/03_reviews/review_index.md`
+25. `stages/30_macro_mismatch_root_cause/04_selected/selection_status.md`
+26. `docs/context/stage23_27_wave2_crosssplit_synthesis_20260412.md`
+27. `stages/29_fusion_long_repair/00_spec/stage_brief.md`
+28. `stages/29_fusion_long_repair/03_reviews/review_index.md`
+29. `stages/29_fusion_long_repair/04_selected/selection_status.md`
+30. `stages/28_retrain_feature_checks/00_spec/stage_brief.md`
+31. `stages/28_retrain_feature_checks/03_reviews/review_index.md`
+32. `stages/28_retrain_feature_checks/04_selected/selection_status.md`
+33. `stages/27_vol_adaptive_overlay/04_selected/selection_status.md`
+34. `stages/26_gov_adaptive_overlay/04_selected/selection_status.md`
+35. `stages/25_soft_contextual_control/04_selected/selection_status.md`
+36. `foundation/reports/governance_selected_runs_standard_20260409.md`
 
 ## Current Decisions
 
+- Stage 36 localization status: `wave1_completed`
+- Stage 36 localization decision: `34D_edge_is_sparse_long_state_exit_protection_not_broad_systemic_drift`
+- Stage 36 localization read: `only 7 direct long suppressions fired across Stage 35, with 5 hist_2024 events explaining almost all of the older-window edge and zero test-window events`
+- Stage 36 simplification bias: `if simplification reopens, target a narrower long no-entry subset rather than removing the candle sidecar entirely`
 - Stage 35 simplification status: `wave1_completed`
 - Stage 35 verified carry: `35A_34d_refcarry_0001`
 - Stage 35 simplification candidate: `35B_34b_simpleref_0001`
@@ -106,6 +113,18 @@
 
 ## Why This Branch Matters
 
+- Stage 36 then answered the next question left open by Stage 35:
+  - if full removal of the candle sidecar is too blunt, where exactly is the surviving `34D` value coming from
+- That Stage 36 read localized the answer tightly:
+  - only `7` direct outside-bar suppressions fired across `validation / test / hist_2024`
+  - all `7` were long-side `STATE_EXIT_MARGIN` suppressions
+  - all `7` held for exactly one more bar
+  - `hist_2024` supplied `5` of those `7` events and about `34.86` of the `36.37` net-profit edge over `34B`
+- The same Stage 36 read also showed what the sidecar is not:
+  - it is not a broad current-window test rescue
+  - it is not a short-side story
+  - it is not a general distributional lift spread evenly across trades
+- That means the sidecar remains worth keeping, but future simplification should focus on preserving a small long no-entry protection pocket rather than on blanket removal.
 - Stage 35 then asked the cleanest next-step question after the Stage 34 promotion and handoff check:
   - can the live line be simplified back to the governance-only `34B` backbone without losing what made `34D` worth keeping
 - That Stage 35 read answered `no`:
@@ -169,6 +188,11 @@
 
 ## Current Follow-Up Bias
 
+- keep `34D` as the live regular lane; Stage 36 showed the sidecar value is sparse but still real
+- treat the Stage 36 read as a localization map, not as permission to reopen the closed `remove the sidecar entirely` simplification path
+- if simplification reopens later, target the narrow long `no entry / weak margin` subset first rather than broad weekday or session heuristics
+- keep the outside-bar topic `long-only` unless a later fresh rerun produces a different directional read
+- do not spend follow-up time trying to explain the current test window through the sidecar; Stage 36 showed it simply never fired there
 - keep `34D` as the live regular lane; it is now the strongest balanced operating answer
 - treat the `34D` experiment bundle as the verified runtime handoff reference, not just as a stage-local winner
 - close the plain `34B` governance-only simplification path for now; Stage 35 showed that it gives back too much `hist_2024` edge
