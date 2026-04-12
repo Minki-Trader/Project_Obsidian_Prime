@@ -91,5 +91,5 @@ BARS_PER_YEAR_5M = 252 * 288
 DEFAULT_TOP3_WEIGHTS_PATH = Path("foundation/config/top3_monthly_weights_fpmarkets_v2.csv")
 DEFAULT_RAW_BARS_ROOT = Path("data/raw/mt5_bars/m5")
 DEFAULT_INTERSECTION_PATH = Path(
-    "data/processed/fpmarkets_v2/m5_intersection/extended_window/fpmarkets_v2_m5_intersection_2022-08-01_2026-02-28.parquet"
+    "data/processed/fpmarkets_v2/m5_intersection/extended_window/fpmarkets_v2_m5_intersection_2022-08-01_2026-04-12.parquet"
 )

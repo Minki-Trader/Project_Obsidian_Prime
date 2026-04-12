@@ -1,0 +1,25 @@
+# Stage 38 Input Refs
+
+- contract refs:
+  - `AGENTS.md`
+  - `docs/contracts/feature_calculation_spec_fpmarkets_v2.md`
+  - `docs/contracts/python_feature_parser_spec_fpmarkets_v2.md`
+  - `docs/contracts/mt5_ea_input_order_contract_fpmarkets_v2.md`
+- current context:
+  - `docs/context/current_working_state.md`
+- stage refs:
+  - `stages/34_outside_bar_mainline_promotion/03_reviews/stage34_mainline_20260412.json`
+  - `stages/34_outside_bar_mainline_promotion/04_selected/runtime_handoff_status.md`
+  - `stages/35_candle_sidecar_simplification_check/03_reviews/stage35_simplification_20260412.json`
+  - `stages/36_outside_bar_localization_diagnostic/03_reviews/stage36_outside_bar_localization_20260412.json`
+  - `stages/37_long_horizon_bridge_read/03_reviews/stage37_bridge_20260412.json`
+- shared data refs:
+  - `data/processed/fpmarkets_v2/features/extended_window/feature_matrix.parquet`
+  - `data/raw/mt5_bars/m5/US100/`
+  - `data/raw/mt5_bars/m5/VIX/`
+  - `data/raw/mt5_bars/m5/US10YR/`
+  - `data/raw/mt5_bars/m5/USDX/`
+- runtime proxy refs:
+  - `stages/34_outside_bar_mainline_promotion/02_runs/active/34D_29s_outbarlong_0001/artifacts/feature_schema.json`
+  - `stages/34_outside_bar_mainline_promotion/02_runs/active/34D_29s_outbarlong_0001/artifacts/model_probonly.onnx`
+  - `C:/Users/awdse/AppData/Roaming/MetaQuotes/Terminal/Common/Files/Project_Obsidian_Prime/runtime/exp_34d_29s_outbarlong_v1_handoff/logs/att_0005_shadow.csv`

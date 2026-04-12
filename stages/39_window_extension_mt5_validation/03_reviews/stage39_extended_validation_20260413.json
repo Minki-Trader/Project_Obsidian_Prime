@@ -1,0 +1,161 @@
+{
+  "reviewed_on": "2026-04-13",
+  "extended_window": "2022-08-01 .. 2026-04-12 inclusive",
+  "reference": {
+    "run_name": "39A_34d_bridge_ext_0001",
+    "label": "39A 34D extended bridge",
+    "experiment_id": "exp_39a_34d_bridge_ext_v1",
+    "stage_id": "39A",
+    "bridge": {
+      "net_profit": 2950.79,
+      "return_pct": 590.158,
+      "trade_count": 1134,
+      "profit_factor": 1.302494036312119,
+      "expectancy_per_trade": 2.6021075837742504,
+      "max_dd_pct": 18.76086748175633,
+      "ulcer_index": 7.137492986212466,
+      "worst_week": -427.1,
+      "long_expectancy": 1.4956036036036036,
+      "short_expectancy": 3.662746113989637,
+      "no_trade_rate": 0.9150679398782564,
+      "external_mismatch_count": 53733
+    },
+    "attempt": {
+      "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\39_window_extension_mt5_validation\\02_runs\\active\\39A_34d_bridge_ext_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json",
+      "from_date": "2024.01.01",
+      "to_date": "2026.04.13",
+      "actual_ready_row_count": 34663
+    },
+    "year_buckets": {
+      "2024": {
+        "net_profit": 190.31999999999988,
+        "trade_count": 346,
+        "long_count": 148,
+        "short_count": 198
+      },
+      "2025": {
+        "net_profit": 1738.420000000001,
+        "trade_count": 572,
+        "long_count": 284,
+        "short_count": 288
+      },
+      "2026_ytd": {
+        "net_profit": 1022.0499999999993,
+        "trade_count": 216,
+        "long_count": 123,
+        "short_count": 93
+      }
+    }
+  },
+  "candidate": {
+    "run_name": "39B_34b_bridge_ext_0001",
+    "label": "39B 34B extended bridge",
+    "experiment_id": "exp_39b_34b_bridge_ext_v1",
+    "stage_id": "39B",
+    "bridge": {
+      "net_profit": 2842.86,
+      "return_pct": 568.572,
+      "trade_count": 1134,
+      "profit_factor": 1.3009922752452103,
+      "expectancy_per_trade": 2.5069312169312172,
+      "max_dd_pct": 18.729015344227957,
+      "ulcer_index": 7.077396297498976,
+      "worst_week": -412.5199999999999,
+      "long_expectancy": 1.3915675675675676,
+      "short_expectancy": 3.576062176165803,
+      "no_trade_rate": 0.9150679398782564,
+      "external_mismatch_count": 53733
+    },
+    "attempt": {
+      "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\39_window_extension_mt5_validation\\02_runs\\active\\39B_34b_bridge_ext_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+      "from_date": "2024.01.01",
+      "to_date": "2026.04.13",
+      "actual_ready_row_count": 34663
+    },
+    "year_buckets": {
+      "2024": {
+        "net_profit": 155.8199999999999,
+        "trade_count": 346,
+        "long_count": 148,
+        "short_count": 198
+      },
+      "2025": {
+        "net_profit": 1694.770000000001,
+        "trade_count": 572,
+        "long_count": 284,
+        "short_count": 288
+      },
+      "2026_ytd": {
+        "net_profit": 992.270000000001,
+        "trade_count": 216,
+        "long_count": 123,
+        "short_count": 93
+      }
+    }
+  },
+  "delta": {
+    "net_profit_delta": 107.92999999999984,
+    "return_pct_delta": 21.586000000000013,
+    "profit_factor_delta": 0.0015017610669085801,
+    "max_dd_pct_delta": 0.03185213752837157,
+    "ulcer_index_delta": 0.06009668871349039,
+    "long_expectancy_delta": 0.10403603603603595,
+    "short_expectancy_delta": 0.08668393782383399,
+    "year_buckets": {
+      "2024": {
+        "net_profit_delta": 34.49999999999997,
+        "trade_count_delta": 0
+      },
+      "2025": {
+        "net_profit_delta": 43.65000000000009,
+        "trade_count_delta": 0
+      },
+      "2026_ytd": {
+        "net_profit_delta": 29.779999999998267,
+        "trade_count_delta": 0
+      }
+    }
+  },
+  "latest_shadow_audit": {
+    "run_name": "39A_34d_bridge_ext_0001",
+    "experiment_id": "exp_39a_34d_bridge_ext_v1",
+    "latest_attempt": {
+      "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\39_window_extension_mt5_validation\\02_runs\\active\\39A_34d_bridge_ext_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+      "from_date": "2026.03.01",
+      "to_date": "2026.04.13",
+      "actual_ready_row_count": 2216,
+      "shadow_csv_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_39a_34d_bridge_ext_v1\\logs\\att_0003_shadow.csv"
+    },
+    "mt5_metrics": {
+      "no_trade_rate": 0.8984657039711191,
+      "external_mismatch_count": 2299,
+      "skip_reason_breakdown": {
+        "HANDLE_NOT_READY_EMA9_-1": 1,
+        "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 396,
+        "SESSION_CASH_OPEN_NOT_FOUND": 3672,
+        "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 1466,
+        "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 221,
+        "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 216
+      }
+    },
+    "proxy_parity": {
+      "exact_timestamp_prob_diff": {
+        "count": 100,
+        "mean": 0.025765717774629594,
+        "median": 0.026329010725021362,
+        "p90": 0.044808053970336915,
+        "max": 0.09649938344955444
+      },
+      "best_neighbor_prob_diff": {
+        "count": 100,
+        "mean": 0.018240701407194138,
+        "median": 0.01257440447807312,
+        "p90": 0.037505677342414855,
+        "max": 0.0834907591342926
+      },
+      "exact_timestamp_checksum_match_count": 0,
+      "best_neighbor_checksum_match_count": 0,
+      "sample_count": 100
+    }
+  }
+}
