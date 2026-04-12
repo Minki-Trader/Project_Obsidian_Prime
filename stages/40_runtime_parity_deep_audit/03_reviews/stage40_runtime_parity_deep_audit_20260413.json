@@ -1,0 +1,343 @@
+{
+  "reviewed_on": "2026-04-13",
+  "audit_surface": {
+    "source_stage": "39_window_extension_mt5_validation",
+    "shadow_csv_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_39a_34d_bridge_ext_v1\\logs\\att_0003_shadow.csv",
+    "ready_row_count": 2216,
+    "shift_window_bars": {
+      "min": -6,
+      "max": 6
+    },
+    "feature_matrix_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\data\\processed\\fpmarkets_v2\\features\\extended_window\\feature_matrix.parquet",
+    "feature_schema_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\34_outside_bar_mainline_promotion\\02_runs\\active\\34D_29s_outbarlong_0001\\artifacts\\feature_schema.json",
+    "model_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\34_outside_bar_mainline_promotion\\02_runs\\active\\34D_29s_outbarlong_0001\\artifacts\\model_probonly.onnx"
+  },
+  "exact_timestamp_prob_diff": {
+    "count": 2216,
+    "mean": 0.03859977302770214,
+    "median": 0.030349403619766235,
+    "p90": 0.082695372402668,
+    "max": 0.20121517777442932
+  },
+  "best_neighbor_prob_diff": {
+    "count": 2216,
+    "mean": 0.01728147539959057,
+    "median": 0.012162268161773682,
+    "p90": 0.038387857377529144,
+    "max": 0.13986438512802124
+  },
+  "improvement_from_best_neighbor": {
+    "count": 2216,
+    "mean": 0.021318297628111573,
+    "median": 0.012835778295993805,
+    "p90": 0.057516440749168396,
+    "max": 0.1345883309841156
+  },
+  "exact_threshold_counts": {
+    "le_0.001": 19,
+    "le_0.005": 201,
+    "le_0.010": 431,
+    "le_0.020": 790,
+    "le_0.050": 1538,
+    "le_0.100": 2123
+  },
+  "best_shift_counts": {
+    "0": 648,
+    "-1": 231,
+    "1": 179,
+    "-2": 166,
+    "-6": 137,
+    "2": 122,
+    "-4": 119,
+    "-3": 117,
+    "-5": 116,
+    "3": 108,
+    "4": 105,
+    "6": 85,
+    "5": 83
+  },
+  "best_shift_zero_share": 0.2924187725631769,
+  "checksum_parity": {
+    "exact_float64_style_match_count": 0,
+    "exact_float32_style_match_count": 0,
+    "best_neighbor_float64_style_match_count": 0,
+    "best_neighbor_float32_style_match_count": 0
+  },
+  "session_breakdown": {
+    "ny_cash": {
+      "count": 1068,
+      "mean": 0.03138600556312429,
+      "median": 0.022172868251800537,
+      "p90": 0.06977743357419969,
+      "max": 0.20121517777442932
+    },
+    "ny_late": {
+      "count": 169,
+      "mean": 0.0683002788022425,
+      "median": 0.0661570280790329,
+      "p90": 0.10325840413570404,
+      "max": 0.1457374393939972
+    },
+    "ny_postcash": {
+      "count": 979,
+      "mean": 0.04134228393298491,
+      "median": 0.034735918045043945,
+      "p90": 0.08366557955741882,
+      "max": 0.17743809521198273
+    }
+  },
+  "high_diff_clusters": [
+    {
+      "start_timestamp": "2026-03-23T18:10:00+00:00",
+      "end_timestamp": "2026-03-23T18:15:00+00:00",
+      "count": 2,
+      "mean_exact_diff": 0.1976962834596634,
+      "max_exact_diff": 0.20121517777442932,
+      "sessions": {
+        "ny_cash": 2
+      }
+    },
+    {
+      "start_timestamp": "2026-03-23T17:55:00+00:00",
+      "end_timestamp": "2026-03-23T18:00:00+00:00",
+      "count": 2,
+      "mean_exact_diff": 0.18030263483524323,
+      "max_exact_diff": 0.19034835696220398,
+      "sessions": {
+        "ny_cash": 2
+      }
+    },
+    {
+      "start_timestamp": "2026-04-02T20:20:00+00:00",
+      "end_timestamp": "2026-04-02T20:45:00+00:00",
+      "count": 6,
+      "mean_exact_diff": 0.16381600250800452,
+      "max_exact_diff": 0.17743809521198273,
+      "sessions": {
+        "ny_postcash": 6
+      }
+    },
+    {
+      "start_timestamp": "2026-03-23T17:45:00+00:00",
+      "end_timestamp": "2026-03-23T17:45:00+00:00",
+      "count": 1,
+      "mean_exact_diff": 0.1762280911207199,
+      "max_exact_diff": 0.1762280911207199,
+      "sessions": {
+        "ny_cash": 1
+      }
+    },
+    {
+      "start_timestamp": "2026-03-23T17:20:00+00:00",
+      "end_timestamp": "2026-03-23T17:20:00+00:00",
+      "count": 1,
+      "mean_exact_diff": 0.1692190021276474,
+      "max_exact_diff": 0.1692190021276474,
+      "sessions": {
+        "ny_cash": 1
+      }
+    },
+    {
+      "start_timestamp": "2026-04-01T19:15:00+00:00",
+      "end_timestamp": "2026-04-01T19:15:00+00:00",
+      "count": 1,
+      "mean_exact_diff": 0.1518862247467041,
+      "max_exact_diff": 0.1518862247467041,
+      "sessions": {
+        "ny_cash": 1
+      }
+    }
+  ],
+  "worst_exact_rows": [
+    {
+      "timestamp": "2026-03-23T18:10:00+00:00",
+      "bar_time_server": "2026.03.23 18:10:00",
+      "session_bucket": "ny_cash",
+      "exact_diff": 0.20121517777442932,
+      "best_neighbor_diff": 0.08645892143249512,
+      "best_shift_bars": -1,
+      "improvement_from_best_neighbor": 0.1147562563419342,
+      "exact_checksum64_match": false,
+      "exact_checksum32_match": false,
+      "best_neighbor_checksum64_match": false,
+      "best_neighbor_checksum32_match": false,
+      "external_alignment_mode": "exact",
+      "decision_reason": "DUAL_SIGNAL_LONG_WINS",
+      "feature_ready_count": 54
+    },
+    {
+      "timestamp": "2026-03-23T18:15:00+00:00",
+      "bar_time_server": "2026.03.23 18:15:00",
+      "session_bucket": "ny_cash",
+      "exact_diff": 0.19417738914489746,
+      "best_neighbor_diff": 0.09553292393684387,
+      "best_shift_bars": -2,
+      "improvement_from_best_neighbor": 0.09864446520805359,
+      "exact_checksum64_match": false,
+      "exact_checksum32_match": false,
+      "best_neighbor_checksum64_match": false,
+      "best_neighbor_checksum32_match": false,
+      "external_alignment_mode": "exact",
+      "decision_reason": "DUAL_SIGNAL_LONG_WINS",
+      "feature_ready_count": 54
+    },
+    {
+      "timestamp": "2026-03-23T18:00:00+00:00",
+      "bar_time_server": "2026.03.23 18:00:00",
+      "session_bucket": "ny_cash",
+      "exact_diff": 0.19034835696220398,
+      "best_neighbor_diff": 0.09052292257547379,
+      "best_shift_bars": 1,
+      "improvement_from_best_neighbor": 0.0998254343867302,
+      "exact_checksum64_match": false,
+      "exact_checksum32_match": false,
+      "best_neighbor_checksum64_match": false,
+      "best_neighbor_checksum32_match": false,
+      "external_alignment_mode": "exact",
+      "decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "feature_ready_count": 54
+    },
+    {
+      "timestamp": "2026-04-02T20:30:00+00:00",
+      "bar_time_server": "2026.04.02 20:30:00",
+      "session_bucket": "ny_postcash",
+      "exact_diff": 0.17743809521198273,
+      "best_neighbor_diff": 0.04610872268676758,
+      "best_shift_bars": 5,
+      "improvement_from_best_neighbor": 0.13132937252521515,
+      "exact_checksum64_match": false,
+      "exact_checksum32_match": false,
+      "best_neighbor_checksum64_match": false,
+      "best_neighbor_checksum32_match": false,
+      "external_alignment_mode": "exact",
+      "decision_reason": "LONG_MARGIN_FAIL",
+      "feature_ready_count": 54
+    },
+    {
+      "timestamp": "2026-03-23T17:45:00+00:00",
+      "bar_time_server": "2026.03.23 17:45:00",
+      "session_bucket": "ny_cash",
+      "exact_diff": 0.1762280911207199,
+      "best_neighbor_diff": 0.06539691984653473,
+      "best_shift_bars": 4,
+      "improvement_from_best_neighbor": 0.11083117127418518,
+      "exact_checksum64_match": false,
+      "exact_checksum32_match": false,
+      "best_neighbor_checksum64_match": false,
+      "best_neighbor_checksum32_match": false,
+      "external_alignment_mode": "exact",
+      "decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "feature_ready_count": 54
+    },
+    {
+      "timestamp": "2026-03-23T17:55:00+00:00",
+      "bar_time_server": "2026.03.23 17:55:00",
+      "session_bucket": "ny_cash",
+      "exact_diff": 0.17025691270828247,
+      "best_neighbor_diff": 0.09347791969776154,
+      "best_shift_bars": 2,
+      "improvement_from_best_neighbor": 0.07677899301052094,
+      "exact_checksum64_match": false,
+      "exact_checksum32_match": false,
+      "best_neighbor_checksum64_match": false,
+      "best_neighbor_checksum32_match": false,
+      "external_alignment_mode": "exact",
+      "decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "feature_ready_count": 54
+    },
+    {
+      "timestamp": "2026-04-02T20:25:00+00:00",
+      "bar_time_server": "2026.04.02 20:25:00",
+      "session_bucket": "ny_postcash",
+      "exact_diff": 0.16986656188964844,
+      "best_neighbor_diff": 0.04872691631317139,
+      "best_shift_bars": 6,
+      "improvement_from_best_neighbor": 0.12113964557647705,
+      "exact_checksum64_match": false,
+      "exact_checksum32_match": false,
+      "best_neighbor_checksum64_match": false,
+      "best_neighbor_checksum32_match": false,
+      "external_alignment_mode": "exact",
+      "decision_reason": "LONG_MARGIN_FAIL",
+      "feature_ready_count": 54
+    },
+    {
+      "timestamp": "2026-03-23T17:20:00+00:00",
+      "bar_time_server": "2026.03.23 17:20:00",
+      "session_bucket": "ny_cash",
+      "exact_diff": 0.1692190021276474,
+      "best_neighbor_diff": 0.05317145586013794,
+      "best_shift_bars": -6,
+      "improvement_from_best_neighbor": 0.11604754626750946,
+      "exact_checksum64_match": false,
+      "exact_checksum32_match": false,
+      "best_neighbor_checksum64_match": false,
+      "best_neighbor_checksum32_match": false,
+      "external_alignment_mode": "exact",
+      "decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "feature_ready_count": 54
+    },
+    {
+      "timestamp": "2026-04-02T20:20:00+00:00",
+      "bar_time_server": "2026.04.02 20:20:00",
+      "session_bucket": "ny_postcash",
+      "exact_diff": 0.1610291302204132,
+      "best_neighbor_diff": 0.026440799236297607,
+      "best_shift_bars": 6,
+      "improvement_from_best_neighbor": 0.1345883309841156,
+      "exact_checksum64_match": false,
+      "exact_checksum32_match": false,
+      "best_neighbor_checksum64_match": false,
+      "best_neighbor_checksum32_match": false,
+      "external_alignment_mode": "exact",
+      "decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "feature_ready_count": 54
+    },
+    {
+      "timestamp": "2026-04-02T20:40:00+00:00",
+      "bar_time_server": "2026.04.02 20:40:00",
+      "session_bucket": "ny_postcash",
+      "exact_diff": 0.16073158383369446,
+      "best_neighbor_diff": 0.037689805030822754,
+      "best_shift_bars": 2,
+      "improvement_from_best_neighbor": 0.1230417788028717,
+      "exact_checksum64_match": false,
+      "exact_checksum32_match": false,
+      "best_neighbor_checksum64_match": false,
+      "best_neighbor_checksum32_match": false,
+      "external_alignment_mode": "exact",
+      "decision_reason": "LONG_MARGIN_FAIL",
+      "feature_ready_count": 54
+    }
+  ],
+  "mt5_runtime_context": {
+    "latest_attempt": {
+      "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\39_window_extension_mt5_validation\\02_runs\\active\\39A_34d_bridge_ext_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+      "from_date": "2026.03.01",
+      "to_date": "2026.04.13",
+      "actual_ready_row_count": 2216,
+      "shadow_csv_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_39a_34d_bridge_ext_v1\\logs\\att_0003_shadow.csv"
+    },
+    "mt5_metrics": {
+      "no_trade_rate": 0.8984657039711191,
+      "external_mismatch_count": 2299,
+      "skip_reason_breakdown": {
+        "HANDLE_NOT_READY_EMA9_-1": 1,
+        "EXTERNAL_TIMESTAMP_MISMATCH_USDX": 396,
+        "SESSION_CASH_OPEN_NOT_FOUND": 3672,
+        "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas": 1466,
+        "EXTERNAL_TIMESTAMP_MISMATCH_US10YR": 221,
+        "EXTERNAL_TIMESTAMP_MISMATCH_VIX": 216
+      }
+    }
+  },
+  "interpretation": [
+    "Exact-timestamp drift remains too large to call runtime parity closed.",
+    "Best-neighbor drift improves materially, but the winning shift is not concentrated on zero, so this is not a single-bar offset story.",
+    "Checksum parity stays at zero under both float64-style and float32-style serialization checks, so the issue is not explained by a simple token-format mismatch.",
+    "Drift worsens in ny_late and forms concrete March and April clusters, which points to a session-sensitive feature-surface divergence worth instrumenting directly."
+  ],
+  "report_inputs": {
+    "stage39_review_json": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\39_window_extension_mt5_validation\\03_reviews\\stage39_extended_validation_20260413.json"
+  }
+}

@@ -2,60 +2,66 @@
 
 - updated_on: `2026-04-13`
 - active_branch: `main`
-- main_base_note: `main now includes the Stage 22 through Stage 39 chain; Stage 38 broadened the pre-live evidence pack and Stage 39 extended the shared window plus reopened a fresh MT5 parity surface`
+- main_base_note: `main now includes the Stage 22 through Stage 40 chain; Stage 38 now has copy-ready visual panels, Stage 39 extended the shared window through 2026-04-12, and Stage 40 turned the fresh MT5 runtime mismatch into a concrete parity-debug brief`
 
 ## Read This First
 
 1. `AGENTS.md`
 2. `docs/context/stage_reporting_standard.md`
 3. `docs/context/regular_experiment_roadmap_20260409.md`
-4. `stages/39_window_extension_mt5_validation/00_spec/stage_brief.md`
-5. `stages/39_window_extension_mt5_validation/03_reviews/review_index.md`
-6. `stages/39_window_extension_mt5_validation/04_selected/selection_status.md`
-7. `stages/38_prelive_evidence_pack/00_spec/stage_brief.md`
-8. `stages/38_prelive_evidence_pack/03_reviews/review_index.md`
-9. `stages/38_prelive_evidence_pack/04_selected/selection_status.md`
-10. `stages/37_long_horizon_bridge_read/00_spec/stage_brief.md`
-11. `stages/37_long_horizon_bridge_read/03_reviews/review_index.md`
-12. `stages/37_long_horizon_bridge_read/04_selected/selection_status.md`
-13. `stages/36_outside_bar_localization_diagnostic/00_spec/stage_brief.md`
-14. `stages/36_outside_bar_localization_diagnostic/03_reviews/review_index.md`
-15. `stages/36_outside_bar_localization_diagnostic/04_selected/selection_status.md`
-16. `stages/35_candle_sidecar_simplification_check/00_spec/stage_brief.md`
-17. `stages/35_candle_sidecar_simplification_check/03_reviews/review_index.md`
-18. `stages/35_candle_sidecar_simplification_check/04_selected/selection_status.md`
-19. `stages/34_outside_bar_mainline_promotion/00_spec/stage_brief.md`
-20. `stages/34_outside_bar_mainline_promotion/03_reviews/review_index.md`
-21. `stages/34_outside_bar_mainline_promotion/04_selected/selection_status.md`
-22. `stages/34_outside_bar_mainline_promotion/04_selected/runtime_handoff_status.md`
-23. `stages/33_outside_bar_state_exit_followup/00_spec/stage_brief.md`
-24. `stages/33_outside_bar_state_exit_followup/03_reviews/review_index.md`
-25. `stages/33_outside_bar_state_exit_followup/04_selected/selection_status.md`
-26. `stages/32_candle_pattern_exit_diagnostic/00_spec/stage_brief.md`
-27. `stages/32_candle_pattern_exit_diagnostic/03_reviews/review_index.md`
-28. `stages/32_candle_pattern_exit_diagnostic/04_selected/selection_status.md`
-29. `stages/31_impulse_candle_exit_diagnostic/00_spec/stage_brief.md`
-30. `stages/31_impulse_candle_exit_diagnostic/03_reviews/review_index.md`
-31. `stages/31_impulse_candle_exit_diagnostic/04_selected/selection_status.md`
-32. `stages/30_macro_mismatch_root_cause/00_spec/stage_brief.md`
-33. `stages/30_macro_mismatch_root_cause/03_reviews/review_index.md`
-34. `stages/30_macro_mismatch_root_cause/04_selected/selection_status.md`
-35. `docs/context/stage23_27_wave2_crosssplit_synthesis_20260412.md`
-36. `stages/29_fusion_long_repair/00_spec/stage_brief.md`
-37. `stages/29_fusion_long_repair/03_reviews/review_index.md`
-38. `stages/29_fusion_long_repair/04_selected/selection_status.md`
-39. `stages/28_retrain_feature_checks/00_spec/stage_brief.md`
-40. `stages/28_retrain_feature_checks/03_reviews/review_index.md`
-41. `stages/28_retrain_feature_checks/04_selected/selection_status.md`
-42. `stages/27_vol_adaptive_overlay/04_selected/selection_status.md`
-43. `stages/26_gov_adaptive_overlay/04_selected/selection_status.md`
-44. `stages/25_soft_contextual_control/04_selected/selection_status.md`
-45. `foundation/reports/governance_selected_runs_standard_20260409.md`
+4. `stages/40_runtime_parity_deep_audit/00_spec/stage_brief.md`
+5. `stages/40_runtime_parity_deep_audit/03_reviews/review_index.md`
+6. `stages/40_runtime_parity_deep_audit/04_selected/selection_status.md`
+7. `stages/39_window_extension_mt5_validation/00_spec/stage_brief.md`
+8. `stages/39_window_extension_mt5_validation/03_reviews/review_index.md`
+9. `stages/39_window_extension_mt5_validation/04_selected/selection_status.md`
+10. `stages/38_prelive_evidence_pack/00_spec/stage_brief.md`
+11. `stages/38_prelive_evidence_pack/03_reviews/review_index.md`
+12. `stages/38_prelive_evidence_pack/04_selected/selection_status.md`
+13. `stages/37_long_horizon_bridge_read/00_spec/stage_brief.md`
+14. `stages/37_long_horizon_bridge_read/03_reviews/review_index.md`
+15. `stages/37_long_horizon_bridge_read/04_selected/selection_status.md`
+16. `stages/36_outside_bar_localization_diagnostic/00_spec/stage_brief.md`
+17. `stages/36_outside_bar_localization_diagnostic/03_reviews/review_index.md`
+18. `stages/36_outside_bar_localization_diagnostic/04_selected/selection_status.md`
+19. `stages/35_candle_sidecar_simplification_check/00_spec/stage_brief.md`
+20. `stages/35_candle_sidecar_simplification_check/03_reviews/review_index.md`
+21. `stages/35_candle_sidecar_simplification_check/04_selected/selection_status.md`
+22. `stages/34_outside_bar_mainline_promotion/00_spec/stage_brief.md`
+23. `stages/34_outside_bar_mainline_promotion/03_reviews/review_index.md`
+24. `stages/34_outside_bar_mainline_promotion/04_selected/selection_status.md`
+25. `stages/34_outside_bar_mainline_promotion/04_selected/runtime_handoff_status.md`
+26. `stages/33_outside_bar_state_exit_followup/00_spec/stage_brief.md`
+27. `stages/33_outside_bar_state_exit_followup/03_reviews/review_index.md`
+28. `stages/33_outside_bar_state_exit_followup/04_selected/selection_status.md`
+29. `stages/32_candle_pattern_exit_diagnostic/00_spec/stage_brief.md`
+30. `stages/32_candle_pattern_exit_diagnostic/03_reviews/review_index.md`
+31. `stages/32_candle_pattern_exit_diagnostic/04_selected/selection_status.md`
+32. `stages/31_impulse_candle_exit_diagnostic/00_spec/stage_brief.md`
+33. `stages/31_impulse_candle_exit_diagnostic/03_reviews/review_index.md`
+34. `stages/31_impulse_candle_exit_diagnostic/04_selected/selection_status.md`
+35. `stages/30_macro_mismatch_root_cause/00_spec/stage_brief.md`
+36. `stages/30_macro_mismatch_root_cause/03_reviews/review_index.md`
+37. `stages/30_macro_mismatch_root_cause/04_selected/selection_status.md`
+38. `docs/context/stage23_27_wave2_crosssplit_synthesis_20260412.md`
+39. `stages/29_fusion_long_repair/00_spec/stage_brief.md`
+40. `stages/29_fusion_long_repair/03_reviews/review_index.md`
+41. `stages/29_fusion_long_repair/04_selected/selection_status.md`
+42. `stages/28_retrain_feature_checks/00_spec/stage_brief.md`
+43. `stages/28_retrain_feature_checks/03_reviews/review_index.md`
+44. `stages/28_retrain_feature_checks/04_selected/selection_status.md`
+45. `stages/27_vol_adaptive_overlay/04_selected/selection_status.md`
+46. `stages/26_gov_adaptive_overlay/04_selected/selection_status.md`
+47. `stages/25_soft_contextual_control/04_selected/selection_status.md`
+48. `foundation/reports/governance_selected_runs_standard_20260409.md`
 
 ## Current Decisions
 
 - shared working window override: `2022-08-01 .. 2026-04-12 inclusive`
 - shared working window build summary: `intersection_rows=57142` `feature_valid_rows=56918`
+- Stage 40 parity deep audit status: `wave1_completed`
+- Stage 40 parity deep audit decision: `keep_34D_and_reopen_runtime_debug_as_targeted_feature_snapshot_work`
+- Stage 40 parity deep audit read: `the fresh 2026-03-01 through 2026-04-12 MT5 shadow surface still failed exact parity on all 2216 ready rows, with exact mean drift about 0.0386, best-neighbor mean drift about 0.0173, zero checksum matches under both float64-style and float32-style checks, and the worst clusters concentrated on 2026-03-23 and 2026-04-02`
 - Stage 39 status: `wave1_completed`
 - Stage 39 decision: `extended_bridge_still_prefers_34D_and_fresh_mt5_runtime_logs_now_exist`
 - Stage 39 read: `the 2024-01-01 through 2026-04-12 MT5 bridge still preferred 34D over 34B by net +107.93 and return_pct +21.586, while a fresh 2026-03-01 through 2026-04-12 shadow run produced current-date logs but still failed exact checksum parity`
@@ -63,6 +69,8 @@
 - Stage 38 evidence-pack status: `wave1_completed`
 - Stage 38 evidence-pack decision: `keep_34D_and_expand_the_pre_live_work_package_beyond_a_single_narrow_followup`
 - Stage 38 evidence-pack read: `the best broad next package is now explicit: direct-event evidence hardening, 34B-versus-34D value attribution, and a fresh runtime snapshot parity audit before any broad retrain or window extension`
+- Stage 38 visual panel status: `wave1_completed`
+- Stage 38 visual panel read: `a copy-ready panel pack now exists for Critical Protection Events plus 34B-versus-34D delta explanation, and it already incorporates the Stage 39 extended bridge read`
 - Stage 37 bridge status: `wave1_completed`
 - Stage 37 bridge decision: `continuous_bridge_still_prefers_34D_over_34B`
 - Stage 37 bridge read: `a continuous 2024-01-01 through 2026-02-28 risk_pct account path still preferred 34D by net +129.64, with positive contribution in 2024, 2025, and 2026_ytd`
@@ -135,6 +143,17 @@
 
 ## Why This Branch Matters
 
+- Stage 40 then converted the still-open Stage 39 runtime mismatch into a concrete debug brief instead of leaving it as a vague parity concern:
+  - re-evaluate all `2216` ready rows from the latest MT5 shadow surface instead of only the earlier small proxy sample
+  - measure exact-timestamp drift, best-neighbor drift, best-shift concentration, session concentration, checksum parity, and contiguous high-drift clusters
+- That Stage 40 read made the next runtime job much narrower:
+  - exact mean drift stayed about `0.0386`, which is still too large to call parity closed
+  - best-neighbor drift improved to about `0.0173`, but zero-shift won only `648 / 2216` rows, so the issue is not a single fixed offset
+  - checksum parity stayed at `0` under both float64-style and float32-style checks
+  - the worst clusters localized around `2026-03-23 17:20 UTC`, `2026-03-23 17:45 -> 18:15 UTC`, and `2026-04-02 20:20 -> 20:45 UTC`
+- Stage 38 also now has a copy-ready panel pack for communication and handoff:
+  - `Critical Protection Events` now has a ranked `7`-bar packet with split and session concentration already spelled out
+  - `34B vs 34D` now has a copy-ready delta explanation that stitches Stage 34 decomposition, Stage 35 / 36 split-reset attribution, Stage 37 bridge, and Stage 39 extension together
 - Stage 39 then extended the shared data and MT5 execution window beyond the older `2026-02-28` cutoff and asked whether the continuity story survives the latest closed-bar day:
   - rerun `34D` and `34B` through one uninterrupted `risk_pct` account path from `2024-01-01` through `2026-04-12`
   - rerun `34D` again on a latest-window shadow slice from `2026-03-01` through `2026-04-12`
@@ -231,10 +250,13 @@
 
 ## Current Follow-Up Bias
 
+- keep `34D` as the live regular lane; Stage 40 did not weaken the alpha story, it only narrowed the open runtime-debug target
+- open the next runtime cycle as direct feature-vector instrumentation at the localized Stage 40 cluster timestamps, not as a fresh model or rule experiment
+- use the built Stage 38 visual panel pack as the default briefing source whenever a human or another model needs the high-level operating story
 - keep `34D` as the live regular lane; Stage 39 showed it still wins after extending the MT5 bridge through `2026-04-12`
 - treat the window extension as a continuity and runtime-audit upgrade, not as permission to reopen blanket simplification, broad retraining, or a wider contract rewrite
 - use the fresh Stage 39 `2026-03-01 .. 2026-04-12` MT5 logs as the starting surface for the next exact Python-to-MT5 parity pass
-- keep the Stage 38 communication package in front: critical-protection-event visualization and `34B vs 34D` delta explanation remain the next high-value presentation tasks
+- keep the Stage 38 communication package in front, but treat it as completed presentation infrastructure rather than still-open packaging work
 - keep `34D` as the live regular lane; Stage 37 showed it still wins in one uninterrupted 2024 to early-2026 equity path
 - keep the Stage 37 bridge as continuity evidence only; do not replace the frozen split scoreboard with it
 - if we want a wider view again, prefer segmented bridge or rolling-window diagnostics before any new simplification claim

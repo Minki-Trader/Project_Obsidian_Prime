@@ -11,6 +11,7 @@
 - evidence_pack_reference: `34D_29s_outbarlong_0001`
 - evidence_pack_base: `34B_29s_refcarry_0001`
 - keep_or_replace: `keep_34D_expand_the_pre_live_work_package_beyond_a_single_narrow_followup`
+- panel_pack_status: `copy_ready_visual_panels_built`
 
 ## Promotion Gates
 
@@ -34,6 +35,10 @@
   - direct net about `34.06`
   - combined Stage 35 headline net about `36.32`
   - direct share about `0.9378`
+- the Stage 38 visual panel pack now turns that story into a copy-ready live packet:
+  - `hist_2024=5 events / +34.86`
+  - `validation=2 events / -0.80`
+  - `test=0 events / +0.00`
 - the Stage 37 bridge still keeps `34D` ahead of `34B`:
   - `net=+129.64`
   - `return_pct=+25.928`
@@ -65,6 +70,7 @@
 
 - keep `34D_29s_outbarlong_0001` as the live regular lane
 - keep `34B_29s_refcarry_0001` as the base attribution line
+- use `stage38_visual_panels_20260413.md` as the copy-ready source when briefing humans or other models about why `34D` still deserves to stay live
 - treat the next work as a package, not as a single tiny rerun:
   - evidence pack
   - attribution pack
@@ -72,10 +78,11 @@
 
 ## Follow-Up Bias
 
-- if a human-facing live-read packet is needed, build it around:
+- if a human-facing live-read packet is needed, start from the already-built visual panel pack:
   - `Critical Protection Events`
   - `34B vs 34D delta`
   - `Stage 37 continuous bridge`
+  - `Stage 39 extended bridge`
 - if parity work opens next, audit against fresh runtime-exported snapshots instead of assuming the shared processed feature matrix is already the exact MT5 audit surface
 - keep broad retraining and data-window extension behind those tasks, not ahead of them
 
@@ -83,3 +90,5 @@
 
 - `03_reviews/stage38_prelive_evidence_20260413.md`
 - `03_reviews/stage38_prelive_evidence_20260413.json`
+- `03_reviews/stage38_visual_panels_20260413.md`
+- `03_reviews/stage38_visual_panels_20260413.json`
