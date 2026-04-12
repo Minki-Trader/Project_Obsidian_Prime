@@ -1,7 +1,7 @@
 # Current Working State
 
 - updated_on: `2026-04-12`
-- active_branch: `codex/stage36-outbar-localization-diagnostic`
+- active_branch: `codex/stage37-long-horizon-bridge-read`
 - main_base_note: `main is behind the active Stage 22 + governance line; use this note before assuming main reflects the latest decision chain`
 
 ## Read This First
@@ -9,42 +9,49 @@
 1. `AGENTS.md`
 2. `docs/context/stage_reporting_standard.md`
 3. `docs/context/regular_experiment_roadmap_20260409.md`
-4. `stages/36_outside_bar_localization_diagnostic/00_spec/stage_brief.md`
-5. `stages/36_outside_bar_localization_diagnostic/03_reviews/review_index.md`
-6. `stages/36_outside_bar_localization_diagnostic/04_selected/selection_status.md`
-7. `stages/35_candle_sidecar_simplification_check/00_spec/stage_brief.md`
-8. `stages/35_candle_sidecar_simplification_check/03_reviews/review_index.md`
-9. `stages/35_candle_sidecar_simplification_check/04_selected/selection_status.md`
-10. `stages/34_outside_bar_mainline_promotion/00_spec/stage_brief.md`
-11. `stages/34_outside_bar_mainline_promotion/03_reviews/review_index.md`
-12. `stages/34_outside_bar_mainline_promotion/04_selected/selection_status.md`
-13. `stages/34_outside_bar_mainline_promotion/04_selected/runtime_handoff_status.md`
-14. `stages/33_outside_bar_state_exit_followup/00_spec/stage_brief.md`
-15. `stages/33_outside_bar_state_exit_followup/03_reviews/review_index.md`
-16. `stages/33_outside_bar_state_exit_followup/04_selected/selection_status.md`
-17. `stages/32_candle_pattern_exit_diagnostic/00_spec/stage_brief.md`
-18. `stages/32_candle_pattern_exit_diagnostic/03_reviews/review_index.md`
-19. `stages/32_candle_pattern_exit_diagnostic/04_selected/selection_status.md`
-20. `stages/31_impulse_candle_exit_diagnostic/00_spec/stage_brief.md`
-21. `stages/31_impulse_candle_exit_diagnostic/03_reviews/review_index.md`
-22. `stages/31_impulse_candle_exit_diagnostic/04_selected/selection_status.md`
-23. `stages/30_macro_mismatch_root_cause/00_spec/stage_brief.md`
-24. `stages/30_macro_mismatch_root_cause/03_reviews/review_index.md`
-25. `stages/30_macro_mismatch_root_cause/04_selected/selection_status.md`
-26. `docs/context/stage23_27_wave2_crosssplit_synthesis_20260412.md`
-27. `stages/29_fusion_long_repair/00_spec/stage_brief.md`
-28. `stages/29_fusion_long_repair/03_reviews/review_index.md`
-29. `stages/29_fusion_long_repair/04_selected/selection_status.md`
-30. `stages/28_retrain_feature_checks/00_spec/stage_brief.md`
-31. `stages/28_retrain_feature_checks/03_reviews/review_index.md`
-32. `stages/28_retrain_feature_checks/04_selected/selection_status.md`
-33. `stages/27_vol_adaptive_overlay/04_selected/selection_status.md`
-34. `stages/26_gov_adaptive_overlay/04_selected/selection_status.md`
-35. `stages/25_soft_contextual_control/04_selected/selection_status.md`
-36. `foundation/reports/governance_selected_runs_standard_20260409.md`
+4. `stages/37_long_horizon_bridge_read/00_spec/stage_brief.md`
+5. `stages/37_long_horizon_bridge_read/03_reviews/review_index.md`
+6. `stages/37_long_horizon_bridge_read/04_selected/selection_status.md`
+7. `stages/36_outside_bar_localization_diagnostic/00_spec/stage_brief.md`
+8. `stages/36_outside_bar_localization_diagnostic/03_reviews/review_index.md`
+9. `stages/36_outside_bar_localization_diagnostic/04_selected/selection_status.md`
+10. `stages/35_candle_sidecar_simplification_check/00_spec/stage_brief.md`
+11. `stages/35_candle_sidecar_simplification_check/03_reviews/review_index.md`
+12. `stages/35_candle_sidecar_simplification_check/04_selected/selection_status.md`
+13. `stages/34_outside_bar_mainline_promotion/00_spec/stage_brief.md`
+14. `stages/34_outside_bar_mainline_promotion/03_reviews/review_index.md`
+15. `stages/34_outside_bar_mainline_promotion/04_selected/selection_status.md`
+16. `stages/34_outside_bar_mainline_promotion/04_selected/runtime_handoff_status.md`
+17. `stages/33_outside_bar_state_exit_followup/00_spec/stage_brief.md`
+18. `stages/33_outside_bar_state_exit_followup/03_reviews/review_index.md`
+19. `stages/33_outside_bar_state_exit_followup/04_selected/selection_status.md`
+20. `stages/32_candle_pattern_exit_diagnostic/00_spec/stage_brief.md`
+21. `stages/32_candle_pattern_exit_diagnostic/03_reviews/review_index.md`
+22. `stages/32_candle_pattern_exit_diagnostic/04_selected/selection_status.md`
+23. `stages/31_impulse_candle_exit_diagnostic/00_spec/stage_brief.md`
+24. `stages/31_impulse_candle_exit_diagnostic/03_reviews/review_index.md`
+25. `stages/31_impulse_candle_exit_diagnostic/04_selected/selection_status.md`
+26. `stages/30_macro_mismatch_root_cause/00_spec/stage_brief.md`
+27. `stages/30_macro_mismatch_root_cause/03_reviews/review_index.md`
+28. `stages/30_macro_mismatch_root_cause/04_selected/selection_status.md`
+29. `docs/context/stage23_27_wave2_crosssplit_synthesis_20260412.md`
+30. `stages/29_fusion_long_repair/00_spec/stage_brief.md`
+31. `stages/29_fusion_long_repair/03_reviews/review_index.md`
+32. `stages/29_fusion_long_repair/04_selected/selection_status.md`
+33. `stages/28_retrain_feature_checks/00_spec/stage_brief.md`
+34. `stages/28_retrain_feature_checks/03_reviews/review_index.md`
+35. `stages/28_retrain_feature_checks/04_selected/selection_status.md`
+36. `stages/27_vol_adaptive_overlay/04_selected/selection_status.md`
+37. `stages/26_gov_adaptive_overlay/04_selected/selection_status.md`
+38. `stages/25_soft_contextual_control/04_selected/selection_status.md`
+39. `foundation/reports/governance_selected_runs_standard_20260409.md`
 
 ## Current Decisions
 
+- Stage 37 bridge status: `wave1_completed`
+- Stage 37 bridge decision: `continuous_bridge_still_prefers_34D_over_34B`
+- Stage 37 bridge read: `a continuous 2024-01-01 through 2026-02-28 risk_pct account path still preferred 34D by net +129.64, with positive contribution in 2024, 2025, and 2026_ytd`
+- Stage 37 continuity bias: `do not assume a near-tie after split resets will remain a near-tie once 2024 through early 2026 compounds continuously`
 - Stage 36 localization status: `wave1_completed`
 - Stage 36 localization decision: `34D_edge_is_sparse_long_state_exit_protection_not_broad_systemic_drift`
 - Stage 36 localization read: `only 7 direct long suppressions fired across Stage 35, with 5 hist_2024 events explaining almost all of the older-window edge and zero test-window events`
@@ -113,6 +120,16 @@
 
 ## Why This Branch Matters
 
+- Stage 37 then added the widest practical continuity read on top of the Stage 35 and Stage 36 conclusions:
+  - run `34D` and `34B` through one uninterrupted `risk_pct` account path from `2024-01-01` through `2026-02-28`
+- That Stage 37 bridge still preferred `34D`:
+  - `34D` beat `34B` by about `+129.64` net and `+25.928` return points
+  - the bridge advantage was not only a `2024` story; calendar slices stayed positive in `2024`, `2025`, and `2026_ytd`
+  - bridge risk was nearly tied, with only a tiny DD and ulcer tax on the stronger `34D` line
+- That means the anti-simplification case is now supported by three different reads:
+  - Stage 35 split-reset scoreboard
+  - Stage 36 direct-event localization
+  - Stage 37 continuous-account bridge
 - Stage 36 then answered the next question left open by Stage 35:
   - if full removal of the candle sidecar is too blunt, where exactly is the surviving `34D` value coming from
 - That Stage 36 read localized the answer tightly:
@@ -188,6 +205,13 @@
 
 ## Current Follow-Up Bias
 
+- keep `34D` as the live regular lane; Stage 37 showed it still wins in one uninterrupted 2024 to early-2026 equity path
+- keep the Stage 37 bridge as continuity evidence only; do not replace the frozen split scoreboard with it
+- if we want a wider view again, prefer segmented bridge or rolling-window diagnostics before any new simplification claim
+- if simplification reopens later, it now has to beat three reads together:
+  - Stage 35 split-reset scoreboard
+  - Stage 36 localization
+  - Stage 37 continuous bridge
 - keep `34D` as the live regular lane; Stage 36 showed the sidecar value is sparse but still real
 - treat the Stage 36 read as a localization map, not as permission to reopen the closed `remove the sidecar entirely` simplification path
 - if simplification reopens later, target the narrow long `no entry / weak margin` subset first rather than broad weekday or session heuristics

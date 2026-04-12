@@ -1,0 +1,123 @@
+{
+  "reviewed_on": "2026-04-12",
+  "bridge_window": "2024-01-01 .. 2026-02-28 inclusive",
+  "reference": {
+    "run_name": "37A_34d_bridge_0001",
+    "label": "37A 34D continuous bridge",
+    "experiment_id": "exp_37a_34d_bridge_v1",
+    "stage_id": "37A",
+    "bridge": {
+      "net_profit": 3677.68,
+      "return_pct": 735.536,
+      "trade_count": 1035,
+      "win_rate": 0.5478260869565217,
+      "profit_factor": 1.4748352844417876,
+      "expectancy_per_trade": 3.5533140096618356,
+      "max_dd_pct": 18.76086748175633,
+      "ulcer_index": 6.992336125382875,
+      "worst_week": -427.1,
+      "long_expectancy": 2.382894736842105,
+      "short_expectancy": 4.6220517560073935,
+      "no_trade_rate": 0.9162018060221284,
+      "external_mismatch_count": 51434
+    },
+    "attempt": {
+      "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\37_long_horizon_bridge_read\\02_runs\\active\\37A_34d_bridge_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+      "from_date": "2024.01.01",
+      "to_date": "2026.03.01",
+      "ready_row_gap": null,
+      "actual_ready_row_count": 32447
+    },
+    "year_buckets": {
+      "2024": {
+        "net_profit": 190.31999999999988,
+        "trade_count": 346,
+        "long_count": 148,
+        "short_count": 198
+      },
+      "2025": {
+        "net_profit": 1738.420000000001,
+        "trade_count": 572,
+        "long_count": 284,
+        "short_count": 288
+      },
+      "2026_ytd": {
+        "net_profit": 1748.9399999999994,
+        "trade_count": 117,
+        "long_count": 62,
+        "short_count": 55
+      }
+    }
+  },
+  "candidate": {
+    "run_name": "37B_34b_bridge_0001",
+    "label": "37B 34B continuous bridge",
+    "experiment_id": "exp_37b_34b_bridge_v1",
+    "stage_id": "37B",
+    "bridge": {
+      "net_profit": 3548.04,
+      "return_pct": 709.608,
+      "trade_count": 1035,
+      "win_rate": 0.5468599033816425,
+      "profit_factor": 1.4733326485117806,
+      "expectancy_per_trade": 3.4280579710144927,
+      "max_dd_pct": 18.729015344227957,
+      "ulcer_index": 6.930090068362814,
+      "worst_week": -412.5199999999999,
+      "long_expectancy": 2.2450404858299593,
+      "short_expectancy": 4.508299445471349,
+      "no_trade_rate": 0.9162018060221284,
+      "external_mismatch_count": 51434
+    },
+    "attempt": {
+      "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\37_long_horizon_bridge_read\\02_runs\\active\\37B_34b_bridge_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+      "from_date": "2024.01.01",
+      "to_date": "2026.03.01",
+      "ready_row_gap": null,
+      "actual_ready_row_count": 32447
+    },
+    "year_buckets": {
+      "2024": {
+        "net_profit": 155.8199999999999,
+        "trade_count": 346,
+        "long_count": 148,
+        "short_count": 198
+      },
+      "2025": {
+        "net_profit": 1694.770000000001,
+        "trade_count": 572,
+        "long_count": 284,
+        "short_count": 288
+      },
+      "2026_ytd": {
+        "net_profit": 1697.4500000000012,
+        "trade_count": 117,
+        "long_count": 62,
+        "short_count": 55
+      }
+    }
+  },
+  "delta": {
+    "net_profit_delta": 129.63999999999987,
+    "return_pct_delta": 25.927999999999997,
+    "profit_factor_delta": 0.0015026359300069903,
+    "max_dd_pct_delta": 0.03185213752837157,
+    "ulcer_index_delta": 0.0622460570200607,
+    "long_expectancy_delta": 0.13785425101214566,
+    "short_expectancy_delta": 0.11375231053604473,
+    "year_buckets": {
+      "2024": {
+        "net_profit_delta": 34.49999999999997,
+        "trade_count_delta": 0
+      },
+      "2025": {
+        "net_profit_delta": 43.65000000000009,
+        "trade_count_delta": 0
+      },
+      "2026_ytd": {
+        "net_profit_delta": 51.48999999999819,
+        "trade_count_delta": 0
+      }
+    }
+  }
+}
