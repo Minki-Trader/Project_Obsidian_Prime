@@ -1,0 +1,3962 @@
+{
+  "reviewed_on": "2026-04-12",
+  "stage": "30_macro_mismatch_root_cause",
+  "reference_run": "29N_25o_sxh2_0001",
+  "splits": {
+    "validation": {
+      "split_name": "validation",
+      "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\29_fusion_long_repair\\02_runs\\active\\29N_25o_sxh2_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+      "shadow_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_29n_25o_sxh2_v1\\logs\\att_0001_shadow.csv",
+      "run_name": "29N_25o_sxh2_0001",
+      "base_bar_count": 52808,
+      "date_window": {
+        "from_date": "2025.01.01",
+        "to_date": "2025.10.01",
+        "derived_from_bundle": true
+      },
+      "runtime_metrics": {
+        "skip_rate": 0.451389,
+        "external_skip_rate": 0.451389,
+        "external_mismatch_count": 17350,
+        "top_skip_reasons": [
+          {
+            "key": "SESSION_CASH_OPEN_NOT_FOUND",
+            "count": 23702
+          },
+          {
+            "key": "EXTERNAL_TIMESTAMP_MISMATCH_VIX",
+            "count": 8673
+          },
+          {
+            "key": "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas",
+            "count": 5926
+          },
+          {
+            "key": "EXTERNAL_TIMESTAMP_MISMATCH_USDX",
+            "count": 1547
+          },
+          {
+            "key": "EXTERNAL_TIMESTAMP_MISMATCH_US10YR",
+            "count": 1204
+          },
+          {
+            "key": "HANDLE_NOT_READY_EMA9_-1",
+            "count": 1
+          }
+        ]
+      },
+      "symbols": {
+        "AAPL.xnas": {
+          "recorded_mismatch_count": 5926,
+          "recorded_mismatch_share_of_base": 0.112218,
+          "recorded_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 15,
+                "count": 1571
+              },
+              {
+                "key": 14,
+                "count": 1104
+              },
+              {
+                "key": 16,
+                "count": 984
+              },
+              {
+                "key": 23,
+                "count": 917
+              },
+              {
+                "key": 3,
+                "count": 687
+              },
+              {
+                "key": 13,
+                "count": 376
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-03-12",
+                "count": 69
+              },
+              {
+                "key": "2025-03-11",
+                "count": 68
+              },
+              {
+                "key": "2025-03-13",
+                "count": 66
+              },
+              {
+                "key": "2025-03-10",
+                "count": 59
+              },
+              {
+                "key": "2025-04-08",
+                "count": 57
+              },
+              {
+                "key": "2025-04-09",
+                "count": 57
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Tue",
+                "count": 1272
+              },
+              {
+                "key": "Thu",
+                "count": 1258
+              },
+              {
+                "key": "Wed",
+                "count": 1252
+              },
+              {
+                "key": "Fri",
+                "count": 1179
+              },
+              {
+                "key": "Mon",
+                "count": 965
+              }
+            ]
+          },
+          "recorded_streaks": {
+            "streak_count": 1792,
+            "p50": 2,
+            "p90": 6,
+            "max": 48,
+            "single_share": 0.4738,
+            "top_streaks": [
+              {
+                "start": "2025-03-10 13:35",
+                "end": "2025-03-10 17:30",
+                "length": 48
+              },
+              {
+                "start": "2025-03-13 14:00",
+                "end": "2025-03-13 17:30",
+                "length": 43
+              },
+              {
+                "start": "2025-03-11 14:30",
+                "end": "2025-03-11 17:30",
+                "length": 37
+              },
+              {
+                "start": "2025-03-20 13:35",
+                "end": "2025-03-20 16:30",
+                "length": 36
+              },
+              {
+                "start": "2025-04-03 13:35",
+                "end": "2025-04-03 16:30",
+                "length": 36
+              }
+            ]
+          },
+          "raw_exact_missing_count": 38396,
+          "raw_exact_missing_share_of_base": 0.727087,
+          "recorded_share_of_raw_missing": 0.154339,
+          "stale1_recoverable_count": 186,
+          "stale1_recoverable_share_of_raw_missing": 0.004844,
+          "raw_missing_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 3,
+                "count": 2316
+              },
+              {
+                "key": 4,
+                "count": 2316
+              },
+              {
+                "key": 5,
+                "count": 2316
+              },
+              {
+                "key": 6,
+                "count": 2316
+              },
+              {
+                "key": 7,
+                "count": 2316
+              },
+              {
+                "key": 8,
+                "count": 2316
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-01-20",
+                "count": 229
+              },
+              {
+                "key": "2025-02-17",
+                "count": 229
+              },
+              {
+                "key": "2025-06-19",
+                "count": 229
+              },
+              {
+                "key": "2025-05-26",
+                "count": 228
+              },
+              {
+                "key": "2025-07-04",
+                "count": 228
+              },
+              {
+                "key": "2025-09-01",
+                "count": 216
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Mon",
+                "count": 7797
+              },
+              {
+                "key": "Thu",
+                "count": 7746
+              },
+              {
+                "key": "Tue",
+                "count": 7730
+              },
+              {
+                "key": "Fri",
+                "count": 7561
+              },
+              {
+                "key": "Wed",
+                "count": 7536
+              },
+              {
+                "key": "Sat",
+                "count": 26
+              }
+            ]
+          },
+          "raw_missing_streaks": {
+            "streak_count": 381,
+            "p50": 185,
+            "p90": 185,
+            "max": 229,
+            "single_share": 0.0026,
+            "top_streaks": [
+              {
+                "start": "2025-01-20 01:05",
+                "end": "2025-01-20 20:05",
+                "length": 229
+              },
+              {
+                "start": "2025-02-17 01:05",
+                "end": "2025-02-17 20:05",
+                "length": 229
+              },
+              {
+                "start": "2025-05-26 01:05",
+                "end": "2025-05-26 20:00",
+                "length": 228
+              },
+              {
+                "start": "2025-06-19 01:05",
+                "end": "2025-06-19 20:00",
+                "length": 228
+              },
+              {
+                "start": "2025-07-04 01:05",
+                "end": "2025-07-04 20:00",
+                "length": 228
+              }
+            ]
+          },
+          "raw_daily_profile": {
+            "trading_days": 186,
+            "median_bars_per_day": 78,
+            "p10_bars_per_day": 78,
+            "p90_bars_per_day": 78,
+            "median_first_bar_utc": "16:30",
+            "median_last_bar_utc": "22:55"
+          }
+        },
+        "US10YR": {
+          "recorded_mismatch_count": 1204,
+          "recorded_mismatch_share_of_base": 0.0228,
+          "recorded_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 22,
+                "count": 147
+              },
+              {
+                "key": 1,
+                "count": 133
+              },
+              {
+                "key": 3,
+                "count": 117
+              },
+              {
+                "key": 21,
+                "count": 115
+              },
+              {
+                "key": 19,
+                "count": 105
+              },
+              {
+                "key": 2,
+                "count": 94
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-05-22",
+                "count": 132
+              },
+              {
+                "key": "2025-05-23",
+                "count": 130
+              },
+              {
+                "key": "2025-05-26",
+                "count": 33
+              },
+              {
+                "key": "2025-03-19",
+                "count": 18
+              },
+              {
+                "key": "2025-08-22",
+                "count": 18
+              },
+              {
+                "key": "2025-08-26",
+                "count": 16
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Fri",
+                "count": 350
+              },
+              {
+                "key": "Thu",
+                "count": 299
+              },
+              {
+                "key": "Tue",
+                "count": 219
+              },
+              {
+                "key": "Wed",
+                "count": 190
+              },
+              {
+                "key": "Mon",
+                "count": 146
+              }
+            ]
+          },
+          "recorded_streaks": {
+            "streak_count": 902,
+            "p50": 1,
+            "p90": 1,
+            "max": 76,
+            "single_share": 0.9235,
+            "top_streaks": [
+              {
+                "start": "2025-05-23 14:20",
+                "end": "2025-05-23 20:35",
+                "length": 76
+              },
+              {
+                "start": "2025-05-22 14:00",
+                "end": "2025-05-22 19:10",
+                "length": 63
+              },
+              {
+                "start": "2025-05-23 20:45",
+                "end": "2025-05-23 23:20",
+                "length": 32
+              },
+              {
+                "start": "2025-05-22 19:20",
+                "end": "2025-05-22 21:30",
+                "length": 27
+              },
+              {
+                "start": "2025-05-22 22:25",
+                "end": "2025-05-22 23:20",
+                "length": 12
+              }
+            ]
+          },
+          "raw_exact_missing_count": 6747,
+          "raw_exact_missing_share_of_base": 0.127765,
+          "recorded_share_of_raw_missing": 0.17845,
+          "stale1_recoverable_count": 4388,
+          "stale1_recoverable_share_of_raw_missing": 0.650363,
+          "raw_missing_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 7,
+                "count": 620
+              },
+              {
+                "key": 6,
+                "count": 618
+              },
+              {
+                "key": 5,
+                "count": 550
+              },
+              {
+                "key": 8,
+                "count": 546
+              },
+              {
+                "key": 1,
+                "count": 475
+              },
+              {
+                "key": 4,
+                "count": 452
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-05-22",
+                "count": 276
+              },
+              {
+                "key": "2025-05-23",
+                "count": 276
+              },
+              {
+                "key": "2025-05-26",
+                "count": 210
+              },
+              {
+                "key": "2025-08-26",
+                "count": 151
+              },
+              {
+                "key": "2025-02-17",
+                "count": 137
+              },
+              {
+                "key": "2025-01-03",
+                "count": 71
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Fri",
+                "count": 1486
+              },
+              {
+                "key": "Thu",
+                "count": 1414
+              },
+              {
+                "key": "Mon",
+                "count": 1393
+              },
+              {
+                "key": "Tue",
+                "count": 1223
+              },
+              {
+                "key": "Wed",
+                "count": 1205
+              },
+              {
+                "key": "Sat",
+                "count": 26
+              }
+            ]
+          },
+          "raw_missing_streaks": {
+            "streak_count": 4549,
+            "p50": 1,
+            "p90": 2,
+            "max": 276,
+            "single_share": 0.8459,
+            "top_streaks": [
+              {
+                "start": "2025-05-22 01:05",
+                "end": "2025-05-23 00:00",
+                "length": 276
+              },
+              {
+                "start": "2025-05-23 01:05",
+                "end": "2025-05-24 00:00",
+                "length": 276
+              },
+              {
+                "start": "2025-05-26 01:05",
+                "end": "2025-05-26 18:15",
+                "length": 207
+              },
+              {
+                "start": "2025-08-26 01:05",
+                "end": "2025-08-26 13:10",
+                "length": 146
+              },
+              {
+                "start": "2025-02-11 06:05",
+                "end": "2025-02-11 07:55",
+                "length": 23
+              }
+            ]
+          },
+          "raw_daily_profile": {
+            "trading_days": 191,
+            "median_bars_per_day": 247,
+            "p10_bars_per_day": 220,
+            "p90_bars_per_day": 265,
+            "median_first_bar_utc": "01:00",
+            "median_last_bar_utc": "23:55"
+          }
+        },
+        "USDX": {
+          "recorded_mismatch_count": 1547,
+          "recorded_mismatch_share_of_base": 0.029295,
+          "recorded_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 1,
+                "count": 740
+              },
+              {
+                "key": 2,
+                "count": 711
+              },
+              {
+                "key": 3,
+                "count": 85
+              },
+              {
+                "key": 0,
+                "count": 11
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-04-03",
+                "count": 24
+              },
+              {
+                "key": "2025-04-04",
+                "count": 24
+              },
+              {
+                "key": "2025-04-08",
+                "count": 24
+              },
+              {
+                "key": "2025-04-09",
+                "count": 24
+              },
+              {
+                "key": "2025-04-10",
+                "count": 24
+              },
+              {
+                "key": "2025-04-11",
+                "count": 24
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Tue",
+                "count": 414
+              },
+              {
+                "key": "Thu",
+                "count": 381
+              },
+              {
+                "key": "Wed",
+                "count": 379
+              },
+              {
+                "key": "Fri",
+                "count": 362
+              },
+              {
+                "key": "Sat",
+                "count": 11
+              }
+            ]
+          },
+          "recorded_streaks": {
+            "streak_count": 660,
+            "p50": 1,
+            "p90": 4,
+            "max": 24,
+            "single_share": 0.5652,
+            "top_streaks": [
+              {
+                "start": "2025-04-03 01:05",
+                "end": "2025-04-03 03:00",
+                "length": 24
+              },
+              {
+                "start": "2025-04-04 01:05",
+                "end": "2025-04-04 03:00",
+                "length": 24
+              },
+              {
+                "start": "2025-04-08 01:05",
+                "end": "2025-04-08 03:00",
+                "length": 24
+              },
+              {
+                "start": "2025-04-09 01:05",
+                "end": "2025-04-09 03:00",
+                "length": 24
+              },
+              {
+                "start": "2025-04-10 01:05",
+                "end": "2025-04-10 03:00",
+                "length": 24
+              }
+            ]
+          },
+          "raw_exact_missing_count": 4672,
+          "raw_exact_missing_share_of_base": 0.088471,
+          "recorded_share_of_raw_missing": 0.331122,
+          "stale1_recoverable_count": 45,
+          "stale1_recoverable_share_of_raw_missing": 0.009632,
+          "raw_missing_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 2,
+                "count": 2311
+              },
+              {
+                "key": 1,
+                "count": 2072
+              },
+              {
+                "key": 0,
+                "count": 170
+              },
+              {
+                "key": 3,
+                "count": 48
+              },
+              {
+                "key": 23,
+                "count": 36
+              },
+              {
+                "key": 18,
+                "count": 12
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-09-01",
+                "count": 42
+              },
+              {
+                "key": "2025-09-15",
+                "count": 35
+              },
+              {
+                "key": "2025-02-27",
+                "count": 26
+              },
+              {
+                "key": "2025-01-03",
+                "count": 25
+              },
+              {
+                "key": "2025-01-17",
+                "count": 25
+              },
+              {
+                "key": "2025-01-24",
+                "count": 25
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Fri",
+                "count": 946
+              },
+              {
+                "key": "Thu",
+                "count": 937
+              },
+              {
+                "key": "Tue",
+                "count": 932
+              },
+              {
+                "key": "Mon",
+                "count": 917
+              },
+              {
+                "key": "Wed",
+                "count": 914
+              },
+              {
+                "key": "Sat",
+                "count": 26
+              }
+            ]
+          },
+          "raw_missing_streaks": {
+            "streak_count": 382,
+            "p50": 23,
+            "p90": 23,
+            "max": 23,
+            "single_share": 0.4188,
+            "top_streaks": [
+              {
+                "start": "2025-01-02 01:05",
+                "end": "2025-01-02 02:55",
+                "length": 23
+              },
+              {
+                "start": "2025-01-03 01:05",
+                "end": "2025-01-03 02:55",
+                "length": 23
+              },
+              {
+                "start": "2025-01-06 01:05",
+                "end": "2025-01-06 02:55",
+                "length": 23
+              },
+              {
+                "start": "2025-01-07 01:05",
+                "end": "2025-01-07 02:55",
+                "length": 23
+              },
+              {
+                "start": "2025-01-08 01:05",
+                "end": "2025-01-08 02:55",
+                "length": 23
+              }
+            ]
+          },
+          "raw_daily_profile": {
+            "trading_days": 193,
+            "median_bars_per_day": 252,
+            "p10_bars_per_day": 251,
+            "p90_bars_per_day": 252,
+            "median_first_bar_utc": "03:00",
+            "median_last_bar_utc": "23:55"
+          }
+        },
+        "VIX": {
+          "recorded_mismatch_count": 8673,
+          "recorded_mismatch_share_of_base": 0.164236,
+          "recorded_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 23,
+                "count": 1046
+              },
+              {
+                "key": 2,
+                "count": 1027
+              },
+              {
+                "key": 3,
+                "count": 947
+              },
+              {
+                "key": 14,
+                "count": 808
+              },
+              {
+                "key": 1,
+                "count": 767
+              },
+              {
+                "key": 15,
+                "count": 698
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-09-12",
+                "count": 112
+              },
+              {
+                "key": "2025-01-23",
+                "count": 108
+              },
+              {
+                "key": "2025-02-14",
+                "count": 107
+              },
+              {
+                "key": "2025-01-22",
+                "count": 103
+              },
+              {
+                "key": "2025-07-17",
+                "count": 102
+              },
+              {
+                "key": "2025-09-11",
+                "count": 102
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Tue",
+                "count": 1909
+              },
+              {
+                "key": "Fri",
+                "count": 1885
+              },
+              {
+                "key": "Thu",
+                "count": 1839
+              },
+              {
+                "key": "Wed",
+                "count": 1803
+              },
+              {
+                "key": "Mon",
+                "count": 1222
+              },
+              {
+                "key": "Sat",
+                "count": 15
+              }
+            ]
+          },
+          "recorded_streaks": {
+            "streak_count": 3229,
+            "p50": 2,
+            "p90": 5,
+            "max": 45,
+            "single_share": 0.472,
+            "top_streaks": [
+              {
+                "start": "2025-02-17 14:35",
+                "end": "2025-02-17 18:15",
+                "length": 45
+              },
+              {
+                "start": "2025-01-15 01:40",
+                "end": "2025-01-15 04:55",
+                "length": 40
+              },
+              {
+                "start": "2025-01-22 01:40",
+                "end": "2025-01-22 04:55",
+                "length": 40
+              },
+              {
+                "start": "2025-06-10 01:05",
+                "end": "2025-06-10 03:55",
+                "length": 35
+              },
+              {
+                "start": "2025-09-02 01:05",
+                "end": "2025-09-02 03:55",
+                "length": 35
+              }
+            ]
+          },
+          "raw_exact_missing_count": 21417,
+          "raw_exact_missing_share_of_base": 0.405564,
+          "recorded_share_of_raw_missing": 0.404959,
+          "stale1_recoverable_count": 6276,
+          "stale1_recoverable_share_of_raw_missing": 0.293038,
+          "raw_missing_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 6,
+                "count": 1643
+              },
+              {
+                "key": 7,
+                "count": 1615
+              },
+              {
+                "key": 5,
+                "count": 1491
+              },
+              {
+                "key": 8,
+                "count": 1472
+              },
+              {
+                "key": 4,
+                "count": 1310
+              },
+              {
+                "key": 2,
+                "count": 1227
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-01-22",
+                "count": 213
+              },
+              {
+                "key": "2025-09-12",
+                "count": 210
+              },
+              {
+                "key": "2025-01-23",
+                "count": 209
+              },
+              {
+                "key": "2025-02-14",
+                "count": 209
+              },
+              {
+                "key": "2025-07-21",
+                "count": 199
+              },
+              {
+                "key": "2025-07-10",
+                "count": 197
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Wed",
+                "count": 4472
+              },
+              {
+                "key": "Thu",
+                "count": 4392
+              },
+              {
+                "key": "Fri",
+                "count": 4328
+              },
+              {
+                "key": "Tue",
+                "count": 4150
+              },
+              {
+                "key": "Mon",
+                "count": 4049
+              },
+              {
+                "key": "Sat",
+                "count": 26
+              }
+            ]
+          },
+          "raw_missing_streaks": {
+            "streak_count": 6367,
+            "p50": 2,
+            "p90": 7,
+            "max": 78,
+            "single_share": 0.4401,
+            "top_streaks": [
+              {
+                "start": "2025-01-22 01:35",
+                "end": "2025-01-22 08:00",
+                "length": 78
+              },
+              {
+                "start": "2025-06-10 01:05",
+                "end": "2025-06-10 06:35",
+                "length": 67
+              },
+              {
+                "start": "2025-09-23 02:05",
+                "end": "2025-09-23 07:25",
+                "length": 65
+              },
+              {
+                "start": "2025-07-21 04:35",
+                "end": "2025-07-21 08:55",
+                "length": 53
+              },
+              {
+                "start": "2025-09-24 04:35",
+                "end": "2025-09-24 08:55",
+                "length": 53
+              }
+            ]
+          },
+          "raw_daily_profile": {
+            "trading_days": 193,
+            "median_bars_per_day": 152,
+            "p10_bars_per_day": 91,
+            "p90_bars_per_day": 254,
+            "median_first_bar_utc": "01:00",
+            "median_last_bar_utc": "23:50"
+          }
+        }
+      }
+    },
+    "test": {
+      "split_name": "test",
+      "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\29_fusion_long_repair\\02_runs\\active\\29N_25o_sxh2_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json",
+      "shadow_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_29n_25o_sxh2_v1\\logs\\att_0002_shadow.csv",
+      "run_name": "29N_25o_sxh2_0001",
+      "base_bar_count": 28874,
+      "date_window": {
+        "from_date": "2025.10.01",
+        "to_date": "2026.03.01",
+        "derived_from_bundle": true
+      },
+      "runtime_metrics": {
+        "skip_rate": 0.263889,
+        "external_skip_rate": 0.263889,
+        "external_mismatch_count": 8976,
+        "top_skip_reasons": [
+          {
+            "key": "SESSION_CASH_OPEN_NOT_FOUND",
+            "count": 13143
+          },
+          {
+            "key": "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas",
+            "count": 3809
+          },
+          {
+            "key": "EXTERNAL_TIMESTAMP_MISMATCH_US10YR",
+            "count": 2467
+          },
+          {
+            "key": "EXTERNAL_TIMESTAMP_MISMATCH_VIX",
+            "count": 1540
+          },
+          {
+            "key": "EXTERNAL_TIMESTAMP_MISMATCH_USDX",
+            "count": 1147
+          },
+          {
+            "key": "EXTERNAL_TIMESTAMP_MISMATCH_GOOGL.xnas",
+            "count": 11
+          },
+          {
+            "key": "HANDLE_NOT_READY_EMA9_-1",
+            "count": 1
+          },
+          {
+            "key": "EXTERNAL_TIMESTAMP_MISMATCH_MSFT.xnas",
+            "count": 1
+          }
+        ]
+      },
+      "symbols": {
+        "AAPL.xnas": {
+          "recorded_mismatch_count": 3809,
+          "recorded_mismatch_share_of_base": 0.131918,
+          "recorded_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 15,
+                "count": 1107
+              },
+              {
+                "key": 16,
+                "count": 668
+              },
+              {
+                "key": 3,
+                "count": 560
+              },
+              {
+                "key": 14,
+                "count": 529
+              },
+              {
+                "key": 23,
+                "count": 452
+              },
+              {
+                "key": 4,
+                "count": 325
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-10-14",
+                "count": 55
+              },
+              {
+                "key": "2026-01-30",
+                "count": 54
+              },
+              {
+                "key": "2025-10-17",
+                "count": 53
+              },
+              {
+                "key": "2026-02-05",
+                "count": 53
+              },
+              {
+                "key": "2026-02-06",
+                "count": 53
+              },
+              {
+                "key": "2025-12-11",
+                "count": 52
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Fri",
+                "count": 819
+              },
+              {
+                "key": "Tue",
+                "count": 812
+              },
+              {
+                "key": "Wed",
+                "count": 802
+              },
+              {
+                "key": "Thu",
+                "count": 781
+              },
+              {
+                "key": "Mon",
+                "count": 595
+              }
+            ]
+          },
+          "recorded_streaks": {
+            "streak_count": 954,
+            "p50": 2,
+            "p90": 9,
+            "max": 36,
+            "single_share": 0.3763,
+            "top_streaks": [
+              {
+                "start": "2025-10-14 13:35",
+                "end": "2025-10-14 16:30",
+                "length": 36
+              },
+              {
+                "start": "2025-10-17 13:35",
+                "end": "2025-10-17 16:30",
+                "length": 36
+              },
+              {
+                "start": "2025-10-09 13:55",
+                "end": "2025-10-09 16:30",
+                "length": 32
+              },
+              {
+                "start": "2025-11-07 14:35",
+                "end": "2025-11-07 16:30",
+                "length": 24
+              },
+              {
+                "start": "2025-11-14 14:35",
+                "end": "2025-11-14 16:30",
+                "length": 24
+              }
+            ]
+          },
+          "raw_exact_missing_count": 20912,
+          "raw_exact_missing_share_of_base": 0.72425,
+          "recorded_share_of_raw_missing": 0.182144,
+          "stale1_recoverable_count": 103,
+          "stale1_recoverable_share_of_raw_missing": 0.004925,
+          "raw_missing_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 2,
+                "count": 1272
+              },
+              {
+                "key": 3,
+                "count": 1272
+              },
+              {
+                "key": 15,
+                "count": 1264
+              },
+              {
+                "key": 4,
+                "count": 1260
+              },
+              {
+                "key": 6,
+                "count": 1260
+              },
+              {
+                "key": 7,
+                "count": 1260
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-11-27",
+                "count": 230
+              },
+              {
+                "key": "2026-01-19",
+                "count": 229
+              },
+              {
+                "key": "2026-02-16",
+                "count": 228
+              },
+              {
+                "key": "2025-10-01",
+                "count": 198
+              },
+              {
+                "key": "2025-10-02",
+                "count": 198
+              },
+              {
+                "key": "2025-10-03",
+                "count": 198
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Wed",
+                "count": 4348
+              },
+              {
+                "key": "Fri",
+                "count": 4224
+              },
+              {
+                "key": "Mon",
+                "count": 4171
+              },
+              {
+                "key": "Tue",
+                "count": 4156
+              },
+              {
+                "key": "Thu",
+                "count": 3993
+              },
+              {
+                "key": "Sat",
+                "count": 20
+              }
+            ]
+          },
+          "raw_missing_streaks": {
+            "streak_count": 214,
+            "p50": 26,
+            "p90": 185,
+            "max": 229,
+            "single_share": 0.0047,
+            "top_streaks": [
+              {
+                "start": "2025-11-27 01:05",
+                "end": "2025-11-27 20:05",
+                "length": 229
+              },
+              {
+                "start": "2026-01-19 01:05",
+                "end": "2026-01-19 20:05",
+                "length": 229
+              },
+              {
+                "start": "2026-02-16 01:05",
+                "end": "2026-02-16 20:00",
+                "length": 228
+              },
+              {
+                "start": "2025-10-01 01:05",
+                "end": "2025-10-01 16:25",
+                "length": 185
+              },
+              {
+                "start": "2025-10-02 01:05",
+                "end": "2025-10-02 16:25",
+                "length": 185
+              }
+            ]
+          },
+          "raw_daily_profile": {
+            "trading_days": 103,
+            "median_bars_per_day": 78,
+            "p10_bars_per_day": 78,
+            "p90_bars_per_day": 78,
+            "median_first_bar_utc": "16:30",
+            "median_last_bar_utc": "22:55"
+          }
+        },
+        "GOOGL.xnas": {
+          "recorded_mismatch_count": 11,
+          "recorded_mismatch_share_of_base": 0.000381,
+          "recorded_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 17,
+                "count": 6
+              },
+              {
+                "key": 16,
+                "count": 5
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-11-03",
+                "count": 11
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Mon",
+                "count": 11
+              }
+            ]
+          },
+          "recorded_streaks": {
+            "streak_count": 1,
+            "p50": 11,
+            "p90": 11,
+            "max": 11,
+            "single_share": 0.0,
+            "top_streaks": [
+              {
+                "start": "2025-11-03 16:35",
+                "end": "2025-11-03 17:25",
+                "length": 11
+              }
+            ]
+          },
+          "raw_exact_missing_count": 20923,
+          "raw_exact_missing_share_of_base": 0.724631,
+          "recorded_share_of_raw_missing": 0.000526,
+          "stale1_recoverable_count": 103,
+          "stale1_recoverable_share_of_raw_missing": 0.004923,
+          "raw_missing_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 2,
+                "count": 1272
+              },
+              {
+                "key": 3,
+                "count": 1272
+              },
+              {
+                "key": 15,
+                "count": 1264
+              },
+              {
+                "key": 4,
+                "count": 1260
+              },
+              {
+                "key": 6,
+                "count": 1260
+              },
+              {
+                "key": 7,
+                "count": 1260
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-11-27",
+                "count": 230
+              },
+              {
+                "key": "2026-01-19",
+                "count": 229
+              },
+              {
+                "key": "2026-02-16",
+                "count": 228
+              },
+              {
+                "key": "2025-11-03",
+                "count": 208
+              },
+              {
+                "key": "2025-10-01",
+                "count": 198
+              },
+              {
+                "key": "2025-10-02",
+                "count": 198
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Wed",
+                "count": 4348
+              },
+              {
+                "key": "Fri",
+                "count": 4224
+              },
+              {
+                "key": "Mon",
+                "count": 4182
+              },
+              {
+                "key": "Tue",
+                "count": 4156
+              },
+              {
+                "key": "Thu",
+                "count": 3993
+              },
+              {
+                "key": "Sat",
+                "count": 20
+              }
+            ]
+          },
+          "raw_missing_streaks": {
+            "streak_count": 214,
+            "p50": 26,
+            "p90": 185,
+            "max": 229,
+            "single_share": 0.0047,
+            "top_streaks": [
+              {
+                "start": "2025-11-27 01:05",
+                "end": "2025-11-27 20:05",
+                "length": 229
+              },
+              {
+                "start": "2026-01-19 01:05",
+                "end": "2026-01-19 20:05",
+                "length": 229
+              },
+              {
+                "start": "2026-02-16 01:05",
+                "end": "2026-02-16 20:00",
+                "length": 228
+              },
+              {
+                "start": "2025-11-03 01:05",
+                "end": "2025-11-03 17:20",
+                "length": 196
+              },
+              {
+                "start": "2025-10-01 01:05",
+                "end": "2025-10-01 16:25",
+                "length": 185
+              }
+            ]
+          },
+          "raw_daily_profile": {
+            "trading_days": 103,
+            "median_bars_per_day": 78,
+            "p10_bars_per_day": 78,
+            "p90_bars_per_day": 78,
+            "median_first_bar_utc": "16:30",
+            "median_last_bar_utc": "22:55"
+          }
+        },
+        "MSFT.xnas": {
+          "recorded_mismatch_count": 1,
+          "recorded_mismatch_share_of_base": 3.5e-05,
+          "recorded_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 17,
+                "count": 1
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-11-03",
+                "count": 1
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Mon",
+                "count": 1
+              }
+            ]
+          },
+          "recorded_streaks": {
+            "streak_count": 1,
+            "p50": 1,
+            "p90": 1,
+            "max": 1,
+            "single_share": 1.0,
+            "top_streaks": [
+              {
+                "start": "2025-11-03 17:30",
+                "end": "2025-11-03 17:30",
+                "length": 1
+              }
+            ]
+          },
+          "raw_exact_missing_count": 20924,
+          "raw_exact_missing_share_of_base": 0.724666,
+          "recorded_share_of_raw_missing": 4.8e-05,
+          "stale1_recoverable_count": 103,
+          "stale1_recoverable_share_of_raw_missing": 0.004923,
+          "raw_missing_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 2,
+                "count": 1272
+              },
+              {
+                "key": 3,
+                "count": 1272
+              },
+              {
+                "key": 15,
+                "count": 1264
+              },
+              {
+                "key": 4,
+                "count": 1260
+              },
+              {
+                "key": 6,
+                "count": 1260
+              },
+              {
+                "key": 7,
+                "count": 1260
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-11-27",
+                "count": 230
+              },
+              {
+                "key": "2026-01-19",
+                "count": 229
+              },
+              {
+                "key": "2026-02-16",
+                "count": 228
+              },
+              {
+                "key": "2025-11-03",
+                "count": 209
+              },
+              {
+                "key": "2025-10-01",
+                "count": 198
+              },
+              {
+                "key": "2025-10-02",
+                "count": 198
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Wed",
+                "count": 4348
+              },
+              {
+                "key": "Fri",
+                "count": 4224
+              },
+              {
+                "key": "Mon",
+                "count": 4183
+              },
+              {
+                "key": "Tue",
+                "count": 4156
+              },
+              {
+                "key": "Thu",
+                "count": 3993
+              },
+              {
+                "key": "Sat",
+                "count": 20
+              }
+            ]
+          },
+          "raw_missing_streaks": {
+            "streak_count": 214,
+            "p50": 26,
+            "p90": 185,
+            "max": 229,
+            "single_share": 0.0047,
+            "top_streaks": [
+              {
+                "start": "2025-11-27 01:05",
+                "end": "2025-11-27 20:05",
+                "length": 229
+              },
+              {
+                "start": "2026-01-19 01:05",
+                "end": "2026-01-19 20:05",
+                "length": 229
+              },
+              {
+                "start": "2026-02-16 01:05",
+                "end": "2026-02-16 20:00",
+                "length": 228
+              },
+              {
+                "start": "2025-11-03 01:05",
+                "end": "2025-11-03 17:25",
+                "length": 197
+              },
+              {
+                "start": "2025-10-01 01:05",
+                "end": "2025-10-01 16:25",
+                "length": 185
+              }
+            ]
+          },
+          "raw_daily_profile": {
+            "trading_days": 103,
+            "median_bars_per_day": 78,
+            "p10_bars_per_day": 78,
+            "p90_bars_per_day": 78,
+            "median_first_bar_utc": "16:30",
+            "median_last_bar_utc": "22:55"
+          }
+        },
+        "TSLA.xnas": {
+          "recorded_mismatch_count": 1,
+          "recorded_mismatch_share_of_base": 3.5e-05,
+          "recorded_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 17,
+                "count": 1
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-11-03",
+                "count": 1
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Mon",
+                "count": 1
+              }
+            ]
+          },
+          "recorded_streaks": {
+            "streak_count": 1,
+            "p50": 1,
+            "p90": 1,
+            "max": 1,
+            "single_share": 1.0,
+            "top_streaks": [
+              {
+                "start": "2025-11-03 17:35",
+                "end": "2025-11-03 17:35",
+                "length": 1
+              }
+            ]
+          },
+          "raw_exact_missing_count": 20925,
+          "raw_exact_missing_share_of_base": 0.7247,
+          "recorded_share_of_raw_missing": 4.8e-05,
+          "stale1_recoverable_count": 103,
+          "stale1_recoverable_share_of_raw_missing": 0.004922,
+          "raw_missing_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 2,
+                "count": 1272
+              },
+              {
+                "key": 3,
+                "count": 1272
+              },
+              {
+                "key": 15,
+                "count": 1264
+              },
+              {
+                "key": 4,
+                "count": 1260
+              },
+              {
+                "key": 6,
+                "count": 1260
+              },
+              {
+                "key": 7,
+                "count": 1260
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-11-27",
+                "count": 230
+              },
+              {
+                "key": "2026-01-19",
+                "count": 229
+              },
+              {
+                "key": "2026-02-16",
+                "count": 228
+              },
+              {
+                "key": "2025-11-03",
+                "count": 210
+              },
+              {
+                "key": "2025-10-01",
+                "count": 198
+              },
+              {
+                "key": "2025-10-02",
+                "count": 198
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Wed",
+                "count": 4348
+              },
+              {
+                "key": "Fri",
+                "count": 4224
+              },
+              {
+                "key": "Mon",
+                "count": 4184
+              },
+              {
+                "key": "Tue",
+                "count": 4156
+              },
+              {
+                "key": "Thu",
+                "count": 3993
+              },
+              {
+                "key": "Sat",
+                "count": 20
+              }
+            ]
+          },
+          "raw_missing_streaks": {
+            "streak_count": 214,
+            "p50": 26,
+            "p90": 185,
+            "max": 229,
+            "single_share": 0.0047,
+            "top_streaks": [
+              {
+                "start": "2025-11-27 01:05",
+                "end": "2025-11-27 20:05",
+                "length": 229
+              },
+              {
+                "start": "2026-01-19 01:05",
+                "end": "2026-01-19 20:05",
+                "length": 229
+              },
+              {
+                "start": "2026-02-16 01:05",
+                "end": "2026-02-16 20:00",
+                "length": 228
+              },
+              {
+                "start": "2025-11-03 01:05",
+                "end": "2025-11-03 17:30",
+                "length": 198
+              },
+              {
+                "start": "2025-10-01 01:05",
+                "end": "2025-10-01 16:25",
+                "length": 185
+              }
+            ]
+          },
+          "raw_daily_profile": {
+            "trading_days": 103,
+            "median_bars_per_day": 78,
+            "p10_bars_per_day": 78,
+            "p90_bars_per_day": 78,
+            "median_first_bar_utc": "16:30",
+            "median_last_bar_utc": "22:55"
+          }
+        },
+        "US10YR": {
+          "recorded_mismatch_count": 2467,
+          "recorded_mismatch_share_of_base": 0.08544,
+          "recorded_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 4,
+                "count": 322
+              },
+              {
+                "key": 1,
+                "count": 300
+              },
+              {
+                "key": 22,
+                "count": 296
+              },
+              {
+                "key": 3,
+                "count": 253
+              },
+              {
+                "key": 23,
+                "count": 235
+              },
+              {
+                "key": 21,
+                "count": 226
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-11-27",
+                "count": 55
+              },
+              {
+                "key": "2025-12-19",
+                "count": 54
+              },
+              {
+                "key": "2025-12-23",
+                "count": 52
+              },
+              {
+                "key": "2025-12-31",
+                "count": 50
+              },
+              {
+                "key": "2025-12-30",
+                "count": 47
+              },
+              {
+                "key": "2026-01-14",
+                "count": 46
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Wed",
+                "count": 604
+              },
+              {
+                "key": "Tue",
+                "count": 563
+              },
+              {
+                "key": "Fri",
+                "count": 496
+              },
+              {
+                "key": "Thu",
+                "count": 470
+              },
+              {
+                "key": "Mon",
+                "count": 326
+              },
+              {
+                "key": "Sat",
+                "count": 8
+              }
+            ]
+          },
+          "recorded_streaks": {
+            "streak_count": 1639,
+            "p50": 1,
+            "p90": 3,
+            "max": 14,
+            "single_share": 0.7224,
+            "top_streaks": [
+              {
+                "start": "2025-11-06 22:05",
+                "end": "2025-11-06 23:10",
+                "length": 14
+              },
+              {
+                "start": "2025-11-27 03:50",
+                "end": "2025-11-27 04:55",
+                "length": 14
+              },
+              {
+                "start": "2025-12-12 04:10",
+                "end": "2025-12-12 04:55",
+                "length": 10
+              },
+              {
+                "start": "2026-01-14 03:40",
+                "end": "2026-01-14 04:20",
+                "length": 9
+              },
+              {
+                "start": "2025-12-30 01:10",
+                "end": "2025-12-30 01:45",
+                "length": 8
+              }
+            ]
+          },
+          "raw_exact_missing_count": 7111,
+          "raw_exact_missing_share_of_base": 0.246277,
+          "recorded_share_of_raw_missing": 0.346927,
+          "stale1_recoverable_count": 3842,
+          "stale1_recoverable_share_of_raw_missing": 0.54029,
+          "raw_missing_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 6,
+                "count": 616
+              },
+              {
+                "key": 7,
+                "count": 585
+              },
+              {
+                "key": 5,
+                "count": 576
+              },
+              {
+                "key": 4,
+                "count": 564
+              },
+              {
+                "key": 8,
+                "count": 489
+              },
+              {
+                "key": 1,
+                "count": 461
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-11-03",
+                "count": 151
+              },
+              {
+                "key": "2025-11-27",
+                "count": 149
+              },
+              {
+                "key": "2025-11-11",
+                "count": 145
+              },
+              {
+                "key": "2025-12-31",
+                "count": 135
+              },
+              {
+                "key": "2025-12-26",
+                "count": 129
+              },
+              {
+                "key": "2025-12-23",
+                "count": 123
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Wed",
+                "count": 1604
+              },
+              {
+                "key": "Tue",
+                "count": 1459
+              },
+              {
+                "key": "Mon",
+                "count": 1425
+              },
+              {
+                "key": "Fri",
+                "count": 1380
+              },
+              {
+                "key": "Thu",
+                "count": 1223
+              },
+              {
+                "key": "Sat",
+                "count": 20
+              }
+            ]
+          },
+          "raw_missing_streaks": {
+            "streak_count": 3916,
+            "p50": 1,
+            "p90": 3,
+            "max": 118,
+            "single_share": 0.6678,
+            "top_streaks": [
+              {
+                "start": "2025-11-03 01:05",
+                "end": "2025-11-03 10:50",
+                "length": 118
+              },
+              {
+                "start": "2025-11-06 22:00",
+                "end": "2025-11-07 00:00",
+                "length": 25
+              },
+              {
+                "start": "2025-12-31 04:30",
+                "end": "2025-12-31 06:30",
+                "length": 25
+              },
+              {
+                "start": "2025-12-22 06:05",
+                "end": "2025-12-22 07:55",
+                "length": 23
+              },
+              {
+                "start": "2025-11-27 01:45",
+                "end": "2025-11-27 03:25",
+                "length": 21
+              }
+            ]
+          },
+          "raw_daily_profile": {
+            "trading_days": 106,
+            "median_bars_per_day": 206,
+            "p10_bars_per_day": 172,
+            "p90_bars_per_day": 250,
+            "median_first_bar_utc": "01:00",
+            "median_last_bar_utc": "23:55"
+          }
+        },
+        "USDX": {
+          "recorded_mismatch_count": 1147,
+          "recorded_mismatch_share_of_base": 0.039724,
+          "recorded_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 2,
+                "count": 615
+              },
+              {
+                "key": 1,
+                "count": 488
+              },
+              {
+                "key": 3,
+                "count": 36
+              },
+              {
+                "key": 0,
+                "count": 6
+              },
+              {
+                "key": 19,
+                "count": 2
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2026-01-29",
+                "count": 22
+              },
+              {
+                "key": "2026-02-06",
+                "count": 22
+              },
+              {
+                "key": "2025-10-08",
+                "count": 21
+              },
+              {
+                "key": "2025-10-10",
+                "count": 21
+              },
+              {
+                "key": "2025-10-17",
+                "count": 21
+              },
+              {
+                "key": "2025-10-22",
+                "count": 21
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Fri",
+                "count": 308
+              },
+              {
+                "key": "Wed",
+                "count": 290
+              },
+              {
+                "key": "Thu",
+                "count": 280
+              },
+              {
+                "key": "Tue",
+                "count": 263
+              },
+              {
+                "key": "Sat",
+                "count": 6
+              }
+            ]
+          },
+          "recorded_streaks": {
+            "streak_count": 429,
+            "p50": 2,
+            "p90": 5,
+            "max": 18,
+            "single_share": 0.4545,
+            "top_streaks": [
+              {
+                "start": "2025-11-25 01:30",
+                "end": "2025-11-25 02:55",
+                "length": 18
+              },
+              {
+                "start": "2025-11-21 01:05",
+                "end": "2025-11-21 02:25",
+                "length": 17
+              },
+              {
+                "start": "2025-10-07 01:15",
+                "end": "2025-10-07 02:25",
+                "length": 15
+              },
+              {
+                "start": "2025-12-11 01:40",
+                "end": "2025-12-11 02:50",
+                "length": 15
+              },
+              {
+                "start": "2026-01-30 01:50",
+                "end": "2026-01-30 03:00",
+                "length": 15
+              }
+            ]
+          },
+          "raw_exact_missing_count": 2650,
+          "raw_exact_missing_share_of_base": 0.091778,
+          "recorded_share_of_raw_missing": 0.43283,
+          "stale1_recoverable_count": 24,
+          "stale1_recoverable_share_of_raw_missing": 0.009057,
+          "raw_missing_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 2,
+                "count": 1272
+              },
+              {
+                "key": 1,
+                "count": 1156
+              },
+              {
+                "key": 0,
+                "count": 101
+              },
+              {
+                "key": 23,
+                "count": 21
+              },
+              {
+                "key": 3,
+                "count": 12
+              },
+              {
+                "key": 4,
+                "count": 12
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-11-03",
+                "count": 118
+              },
+              {
+                "key": "2026-01-29",
+                "count": 26
+              },
+              {
+                "key": "2025-10-03",
+                "count": 25
+              },
+              {
+                "key": "2025-10-10",
+                "count": 25
+              },
+              {
+                "key": "2025-10-17",
+                "count": 25
+              },
+              {
+                "key": "2025-10-24",
+                "count": 25
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Mon",
+                "count": 569
+              },
+              {
+                "key": "Fri",
+                "count": 548
+              },
+              {
+                "key": "Wed",
+                "count": 528
+              },
+              {
+                "key": "Tue",
+                "count": 502
+              },
+              {
+                "key": "Thu",
+                "count": 483
+              },
+              {
+                "key": "Sat",
+                "count": 20
+              }
+            ]
+          },
+          "raw_missing_streaks": {
+            "streak_count": 211,
+            "p50": 13,
+            "p90": 23,
+            "max": 118,
+            "single_share": 0.3934,
+            "top_streaks": [
+              {
+                "start": "2025-11-03 01:05",
+                "end": "2025-11-03 10:50",
+                "length": 118
+              },
+              {
+                "start": "2025-10-01 01:05",
+                "end": "2025-10-01 02:55",
+                "length": 23
+              },
+              {
+                "start": "2025-10-02 01:05",
+                "end": "2025-10-02 02:55",
+                "length": 23
+              },
+              {
+                "start": "2025-10-03 01:05",
+                "end": "2025-10-03 02:55",
+                "length": 23
+              },
+              {
+                "start": "2025-10-06 01:05",
+                "end": "2025-10-06 02:55",
+                "length": 23
+              }
+            ]
+          },
+          "raw_daily_profile": {
+            "trading_days": 106,
+            "median_bars_per_day": 252,
+            "p10_bars_per_day": 251,
+            "p90_bars_per_day": 252,
+            "median_first_bar_utc": "03:00",
+            "median_last_bar_utc": "23:55"
+          }
+        },
+        "VIX": {
+          "recorded_mismatch_count": 1540,
+          "recorded_mismatch_share_of_base": 0.053335,
+          "recorded_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 23,
+                "count": 435
+              },
+              {
+                "key": 2,
+                "count": 156
+              },
+              {
+                "key": 3,
+                "count": 147
+              },
+              {
+                "key": 1,
+                "count": 125
+              },
+              {
+                "key": 4,
+                "count": 121
+              },
+              {
+                "key": 15,
+                "count": 109
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-10-28",
+                "count": 84
+              },
+              {
+                "key": "2025-11-11",
+                "count": 73
+              },
+              {
+                "key": "2025-11-12",
+                "count": 72
+              },
+              {
+                "key": "2025-10-29",
+                "count": 71
+              },
+              {
+                "key": "2026-01-15",
+                "count": 55
+              },
+              {
+                "key": "2026-02-12",
+                "count": 53
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Tue",
+                "count": 370
+              },
+              {
+                "key": "Wed",
+                "count": 358
+              },
+              {
+                "key": "Thu",
+                "count": 341
+              },
+              {
+                "key": "Fri",
+                "count": 253
+              },
+              {
+                "key": "Mon",
+                "count": 212
+              },
+              {
+                "key": "Sat",
+                "count": 6
+              }
+            ]
+          },
+          "recorded_streaks": {
+            "streak_count": 732,
+            "p50": 1,
+            "p90": 4,
+            "max": 33,
+            "single_share": 0.6284,
+            "top_streaks": [
+              {
+                "start": "2026-02-12 01:05",
+                "end": "2026-02-12 03:45",
+                "length": 33
+              },
+              {
+                "start": "2025-11-12 02:25",
+                "end": "2025-11-12 04:00",
+                "length": 20
+              },
+              {
+                "start": "2025-11-27 18:35",
+                "end": "2025-11-27 20:05",
+                "length": 19
+              },
+              {
+                "start": "2026-01-19 18:35",
+                "end": "2026-01-19 20:05",
+                "length": 19
+              },
+              {
+                "start": "2026-02-16 18:35",
+                "end": "2026-02-16 20:00",
+                "length": 18
+              }
+            ]
+          },
+          "raw_exact_missing_count": 3779,
+          "raw_exact_missing_share_of_base": 0.130879,
+          "recorded_share_of_raw_missing": 0.407515,
+          "stale1_recoverable_count": 1648,
+          "stale1_recoverable_share_of_raw_missing": 0.436094,
+          "raw_missing_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 23,
+                "count": 453
+              },
+              {
+                "key": 6,
+                "count": 295
+              },
+              {
+                "key": 7,
+                "count": 270
+              },
+              {
+                "key": 5,
+                "count": 253
+              },
+              {
+                "key": 8,
+                "count": 248
+              },
+              {
+                "key": 4,
+                "count": 223
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2025-10-28",
+                "count": 180
+              },
+              {
+                "key": "2025-11-12",
+                "count": 173
+              },
+              {
+                "key": "2025-10-29",
+                "count": 161
+              },
+              {
+                "key": "2025-11-11",
+                "count": 157
+              },
+              {
+                "key": "2026-02-16",
+                "count": 139
+              },
+              {
+                "key": "2025-10-31",
+                "count": 121
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Wed",
+                "count": 867
+              },
+              {
+                "key": "Tue",
+                "count": 805
+              },
+              {
+                "key": "Mon",
+                "count": 749
+              },
+              {
+                "key": "Thu",
+                "count": 679
+              },
+              {
+                "key": "Fri",
+                "count": 659
+              },
+              {
+                "key": "Sat",
+                "count": 20
+              }
+            ]
+          },
+          "raw_missing_streaks": {
+            "streak_count": 1735,
+            "p50": 1,
+            "p90": 4,
+            "max": 107,
+            "single_share": 0.6605,
+            "top_streaks": [
+              {
+                "start": "2026-02-16 01:05",
+                "end": "2026-02-16 09:55",
+                "length": 107
+              },
+              {
+                "start": "2025-11-28 16:30",
+                "end": "2025-11-28 20:20",
+                "length": 47
+              },
+              {
+                "start": "2025-11-12 06:25",
+                "end": "2025-11-12 09:50",
+                "length": 42
+              },
+              {
+                "start": "2026-02-12 01:05",
+                "end": "2026-02-12 03:40",
+                "length": 32
+              },
+              {
+                "start": "2025-11-17 06:15",
+                "end": "2025-11-17 08:30",
+                "length": 28
+              }
+            ]
+          },
+          "raw_daily_profile": {
+            "trading_days": 106,
+            "median_bars_per_day": 254,
+            "p10_bars_per_day": 171,
+            "p90_bars_per_day": 272,
+            "median_first_bar_utc": "01:00",
+            "median_last_bar_utc": "23:55"
+          }
+        }
+      }
+    },
+    "hist_2024": {
+      "split_name": "hist_2024",
+      "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\29_fusion_long_repair\\02_runs\\active\\29N_25o_sxh2_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+      "shadow_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_29n_25o_sxh2_v1\\logs\\att_0003_shadow.csv",
+      "run_name": "29N_25o_sxh2_0001",
+      "base_bar_count": 70658,
+      "date_window": {
+        "from_date": "2024-01-01",
+        "to_date": "2024-12-31",
+        "derived_from_bundle": false
+      },
+      "runtime_metrics": {
+        "skip_rate": 0.305556,
+        "external_skip_rate": 0.305556,
+        "external_mismatch_count": 25010,
+        "top_skip_reasons": [
+          {
+            "key": "SESSION_CASH_OPEN_NOT_FOUND",
+            "count": 31775
+          },
+          {
+            "key": "EXTERNAL_TIMESTAMP_MISMATCH_VIX",
+            "count": 15832
+          },
+          {
+            "key": "EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas",
+            "count": 6131
+          },
+          {
+            "key": "EXTERNAL_TIMESTAMP_MISMATCH_US10YR",
+            "count": 1651
+          },
+          {
+            "key": "EXTERNAL_TIMESTAMP_MISMATCH_USDX",
+            "count": 1192
+          },
+          {
+            "key": "EXTERNAL_TIMESTAMP_MISMATCH_NVDA.xnas",
+            "count": 202
+          },
+          {
+            "key": "EXTERNAL_TIMESTAMP_MISMATCH_AMZN.xnas",
+            "count": 2
+          },
+          {
+            "key": "HANDLE_NOT_READY_EMA9_-1",
+            "count": 1
+          }
+        ]
+      },
+      "symbols": {
+        "AAPL.xnas": {
+          "recorded_mismatch_count": 6131,
+          "recorded_mismatch_share_of_base": 0.08677,
+          "recorded_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 15,
+                "count": 1779
+              },
+              {
+                "key": 16,
+                "count": 1064
+              },
+              {
+                "key": 14,
+                "count": 1017
+              },
+              {
+                "key": 23,
+                "count": 973
+              },
+              {
+                "key": 3,
+                "count": 691
+              },
+              {
+                "key": 13,
+                "count": 303
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2024-11-28",
+                "count": 71
+              },
+              {
+                "key": "2024-08-07",
+                "count": 57
+              },
+              {
+                "key": "2024-11-13",
+                "count": 57
+              },
+              {
+                "key": "2024-11-19",
+                "count": 57
+              },
+              {
+                "key": "2024-11-20",
+                "count": 57
+              },
+              {
+                "key": "2024-11-21",
+                "count": 57
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Fri",
+                "count": 1389
+              },
+              {
+                "key": "Thu",
+                "count": 1367
+              },
+              {
+                "key": "Wed",
+                "count": 1274
+              },
+              {
+                "key": "Tue",
+                "count": 1235
+              },
+              {
+                "key": "Mon",
+                "count": 866
+              }
+            ]
+          },
+          "recorded_streaks": {
+            "streak_count": 2205,
+            "p50": 1,
+            "p90": 5,
+            "max": 49,
+            "single_share": 0.5361,
+            "top_streaks": [
+              {
+                "start": "2024-11-28 14:35",
+                "end": "2024-11-28 18:35",
+                "length": 49
+              },
+              {
+                "start": "2024-04-15 13:35",
+                "end": "2024-04-15 16:30",
+                "length": 36
+              },
+              {
+                "start": "2024-04-16 13:35",
+                "end": "2024-04-16 16:30",
+                "length": 36
+              },
+              {
+                "start": "2024-06-14 13:35",
+                "end": "2024-06-14 16:30",
+                "length": 36
+              },
+              {
+                "start": "2024-08-02 13:35",
+                "end": "2024-08-02 16:30",
+                "length": 36
+              }
+            ]
+          },
+          "raw_exact_missing_count": 51215,
+          "raw_exact_missing_share_of_base": 0.724829,
+          "recorded_share_of_raw_missing": 0.119711,
+          "stale1_recoverable_count": 256,
+          "stale1_recoverable_share_of_raw_missing": 0.004999,
+          "raw_missing_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 2,
+                "count": 3096
+              },
+              {
+                "key": 3,
+                "count": 3096
+              },
+              {
+                "key": 4,
+                "count": 3096
+              },
+              {
+                "key": 5,
+                "count": 3096
+              },
+              {
+                "key": 6,
+                "count": 3096
+              },
+              {
+                "key": 7,
+                "count": 3096
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2024-06-19",
+                "count": 230
+              },
+              {
+                "key": "2024-11-28",
+                "count": 230
+              },
+              {
+                "key": "2024-05-27",
+                "count": 229
+              },
+              {
+                "key": "2024-07-04",
+                "count": 229
+              },
+              {
+                "key": "2024-09-02",
+                "count": 229
+              },
+              {
+                "key": "2024-01-15",
+                "count": 228
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Mon",
+                "count": 10382
+              },
+              {
+                "key": "Thu",
+                "count": 10358
+              },
+              {
+                "key": "Tue",
+                "count": 10286
+              },
+              {
+                "key": "Wed",
+                "count": 10122
+              },
+              {
+                "key": "Fri",
+                "count": 10067
+              }
+            ]
+          },
+          "raw_missing_streaks": {
+            "streak_count": 517,
+            "p50": 68,
+            "p90": 185,
+            "max": 229,
+            "single_share": 0.0077,
+            "top_streaks": [
+              {
+                "start": "2024-05-27 01:05",
+                "end": "2024-05-27 20:05",
+                "length": 229
+              },
+              {
+                "start": "2024-06-19 01:05",
+                "end": "2024-06-19 20:05",
+                "length": 229
+              },
+              {
+                "start": "2024-07-04 01:05",
+                "end": "2024-07-04 20:05",
+                "length": 229
+              },
+              {
+                "start": "2024-09-02 01:05",
+                "end": "2024-09-02 20:05",
+                "length": 229
+              },
+              {
+                "start": "2024-11-28 01:05",
+                "end": "2024-11-28 20:05",
+                "length": 229
+              }
+            ]
+          },
+          "raw_daily_profile": {
+            "trading_days": 251,
+            "median_bars_per_day": 78,
+            "p10_bars_per_day": 78,
+            "p90_bars_per_day": 78,
+            "median_first_bar_utc": "16:30",
+            "median_last_bar_utc": "22:55"
+          }
+        },
+        "AMZN.xnas": {
+          "recorded_mismatch_count": 2,
+          "recorded_mismatch_share_of_base": 2.8e-05,
+          "recorded_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 16,
+                "count": 1
+              },
+              {
+                "key": 20,
+                "count": 1
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2024-04-10",
+                "count": 1
+              },
+              {
+                "key": "2024-07-03",
+                "count": 1
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Wed",
+                "count": 2
+              }
+            ]
+          },
+          "recorded_streaks": {
+            "streak_count": 2,
+            "p50": 1,
+            "p90": 1,
+            "max": 1,
+            "single_share": 1.0,
+            "top_streaks": [
+              {
+                "start": "2024-04-10 16:55",
+                "end": "2024-04-10 16:55",
+                "length": 1
+              },
+              {
+                "start": "2024-07-03 20:05",
+                "end": "2024-07-03 20:05",
+                "length": 1
+              }
+            ]
+          },
+          "raw_exact_missing_count": 51216,
+          "raw_exact_missing_share_of_base": 0.724844,
+          "recorded_share_of_raw_missing": 3.9e-05,
+          "stale1_recoverable_count": 257,
+          "stale1_recoverable_share_of_raw_missing": 0.005018,
+          "raw_missing_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 2,
+                "count": 3096
+              },
+              {
+                "key": 3,
+                "count": 3096
+              },
+              {
+                "key": 4,
+                "count": 3096
+              },
+              {
+                "key": 5,
+                "count": 3096
+              },
+              {
+                "key": 6,
+                "count": 3096
+              },
+              {
+                "key": 7,
+                "count": 3096
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2024-06-19",
+                "count": 230
+              },
+              {
+                "key": "2024-11-28",
+                "count": 230
+              },
+              {
+                "key": "2024-05-27",
+                "count": 229
+              },
+              {
+                "key": "2024-07-04",
+                "count": 229
+              },
+              {
+                "key": "2024-09-02",
+                "count": 229
+              },
+              {
+                "key": "2024-01-15",
+                "count": 228
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Mon",
+                "count": 10382
+              },
+              {
+                "key": "Thu",
+                "count": 10358
+              },
+              {
+                "key": "Tue",
+                "count": 10285
+              },
+              {
+                "key": "Wed",
+                "count": 10124
+              },
+              {
+                "key": "Fri",
+                "count": 10067
+              }
+            ]
+          },
+          "raw_missing_streaks": {
+            "streak_count": 518,
+            "p50": 41,
+            "p90": 185,
+            "max": 229,
+            "single_share": 0.0097,
+            "top_streaks": [
+              {
+                "start": "2024-05-27 01:05",
+                "end": "2024-05-27 20:05",
+                "length": 229
+              },
+              {
+                "start": "2024-06-19 01:05",
+                "end": "2024-06-19 20:05",
+                "length": 229
+              },
+              {
+                "start": "2024-07-04 01:05",
+                "end": "2024-07-04 20:05",
+                "length": 229
+              },
+              {
+                "start": "2024-09-02 01:05",
+                "end": "2024-09-02 20:05",
+                "length": 229
+              },
+              {
+                "start": "2024-11-28 01:05",
+                "end": "2024-11-28 20:05",
+                "length": 229
+              }
+            ]
+          },
+          "raw_daily_profile": {
+            "trading_days": 251,
+            "median_bars_per_day": 78,
+            "p10_bars_per_day": 78,
+            "p90_bars_per_day": 78,
+            "median_first_bar_utc": "16:30",
+            "median_last_bar_utc": "22:55"
+          }
+        },
+        "NVDA.xnas": {
+          "recorded_mismatch_count": 202,
+          "recorded_mismatch_share_of_base": 0.002859,
+          "recorded_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 23,
+                "count": 105
+              },
+              {
+                "key": 16,
+                "count": 97
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2024-01-02",
+                "count": 2
+              },
+              {
+                "key": "2024-01-03",
+                "count": 2
+              },
+              {
+                "key": "2024-01-04",
+                "count": 2
+              },
+              {
+                "key": "2024-01-05",
+                "count": 2
+              },
+              {
+                "key": "2024-01-08",
+                "count": 2
+              },
+              {
+                "key": "2024-01-09",
+                "count": 2
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Wed",
+                "count": 43
+              },
+              {
+                "key": "Fri",
+                "count": 43
+              },
+              {
+                "key": "Tue",
+                "count": 42
+              },
+              {
+                "key": "Thu",
+                "count": 41
+              },
+              {
+                "key": "Mon",
+                "count": 33
+              }
+            ]
+          },
+          "recorded_streaks": {
+            "streak_count": 202,
+            "p50": 1,
+            "p90": 1,
+            "max": 1,
+            "single_share": 1.0,
+            "top_streaks": [
+              {
+                "start": "2024-01-02 16:35",
+                "end": "2024-01-02 16:35",
+                "length": 1
+              },
+              {
+                "start": "2024-01-02 23:00",
+                "end": "2024-01-02 23:00",
+                "length": 1
+              },
+              {
+                "start": "2024-01-03 16:35",
+                "end": "2024-01-03 16:35",
+                "length": 1
+              },
+              {
+                "start": "2024-01-03 23:00",
+                "end": "2024-01-03 23:00",
+                "length": 1
+              },
+              {
+                "start": "2024-01-04 16:35",
+                "end": "2024-01-04 16:35",
+                "length": 1
+              }
+            ]
+          },
+          "raw_exact_missing_count": 51419,
+          "raw_exact_missing_share_of_base": 0.727717,
+          "recorded_share_of_raw_missing": 0.003929,
+          "stale1_recoverable_count": 252,
+          "stale1_recoverable_share_of_raw_missing": 0.004901,
+          "raw_missing_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 2,
+                "count": 3096
+              },
+              {
+                "key": 3,
+                "count": 3096
+              },
+              {
+                "key": 4,
+                "count": 3096
+              },
+              {
+                "key": 5,
+                "count": 3096
+              },
+              {
+                "key": 6,
+                "count": 3096
+              },
+              {
+                "key": 7,
+                "count": 3096
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2024-06-19",
+                "count": 230
+              },
+              {
+                "key": "2024-11-28",
+                "count": 230
+              },
+              {
+                "key": "2024-05-27",
+                "count": 229
+              },
+              {
+                "key": "2024-07-04",
+                "count": 229
+              },
+              {
+                "key": "2024-09-02",
+                "count": 229
+              },
+              {
+                "key": "2024-01-15",
+                "count": 228
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Mon",
+                "count": 10408
+              },
+              {
+                "key": "Thu",
+                "count": 10402
+              },
+              {
+                "key": "Tue",
+                "count": 10330
+              },
+              {
+                "key": "Wed",
+                "count": 10168
+              },
+              {
+                "key": "Fri",
+                "count": 10111
+              }
+            ]
+          },
+          "raw_missing_streaks": {
+            "streak_count": 513,
+            "p50": 185,
+            "p90": 186,
+            "max": 229,
+            "single_share": 0.0019,
+            "top_streaks": [
+              {
+                "start": "2024-05-27 01:05",
+                "end": "2024-05-27 20:05",
+                "length": 229
+              },
+              {
+                "start": "2024-06-19 01:05",
+                "end": "2024-06-19 20:05",
+                "length": 229
+              },
+              {
+                "start": "2024-07-04 01:05",
+                "end": "2024-07-04 20:05",
+                "length": 229
+              },
+              {
+                "start": "2024-09-02 01:05",
+                "end": "2024-09-02 20:05",
+                "length": 229
+              },
+              {
+                "start": "2024-11-28 01:05",
+                "end": "2024-11-28 20:05",
+                "length": 229
+              }
+            ]
+          },
+          "raw_daily_profile": {
+            "trading_days": 251,
+            "median_bars_per_day": 78,
+            "p10_bars_per_day": 76,
+            "p90_bars_per_day": 78,
+            "median_first_bar_utc": "16:30",
+            "median_last_bar_utc": "22:55"
+          }
+        },
+        "US10YR": {
+          "recorded_mismatch_count": 1651,
+          "recorded_mismatch_share_of_base": 0.023366,
+          "recorded_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 22,
+                "count": 289
+              },
+              {
+                "key": 1,
+                "count": 270
+              },
+              {
+                "key": 21,
+                "count": 205
+              },
+              {
+                "key": 2,
+                "count": 161
+              },
+              {
+                "key": 20,
+                "count": 148
+              },
+              {
+                "key": 23,
+                "count": 122
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2024-07-26",
+                "count": 24
+              },
+              {
+                "key": "2024-06-03",
+                "count": 21
+              },
+              {
+                "key": "2024-06-21",
+                "count": 21
+              },
+              {
+                "key": "2024-08-29",
+                "count": 20
+              },
+              {
+                "key": "2024-05-21",
+                "count": 19
+              },
+              {
+                "key": "2024-10-02",
+                "count": 19
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Fri",
+                "count": 420
+              },
+              {
+                "key": "Thu",
+                "count": 343
+              },
+              {
+                "key": "Tue",
+                "count": 323
+              },
+              {
+                "key": "Wed",
+                "count": 295
+              },
+              {
+                "key": "Mon",
+                "count": 270
+              }
+            ]
+          },
+          "recorded_streaks": {
+            "streak_count": 1364,
+            "p50": 1,
+            "p90": 2,
+            "max": 6,
+            "single_share": 0.8409,
+            "top_streaks": [
+              {
+                "start": "2024-07-25 02:15",
+                "end": "2024-07-25 02:40",
+                "length": 6
+              },
+              {
+                "start": "2024-02-14 01:15",
+                "end": "2024-02-14 01:35",
+                "length": 5
+              },
+              {
+                "start": "2024-03-28 22:15",
+                "end": "2024-03-28 22:35",
+                "length": 5
+              },
+              {
+                "start": "2024-12-20 03:35",
+                "end": "2024-12-20 03:55",
+                "length": 5
+              },
+              {
+                "start": "2024-02-20 01:35",
+                "end": "2024-02-20 01:50",
+                "length": 4
+              }
+            ]
+          },
+          "raw_exact_missing_count": 13158,
+          "raw_exact_missing_share_of_base": 0.186221,
+          "recorded_share_of_raw_missing": 0.125475,
+          "stale1_recoverable_count": 7108,
+          "stale1_recoverable_share_of_raw_missing": 0.540204,
+          "raw_missing_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 7,
+                "count": 1389
+              },
+              {
+                "key": 1,
+                "count": 1363
+              },
+              {
+                "key": 6,
+                "count": 1334
+              },
+              {
+                "key": 5,
+                "count": 1215
+              },
+              {
+                "key": 8,
+                "count": 1070
+              },
+              {
+                "key": 2,
+                "count": 1063
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2024-07-04",
+                "count": 123
+              },
+              {
+                "key": "2024-09-02",
+                "count": 120
+              },
+              {
+                "key": "2024-10-14",
+                "count": 116
+              },
+              {
+                "key": "2024-05-21",
+                "count": 112
+              },
+              {
+                "key": "2024-05-27",
+                "count": 110
+              },
+              {
+                "key": "2024-05-17",
+                "count": 109
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Mon",
+                "count": 2933
+              },
+              {
+                "key": "Tue",
+                "count": 2657
+              },
+              {
+                "key": "Wed",
+                "count": 2536
+              },
+              {
+                "key": "Fri",
+                "count": 2535
+              },
+              {
+                "key": "Thu",
+                "count": 2497
+              }
+            ]
+          },
+          "raw_missing_streaks": {
+            "streak_count": 7286,
+            "p50": 1,
+            "p90": 3,
+            "max": 26,
+            "single_share": 0.6393,
+            "top_streaks": [
+              {
+                "start": "2024-10-23 06:25",
+                "end": "2024-10-23 08:30",
+                "length": 26
+              },
+              {
+                "start": "2024-09-02 17:45",
+                "end": "2024-09-02 19:45",
+                "length": 25
+              },
+              {
+                "start": "2024-05-22 01:35",
+                "end": "2024-05-22 03:10",
+                "length": 20
+              },
+              {
+                "start": "2024-06-24 07:15",
+                "end": "2024-06-24 08:50",
+                "length": 20
+              },
+              {
+                "start": "2024-05-03 06:50",
+                "end": "2024-05-03 08:00",
+                "length": 15
+              }
+            ]
+          },
+          "raw_daily_profile": {
+            "trading_days": 259,
+            "median_bars_per_day": 226,
+            "p10_bars_per_day": 194,
+            "p90_bars_per_day": 255,
+            "median_first_bar_utc": "01:00",
+            "median_last_bar_utc": "23:55"
+          }
+        },
+        "USDX": {
+          "recorded_mismatch_count": 1192,
+          "recorded_mismatch_share_of_base": 0.01687,
+          "recorded_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 1,
+                "count": 647
+              },
+              {
+                "key": 2,
+                "count": 501
+              },
+              {
+                "key": 3,
+                "count": 41
+              },
+              {
+                "key": 23,
+                "count": 2
+              },
+              {
+                "key": 22,
+                "count": 1
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2024-08-07",
+                "count": 24
+              },
+              {
+                "key": "2024-11-13",
+                "count": 24
+              },
+              {
+                "key": "2024-11-15",
+                "count": 24
+              },
+              {
+                "key": "2024-11-20",
+                "count": 24
+              },
+              {
+                "key": "2024-11-21",
+                "count": 24
+              },
+              {
+                "key": "2024-11-22",
+                "count": 24
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Fri",
+                "count": 327
+              },
+              {
+                "key": "Thu",
+                "count": 315
+              },
+              {
+                "key": "Wed",
+                "count": 311
+              },
+              {
+                "key": "Tue",
+                "count": 238
+              },
+              {
+                "key": "Mon",
+                "count": 1
+              }
+            ]
+          },
+          "recorded_streaks": {
+            "streak_count": 637,
+            "p50": 1,
+            "p90": 3,
+            "max": 24,
+            "single_share": 0.7111,
+            "top_streaks": [
+              {
+                "start": "2024-08-07 01:05",
+                "end": "2024-08-07 03:00",
+                "length": 24
+              },
+              {
+                "start": "2024-11-13 01:05",
+                "end": "2024-11-13 03:00",
+                "length": 24
+              },
+              {
+                "start": "2024-11-15 01:05",
+                "end": "2024-11-15 03:00",
+                "length": 24
+              },
+              {
+                "start": "2024-11-20 01:05",
+                "end": "2024-11-20 03:00",
+                "length": 24
+              },
+              {
+                "start": "2024-11-21 01:05",
+                "end": "2024-11-21 03:00",
+                "length": 24
+              }
+            ]
+          },
+          "raw_exact_missing_count": 6323,
+          "raw_exact_missing_share_of_base": 0.089487,
+          "recorded_share_of_raw_missing": 0.188518,
+          "stale1_recoverable_count": 94,
+          "stale1_recoverable_share_of_raw_missing": 0.014866,
+          "raw_missing_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 2,
+                "count": 3096
+              },
+              {
+                "key": 1,
+                "count": 2838
+              },
+              {
+                "key": 0,
+                "count": 197
+              },
+              {
+                "key": 23,
+                "count": 79
+              },
+              {
+                "key": 4,
+                "count": 20
+              },
+              {
+                "key": 3,
+                "count": 16
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2024-12-26",
+                "count": 56
+              },
+              {
+                "key": "2024-06-04",
+                "count": 49
+              },
+              {
+                "key": "2024-10-23",
+                "count": 47
+              },
+              {
+                "key": "2024-01-16",
+                "count": 32
+              },
+              {
+                "key": "2024-08-28",
+                "count": 28
+              },
+              {
+                "key": "2024-05-24",
+                "count": 27
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Thu",
+                "count": 1287
+              },
+              {
+                "key": "Tue",
+                "count": 1284
+              },
+              {
+                "key": "Fri",
+                "count": 1283
+              },
+              {
+                "key": "Wed",
+                "count": 1261
+              },
+              {
+                "key": "Mon",
+                "count": 1208
+              }
+            ]
+          },
+          "raw_missing_streaks": {
+            "streak_count": 550,
+            "p50": 1,
+            "p90": 23,
+            "max": 56,
+            "single_share": 0.5127,
+            "top_streaks": [
+              {
+                "start": "2024-12-26 01:05",
+                "end": "2024-12-26 05:40",
+                "length": 56
+              },
+              {
+                "start": "2024-03-28 01:05",
+                "end": "2024-03-28 03:05",
+                "length": 25
+              },
+              {
+                "start": "2024-06-04 15:20",
+                "end": "2024-06-04 17:20",
+                "length": 25
+              },
+              {
+                "start": "2024-01-02 01:05",
+                "end": "2024-01-02 02:55",
+                "length": 23
+              },
+              {
+                "start": "2024-01-03 01:05",
+                "end": "2024-01-03 02:55",
+                "length": 23
+              }
+            ]
+          },
+          "raw_daily_profile": {
+            "trading_days": 258,
+            "median_bars_per_day": 252,
+            "p10_bars_per_day": 250,
+            "p90_bars_per_day": 252,
+            "median_first_bar_utc": "03:00",
+            "median_last_bar_utc": "23:55"
+          }
+        },
+        "VIX": {
+          "recorded_mismatch_count": 15832,
+          "recorded_mismatch_share_of_base": 0.224065,
+          "recorded_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 2,
+                "count": 1786
+              },
+              {
+                "key": 23,
+                "count": 1641
+              },
+              {
+                "key": 3,
+                "count": 1627
+              },
+              {
+                "key": 14,
+                "count": 1385
+              },
+              {
+                "key": 1,
+                "count": 1327
+              },
+              {
+                "key": 15,
+                "count": 1296
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2024-07-10",
+                "count": 135
+              },
+              {
+                "key": "2024-07-02",
+                "count": 129
+              },
+              {
+                "key": "2024-05-10",
+                "count": 127
+              },
+              {
+                "key": "2024-06-25",
+                "count": 123
+              },
+              {
+                "key": "2024-01-30",
+                "count": 122
+              },
+              {
+                "key": "2024-05-15",
+                "count": 119
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Tue",
+                "count": 3564
+              },
+              {
+                "key": "Wed",
+                "count": 3379
+              },
+              {
+                "key": "Fri",
+                "count": 3164
+              },
+              {
+                "key": "Thu",
+                "count": 3158
+              },
+              {
+                "key": "Mon",
+                "count": 2567
+              }
+            ]
+          },
+          "recorded_streaks": {
+            "streak_count": 4982,
+            "p50": 2,
+            "p90": 6,
+            "max": 47,
+            "single_share": 0.4269,
+            "top_streaks": [
+              {
+                "start": "2024-11-14 01:05",
+                "end": "2024-11-14 04:55",
+                "length": 47
+              },
+              {
+                "start": "2024-01-23 01:40",
+                "end": "2024-01-23 04:55",
+                "length": 40
+              },
+              {
+                "start": "2024-01-24 01:40",
+                "end": "2024-01-24 04:55",
+                "length": 40
+              },
+              {
+                "start": "2024-02-06 01:40",
+                "end": "2024-02-06 04:55",
+                "length": 40
+              },
+              {
+                "start": "2024-12-03 01:40",
+                "end": "2024-12-03 04:55",
+                "length": 40
+              }
+            ]
+          },
+          "raw_exact_missing_count": 36494,
+          "raw_exact_missing_share_of_base": 0.516488,
+          "recorded_share_of_raw_missing": 0.433825,
+          "stale1_recoverable_count": 8444,
+          "stale1_recoverable_share_of_raw_missing": 0.231381,
+          "raw_missing_temporal_shape": {
+            "top_hours": [
+              {
+                "key": 7,
+                "count": 2403
+              },
+              {
+                "key": 6,
+                "count": 2382
+              },
+              {
+                "key": 5,
+                "count": 2276
+              },
+              {
+                "key": 8,
+                "count": 2206
+              },
+              {
+                "key": 2,
+                "count": 2185
+              },
+              {
+                "key": 4,
+                "count": 2174
+              }
+            ],
+            "top_dates": [
+              {
+                "key": "2024-07-10",
+                "count": 233
+              },
+              {
+                "key": "2024-05-10",
+                "count": 232
+              },
+              {
+                "key": "2024-05-13",
+                "count": 232
+              },
+              {
+                "key": "2024-07-08",
+                "count": 232
+              },
+              {
+                "key": "2024-03-04",
+                "count": 227
+              },
+              {
+                "key": "2024-07-09",
+                "count": 227
+              }
+            ],
+            "weekday_breakdown": [
+              {
+                "key": "Mon",
+                "count": 7686
+              },
+              {
+                "key": "Tue",
+                "count": 7671
+              },
+              {
+                "key": "Wed",
+                "count": 7200
+              },
+              {
+                "key": "Thu",
+                "count": 7054
+              },
+              {
+                "key": "Fri",
+                "count": 6883
+              }
+            ]
+          },
+          "raw_missing_streaks": {
+            "streak_count": 8519,
+            "p50": 2,
+            "p90": 10,
+            "max": 94,
+            "single_share": 0.3885,
+            "top_streaks": [
+              {
+                "start": "2024-11-14 01:05",
+                "end": "2024-11-14 08:50",
+                "length": 94
+              },
+              {
+                "start": "2024-03-04 01:45",
+                "end": "2024-03-04 09:20",
+                "length": 92
+              },
+              {
+                "start": "2024-12-03 01:35",
+                "end": "2024-12-03 08:55",
+                "length": 89
+              },
+              {
+                "start": "2024-04-30 01:35",
+                "end": "2024-04-30 08:50",
+                "length": 88
+              },
+              {
+                "start": "2024-03-14 03:25",
+                "end": "2024-03-14 09:50",
+                "length": 78
+              }
+            ]
+          },
+          "raw_daily_profile": {
+            "trading_days": 258,
+            "median_bars_per_day": 122,
+            "p10_bars_per_day": 65,
+            "p90_bars_per_day": 235,
+            "median_first_bar_utc": "01:00",
+            "median_last_bar_utc": "23:35"
+          }
+        }
+      }
+    }
+  },
+  "symbol_overview": {
+    "VIX": {
+      "top_runtime_split": "hist_2024",
+      "top_runtime_count": 15832,
+      "mean_stale1_recoverable_share": 0.3202,
+      "median_daily_bars_across_splits": 152,
+      "median_raw_p90_streak_across_splits": 7
+    },
+    "US10YR": {
+      "top_runtime_split": "test",
+      "top_runtime_count": 2467,
+      "mean_stale1_recoverable_share": 0.577,
+      "median_daily_bars_across_splits": 226,
+      "median_raw_p90_streak_across_splits": 3
+    },
+    "AAPL.xnas": {
+      "top_runtime_split": "hist_2024",
+      "top_runtime_count": 6131,
+      "mean_stale1_recoverable_share": 0.0049,
+      "median_daily_bars_across_splits": 78,
+      "median_raw_p90_streak_across_splits": 185
+    },
+    "USDX": {
+      "top_runtime_split": "validation",
+      "top_runtime_count": 1547,
+      "mean_stale1_recoverable_share": 0.0112,
+      "median_daily_bars_across_splits": 252,
+      "median_raw_p90_streak_across_splits": 23
+    }
+  },
+  "interpretation": [
+    "`VIX` is a real sparse-feed problem, not a one-off calendar glitch: its largest runtime pressure lands on `hist_2024` with `15832` recorded mismatches, while the raw missing streak p90 stays around `7` bars across the analyzed windows.",
+    "`US10YR` becomes the main macro runtime pressure on `test` with `2467` recorded mismatches. The source shape is mostly short holes plus date-local clusters, which fits holiday / feed-quality pockets better than a strategy-specific bug.",
+    "`AAPL.xnas` is structurally session-bound rather than mysteriously sparse: median bars per day stay around `78`, far below the US100 base cadence, so its mismatches are expected outside its narrower CFD session.",
+    "`USDX` looks like a scheduled closure artifact more than a macro anomaly: the raw missing streak p90 sits near `23` bars and repeats in the same overnight pocket.",
+    "A one-bar same-day stale fallback is symbol-specific rather than broadly safe: `VIX` only recovers about `0.3202` of raw exact misses on average, while `US10YR` sits nearer `0.577`. That split is exactly why a whole-workspace relaxation story is too blunt for the regular lane.",
+    "Current read: keep `exact alignment + all-or-skip` as the operating contract, keep the old stale-bar branch closed as a promotion path, and treat any future relaxation as a tightly scoped diagnostic for `VIX` / `US10YR` only after separate feed-health evidence is gathered."
+  ]
+}

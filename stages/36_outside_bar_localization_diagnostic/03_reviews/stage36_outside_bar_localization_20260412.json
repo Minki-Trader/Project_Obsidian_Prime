@@ -1,0 +1,637 @@
+{
+  "reviewed_on": "2026-04-12",
+  "reference_run": "35A_34d_refcarry_0001",
+  "simplification_run": "35B_34b_simpleref_0001",
+  "split_summaries": {
+    "validation": {
+      "split": "validation",
+      "headline_delta_35a_minus_35b": {
+        "net_profit": -0.049999999999954525,
+        "return_pct": -0.009999999999990905,
+        "profit_factor": 0.002166079927454323,
+        "max_dd_pct": 0.0004264487957090779,
+        "trade_count_delta": 0,
+        "long_expectancy_delta": 0.0035121951219512226,
+        "short_expectancy_delta": -0.003869346733668344
+      },
+      "decomposition": {
+        "direct_suppression_event_count": 2,
+        "direct_suppression_positive_count": 1,
+        "direct_suppression_negative_count": 1,
+        "direct_suppression_net_profit_delta_35a_minus_35b": -0.8000000000000007,
+        "shifted_entry_count": 1,
+        "shifted_entry_net_profit_delta_35a_minus_35b": -0.3,
+        "carry_drift_trade_count": 28,
+        "carry_drift_net_profit_delta_35a_minus_35b": 1.0500000000000078,
+        "residual_unmatched_net_profit_delta_35a_minus_35b": 0.0,
+        "direct_share_of_headline_net_delta": 16.000000000014566
+      },
+      "context_breakdowns": {
+        "decision_reason": {
+          "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": {
+            "count": 2,
+            "positive_count": 1,
+            "negative_count": 1,
+            "net_profit_delta_35a_minus_35b": -0.8000000000000007
+          }
+        },
+        "session_bucket_ny": {
+          "ny_cash": {
+            "count": 1,
+            "positive_count": 0,
+            "negative_count": 1,
+            "net_profit_delta_35a_minus_35b": -4.800000000000001
+          },
+          "ny_postcash": {
+            "count": 1,
+            "positive_count": 1,
+            "negative_count": 0,
+            "net_profit_delta_35a_minus_35b": 4.0
+          }
+        },
+        "weekday_ny": {
+          "Fri": {
+            "count": 1,
+            "positive_count": 0,
+            "negative_count": 1,
+            "net_profit_delta_35a_minus_35b": -4.800000000000001
+          },
+          "Wed": {
+            "count": 1,
+            "positive_count": 1,
+            "negative_count": 0,
+            "net_profit_delta_35a_minus_35b": 4.0
+          }
+        },
+        "exit_transition": {
+          "STATE_EXIT_MARGIN -> STATE_EXIT_MARGIN": {
+            "count": 1,
+            "positive_count": 0,
+            "negative_count": 1,
+            "net_profit_delta_35a_minus_35b": -4.800000000000001
+          },
+          "STATE_EXIT_MARGIN -> TIME_EXIT_NY_POSTCASH": {
+            "count": 1,
+            "positive_count": 1,
+            "negative_count": 0,
+            "net_profit_delta_35a_minus_35b": 4.0
+          }
+        }
+      },
+      "direct_events": [
+        {
+          "split": "validation",
+          "direction": "LONG",
+          "entry_bar_time_server": "2025.01.03 16:35:00",
+          "suppressed_bar_time_server": "2025.01.03 16:50:00",
+          "suppressed_bar_time_ny": "2025-01-03 11:50",
+          "weekday_ny": "Fri",
+          "session_bucket_ny": "ny_cash",
+          "decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+          "trade_action_reason_35a": "STATE_EXIT_SUPPRESSED_OUTSIDE_BAR|NO_ENTRY_SIGNAL",
+          "trade_action_reason_35b": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+          "floating_profit_at_suppression": 10.05,
+          "argmax_class": "long",
+          "argmax_margin": 0.01260300000000003,
+          "p_short": 0.434289,
+          "p_flat": 0.118819,
+          "p_long": 0.446892,
+          "exit_bar_time_35a": "2025.01.03 16:55:00",
+          "exit_bar_time_35b": "2025.01.03 16:50:00",
+          "exit_close_reason_35a": "STATE_EXIT_MARGIN",
+          "exit_close_reason_35b": "STATE_EXIT_MARGIN",
+          "hold_bars_35a": 4,
+          "hold_bars_35b": 3,
+          "later_exit_delay_bars": 1,
+          "net_profit_35a": 5.25,
+          "net_profit_35b": 10.05,
+          "net_profit_delta_35a_minus_35b": -4.800000000000001
+        },
+        {
+          "split": "validation",
+          "direction": "LONG",
+          "entry_bar_time_server": "2025.04.09 21:10:00",
+          "suppressed_bar_time_server": "2025.04.09 21:20:00",
+          "suppressed_bar_time_ny": "2025-04-09 17:20",
+          "weekday_ny": "Wed",
+          "session_bucket_ny": "ny_postcash",
+          "decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+          "trade_action_reason_35a": "STATE_EXIT_SUPPRESSED_OUTSIDE_BAR|NO_ENTRY_SIGNAL",
+          "trade_action_reason_35b": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+          "floating_profit_at_suppression": 0.16,
+          "argmax_class": "short",
+          "argmax_margin": 0.061811000000000005,
+          "p_short": 0.530215,
+          "p_flat": 0.001381,
+          "p_long": 0.468404,
+          "exit_bar_time_35a": "2025.04.09 21:25:00",
+          "exit_bar_time_35b": "2025.04.09 21:20:00",
+          "exit_close_reason_35a": "TIME_EXIT_NY_POSTCASH",
+          "exit_close_reason_35b": "STATE_EXIT_MARGIN",
+          "hold_bars_35a": 3,
+          "hold_bars_35b": 2,
+          "later_exit_delay_bars": 1,
+          "net_profit_35a": 4.16,
+          "net_profit_35b": 0.16,
+          "net_profit_delta_35a_minus_35b": 4.0
+        }
+      ],
+      "shifted_entry_pairs": [
+        {
+          "direction": "SHORT",
+          "entry_bar_time_35a": "2025.04.09 21:30:00",
+          "entry_bar_time_35b": "2025.04.09 21:25:00",
+          "close_reason_35a": "TIME_EXIT_NY_POSTCASH_SHORT",
+          "close_reason_35b": "TIME_EXIT_NY_POSTCASH_SHORT",
+          "net_profit_35a": 0.29,
+          "net_profit_35b": 0.59,
+          "net_profit_delta_35a_minus_35b": -0.3
+        }
+      ]
+    },
+    "test": {
+      "split": "test",
+      "headline_delta_35a_minus_35b": {
+        "net_profit": 0.0,
+        "return_pct": 0.0,
+        "profit_factor": 0.0,
+        "max_dd_pct": 0.0,
+        "trade_count_delta": 0,
+        "long_expectancy_delta": 0.0,
+        "short_expectancy_delta": 0.0
+      },
+      "decomposition": {
+        "direct_suppression_event_count": 0,
+        "direct_suppression_positive_count": 0,
+        "direct_suppression_negative_count": 0,
+        "direct_suppression_net_profit_delta_35a_minus_35b": 0.0,
+        "shifted_entry_count": 0,
+        "shifted_entry_net_profit_delta_35a_minus_35b": 0.0,
+        "carry_drift_trade_count": 0,
+        "carry_drift_net_profit_delta_35a_minus_35b": 0.0,
+        "residual_unmatched_net_profit_delta_35a_minus_35b": 0.0,
+        "direct_share_of_headline_net_delta": null
+      },
+      "context_breakdowns": {
+        "decision_reason": {},
+        "session_bucket_ny": {},
+        "weekday_ny": {},
+        "exit_transition": {}
+      },
+      "direct_events": [],
+      "shifted_entry_pairs": []
+    },
+    "hist_2024": {
+      "split": "hist_2024",
+      "headline_delta_35a_minus_35b": {
+        "net_profit": 36.370000000000005,
+        "return_pct": 7.274000000000001,
+        "profit_factor": 0.03512355947117696,
+        "max_dd_pct": 0.1089178775509172,
+        "trade_count_delta": 0,
+        "long_expectancy_delta": 0.26951724137931043,
+        "short_expectancy_delta": -0.013686868686868636
+      },
+      "decomposition": {
+        "direct_suppression_event_count": 5,
+        "direct_suppression_positive_count": 4,
+        "direct_suppression_negative_count": 1,
+        "direct_suppression_net_profit_delta_35a_minus_35b": 34.86,
+        "shifted_entry_count": 0,
+        "shifted_entry_net_profit_delta_35a_minus_35b": 0.0,
+        "carry_drift_trade_count": 96,
+        "carry_drift_net_profit_delta_35a_minus_35b": 1.5100000000000098,
+        "residual_unmatched_net_profit_delta_35a_minus_35b": 0.0,
+        "direct_share_of_headline_net_delta": 0.9584822656035192
+      },
+      "context_breakdowns": {
+        "decision_reason": {
+          "LONG_MARGIN_FAIL": {
+            "count": 3,
+            "positive_count": 2,
+            "negative_count": 1,
+            "net_profit_delta_35a_minus_35b": 11.64
+          },
+          "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": {
+            "count": 2,
+            "positive_count": 2,
+            "negative_count": 0,
+            "net_profit_delta_35a_minus_35b": 23.22
+          }
+        },
+        "session_bucket_ny": {
+          "ny_cash": {
+            "count": 4,
+            "positive_count": 3,
+            "negative_count": 1,
+            "net_profit_delta_35a_minus_35b": 32.04
+          },
+          "ny_postcash": {
+            "count": 1,
+            "positive_count": 1,
+            "negative_count": 0,
+            "net_profit_delta_35a_minus_35b": 2.82
+          }
+        },
+        "weekday_ny": {
+          "Mon": {
+            "count": 2,
+            "positive_count": 1,
+            "negative_count": 1,
+            "net_profit_delta_35a_minus_35b": 8.82
+          },
+          "Thu": {
+            "count": 2,
+            "positive_count": 2,
+            "negative_count": 0,
+            "net_profit_delta_35a_minus_35b": 10.36
+          },
+          "Tue": {
+            "count": 1,
+            "positive_count": 1,
+            "negative_count": 0,
+            "net_profit_delta_35a_minus_35b": 15.679999999999998
+          }
+        },
+        "exit_transition": {
+          "STATE_EXIT_MARGIN -> STATE_EXIT_MARGIN": {
+            "count": 4,
+            "positive_count": 3,
+            "negative_count": 1,
+            "net_profit_delta_35a_minus_35b": 32.04
+          },
+          "STATE_EXIT_MARGIN -> TIME_EXIT_NY_POSTCASH": {
+            "count": 1,
+            "positive_count": 1,
+            "negative_count": 0,
+            "net_profit_delta_35a_minus_35b": 2.82
+          }
+        }
+      },
+      "direct_events": [
+        {
+          "split": "hist_2024",
+          "direction": "LONG",
+          "entry_bar_time_server": "2024.11.05 16:35:00",
+          "suppressed_bar_time_server": "2024.11.05 16:45:00",
+          "suppressed_bar_time_ny": "2024-11-05 11:45",
+          "weekday_ny": "Tue",
+          "session_bucket_ny": "ny_cash",
+          "decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+          "trade_action_reason_35a": "STATE_EXIT_SUPPRESSED_OUTSIDE_BAR|NO_ENTRY_SIGNAL",
+          "trade_action_reason_35b": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+          "floating_profit_at_suppression": 3.15,
+          "argmax_class": "long",
+          "argmax_margin": 0.033746,
+          "p_short": 0.36725,
+          "p_flat": 0.231754,
+          "p_long": 0.400996,
+          "exit_bar_time_35a": "2024.11.05 16:50:00",
+          "exit_bar_time_35b": "2024.11.05 16:45:00",
+          "exit_close_reason_35a": "STATE_EXIT_MARGIN",
+          "exit_close_reason_35b": "STATE_EXIT_MARGIN",
+          "hold_bars_35a": 3,
+          "hold_bars_35b": 2,
+          "later_exit_delay_bars": 1,
+          "net_profit_35a": 18.83,
+          "net_profit_35b": 3.15,
+          "net_profit_delta_35a_minus_35b": 15.679999999999998
+        },
+        {
+          "split": "hist_2024",
+          "direction": "LONG",
+          "entry_bar_time_server": "2024.12.02 16:35:00",
+          "suppressed_bar_time_server": "2024.12.02 16:45:00",
+          "suppressed_bar_time_ny": "2024-12-02 11:45",
+          "weekday_ny": "Mon",
+          "session_bucket_ny": "ny_cash",
+          "decision_reason": "LONG_MARGIN_FAIL",
+          "trade_action_reason_35a": "STATE_EXIT_SUPPRESSED_OUTSIDE_BAR|NO_ENTRY_SIGNAL",
+          "trade_action_reason_35b": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+          "floating_profit_at_suppression": -0.53,
+          "argmax_class": "long",
+          "argmax_margin": 0.018093000000000026,
+          "p_short": 0.36265,
+          "p_flat": 0.256607,
+          "p_long": 0.380743,
+          "exit_bar_time_35a": "2024.12.02 16:50:00",
+          "exit_bar_time_35b": "2024.12.02 16:45:00",
+          "exit_close_reason_35a": "STATE_EXIT_MARGIN",
+          "exit_close_reason_35b": "STATE_EXIT_MARGIN",
+          "hold_bars_35a": 3,
+          "hold_bars_35b": 2,
+          "later_exit_delay_bars": 1,
+          "net_profit_35a": 13.47,
+          "net_profit_35b": -0.52,
+          "net_profit_delta_35a_minus_35b": 13.99
+        },
+        {
+          "split": "hist_2024",
+          "direction": "LONG",
+          "entry_bar_time_server": "2024.08.15 16:35:00",
+          "suppressed_bar_time_server": "2024.08.15 16:45:00",
+          "suppressed_bar_time_ny": "2024-08-15 12:45",
+          "weekday_ny": "Thu",
+          "session_bucket_ny": "ny_cash",
+          "decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+          "trade_action_reason_35a": "STATE_EXIT_SUPPRESSED_OUTSIDE_BAR|NO_ENTRY_SIGNAL",
+          "trade_action_reason_35b": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+          "floating_profit_at_suppression": 2.2,
+          "argmax_class": "long",
+          "argmax_margin": 0.036694000000000004,
+          "p_short": 0.383889,
+          "p_flat": 0.195528,
+          "p_long": 0.420583,
+          "exit_bar_time_35a": "2024.08.15 16:50:00",
+          "exit_bar_time_35b": "2024.08.15 16:45:00",
+          "exit_close_reason_35a": "STATE_EXIT_MARGIN",
+          "exit_close_reason_35b": "STATE_EXIT_MARGIN",
+          "hold_bars_35a": 3,
+          "hold_bars_35b": 2,
+          "later_exit_delay_bars": 1,
+          "net_profit_35a": 9.74,
+          "net_profit_35b": 2.2,
+          "net_profit_delta_35a_minus_35b": 7.54
+        },
+        {
+          "split": "hist_2024",
+          "direction": "LONG",
+          "entry_bar_time_server": "2024.03.18 16:40:00",
+          "suppressed_bar_time_server": "2024.03.18 16:50:00",
+          "suppressed_bar_time_ny": "2024-03-18 12:50",
+          "weekday_ny": "Mon",
+          "session_bucket_ny": "ny_cash",
+          "decision_reason": "LONG_MARGIN_FAIL",
+          "trade_action_reason_35a": "STATE_EXIT_SUPPRESSED_OUTSIDE_BAR|NO_ENTRY_SIGNAL",
+          "trade_action_reason_35b": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+          "floating_profit_at_suppression": 0.81,
+          "argmax_class": "long",
+          "argmax_margin": 0.007594000000000045,
+          "p_short": 0.354328,
+          "p_flat": 0.28375,
+          "p_long": 0.361922,
+          "exit_bar_time_35a": "2024.03.18 16:55:00",
+          "exit_bar_time_35b": "2024.03.18 16:50:00",
+          "exit_close_reason_35a": "STATE_EXIT_MARGIN",
+          "exit_close_reason_35b": "STATE_EXIT_MARGIN",
+          "hold_bars_35a": 3,
+          "hold_bars_35b": 2,
+          "later_exit_delay_bars": 1,
+          "net_profit_35a": -4.36,
+          "net_profit_35b": 0.81,
+          "net_profit_delta_35a_minus_35b": -5.17
+        },
+        {
+          "split": "hist_2024",
+          "direction": "LONG",
+          "entry_bar_time_server": "2024.09.05 21:05:00",
+          "suppressed_bar_time_server": "2024.09.05 21:15:00",
+          "suppressed_bar_time_ny": "2024-09-05 17:15",
+          "weekday_ny": "Thu",
+          "session_bucket_ny": "ny_postcash",
+          "decision_reason": "LONG_MARGIN_FAIL",
+          "trade_action_reason_35a": "STATE_EXIT_SUPPRESSED_OUTSIDE_BAR|NO_ENTRY_SIGNAL",
+          "trade_action_reason_35b": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+          "floating_profit_at_suppression": -1.96,
+          "argmax_class": "long",
+          "argmax_margin": 0.03998799999999997,
+          "p_short": 0.301974,
+          "p_flat": 0.329019,
+          "p_long": 0.369007,
+          "exit_bar_time_35a": "2024.09.05 21:20:00",
+          "exit_bar_time_35b": "2024.09.05 21:15:00",
+          "exit_close_reason_35a": "TIME_EXIT_NY_POSTCASH",
+          "exit_close_reason_35b": "STATE_EXIT_MARGIN",
+          "hold_bars_35a": 3,
+          "hold_bars_35b": 2,
+          "later_exit_delay_bars": 1,
+          "net_profit_35a": 0.86,
+          "net_profit_35b": -1.96,
+          "net_profit_delta_35a_minus_35b": 2.82
+        }
+      ],
+      "shifted_entry_pairs": []
+    }
+  },
+  "overall_localization": {
+    "direct_event_count": 7,
+    "direction_summary": "LONG",
+    "delay_bar_summary": "1",
+    "decision_reason_breakdown": {
+      "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": {
+        "count": 4,
+        "positive_count": 3,
+        "negative_count": 1,
+        "net_profit_delta_35a_minus_35b": 22.419999999999998
+      },
+      "LONG_MARGIN_FAIL": {
+        "count": 3,
+        "positive_count": 2,
+        "negative_count": 1,
+        "net_profit_delta_35a_minus_35b": 11.64
+      }
+    },
+    "session_breakdown": {
+      "ny_cash": {
+        "count": 5,
+        "positive_count": 3,
+        "negative_count": 2,
+        "net_profit_delta_35a_minus_35b": 27.24
+      },
+      "ny_postcash": {
+        "count": 2,
+        "positive_count": 2,
+        "negative_count": 0,
+        "net_profit_delta_35a_minus_35b": 6.82
+      }
+    },
+    "weekday_breakdown": {
+      "Fri": {
+        "count": 1,
+        "positive_count": 0,
+        "negative_count": 1,
+        "net_profit_delta_35a_minus_35b": -4.800000000000001
+      },
+      "Wed": {
+        "count": 1,
+        "positive_count": 1,
+        "negative_count": 0,
+        "net_profit_delta_35a_minus_35b": 4.0
+      },
+      "Tue": {
+        "count": 1,
+        "positive_count": 1,
+        "negative_count": 0,
+        "net_profit_delta_35a_minus_35b": 15.679999999999998
+      },
+      "Mon": {
+        "count": 2,
+        "positive_count": 1,
+        "negative_count": 1,
+        "net_profit_delta_35a_minus_35b": 8.82
+      },
+      "Thu": {
+        "count": 2,
+        "positive_count": 2,
+        "negative_count": 0,
+        "net_profit_delta_35a_minus_35b": 10.36
+      }
+    },
+    "exit_transition_breakdown": {
+      "STATE_EXIT_MARGIN -> STATE_EXIT_MARGIN": {
+        "count": 5,
+        "positive_count": 3,
+        "negative_count": 2,
+        "net_profit_delta_35a_minus_35b": 27.24
+      },
+      "STATE_EXIT_MARGIN -> TIME_EXIT_NY_POSTCASH": {
+        "count": 2,
+        "positive_count": 2,
+        "negative_count": 0,
+        "net_profit_delta_35a_minus_35b": 6.82
+      }
+    }
+  },
+  "top_direct_events": [
+    {
+      "split": "hist_2024",
+      "direction": "LONG",
+      "entry_bar_time_server": "2024.11.05 16:35:00",
+      "suppressed_bar_time_server": "2024.11.05 16:45:00",
+      "suppressed_bar_time_ny": "2024-11-05 11:45",
+      "weekday_ny": "Tue",
+      "session_bucket_ny": "ny_cash",
+      "decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "trade_action_reason_35a": "STATE_EXIT_SUPPRESSED_OUTSIDE_BAR|NO_ENTRY_SIGNAL",
+      "trade_action_reason_35b": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+      "floating_profit_at_suppression": 3.15,
+      "argmax_class": "long",
+      "argmax_margin": 0.033746,
+      "p_short": 0.36725,
+      "p_flat": 0.231754,
+      "p_long": 0.400996,
+      "exit_bar_time_35a": "2024.11.05 16:50:00",
+      "exit_bar_time_35b": "2024.11.05 16:45:00",
+      "exit_close_reason_35a": "STATE_EXIT_MARGIN",
+      "exit_close_reason_35b": "STATE_EXIT_MARGIN",
+      "hold_bars_35a": 3,
+      "hold_bars_35b": 2,
+      "later_exit_delay_bars": 1,
+      "net_profit_35a": 18.83,
+      "net_profit_35b": 3.15,
+      "net_profit_delta_35a_minus_35b": 15.679999999999998
+    },
+    {
+      "split": "hist_2024",
+      "direction": "LONG",
+      "entry_bar_time_server": "2024.12.02 16:35:00",
+      "suppressed_bar_time_server": "2024.12.02 16:45:00",
+      "suppressed_bar_time_ny": "2024-12-02 11:45",
+      "weekday_ny": "Mon",
+      "session_bucket_ny": "ny_cash",
+      "decision_reason": "LONG_MARGIN_FAIL",
+      "trade_action_reason_35a": "STATE_EXIT_SUPPRESSED_OUTSIDE_BAR|NO_ENTRY_SIGNAL",
+      "trade_action_reason_35b": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+      "floating_profit_at_suppression": -0.53,
+      "argmax_class": "long",
+      "argmax_margin": 0.018093000000000026,
+      "p_short": 0.36265,
+      "p_flat": 0.256607,
+      "p_long": 0.380743,
+      "exit_bar_time_35a": "2024.12.02 16:50:00",
+      "exit_bar_time_35b": "2024.12.02 16:45:00",
+      "exit_close_reason_35a": "STATE_EXIT_MARGIN",
+      "exit_close_reason_35b": "STATE_EXIT_MARGIN",
+      "hold_bars_35a": 3,
+      "hold_bars_35b": 2,
+      "later_exit_delay_bars": 1,
+      "net_profit_35a": 13.47,
+      "net_profit_35b": -0.52,
+      "net_profit_delta_35a_minus_35b": 13.99
+    },
+    {
+      "split": "hist_2024",
+      "direction": "LONG",
+      "entry_bar_time_server": "2024.08.15 16:35:00",
+      "suppressed_bar_time_server": "2024.08.15 16:45:00",
+      "suppressed_bar_time_ny": "2024-08-15 12:45",
+      "weekday_ny": "Thu",
+      "session_bucket_ny": "ny_cash",
+      "decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "trade_action_reason_35a": "STATE_EXIT_SUPPRESSED_OUTSIDE_BAR|NO_ENTRY_SIGNAL",
+      "trade_action_reason_35b": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+      "floating_profit_at_suppression": 2.2,
+      "argmax_class": "long",
+      "argmax_margin": 0.036694000000000004,
+      "p_short": 0.383889,
+      "p_flat": 0.195528,
+      "p_long": 0.420583,
+      "exit_bar_time_35a": "2024.08.15 16:50:00",
+      "exit_bar_time_35b": "2024.08.15 16:45:00",
+      "exit_close_reason_35a": "STATE_EXIT_MARGIN",
+      "exit_close_reason_35b": "STATE_EXIT_MARGIN",
+      "hold_bars_35a": 3,
+      "hold_bars_35b": 2,
+      "later_exit_delay_bars": 1,
+      "net_profit_35a": 9.74,
+      "net_profit_35b": 2.2,
+      "net_profit_delta_35a_minus_35b": 7.54
+    },
+    {
+      "split": "hist_2024",
+      "direction": "LONG",
+      "entry_bar_time_server": "2024.03.18 16:40:00",
+      "suppressed_bar_time_server": "2024.03.18 16:50:00",
+      "suppressed_bar_time_ny": "2024-03-18 12:50",
+      "weekday_ny": "Mon",
+      "session_bucket_ny": "ny_cash",
+      "decision_reason": "LONG_MARGIN_FAIL",
+      "trade_action_reason_35a": "STATE_EXIT_SUPPRESSED_OUTSIDE_BAR|NO_ENTRY_SIGNAL",
+      "trade_action_reason_35b": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+      "floating_profit_at_suppression": 0.81,
+      "argmax_class": "long",
+      "argmax_margin": 0.007594000000000045,
+      "p_short": 0.354328,
+      "p_flat": 0.28375,
+      "p_long": 0.361922,
+      "exit_bar_time_35a": "2024.03.18 16:55:00",
+      "exit_bar_time_35b": "2024.03.18 16:50:00",
+      "exit_close_reason_35a": "STATE_EXIT_MARGIN",
+      "exit_close_reason_35b": "STATE_EXIT_MARGIN",
+      "hold_bars_35a": 3,
+      "hold_bars_35b": 2,
+      "later_exit_delay_bars": 1,
+      "net_profit_35a": -4.36,
+      "net_profit_35b": 0.81,
+      "net_profit_delta_35a_minus_35b": -5.17
+    },
+    {
+      "split": "validation",
+      "direction": "LONG",
+      "entry_bar_time_server": "2025.01.03 16:35:00",
+      "suppressed_bar_time_server": "2025.01.03 16:50:00",
+      "suppressed_bar_time_ny": "2025-01-03 11:50",
+      "weekday_ny": "Fri",
+      "session_bucket_ny": "ny_cash",
+      "decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "trade_action_reason_35a": "STATE_EXIT_SUPPRESSED_OUTSIDE_BAR|NO_ENTRY_SIGNAL",
+      "trade_action_reason_35b": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+      "floating_profit_at_suppression": 10.05,
+      "argmax_class": "long",
+      "argmax_margin": 0.01260300000000003,
+      "p_short": 0.434289,
+      "p_flat": 0.118819,
+      "p_long": 0.446892,
+      "exit_bar_time_35a": "2025.01.03 16:55:00",
+      "exit_bar_time_35b": "2025.01.03 16:50:00",
+      "exit_close_reason_35a": "STATE_EXIT_MARGIN",
+      "exit_close_reason_35b": "STATE_EXIT_MARGIN",
+      "hold_bars_35a": 4,
+      "hold_bars_35b": 3,
+      "later_exit_delay_bars": 1,
+      "net_profit_35a": 5.25,
+      "net_profit_35b": 10.05,
+      "net_profit_delta_35a_minus_35b": -4.800000000000001
+    }
+  ]
+}

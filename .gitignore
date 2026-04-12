@@ -39,6 +39,10 @@ stages/*/02_runs/
 *_shadow.csv
 *_trades.csv
 
+# Local scratch fetches / exports
+tmp/git_refs/
+tmp/pdfs/
+
 # OS noise
 Thumbs.db
 Desktop.ini

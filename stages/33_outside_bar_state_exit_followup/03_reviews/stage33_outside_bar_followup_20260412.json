@@ -1,0 +1,521 @@
+{
+  "reviewed_on": "2026-04-12",
+  "reference": {
+    "run_name": "29N_25o_sxh2_0001",
+    "label": "29N reference",
+    "experiment_id": "exp_29n_25o_sxh2_v1",
+    "stage_id": "29N",
+    "runtime_extra": {
+      "monday_risk_pct_mult": 0.75,
+      "ny_postcash_risk_pct_mult": 0.7,
+      "ny_postcash_hold_cap_bars": 3,
+      "session_overlay_label": "postcash_hold_cut",
+      "risk_overlay_reference": "18E_19A_reference",
+      "monday_short_hold_cap_bars": 2,
+      "ny_postcash_short_hold_cap_bars": 2,
+      "soft_context_label": "stage29_wave2_state_exit_h2_margin004",
+      "stage29_wave2_label": "state_exit_h2_margin004"
+    },
+    "splits": {
+      "validation": {
+        "return_pct": 196.808,
+        "profit_factor": 1.5716941560591888,
+        "max_dd_pct": 12.774833464603724,
+        "trade_count": 404,
+        "long_expectancy": 2.8252682926829267,
+        "short_expectancy": 2.0344723618090454,
+        "external_mismatch_count": 17350,
+        "suppression_count": 0,
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\29_fusion_long_repair\\02_runs\\active\\29N_25o_sxh2_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json"
+      },
+      "test": {
+        "return_pct": 99.556,
+        "profit_factor": 1.4827659780816604,
+        "max_dd_pct": 18.40602358289529,
+        "trade_count": 285,
+        "long_expectancy": 0.6007801418439715,
+        "short_expectancy": 2.8685416666666668,
+        "external_mismatch_count": 8976,
+        "suppression_count": 0,
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\29_fusion_long_repair\\02_runs\\active\\29N_25o_sxh2_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json"
+      },
+      "hist_2024": {
+        "return_pct": 39.367999999999995,
+        "profit_factor": 1.2020923809817148,
+        "max_dd_pct": 14.13121845710165,
+        "trade_count": 343,
+        "long_expectancy": 0.16972413793103444,
+        "short_expectancy": 0.8698484848484848,
+        "external_mismatch_count": 25010,
+        "suppression_count": 0,
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\29_fusion_long_repair\\02_runs\\active\\29N_25o_sxh2_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json"
+      }
+    }
+  },
+  "carry_check": {
+    "run_name": "33A_29n_refcarry_0001",
+    "label": "33A carry rerun",
+    "experiment_id": "exp_33a_29n_refcarry_v1",
+    "stage_id": "33A",
+    "runtime_extra": {
+      "monday_risk_pct_mult": 0.75,
+      "ny_postcash_risk_pct_mult": 0.7,
+      "ny_postcash_hold_cap_bars": 3,
+      "session_overlay_label": "postcash_hold_cut",
+      "risk_overlay_reference": "18E_19A_reference",
+      "monday_short_hold_cap_bars": 2,
+      "ny_postcash_short_hold_cap_bars": 2,
+      "soft_context_label": "stage29_wave2_state_exit_h2_margin004",
+      "stage33_outside_bar_label": "refcarry",
+      "state_exit_outside_bar_trigger_scope": "margin_only"
+    },
+    "splits": {
+      "validation": {
+        "return_pct": 196.808,
+        "profit_factor": 1.5716941560591888,
+        "max_dd_pct": 12.774833464603724,
+        "trade_count": 404,
+        "long_expectancy": 2.8252682926829267,
+        "short_expectancy": 2.0344723618090454,
+        "external_mismatch_count": 17350,
+        "suppression_count": 0,
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\33_outside_bar_state_exit_followup\\02_runs\\active\\33A_29n_refcarry_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json"
+      },
+      "test": {
+        "return_pct": 99.556,
+        "profit_factor": 1.4827659780816604,
+        "max_dd_pct": 18.40602358289529,
+        "trade_count": 285,
+        "long_expectancy": 0.6007801418439715,
+        "short_expectancy": 2.8685416666666668,
+        "external_mismatch_count": 8976,
+        "suppression_count": 0,
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\33_outside_bar_state_exit_followup\\02_runs\\active\\33A_29n_refcarry_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json"
+      },
+      "hist_2024": {
+        "return_pct": 39.367999999999995,
+        "profit_factor": 1.2020923809817148,
+        "max_dd_pct": 14.13121845710165,
+        "trade_count": 343,
+        "long_expectancy": 0.16972413793103444,
+        "short_expectancy": 0.8698484848484848,
+        "external_mismatch_count": 25010,
+        "suppression_count": 0,
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\33_outside_bar_state_exit_followup\\02_runs\\active\\33A_29n_refcarry_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json"
+      }
+    },
+    "deltas": {
+      "validation": {
+        "return_pct_delta": 0.0,
+        "profit_factor_delta": 0.0,
+        "max_dd_pct_delta": 0.0,
+        "suppression_count_delta": 0
+      },
+      "test": {
+        "return_pct_delta": 0.0,
+        "profit_factor_delta": 0.0,
+        "max_dd_pct_delta": 0.0,
+        "suppression_count_delta": 0
+      },
+      "hist_2024": {
+        "return_pct_delta": 0.0,
+        "profit_factor_delta": 0.0,
+        "max_dd_pct_delta": 0.0,
+        "suppression_count_delta": 0
+      }
+    }
+  },
+  "candidate_summaries": [
+    {
+      "run_name": "33B_29n_outbar_both_0001",
+      "label": "33B both",
+      "experiment_id": "exp_33b_29n_outbar_both_v1",
+      "stage_id": "33B",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "ny_postcash_hold_cap_bars": 3,
+        "session_overlay_label": "postcash_hold_cut",
+        "risk_overlay_reference": "18E_19A_reference",
+        "monday_short_hold_cap_bars": 2,
+        "ny_postcash_short_hold_cap_bars": 2,
+        "soft_context_label": "stage29_wave2_state_exit_h2_margin004",
+        "stage33_outside_bar_label": "outside_bar_both",
+        "state_exit_outside_bar_trigger_scope": "margin_only",
+        "state_exit_outside_bar_suppress_enabled": true,
+        "state_exit_outside_bar_direction": "both",
+        "state_exit_outside_bar_min_range_atr14": 0.0
+      },
+      "splits": {
+        "validation": {
+          "return_pct": 196.77200000000002,
+          "profit_factor": 1.5732848535701383,
+          "max_dd_pct": 12.76984534535536,
+          "trade_count": 404,
+          "long_expectancy": 2.8300487804878047,
+          "short_expectancy": 2.0286432160804018,
+          "external_mismatch_count": 17350,
+          "suppression_count": 6,
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\33_outside_bar_state_exit_followup\\02_runs\\active\\33B_29n_outbar_both_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json"
+        },
+        "test": {
+          "return_pct": 99.556,
+          "profit_factor": 1.4827659780816604,
+          "max_dd_pct": 18.40602358289529,
+          "trade_count": 285,
+          "long_expectancy": 0.6007801418439715,
+          "short_expectancy": 2.8685416666666668,
+          "external_mismatch_count": 8976,
+          "suppression_count": 0,
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\33_outside_bar_state_exit_followup\\02_runs\\active\\33B_29n_outbar_both_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json"
+        },
+        "hist_2024": {
+          "return_pct": 45.826,
+          "profit_factor": 1.2315847988680009,
+          "max_dd_pct": 14.118982912028596,
+          "trade_count": 343,
+          "long_expectancy": 0.43551724137931036,
+          "short_expectancy": 0.8382828282828282,
+          "external_mismatch_count": 25010,
+          "suppression_count": 9,
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\33_outside_bar_state_exit_followup\\02_runs\\active\\33B_29n_outbar_both_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json"
+        }
+      },
+      "deltas": {
+        "validation": {
+          "return_pct_delta": -0.03599999999997294,
+          "profit_factor_delta": 0.0015906975109494237,
+          "max_dd_pct_delta": -0.0049881192483631764,
+          "suppression_count_delta": 6
+        },
+        "test": {
+          "return_pct_delta": 0.0,
+          "profit_factor_delta": 0.0,
+          "max_dd_pct_delta": 0.0,
+          "suppression_count_delta": 0
+        },
+        "hist_2024": {
+          "return_pct_delta": 6.4580000000000055,
+          "profit_factor_delta": 0.029492417886286093,
+          "max_dd_pct_delta": -0.0122355450730538,
+          "suppression_count_delta": 9
+        }
+      },
+      "score": 7.039476258163758,
+      "test_non_regression": true
+    },
+    {
+      "run_name": "33C_29n_outbar_long_0001",
+      "label": "33C long-only",
+      "experiment_id": "exp_33c_29n_outbar_long_v1",
+      "stage_id": "33C",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "ny_postcash_hold_cap_bars": 3,
+        "session_overlay_label": "postcash_hold_cut",
+        "risk_overlay_reference": "18E_19A_reference",
+        "monday_short_hold_cap_bars": 2,
+        "ny_postcash_short_hold_cap_bars": 2,
+        "soft_context_label": "stage29_wave2_state_exit_h2_margin004",
+        "stage33_outside_bar_label": "outside_bar_long_only",
+        "state_exit_outside_bar_trigger_scope": "margin_only",
+        "state_exit_outside_bar_suppress_enabled": true,
+        "state_exit_outside_bar_direction": "long",
+        "state_exit_outside_bar_min_range_atr14": 0.0
+      },
+      "splits": {
+        "validation": {
+          "return_pct": 196.778,
+          "profit_factor": 1.5740683474435349,
+          "max_dd_pct": 12.77611262791799,
+          "trade_count": 404,
+          "long_expectancy": 2.8361463414634143,
+          "short_expectancy": 2.0225125628140703,
+          "external_mismatch_count": 17350,
+          "suppression_count": 2,
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\33_outside_bar_state_exit_followup\\02_runs\\active\\33C_29n_outbar_long_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json"
+        },
+        "test": {
+          "return_pct": 99.556,
+          "profit_factor": 1.4827659780816604,
+          "max_dd_pct": 18.40602358289529,
+          "trade_count": 285,
+          "long_expectancy": 0.6007801418439715,
+          "short_expectancy": 2.8685416666666668,
+          "external_mismatch_count": 8976,
+          "suppression_count": 0,
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\33_outside_bar_state_exit_followup\\02_runs\\active\\33C_29n_outbar_long_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json"
+        },
+        "hist_2024": {
+          "return_pct": 45.815999999999995,
+          "profit_factor": 1.232752839812237,
+          "max_dd_pct": 14.18552459322985,
+          "trade_count": 343,
+          "long_expectancy": 0.4348965517241379,
+          "short_expectancy": 0.8384848484848484,
+          "external_mismatch_count": 25010,
+          "suppression_count": 5,
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\33_outside_bar_state_exit_followup\\02_runs\\active\\33C_29n_outbar_long_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json"
+        }
+      },
+      "deltas": {
+        "validation": {
+          "return_pct_delta": -0.030000000000001137,
+          "profit_factor_delta": 0.002374191384346025,
+          "max_dd_pct_delta": 0.001279163314267251,
+          "suppression_count_delta": 2
+        },
+        "test": {
+          "return_pct_delta": 0.0,
+          "profit_factor_delta": 0.0,
+          "max_dd_pct_delta": 0.0,
+          "suppression_count_delta": 0
+        },
+        "hist_2024": {
+          "return_pct_delta": 6.448,
+          "profit_factor_delta": 0.030660458830522153,
+          "max_dd_pct_delta": 0.05430613612820068,
+          "suppression_count_delta": 5
+        }
+      },
+      "score": 7.053528484916731,
+      "test_non_regression": true
+    },
+    {
+      "run_name": "33D_29n_outbar_short_0001",
+      "label": "33D short-only",
+      "experiment_id": "exp_33d_29n_outbar_short_v1",
+      "stage_id": "33D",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "ny_postcash_hold_cap_bars": 3,
+        "session_overlay_label": "postcash_hold_cut",
+        "risk_overlay_reference": "18E_19A_reference",
+        "monday_short_hold_cap_bars": 2,
+        "ny_postcash_short_hold_cap_bars": 2,
+        "soft_context_label": "stage29_wave2_state_exit_h2_margin004",
+        "stage33_outside_bar_label": "outside_bar_short_only",
+        "state_exit_outside_bar_trigger_scope": "margin_only",
+        "state_exit_outside_bar_suppress_enabled": true,
+        "state_exit_outside_bar_direction": "short",
+        "state_exit_outside_bar_min_range_atr14": 0.0
+      },
+      "splits": {
+        "validation": {
+          "return_pct": 196.852,
+          "profit_factor": 1.5706847567692932,
+          "max_dd_pct": 12.759378956486975,
+          "trade_count": 404,
+          "long_expectancy": 2.8238048780487803,
+          "short_expectancy": 2.037085427135678,
+          "external_mismatch_count": 17350,
+          "suppression_count": 4,
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\33_outside_bar_state_exit_followup\\02_runs\\active\\33D_29n_outbar_short_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json"
+        },
+        "test": {
+          "return_pct": 99.556,
+          "profit_factor": 1.4827659780816604,
+          "max_dd_pct": 18.40602358289529,
+          "trade_count": 285,
+          "long_expectancy": 0.6007801418439715,
+          "short_expectancy": 2.8685416666666668,
+          "external_mismatch_count": 8976,
+          "suppression_count": 0,
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\33_outside_bar_state_exit_followup\\02_runs\\active\\33D_29n_outbar_short_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json"
+        },
+        "hist_2024": {
+          "return_pct": 38.315999999999995,
+          "profit_factor": 1.195823495139677,
+          "max_dd_pct": 14.069315860190306,
+          "trade_count": 343,
+          "long_expectancy": 0.17399999999999993,
+          "short_expectancy": 0.8401515151515151,
+          "external_mismatch_count": 25010,
+          "suppression_count": 4,
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\33_outside_bar_state_exit_followup\\02_runs\\active\\33D_29n_outbar_short_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json"
+        }
+      },
+      "deltas": {
+        "validation": {
+          "return_pct_delta": 0.04400000000001114,
+          "profit_factor_delta": -0.0010093992898956294,
+          "max_dd_pct_delta": -0.015454508116748755,
+          "suppression_count_delta": 4
+        },
+        "test": {
+          "return_pct_delta": 0.0,
+          "profit_factor_delta": 0.0,
+          "max_dd_pct_delta": 0.0,
+          "suppression_count_delta": 0
+        },
+        "hist_2024": {
+          "return_pct_delta": -1.0519999999999996,
+          "profit_factor_delta": -0.006268885842037886,
+          "max_dd_pct_delta": -0.061902596911343366,
+          "suppression_count_delta": 4
+        }
+      },
+      "score": -1.1297536884365602,
+      "test_non_regression": true
+    },
+    {
+      "run_name": "33E_29n_outbar_both_a125_0001",
+      "label": "33E both + ATR1.25",
+      "experiment_id": "exp_33e_29n_outbar_both_a125_v1",
+      "stage_id": "33E",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "ny_postcash_hold_cap_bars": 3,
+        "session_overlay_label": "postcash_hold_cut",
+        "risk_overlay_reference": "18E_19A_reference",
+        "monday_short_hold_cap_bars": 2,
+        "ny_postcash_short_hold_cap_bars": 2,
+        "soft_context_label": "stage29_wave2_state_exit_h2_margin004",
+        "stage33_outside_bar_label": "outside_bar_both_atr125",
+        "state_exit_outside_bar_trigger_scope": "margin_only",
+        "state_exit_outside_bar_suppress_enabled": true,
+        "state_exit_outside_bar_direction": "both",
+        "state_exit_outside_bar_min_range_atr14": 1.25
+      },
+      "splits": {
+        "validation": {
+          "return_pct": 194.68599999999998,
+          "profit_factor": 1.5690842550803263,
+          "max_dd_pct": 12.808053457370155,
+          "trade_count": 404,
+          "long_expectancy": 2.809463414634146,
+          "short_expectancy": 1.997437185929648,
+          "external_mismatch_count": 17350,
+          "suppression_count": 5,
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\33_outside_bar_state_exit_followup\\02_runs\\active\\33E_29n_outbar_both_a125_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json"
+        },
+        "test": {
+          "return_pct": 99.556,
+          "profit_factor": 1.4827659780816604,
+          "max_dd_pct": 18.40602358289529,
+          "trade_count": 285,
+          "long_expectancy": 0.6007801418439715,
+          "short_expectancy": 2.8685416666666668,
+          "external_mismatch_count": 8976,
+          "suppression_count": 0,
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\33_outside_bar_state_exit_followup\\02_runs\\active\\33E_29n_outbar_both_a125_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json"
+        },
+        "hist_2024": {
+          "return_pct": 45.488,
+          "profit_factor": 1.2304239906792969,
+          "max_dd_pct": 14.118982912028596,
+          "trade_count": 343,
+          "long_expectancy": 0.4135172413793103,
+          "short_expectancy": 0.8458585858585858,
+          "external_mismatch_count": 25010,
+          "suppression_count": 7,
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\33_outside_bar_state_exit_followup\\02_runs\\active\\33E_29n_outbar_both_a125_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json"
+        }
+      },
+      "deltas": {
+        "validation": {
+          "return_pct_delta": -2.122000000000014,
+          "profit_factor_delta": -0.0026099009788624894,
+          "max_dd_pct_delta": 0.033219992766431616,
+          "suppression_count_delta": 5
+        },
+        "test": {
+          "return_pct_delta": 0.0,
+          "profit_factor_delta": 0.0,
+          "max_dd_pct_delta": 0.0,
+          "suppression_count_delta": 0
+        },
+        "hist_2024": {
+          "return_pct_delta": 6.1200000000000045,
+          "profit_factor_delta": 0.028331609697582083,
+          "max_dd_pct_delta": -0.0122355450730538,
+          "suppression_count_delta": 7
+        }
+      },
+      "score": 2.288406165647471,
+      "test_non_regression": true
+    },
+    {
+      "run_name": "33F_29n_outbar_long_a125_0001",
+      "label": "33F long-only + ATR1.25",
+      "experiment_id": "exp_33f_29n_outbar_long_a125_v1",
+      "stage_id": "33F",
+      "runtime_extra": {
+        "monday_risk_pct_mult": 0.75,
+        "ny_postcash_risk_pct_mult": 0.7,
+        "ny_postcash_hold_cap_bars": 3,
+        "session_overlay_label": "postcash_hold_cut",
+        "risk_overlay_reference": "18E_19A_reference",
+        "monday_short_hold_cap_bars": 2,
+        "ny_postcash_short_hold_cap_bars": 2,
+        "soft_context_label": "stage29_wave2_state_exit_h2_margin004",
+        "stage33_outside_bar_label": "outside_bar_long_atr125",
+        "state_exit_outside_bar_trigger_scope": "margin_only",
+        "state_exit_outside_bar_suppress_enabled": true,
+        "state_exit_outside_bar_direction": "long",
+        "state_exit_outside_bar_min_range_atr14": 1.25
+      },
+      "splits": {
+        "validation": {
+          "return_pct": 194.91,
+          "profit_factor": 1.5704259976821229,
+          "max_dd_pct": 12.80341960511064,
+          "trade_count": 404,
+          "long_expectancy": 2.827317073170732,
+          "short_expectancy": 1.9846733668341707,
+          "external_mismatch_count": 17350,
+          "suppression_count": 1,
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\33_outside_bar_state_exit_followup\\02_runs\\active\\33F_29n_outbar_long_a125_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json"
+        },
+        "test": {
+          "return_pct": 99.556,
+          "profit_factor": 1.4827659780816604,
+          "max_dd_pct": 18.40602358289529,
+          "trade_count": 285,
+          "long_expectancy": 0.6007801418439715,
+          "short_expectancy": 2.8685416666666668,
+          "external_mismatch_count": 8976,
+          "suppression_count": 0,
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\33_outside_bar_state_exit_followup\\02_runs\\active\\33F_29n_outbar_long_a125_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json"
+        },
+        "hist_2024": {
+          "return_pct": 45.489999999999995,
+          "profit_factor": 1.2312494281037445,
+          "max_dd_pct": 14.18552459322985,
+          "trade_count": 343,
+          "long_expectancy": 0.4234482758620689,
+          "short_expectancy": 0.8386363636363635,
+          "external_mismatch_count": 25010,
+          "suppression_count": 4,
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\33_outside_bar_state_exit_followup\\02_runs\\active\\33F_29n_outbar_long_a125_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json"
+        }
+      },
+      "deltas": {
+        "validation": {
+          "return_pct_delta": -1.8979999999999961,
+          "profit_factor_delta": -0.0012681583770659532,
+          "max_dd_pct_delta": 0.02858614050691699,
+          "suppression_count_delta": 1
+        },
+        "test": {
+          "return_pct_delta": 0.0,
+          "profit_factor_delta": 0.0,
+          "max_dd_pct_delta": 0.0,
+          "suppression_count_delta": 0
+        },
+        "hist_2024": {
+          "return_pct_delta": 6.122,
+          "profit_factor_delta": 0.02915704712202971,
+          "max_dd_pct_delta": 0.05430613612820068,
+          "suppression_count_delta": 4
+        }
+      },
+      "score": 2.7748057945014377,
+      "test_non_regression": true
+    }
+  ],
+  "best_non_regression_run": "33C_29n_outbar_long_0001"
+}

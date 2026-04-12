@@ -1,0 +1,1356 @@
+{
+  "reviewed_on": "2026-04-09",
+  "source_json": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\tmp\\analysis\\governance_selected_runs_deep_20260408.json",
+  "records": [
+    {
+      "code": "05DP",
+      "window": {
+        "from_date": "2025.10.01",
+        "to_date": "2026.03.01"
+      },
+      "headline": {
+        "return_pct": 68.574,
+        "profit_factor": 1.4925,
+        "max_dd_pct": 19.394,
+        "trade_count": 275
+      },
+      "risk": {
+        "ulcer_index": 5.859,
+        "worst_week": -28.12,
+        "consecutive_losses": 8,
+        "min_free_margin": 400.85
+      },
+      "diagnostics": {
+        "no_trade_rate": 0.8675,
+        "long_count": 122,
+        "short_count": 153,
+        "long_expectancy": 0.639,
+        "short_expectancy": 1.732
+      },
+      "execution": {
+        "skip_rate": 0.7661,
+        "external_mismatch_count": 8976,
+        "fill_rate": "n/a",
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "ready_row_gap": 35,
+        "ready_rate": 0.2339,
+        "mean_external_skip_rate": 0.311,
+        "latest_external_skip_rate": 0.2639,
+        "mean_argmax_share": 0.6668,
+        "p90_argmax_share": 0.9032,
+        "mean_entropy": 0.9432,
+        "p10_entropy": 0.877,
+        "mean_risk_overlay_rate": 0.0,
+        "latest_risk_overlay_rate": 0.0,
+        "latest_governance_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        "top_skip_reasons": "SESSION_CASH_OPEN_NOT_FOUND:13143, EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas:3809, EXTERNAL_TIMESTAMP_MISMATCH_US10YR:2467",
+        "top_governance_reasons": [
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+            13572
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+            6062
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+            5616
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+            1032
+          ],
+          [
+            "EXTERNAL_SKIP_RATE",
+            1029
+          ],
+          [
+            "WITHIN_LIMITS",
+            673
+          ]
+        ]
+      },
+      "source": {
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\05_optimization\\02_runs\\active\\05DP_05ca_margin0675_hold5_0001\\mt5_attempts\\att_0007\\tester_attempt_summary.json",
+        "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_05dp_05ca_margin0675_hold5_v1\\logs\\att_0007_governance.csv"
+      }
+    },
+    {
+      "code": "06H",
+      "window": {
+        "from_date": "2025.04.01",
+        "to_date": "2025.09.01"
+      },
+      "headline": {
+        "return_pct": 429728.016,
+        "profit_factor": 14.5028,
+        "max_dd_pct": 6.457,
+        "trade_count": 812
+      },
+      "risk": {
+        "ulcer_index": 0.775,
+        "worst_week": 590.19,
+        "consecutive_losses": 3,
+        "min_free_margin": 472.8
+      },
+      "diagnostics": {
+        "no_trade_rate": 0.6539,
+        "long_count": 412,
+        "short_count": 400,
+        "long_expectancy": 2832.661,
+        "short_expectancy": 2453.96
+      },
+      "execution": {
+        "skip_rate": 0.7785,
+        "external_mismatch_count": 9902,
+        "fill_rate": "n/a",
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "ready_row_gap": 0,
+        "ready_rate": 0.2215,
+        "mean_external_skip_rate": 0.3341,
+        "latest_external_skip_rate": 0.4097,
+        "mean_argmax_share": 0.6831,
+        "p90_argmax_share": 0.9268,
+        "mean_entropy": 0.8468,
+        "p10_entropy": 0.6788,
+        "mean_risk_overlay_rate": 0.0,
+        "latest_risk_overlay_rate": 0.0,
+        "latest_governance_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        "top_skip_reasons": "SESSION_CASH_OPEN_NOT_FOUND:13154, EXTERNAL_TIMESTAMP_MISMATCH_VIX:4618, EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas:3524",
+        "top_governance_reasons": [
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+            15195
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+            6634
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+            5126
+          ],
+          [
+            "EXTERNAL_SKIP_RATE",
+            954
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+            727
+          ],
+          [
+            "WITHIN_LIMITS",
+            378
+          ]
+        ]
+      },
+      "source": {
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\06_segmented_risk_validation\\02_runs\\active\\06H_2407_05I_01\\mt5_attempts\\att_0005\\tester_attempt_summary.json",
+        "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_06h_2407_05i_01\\logs\\att_0005_governance.csv"
+      }
+    },
+    {
+      "code": "07E",
+      "window": {
+        "from_date": "2025.10.01",
+        "to_date": "2026.03.01"
+      },
+      "headline": {
+        "return_pct": 80.262,
+        "profit_factor": 1.3556,
+        "max_dd_pct": 19.602,
+        "trade_count": 297
+      },
+      "risk": {
+        "ulcer_index": 7.088,
+        "worst_week": -46.84,
+        "consecutive_losses": 7,
+        "min_free_margin": 419.19
+      },
+      "diagnostics": {
+        "no_trade_rate": 0.857,
+        "long_count": 15,
+        "short_count": 282,
+        "long_expectancy": 0.459,
+        "short_expectancy": 1.399
+      },
+      "execution": {
+        "skip_rate": 0.7661,
+        "external_mismatch_count": 8976,
+        "fill_rate": "n/a",
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "ready_row_gap": 35,
+        "ready_rate": 0.2339,
+        "mean_external_skip_rate": 0.311,
+        "latest_external_skip_rate": 0.2639,
+        "mean_argmax_share": 0.7265,
+        "p90_argmax_share": 0.9394,
+        "mean_entropy": 0.9417,
+        "p10_entropy": 0.8594,
+        "mean_risk_overlay_rate": 0.0,
+        "latest_risk_overlay_rate": 0.0,
+        "latest_governance_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        "top_skip_reasons": "SESSION_CASH_OPEN_NOT_FOUND:13143, EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas:3809, EXTERNAL_TIMESTAMP_MISMATCH_US10YR:2467",
+        "top_governance_reasons": [
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+            12246
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+            7388
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+            5390
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+            1258
+          ],
+          [
+            "EXTERNAL_SKIP_RATE",
+            917
+          ],
+          [
+            "WITHIN_LIMITS",
+            673
+          ]
+        ]
+      },
+      "source": {
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\07_motif_transplant\\02_runs\\active\\07E_05et_fd_motif_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+        "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_07e_05et_fd_motif_v1\\logs\\att_0003_governance.csv"
+      }
+    },
+    {
+      "code": "08C",
+      "window": {
+        "from_date": "2025.10.01",
+        "to_date": "2026.03.01"
+      },
+      "headline": {
+        "return_pct": 43.518,
+        "profit_factor": 1.2396,
+        "max_dd_pct": 28.443,
+        "trade_count": 291
+      },
+      "risk": {
+        "ulcer_index": 15.965,
+        "worst_week": -77.94,
+        "consecutive_losses": 10,
+        "min_free_margin": 378.44
+      },
+      "diagnostics": {
+        "no_trade_rate": 0.8568,
+        "long_count": 69,
+        "short_count": 222,
+        "long_expectancy": 0.756,
+        "short_expectancy": 0.745
+      },
+      "execution": {
+        "skip_rate": 0.7661,
+        "external_mismatch_count": 8976,
+        "fill_rate": "n/a",
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "ready_row_gap": 35,
+        "ready_rate": 0.2339,
+        "mean_external_skip_rate": 0.311,
+        "latest_external_skip_rate": 0.2639,
+        "mean_argmax_share": 0.6576,
+        "p90_argmax_share": 0.9258,
+        "mean_entropy": 0.9376,
+        "p10_entropy": 0.8589,
+        "mean_risk_overlay_rate": 0.0,
+        "latest_risk_overlay_rate": 0.0,
+        "latest_governance_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        "top_skip_reasons": "SESSION_CASH_OPEN_NOT_FOUND:13143, EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas:3809, EXTERNAL_TIMESTAMP_MISMATCH_US10YR:2467",
+        "top_governance_reasons": [
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+            13852
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+            5856
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+            5782
+          ],
+          [
+            "EXTERNAL_SKIP_RATE",
+            1007
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+            792
+          ],
+          [
+            "WITHIN_LIMITS",
+            673
+          ]
+        ]
+      },
+      "source": {
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\08_strict_wfo_shortlist\\02_runs\\active\\08C_2501_05et_core_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+        "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_08c_2501_05et_core_0001_v1\\logs\\att_0003_governance.csv"
+      }
+    },
+    {
+      "code": "09C",
+      "window": {
+        "from_date": "2025.10.01",
+        "to_date": "2026.03.01"
+      },
+      "headline": {
+        "return_pct": 49.09,
+        "profit_factor": 1.2682,
+        "max_dd_pct": 28.292,
+        "trade_count": 286
+      },
+      "risk": {
+        "ulcer_index": 14.57,
+        "worst_week": -71.2,
+        "consecutive_losses": 10,
+        "min_free_margin": 379.28
+      },
+      "diagnostics": {
+        "no_trade_rate": 0.8601,
+        "long_count": 69,
+        "short_count": 217,
+        "long_expectancy": 0.734,
+        "short_expectancy": 0.898
+      },
+      "execution": {
+        "skip_rate": 0.7661,
+        "external_mismatch_count": 8976,
+        "fill_rate": "n/a",
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "ready_row_gap": 35,
+        "ready_rate": 0.2339,
+        "mean_external_skip_rate": 0.311,
+        "latest_external_skip_rate": 0.2639,
+        "mean_argmax_share": 0.658,
+        "p90_argmax_share": 0.9259,
+        "mean_entropy": 0.9374,
+        "p10_entropy": 0.8589,
+        "mean_risk_overlay_rate": 0.0,
+        "latest_risk_overlay_rate": 0.0,
+        "latest_governance_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        "top_skip_reasons": "SESSION_CASH_OPEN_NOT_FOUND:13143, EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas:3809, EXTERNAL_TIMESTAMP_MISMATCH_US10YR:2467",
+        "top_governance_reasons": [
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+            13852
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+            5856
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+            5782
+          ],
+          [
+            "EXTERNAL_SKIP_RATE",
+            1007
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+            792
+          ],
+          [
+            "WITHIN_LIMITS",
+            673
+          ]
+        ]
+      },
+      "source": {
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\09_05et_local_probe\\02_runs\\active\\09C_2501_05et_margin0700_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+        "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_09c_2501_05et_margin0700_0001_v1\\logs\\att_0003_governance.csv"
+      }
+    },
+    {
+      "code": "10C",
+      "window": {
+        "from_date": "2025.10.01",
+        "to_date": "2026.03.01"
+      },
+      "headline": {
+        "return_pct": 51.542,
+        "profit_factor": 1.3005,
+        "max_dd_pct": 24.333,
+        "trade_count": 286
+      },
+      "risk": {
+        "ulcer_index": 12.742,
+        "worst_week": -63.82,
+        "consecutive_losses": 10,
+        "min_free_margin": 401.21
+      },
+      "diagnostics": {
+        "no_trade_rate": 0.8601,
+        "long_count": 69,
+        "short_count": 217,
+        "long_expectancy": 0.751,
+        "short_expectancy": 0.949
+      },
+      "execution": {
+        "skip_rate": 0.7661,
+        "external_mismatch_count": 8976,
+        "fill_rate": "n/a",
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "ready_row_gap": 35,
+        "ready_rate": 0.2339,
+        "mean_external_skip_rate": 0.311,
+        "latest_external_skip_rate": 0.2639,
+        "mean_argmax_share": 0.658,
+        "p90_argmax_share": 0.9259,
+        "mean_entropy": 0.9374,
+        "p10_entropy": 0.8589,
+        "mean_risk_overlay_rate": 0.2734,
+        "latest_risk_overlay_rate": 0.0,
+        "latest_governance_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        "top_skip_reasons": "SESSION_CASH_OPEN_NOT_FOUND:13143, EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas:3809, EXTERNAL_TIMESTAMP_MISMATCH_US10YR:2467",
+        "top_governance_reasons": [
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+            13852
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+            5856
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+            5782
+          ],
+          [
+            "EXTERNAL_SKIP_RATE",
+            1007
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+            792
+          ],
+          [
+            "WITHIN_LIMITS",
+            673
+          ]
+        ]
+      },
+      "source": {
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\10_09c_overlay_gate\\02_runs\\active\\10C_2501_lp02_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+        "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_10c_2501_lp02_0001_v1\\logs\\att_0003_governance.csv"
+      }
+    },
+    {
+      "code": "11B",
+      "window": {
+        "from_date": "2025.10.01",
+        "to_date": "2026.03.01"
+      },
+      "headline": {
+        "return_pct": 51.39,
+        "profit_factor": 1.3006,
+        "max_dd_pct": 24.349,
+        "trade_count": 286
+      },
+      "risk": {
+        "ulcer_index": 12.625,
+        "worst_week": -63.82,
+        "consecutive_losses": 10,
+        "min_free_margin": 400.84
+      },
+      "diagnostics": {
+        "no_trade_rate": 0.8601,
+        "long_count": 69,
+        "short_count": 217,
+        "long_expectancy": 0.75,
+        "short_expectancy": 0.946
+      },
+      "execution": {
+        "skip_rate": 0.7661,
+        "external_mismatch_count": 8976,
+        "fill_rate": "n/a",
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "ready_row_gap": 35,
+        "ready_rate": 0.2339,
+        "mean_external_skip_rate": 0.311,
+        "latest_external_skip_rate": 0.2639,
+        "mean_argmax_share": 0.658,
+        "p90_argmax_share": 0.9259,
+        "mean_entropy": 0.9374,
+        "p10_entropy": 0.8589,
+        "mean_risk_overlay_rate": 0.2734,
+        "latest_risk_overlay_rate": 0.0,
+        "latest_governance_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        "top_skip_reasons": "SESSION_CASH_OPEN_NOT_FOUND:13143, EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas:3809, EXTERNAL_TIMESTAMP_MISMATCH_US10YR:2467",
+        "top_governance_reasons": [
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+            13852
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+            5856
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+            5782
+          ],
+          [
+            "EXTERNAL_SKIP_RATE",
+            1007
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+            792
+          ],
+          [
+            "WITHIN_LIMITS",
+            673
+          ]
+        ]
+      },
+      "source": {
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\11_09c_overlay_local_probe\\02_runs\\active\\11B_2501_mon065_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+        "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_11b_2501_mon065_0001_v1\\logs\\att_0003_governance.csv"
+      }
+    },
+    {
+      "code": "12B",
+      "window": {
+        "from_date": "2025.10.01",
+        "to_date": "2026.03.01"
+      },
+      "headline": {
+        "return_pct": 50.706,
+        "profit_factor": 1.3006,
+        "max_dd_pct": 23.943,
+        "trade_count": 286
+      },
+      "risk": {
+        "ulcer_index": 12.418,
+        "worst_week": -63.43,
+        "consecutive_losses": 10,
+        "min_free_margin": 402.92
+      },
+      "diagnostics": {
+        "no_trade_rate": 0.8601,
+        "long_count": 69,
+        "short_count": 217,
+        "long_expectancy": 0.694,
+        "short_expectancy": 0.948
+      },
+      "execution": {
+        "skip_rate": 0.7661,
+        "external_mismatch_count": 8976,
+        "fill_rate": "n/a",
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "ready_row_gap": 35,
+        "ready_rate": 0.2339,
+        "mean_external_skip_rate": 0.311,
+        "latest_external_skip_rate": 0.2639,
+        "mean_argmax_share": 0.658,
+        "p90_argmax_share": 0.9259,
+        "mean_entropy": 0.9374,
+        "p10_entropy": 0.8589,
+        "mean_risk_overlay_rate": 0.2734,
+        "latest_risk_overlay_rate": 0.0,
+        "latest_governance_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        "top_skip_reasons": "SESSION_CASH_OPEN_NOT_FOUND:13143, EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas:3809, EXTERNAL_TIMESTAMP_MISMATCH_US10YR:2467",
+        "top_governance_reasons": [
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+            13852
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+            5856
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+            5782
+          ],
+          [
+            "EXTERNAL_SKIP_RATE",
+            1007
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+            792
+          ],
+          [
+            "WITHIN_LIMITS",
+            673
+          ]
+        ]
+      },
+      "source": {
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\12_09c_overlay_fine_probe\\02_runs\\active\\12B_2501_m06_p0625_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+        "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_12b_2501_m06_p0625_0001_v1\\logs\\att_0003_governance.csv"
+      }
+    },
+    {
+      "code": "13C",
+      "window": {
+        "from_date": "2025.10.01",
+        "to_date": "2026.03.01"
+      },
+      "headline": {
+        "return_pct": 49.762,
+        "profit_factor": 1.2968,
+        "max_dd_pct": 24.244,
+        "trade_count": 286
+      },
+      "risk": {
+        "ulcer_index": 12.414,
+        "worst_week": -62.56,
+        "consecutive_losses": 10,
+        "min_free_margin": 401.06
+      },
+      "diagnostics": {
+        "no_trade_rate": 0.8601,
+        "long_count": 69,
+        "short_count": 217,
+        "long_expectancy": 0.724,
+        "short_expectancy": 0.916
+      },
+      "execution": {
+        "skip_rate": 0.7661,
+        "external_mismatch_count": 8976,
+        "fill_rate": "n/a",
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "ready_row_gap": 35,
+        "ready_rate": 0.2339,
+        "mean_external_skip_rate": 0.311,
+        "latest_external_skip_rate": 0.2639,
+        "mean_argmax_share": 0.658,
+        "p90_argmax_share": 0.9259,
+        "mean_entropy": 0.9374,
+        "p10_entropy": 0.8589,
+        "mean_risk_overlay_rate": 0.2734,
+        "latest_risk_overlay_rate": 0.0,
+        "latest_governance_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        "top_skip_reasons": "SESSION_CASH_OPEN_NOT_FOUND:13143, EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas:3809, EXTERNAL_TIMESTAMP_MISMATCH_US10YR:2467",
+        "top_governance_reasons": [
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+            13852
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+            5856
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+            5782
+          ],
+          [
+            "EXTERNAL_SKIP_RATE",
+            1007
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+            792
+          ],
+          [
+            "WITHIN_LIMITS",
+            673
+          ]
+        ]
+      },
+      "source": {
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\13_09c_overlay_micro_probe\\02_runs\\active\\13C_2501_m055_p06375_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+        "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_13c_2501_m055_p06375_0001_v1\\logs\\att_0003_governance.csv"
+      }
+    },
+    {
+      "code": "14A",
+      "window": {
+        "from_date": "2025.10.01",
+        "to_date": "2026.03.01"
+      },
+      "headline": {
+        "return_pct": 51.984,
+        "profit_factor": 1.3089,
+        "max_dd_pct": 23.264,
+        "trade_count": 286
+      },
+      "risk": {
+        "ulcer_index": 12.127,
+        "worst_week": -63.83,
+        "consecutive_losses": 10,
+        "min_free_margin": 406.57
+      },
+      "diagnostics": {
+        "no_trade_rate": 0.8601,
+        "long_count": 69,
+        "short_count": 217,
+        "long_expectancy": 0.717,
+        "short_expectancy": 0.97
+      },
+      "execution": {
+        "skip_rate": 0.7661,
+        "external_mismatch_count": 8976,
+        "fill_rate": "n/a",
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "ready_row_gap": 35,
+        "ready_rate": 0.2339,
+        "mean_external_skip_rate": 0.311,
+        "latest_external_skip_rate": 0.2639,
+        "mean_argmax_share": 0.658,
+        "p90_argmax_share": 0.9259,
+        "mean_entropy": 0.9374,
+        "p10_entropy": 0.8589,
+        "mean_risk_overlay_rate": 0.2734,
+        "latest_risk_overlay_rate": 0.0,
+        "latest_governance_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        "top_skip_reasons": "SESSION_CASH_OPEN_NOT_FOUND:13143, EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas:3809, EXTERNAL_TIMESTAMP_MISMATCH_US10YR:2467",
+        "top_governance_reasons": [
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+            13852
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+            5856
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+            5782
+          ],
+          [
+            "EXTERNAL_SKIP_RATE",
+            1007
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+            792
+          ],
+          [
+            "WITHIN_LIMITS",
+            673
+          ]
+        ]
+      },
+      "source": {
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\14_13d_short_regime_detector\\02_runs\\active\\14A_2501_ref_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+        "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_14a_2501_ref_0001_v1\\logs\\att_0003_governance.csv"
+      }
+    },
+    {
+      "code": "15A",
+      "window": {
+        "from_date": "2025.10.01",
+        "to_date": "2026.03.01"
+      },
+      "headline": {
+        "return_pct": 51.984,
+        "profit_factor": 1.3089,
+        "max_dd_pct": 23.264,
+        "trade_count": 286
+      },
+      "risk": {
+        "ulcer_index": 12.127,
+        "worst_week": -63.83,
+        "consecutive_losses": 10,
+        "min_free_margin": 406.57
+      },
+      "diagnostics": {
+        "no_trade_rate": 0.8601,
+        "long_count": 69,
+        "short_count": 217,
+        "long_expectancy": 0.717,
+        "short_expectancy": 0.97
+      },
+      "execution": {
+        "skip_rate": 0.7661,
+        "external_mismatch_count": 8976,
+        "fill_rate": "n/a",
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "ready_row_gap": 35,
+        "ready_rate": 0.2339,
+        "mean_external_skip_rate": 0.311,
+        "latest_external_skip_rate": 0.2639,
+        "mean_argmax_share": 0.658,
+        "p90_argmax_share": 0.9259,
+        "mean_entropy": 0.9374,
+        "p10_entropy": 0.8589,
+        "mean_risk_overlay_rate": 0.2734,
+        "latest_risk_overlay_rate": 0.0,
+        "latest_governance_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        "top_skip_reasons": "SESSION_CASH_OPEN_NOT_FOUND:13143, EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas:3809, EXTERNAL_TIMESTAMP_MISMATCH_US10YR:2467",
+        "top_governance_reasons": [
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+            13852
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+            5856
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+            5782
+          ],
+          [
+            "EXTERNAL_SKIP_RATE",
+            1007
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+            792
+          ],
+          [
+            "WITHIN_LIMITS",
+            673
+          ]
+        ]
+      },
+      "source": {
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\15_13d_server_hour_short_detector\\02_runs\\active\\15A_2501_ref_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+        "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_15a_2501_ref_0001_v1\\logs\\att_0003_governance.csv"
+      }
+    },
+    {
+      "code": "17E",
+      "window": {
+        "from_date": "2025.10.01",
+        "to_date": "2026.03.01"
+      },
+      "headline": {
+        "return_pct": 38.344,
+        "profit_factor": 1.4997,
+        "max_dd_pct": 17.972,
+        "trade_count": 126
+      },
+      "risk": {
+        "ulcer_index": 7.403,
+        "worst_week": -44.8,
+        "consecutive_losses": 9,
+        "min_free_margin": 426.5
+      },
+      "diagnostics": {
+        "no_trade_rate": 0.9377,
+        "long_count": 1,
+        "short_count": 125,
+        "long_expectancy": -11.21,
+        "short_expectancy": 1.623
+      },
+      "execution": {
+        "skip_rate": 0.7661,
+        "external_mismatch_count": 8976,
+        "fill_rate": "n/a",
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "ready_row_gap": 35,
+        "ready_rate": 0.2339,
+        "mean_external_skip_rate": 0.311,
+        "latest_external_skip_rate": 0.2639,
+        "mean_argmax_share": 0.6337,
+        "p90_argmax_share": 0.8846,
+        "mean_entropy": 0.9575,
+        "p10_entropy": 0.9081,
+        "mean_risk_overlay_rate": 0.0,
+        "latest_risk_overlay_rate": "n/a",
+        "latest_governance_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        "top_skip_reasons": "SESSION_CASH_OPEN_NOT_FOUND:13143, EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas:3809, EXTERNAL_TIMESTAMP_MISMATCH_US10YR:2467",
+        "top_governance_reasons": [
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+            14535
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+            6074
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+            5099
+          ],
+          [
+            "EXTERNAL_SKIP_RATE",
+            923
+          ],
+          [
+            "WITHIN_LIMITS",
+            673
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+            574
+          ]
+        ]
+      },
+      "source": {
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\17_09c_directional_core_fork\\02_runs\\active\\17E_2501_ovr_balanced_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+        "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_17e_2501_ovr_balanced_0001_v1\\logs\\att_0003_governance.csv"
+      }
+    },
+    {
+      "code": "18E",
+      "window": {
+        "from_date": "2025.10.01",
+        "to_date": "2026.03.01"
+      },
+      "headline": {
+        "return_pct": 38.478,
+        "profit_factor": 1.5343,
+        "max_dd_pct": 14.505,
+        "trade_count": 130
+      },
+      "risk": {
+        "ulcer_index": 6.542,
+        "worst_week": -39.92,
+        "consecutive_losses": 8,
+        "min_free_margin": 447.18
+      },
+      "diagnostics": {
+        "no_trade_rate": 0.9377,
+        "long_count": 1,
+        "short_count": 129,
+        "long_expectancy": -11.21,
+        "short_expectancy": 1.578
+      },
+      "execution": {
+        "skip_rate": 0.7661,
+        "external_mismatch_count": 8976,
+        "fill_rate": "n/a",
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "ready_row_gap": 35,
+        "ready_rate": 0.2339,
+        "mean_external_skip_rate": 0.311,
+        "latest_external_skip_rate": 0.2639,
+        "mean_argmax_share": 0.6337,
+        "p90_argmax_share": 0.8846,
+        "mean_entropy": 0.9575,
+        "p10_entropy": 0.9081,
+        "mean_risk_overlay_rate": 0.258,
+        "latest_risk_overlay_rate": "n/a",
+        "latest_governance_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        "top_skip_reasons": "SESSION_CASH_OPEN_NOT_FOUND:13143, EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas:3809, EXTERNAL_TIMESTAMP_MISMATCH_US10YR:2467",
+        "top_governance_reasons": [
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+            14535
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+            6074
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+            5099
+          ],
+          [
+            "EXTERNAL_SKIP_RATE",
+            923
+          ],
+          [
+            "WITHIN_LIMITS",
+            673
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+            574
+          ]
+        ]
+      },
+      "source": {
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\18_directional_core_overlay_matrix\\02_runs\\active\\18E_2501_17e_ph20_0001\\mt5_attempts\\att_0004\\tester_attempt_summary.json",
+        "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_18e_2501_17e_ph20_0001_v1\\logs\\att_0004_governance.csv"
+      }
+    },
+    {
+      "code": "19A",
+      "window": {
+        "from_date": "2025.10.01",
+        "to_date": "2026.03.01"
+      },
+      "headline": {
+        "return_pct": 38.478,
+        "profit_factor": 1.5343,
+        "max_dd_pct": 14.505,
+        "trade_count": 130
+      },
+      "risk": {
+        "ulcer_index": 6.542,
+        "worst_week": -39.92,
+        "consecutive_losses": 8,
+        "min_free_margin": 447.18
+      },
+      "diagnostics": {
+        "no_trade_rate": 0.9377,
+        "long_count": 1,
+        "short_count": 129,
+        "long_expectancy": -11.21,
+        "short_expectancy": 1.578
+      },
+      "execution": {
+        "skip_rate": 0.7661,
+        "external_mismatch_count": 8976,
+        "fill_rate": "n/a",
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "ready_row_gap": 35,
+        "ready_rate": 0.2339,
+        "mean_external_skip_rate": 0.311,
+        "latest_external_skip_rate": 0.2639,
+        "mean_argmax_share": 0.6337,
+        "p90_argmax_share": 0.8846,
+        "mean_entropy": 0.9575,
+        "p10_entropy": 0.9081,
+        "mean_risk_overlay_rate": 0.258,
+        "latest_risk_overlay_rate": "n/a",
+        "latest_governance_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        "top_skip_reasons": "SESSION_CASH_OPEN_NOT_FOUND:13143, EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas:3809, EXTERNAL_TIMESTAMP_MISMATCH_US10YR:2467",
+        "top_governance_reasons": [
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+            14535
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+            6074
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+            5099
+          ],
+          [
+            "EXTERNAL_SKIP_RATE",
+            923
+          ],
+          [
+            "WITHIN_LIMITS",
+            673
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+            574
+          ]
+        ]
+      },
+      "source": {
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\19_18e_recent_regime_emphasis\\02_runs\\active\\19A_2501_ref_ph20_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+        "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_19a_2501_ref_ph20_0001_v1\\logs\\att_0003_governance.csv"
+      }
+    },
+    {
+      "code": "20A",
+      "window": {
+        "from_date": "2025.10.01",
+        "to_date": "2026.03.01"
+      },
+      "headline": {
+        "return_pct": 38.478,
+        "profit_factor": 1.5343,
+        "max_dd_pct": 14.505,
+        "trade_count": 130
+      },
+      "risk": {
+        "ulcer_index": 6.542,
+        "worst_week": -39.92,
+        "consecutive_losses": 8,
+        "min_free_margin": 447.18
+      },
+      "diagnostics": {
+        "no_trade_rate": 0.9377,
+        "long_count": 1,
+        "short_count": 129,
+        "long_expectancy": -11.21,
+        "short_expectancy": 1.578
+      },
+      "execution": {
+        "skip_rate": 0.7661,
+        "external_mismatch_count": 8976,
+        "fill_rate": "n/a",
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "ready_row_gap": 35,
+        "ready_rate": 0.2339,
+        "mean_external_skip_rate": 0.311,
+        "latest_external_skip_rate": 0.2639,
+        "mean_argmax_share": 0.6337,
+        "p90_argmax_share": 0.8846,
+        "mean_entropy": 0.9575,
+        "p10_entropy": 0.9081,
+        "mean_risk_overlay_rate": 0.258,
+        "latest_risk_overlay_rate": "n/a",
+        "latest_governance_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        "top_skip_reasons": "SESSION_CASH_OPEN_NOT_FOUND:13143, EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas:3809, EXTERNAL_TIMESTAMP_MISMATCH_US10YR:2467",
+        "top_governance_reasons": [
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+            14535
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+            6074
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+            5099
+          ],
+          [
+            "EXTERNAL_SKIP_RATE",
+            923
+          ],
+          [
+            "WITHIN_LIMITS",
+            673
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+            574
+          ]
+        ]
+      },
+      "source": {
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\20_18e_specialist_mixture\\02_runs\\active\\20A_2501_ref_17e_ph20_0001\\mt5_attempts\\att_0005\\tester_attempt_summary.json",
+        "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_20a_2501_ref_17e_ph20_0001_v1\\logs\\att_0005_governance.csv"
+      }
+    },
+    {
+      "code": "21P_m2602",
+      "window": {
+        "from_date": "2026.02.01",
+        "to_date": "2026.03.01"
+      },
+      "headline": {
+        "return_pct": 63.551,
+        "profit_factor": 2.5337,
+        "max_dd_pct": 6.537,
+        "trade_count": 99
+      },
+      "risk": {
+        "ulcer_index": 1.946,
+        "worst_week": 25.58,
+        "consecutive_losses": 4,
+        "min_free_margin": 270.17
+      },
+      "diagnostics": {
+        "no_trade_rate": 0.828,
+        "long_count": 48,
+        "short_count": 51,
+        "long_expectancy": 2.115,
+        "short_expectancy": 1.545
+      },
+      "execution": {
+        "skip_rate": 0.7652,
+        "external_mismatch_count": 1699,
+        "fill_rate": "n/a",
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "ready_row_gap": 0,
+        "ready_rate": 0.2348,
+        "mean_external_skip_rate": 0.3094,
+        "latest_external_skip_rate": 0.2639,
+        "mean_argmax_share": 0.6626,
+        "p90_argmax_share": 0.9091,
+        "mean_entropy": 0.8459,
+        "p10_entropy": 0.7202,
+        "mean_risk_overlay_rate": 0.3095,
+        "latest_risk_overlay_rate": 0.0,
+        "latest_governance_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        "top_skip_reasons": "SESSION_CASH_OPEN_NOT_FOUND:2488, EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas:777, EXTERNAL_TIMESTAMP_MISMATCH_US10YR:527",
+        "top_governance_reasons": [
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+            2931
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+            1233
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+            726
+          ],
+          [
+            "WITHIN_LIMITS",
+            211
+          ],
+          [
+            "EXTERNAL_SKIP_RATE",
+            177
+          ],
+          [
+            "EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+            56
+          ]
+        ]
+      },
+      "source": {
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\21_retrain_cadence_wfo\\02_runs\\active\\21P_2501_mt5_2m_long14m_0001\\m2602\\mt5_attempts\\att_0004\\tester_attempt_summary.json",
+        "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_21p_2501_2m_202602_v1\\logs\\att_0004_governance.csv"
+      }
+    },
+    {
+      "code": "21e18",
+      "window": {
+        "from_date": "2025.10.01",
+        "to_date": "2026.03.01"
+      },
+      "headline": {
+        "return_pct": 38.478,
+        "profit_factor": 1.5343,
+        "max_dd_pct": 14.505,
+        "trade_count": 130
+      },
+      "risk": {
+        "ulcer_index": 6.542,
+        "worst_week": -39.92,
+        "consecutive_losses": 8,
+        "min_free_margin": 447.18
+      },
+      "diagnostics": {
+        "no_trade_rate": 0.9377,
+        "long_count": 1,
+        "short_count": 129,
+        "long_expectancy": -11.21,
+        "short_expectancy": 1.578
+      },
+      "execution": {
+        "skip_rate": 0.7661,
+        "external_mismatch_count": 8976,
+        "fill_rate": "n/a",
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "ready_row_gap": 35,
+        "ready_rate": 0.2339,
+        "mean_external_skip_rate": 0.311,
+        "latest_external_skip_rate": 0.2639,
+        "mean_argmax_share": 0.6337,
+        "p90_argmax_share": 0.8846,
+        "mean_entropy": 0.9575,
+        "p10_entropy": 0.9081,
+        "mean_risk_overlay_rate": 0.258,
+        "latest_risk_overlay_rate": "n/a",
+        "latest_governance_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        "top_skip_reasons": "SESSION_CASH_OPEN_NOT_FOUND:13143, EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas:3809, EXTERNAL_TIMESTAMP_MISMATCH_US10YR:2467",
+        "top_governance_reasons": [
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+            14535
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+            6074
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+            5099
+          ],
+          [
+            "EXTERNAL_SKIP_RATE",
+            923
+          ],
+          [
+            "WITHIN_LIMITS",
+            673
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+            574
+          ]
+        ]
+      },
+      "source": {
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\21_retrain_cadence_wfo\\02_runs\\active\\21e18_2501_long14m\\mt5_attempts\\att_0006\\tester_attempt_summary.json",
+        "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_18e_2501_17e_ph20_0001_v1\\logs\\att_0006_governance.csv"
+      }
+    },
+    {
+      "code": "22A",
+      "window": {
+        "from_date": "2025.10.01",
+        "to_date": "2026.03.01"
+      },
+      "headline": {
+        "return_pct": 68.574,
+        "profit_factor": 1.4925,
+        "max_dd_pct": 19.394,
+        "trade_count": 275
+      },
+      "risk": {
+        "ulcer_index": 5.859,
+        "worst_week": -28.12,
+        "consecutive_losses": 8,
+        "min_free_margin": 400.85
+      },
+      "diagnostics": {
+        "no_trade_rate": 0.8675,
+        "long_count": 122,
+        "short_count": 153,
+        "long_expectancy": 0.639,
+        "short_expectancy": 1.732
+      },
+      "execution": {
+        "skip_rate": 0.7661,
+        "external_mismatch_count": 8976,
+        "fill_rate": "n/a",
+        "data_readiness_failures": 1,
+        "broker_constraint_events": 0,
+        "ready_row_gap": 35,
+        "ready_rate": 0.2339,
+        "mean_external_skip_rate": 0.311,
+        "latest_external_skip_rate": 0.2639,
+        "mean_argmax_share": 0.6668,
+        "p90_argmax_share": 0.9032,
+        "mean_entropy": 0.9432,
+        "p10_entropy": 0.877,
+        "mean_risk_overlay_rate": 0.0,
+        "latest_risk_overlay_rate": 0.0,
+        "latest_governance_reason": "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+        "top_skip_reasons": "SESSION_CASH_OPEN_NOT_FOUND:13143, EXTERNAL_TIMESTAMP_MISMATCH_AAPL.xnas:3809, EXTERNAL_TIMESTAMP_MISMATCH_US10YR:2467",
+        "top_governance_reasons": [
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE",
+            13572
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|ARGMAX_DOMINANCE",
+            6062
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS",
+            5616
+          ],
+          [
+            "OP_SKIP_RATE|EXTERNAL_SKIP_RATE|CONSECUTIVE_SKIPS|ARGMAX_DOMINANCE",
+            1032
+          ],
+          [
+            "EXTERNAL_SKIP_RATE",
+            1029
+          ],
+          [
+            "WITHIN_LIMITS",
+            673
+          ]
+        ]
+      },
+      "source": {
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22A_05dp_base_hold5_0001\\mt5_attempts\\att_0007\\tester_attempt_summary.json",
+        "governance_csv": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_22a_05dp_base_hold5_v1\\logs\\att_0007_governance.csv"
+      }
+    }
+  ]
+}

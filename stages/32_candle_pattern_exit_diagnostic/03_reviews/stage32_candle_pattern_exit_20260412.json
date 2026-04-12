@@ -1,0 +1,757 @@
+{
+  "reviewed_on": "2026-04-12",
+  "run_name": "29N_25o_sxh2_0001",
+  "probe_bars": 3,
+  "hold_config": {
+    "base_max_hold_bars": 5,
+    "monday_long_hold_cap_bars": 0,
+    "monday_short_hold_cap_bars": 2,
+    "ny_postcash_hold_cap_bars": 3,
+    "ny_postcash_long_hold_cap_bars": 0,
+    "ny_postcash_short_hold_cap_bars": 2
+  },
+  "splits": {
+    "validation": {
+      "split": "validation",
+      "trade_count": 404,
+      "state_exit_count": 143,
+      "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_29n_25o_sxh2_v1\\logs\\att_0001_trades.csv",
+      "tester_from_date": null,
+      "tester_to_date": null,
+      "patterns": {
+        "outside_adverse_bar": {
+          "label": "Outside Adverse Bar",
+          "total_exit_count": 17,
+          "state_exit_count": 6,
+          "broker_sl_count": 1,
+          "exit_reason_counts": {
+            "STATE_EXIT_MARGIN": 6,
+            "TIME_EXIT_NY_POSTCASH_SHORT": 2,
+            "TIME_EXIT": 7,
+            "TIME_EXIT_NY_POSTCASH": 1,
+            "BROKER_SL": 1
+          },
+          "state_exit_share_of_state_exits": 0.04195804195804196,
+          "policy_hold_summary": {
+            "count": 6,
+            "positive_count": 4,
+            "negative_count": 2,
+            "sum_delta_net": 12.949299999999859
+          },
+          "probe_3bar_summary": {
+            "count": 6,
+            "positive_count": 6,
+            "negative_count": 0,
+            "sum_delta_net": 45.936499999999796
+          }
+        },
+        "rejection_tail": {
+          "label": "Rejection Tail",
+          "total_exit_count": 8,
+          "state_exit_count": 3,
+          "broker_sl_count": 3,
+          "exit_reason_counts": {
+            "BROKER_SL": 3,
+            "TIME_EXIT": 1,
+            "STATE_EXIT_MARGIN": 3,
+            "TIME_EXIT_NY_POSTCASH": 1
+          },
+          "state_exit_share_of_state_exits": 0.02097902097902098,
+          "policy_hold_summary": {
+            "count": 3,
+            "positive_count": 1,
+            "negative_count": 2,
+            "sum_delta_net": -16.845200000000293
+          },
+          "probe_3bar_summary": {
+            "count": 3,
+            "positive_count": 2,
+            "negative_count": 1,
+            "sum_delta_net": 12.909499999997898
+          }
+        },
+        "wide_range_doji": {
+          "label": "Wide-Range Doji",
+          "total_exit_count": 16,
+          "state_exit_count": 5,
+          "broker_sl_count": 6,
+          "exit_reason_counts": {
+            "STATE_EXIT_MARGIN": 5,
+            "BROKER_SL": 6,
+            "TIME_EXIT": 4,
+            "TIME_EXIT_NY_POSTCASH": 1
+          },
+          "state_exit_share_of_state_exits": 0.03496503496503497,
+          "policy_hold_summary": {
+            "count": 5,
+            "positive_count": 2,
+            "negative_count": 3,
+            "sum_delta_net": -24.242300000001052
+          },
+          "probe_3bar_summary": {
+            "count": 5,
+            "positive_count": 3,
+            "negative_count": 2,
+            "sum_delta_net": -8.760500000002938
+          }
+        }
+      }
+    },
+    "test": {
+      "split": "test",
+      "trade_count": 285,
+      "state_exit_count": 80,
+      "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_29n_25o_sxh2_v1\\logs\\att_0002_trades.csv",
+      "tester_from_date": null,
+      "tester_to_date": null,
+      "patterns": {
+        "outside_adverse_bar": {
+          "label": "Outside Adverse Bar",
+          "total_exit_count": 5,
+          "state_exit_count": 0,
+          "broker_sl_count": 2,
+          "exit_reason_counts": {
+            "TIME_EXIT_NY_POSTCASH": 2,
+            "TIME_EXIT": 1,
+            "BROKER_SL": 2
+          },
+          "state_exit_share_of_state_exits": 0.0,
+          "policy_hold_summary": {
+            "count": 0,
+            "positive_count": 0,
+            "negative_count": 0,
+            "sum_delta_net": null
+          },
+          "probe_3bar_summary": {
+            "count": 0,
+            "positive_count": 0,
+            "negative_count": 0,
+            "sum_delta_net": null
+          }
+        },
+        "rejection_tail": {
+          "label": "Rejection Tail",
+          "total_exit_count": 7,
+          "state_exit_count": 0,
+          "broker_sl_count": 4,
+          "exit_reason_counts": {
+            "BROKER_SL": 4,
+            "TIME_EXIT": 3
+          },
+          "state_exit_share_of_state_exits": 0.0,
+          "policy_hold_summary": {
+            "count": 0,
+            "positive_count": 0,
+            "negative_count": 0,
+            "sum_delta_net": null
+          },
+          "probe_3bar_summary": {
+            "count": 0,
+            "positive_count": 0,
+            "negative_count": 0,
+            "sum_delta_net": null
+          }
+        },
+        "wide_range_doji": {
+          "label": "Wide-Range Doji",
+          "total_exit_count": 17,
+          "state_exit_count": 3,
+          "broker_sl_count": 5,
+          "exit_reason_counts": {
+            "BROKER_SL": 5,
+            "TIME_EXIT": 7,
+            "STATE_EXIT_MARGIN": 3,
+            "TIME_EXIT_MONDAY_SHORT": 2
+          },
+          "state_exit_share_of_state_exits": 0.0375,
+          "policy_hold_summary": {
+            "count": 3,
+            "positive_count": 2,
+            "negative_count": 1,
+            "sum_delta_net": 26.430000000000728
+          },
+          "probe_3bar_summary": {
+            "count": 3,
+            "positive_count": 2,
+            "negative_count": 1,
+            "sum_delta_net": 26.430000000000728
+          }
+        }
+      }
+    },
+    "hist_2024": {
+      "split": "hist_2024",
+      "trade_count": 343,
+      "state_exit_count": 128,
+      "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_29n_25o_sxh2_v1\\logs\\att_0003_trades.csv",
+      "tester_from_date": null,
+      "tester_to_date": null,
+      "patterns": {
+        "outside_adverse_bar": {
+          "label": "Outside Adverse Bar",
+          "total_exit_count": 23,
+          "state_exit_count": 9,
+          "broker_sl_count": 4,
+          "exit_reason_counts": {
+            "TIME_EXIT": 7,
+            "STATE_EXIT_MARGIN": 9,
+            "TIME_EXIT_NY_POSTCASH_SHORT": 2,
+            "BROKER_SL": 4,
+            "TIME_EXIT_NY_POSTCASH": 1
+          },
+          "state_exit_share_of_state_exits": 0.0703125,
+          "policy_hold_summary": {
+            "count": 9,
+            "positive_count": 6,
+            "negative_count": 3,
+            "sum_delta_net": 59.16309999999965
+          },
+          "probe_3bar_summary": {
+            "count": 9,
+            "positive_count": 5,
+            "negative_count": 4,
+            "sum_delta_net": 56.3235999999999
+          }
+        },
+        "rejection_tail": {
+          "label": "Rejection Tail",
+          "total_exit_count": 17,
+          "state_exit_count": 6,
+          "broker_sl_count": 5,
+          "exit_reason_counts": {
+            "BROKER_SL": 5,
+            "TIME_EXIT": 5,
+            "TIME_EXIT_NY_POSTCASH": 1,
+            "STATE_EXIT_MARGIN": 6
+          },
+          "state_exit_share_of_state_exits": 0.046875,
+          "policy_hold_summary": {
+            "count": 6,
+            "positive_count": 5,
+            "negative_count": 1,
+            "sum_delta_net": 65.21839999999968
+          },
+          "probe_3bar_summary": {
+            "count": 6,
+            "positive_count": 5,
+            "negative_count": 1,
+            "sum_delta_net": 81.50269999999979
+          }
+        },
+        "wide_range_doji": {
+          "label": "Wide-Range Doji",
+          "total_exit_count": 21,
+          "state_exit_count": 11,
+          "broker_sl_count": 3,
+          "exit_reason_counts": {
+            "TIME_EXIT_NY_POSTCASH_SHORT": 2,
+            "TIME_EXIT": 5,
+            "STATE_EXIT_MARGIN": 11,
+            "BROKER_SL": 3
+          },
+          "state_exit_share_of_state_exits": 0.0859375,
+          "policy_hold_summary": {
+            "count": 11,
+            "positive_count": 5,
+            "negative_count": 5,
+            "sum_delta_net": -13.294799999999888
+          },
+          "probe_3bar_summary": {
+            "count": 11,
+            "positive_count": 5,
+            "negative_count": 5,
+            "sum_delta_net": 1.7652000000001102
+          }
+        }
+      }
+    }
+  },
+  "overall": {
+    "trade_count": 1032,
+    "state_exit_count": 351,
+    "patterns": {
+      "outside_adverse_bar": {
+        "label": "Outside Adverse Bar",
+        "total_exit_count": 45,
+        "state_exit_count": 15,
+        "broker_sl_count": 7,
+        "exit_reason_counts": {
+          "STATE_EXIT_MARGIN": 15,
+          "TIME_EXIT_NY_POSTCASH_SHORT": 4,
+          "TIME_EXIT": 15,
+          "TIME_EXIT_NY_POSTCASH": 4,
+          "BROKER_SL": 7
+        },
+        "state_exit_share_of_state_exits": 0.042735042735042736,
+        "policy_hold_summary": {
+          "count": 15,
+          "positive_count": 10,
+          "negative_count": 5,
+          "sum_delta_net": 72.11239999999951
+        },
+        "probe_3bar_summary": {
+          "count": 15,
+          "positive_count": 11,
+          "negative_count": 4,
+          "sum_delta_net": 102.2600999999997
+        },
+        "top_policy_missed_profit_cases": [
+          {
+            "split": "hist_2024",
+            "direction": "LONG",
+            "entry_bar_time": "2024-11-05 16:35",
+            "exit_bar_time": "2024-11-05 16:45",
+            "policy_exit_bar_time": "2024-11-05 17:00",
+            "policy_hold_context": "BASE",
+            "hold_bars": 2,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": 3.15,
+            "policy_delta_net": 36.75,
+            "probe_3bar_delta_net": 36.75,
+            "pattern_score": 2.620241250451396
+          },
+          {
+            "split": "hist_2024",
+            "direction": "LONG",
+            "entry_bar_time": "2024-08-15 16:35",
+            "exit_bar_time": "2024-08-15 16:45",
+            "policy_exit_bar_time": "2024-08-15 17:00",
+            "policy_hold_context": "BASE",
+            "hold_bars": 2,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": 2.2,
+            "policy_delta_net": 18.92,
+            "probe_3bar_delta_net": 18.92,
+            "pattern_score": 1.864995204814495
+          },
+          {
+            "split": "hist_2024",
+            "direction": "LONG",
+            "entry_bar_time": "2024-12-02 16:35",
+            "exit_bar_time": "2024-12-02 16:45",
+            "policy_exit_bar_time": "2024-12-02 17:00",
+            "policy_hold_context": "BASE",
+            "hold_bars": 2,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": -0.52,
+            "policy_delta_net": 14.5275,
+            "probe_3bar_delta_net": 14.5275,
+            "pattern_score": 2.2636138873965175
+          },
+          {
+            "split": "validation",
+            "direction": "SHORT",
+            "entry_bar_time": "2025-03-13 19:35",
+            "exit_bar_time": "2025-03-13 19:45",
+            "policy_exit_bar_time": "2025-03-13 20:00",
+            "policy_hold_context": "NY_POSTCASH_SHORT",
+            "hold_bars": 2,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": 0.3,
+            "policy_delta_net": 7.653099999999868,
+            "probe_3bar_delta_net": 7.653099999999868,
+            "pattern_score": 2.038515861039628
+          },
+          {
+            "split": "validation",
+            "direction": "LONG",
+            "entry_bar_time": "2025-01-03 16:35",
+            "exit_bar_time": "2025-01-03 16:50",
+            "policy_exit_bar_time": "2025-01-03 17:00",
+            "policy_hold_context": "BASE",
+            "hold_bars": 3,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": 10.05,
+            "policy_delta_net": 6.5600000000000005,
+            "probe_3bar_delta_net": 19.241600000000325,
+            "pattern_score": 3.2667036587738543
+          }
+        ],
+        "top_policy_saved_loss_cases": [
+          {
+            "split": "hist_2024",
+            "direction": "LONG",
+            "entry_bar_time": "2024-03-18 16:40",
+            "exit_bar_time": "2024-03-18 16:50",
+            "policy_exit_bar_time": "2024-03-18 17:05",
+            "policy_hold_context": "BASE",
+            "hold_bars": 2,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": 0.81,
+            "policy_delta_net": -9.152500000000508,
+            "probe_3bar_delta_net": -9.152500000000508,
+            "pattern_score": 2.441494650836649
+          },
+          {
+            "split": "validation",
+            "direction": "SHORT",
+            "entry_bar_time": "2025-08-05 17:50",
+            "exit_bar_time": "2025-08-05 18:05",
+            "policy_exit_bar_time": "2025-08-05 18:15",
+            "policy_hold_context": "BASE",
+            "hold_bars": 3,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": -21.88,
+            "policy_delta_net": -7.170599999999613,
+            "probe_3bar_delta_net": 2.2800000000000002,
+            "pattern_score": 1.6248641091254645
+          },
+          {
+            "split": "hist_2024",
+            "direction": "SHORT",
+            "entry_bar_time": "2024-05-03 17:20",
+            "exit_bar_time": "2024-05-03 17:30",
+            "policy_exit_bar_time": "2024-05-03 17:45",
+            "policy_hold_context": "BASE",
+            "hold_bars": 2,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": -1.67,
+            "policy_delta_net": -4.7460000000003495,
+            "probe_3bar_delta_net": -4.7460000000003495,
+            "pattern_score": 1.8792335297566687
+          },
+          {
+            "split": "hist_2024",
+            "direction": "SHORT",
+            "entry_bar_time": "2024-05-28 16:45",
+            "exit_bar_time": "2024-05-28 17:05",
+            "policy_exit_bar_time": "2024-05-28 17:10",
+            "policy_hold_context": "BASE",
+            "hold_bars": 4,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": -3.36,
+            "policy_delta_net": -2.9763999999992667,
+            "probe_3bar_delta_net": -3.116399999999267,
+            "pattern_score": 2.673721822863642
+          },
+          {
+            "split": "validation",
+            "direction": "SHORT",
+            "entry_bar_time": "2025-04-23 16:50",
+            "exit_bar_time": "2025-04-23 17:05",
+            "policy_exit_bar_time": "2025-04-23 17:15",
+            "policy_hold_context": "BASE",
+            "hold_bars": 3,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": 8.13,
+            "policy_delta_net": -1.9952000000002952,
+            "probe_3bar_delta_net": 10.982299999999704,
+            "pattern_score": 3.000620245315614
+          }
+        ]
+      },
+      "rejection_tail": {
+        "label": "Rejection Tail",
+        "total_exit_count": 32,
+        "state_exit_count": 9,
+        "broker_sl_count": 12,
+        "exit_reason_counts": {
+          "BROKER_SL": 12,
+          "TIME_EXIT": 9,
+          "STATE_EXIT_MARGIN": 9,
+          "TIME_EXIT_NY_POSTCASH": 2
+        },
+        "state_exit_share_of_state_exits": 0.02564102564102564,
+        "policy_hold_summary": {
+          "count": 9,
+          "positive_count": 6,
+          "negative_count": 3,
+          "sum_delta_net": 48.373199999999386
+        },
+        "probe_3bar_summary": {
+          "count": 9,
+          "positive_count": 7,
+          "negative_count": 2,
+          "sum_delta_net": 94.41219999999768
+        },
+        "top_policy_missed_profit_cases": [
+          {
+            "split": "hist_2024",
+            "direction": "LONG",
+            "entry_bar_time": "2024-11-05 16:35",
+            "exit_bar_time": "2024-11-05 16:45",
+            "policy_exit_bar_time": "2024-11-05 17:00",
+            "policy_hold_context": "BASE",
+            "hold_bars": 2,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": 3.15,
+            "policy_delta_net": 36.75,
+            "probe_3bar_delta_net": 36.75,
+            "pattern_score": 2.620241250451396
+          },
+          {
+            "split": "hist_2024",
+            "direction": "LONG",
+            "entry_bar_time": "2024-08-15 16:35",
+            "exit_bar_time": "2024-08-15 16:45",
+            "policy_exit_bar_time": "2024-08-15 17:00",
+            "policy_hold_context": "BASE",
+            "hold_bars": 2,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": 2.2,
+            "policy_delta_net": 18.92,
+            "probe_3bar_delta_net": 18.92,
+            "pattern_score": 1.864995204814495
+          },
+          {
+            "split": "hist_2024",
+            "direction": "LONG",
+            "entry_bar_time": "2024-09-09 16:35",
+            "exit_bar_time": "2024-09-09 16:45",
+            "policy_exit_bar_time": "2024-09-09 17:00",
+            "policy_hold_context": "BASE",
+            "hold_bars": 2,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": -0.84,
+            "policy_delta_net": 10.918399999999675,
+            "probe_3bar_delta_net": 10.918399999999675,
+            "pattern_score": 1.6194843099775216
+          },
+          {
+            "split": "validation",
+            "direction": "LONG",
+            "entry_bar_time": "2025-08-22 17:05",
+            "exit_bar_time": "2025-08-22 17:25",
+            "policy_exit_bar_time": "2025-08-22 17:30",
+            "policy_hold_context": "BASE",
+            "hold_bars": 4,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": 23.93,
+            "policy_delta_net": 5.8500000000000005,
+            "probe_3bar_delta_net": 20.8125,
+            "pattern_score": 1.6713513731050544
+          },
+          {
+            "split": "hist_2024",
+            "direction": "SHORT",
+            "entry_bar_time": "2024-08-20 17:05",
+            "exit_bar_time": "2024-08-20 17:25",
+            "policy_exit_bar_time": "2024-08-20 17:30",
+            "policy_hold_context": "BASE",
+            "hold_bars": 4,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": 14.88,
+            "policy_delta_net": 0.84,
+            "probe_3bar_delta_net": 15.899999999999999,
+            "pattern_score": 1.3093865503129776
+          }
+        ],
+        "top_policy_saved_loss_cases": [
+          {
+            "split": "validation",
+            "direction": "SHORT",
+            "entry_bar_time": "2025-09-03 16:40",
+            "exit_bar_time": "2025-09-03 16:55",
+            "policy_exit_bar_time": "2025-09-03 17:05",
+            "policy_hold_context": "BASE",
+            "hold_bars": 3,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": -9.45,
+            "policy_delta_net": -20.7,
+            "probe_3bar_delta_net": -18.885300000001806,
+            "pattern_score": 1.4513772494283308
+          },
+          {
+            "split": "hist_2024",
+            "direction": "LONG",
+            "entry_bar_time": "2024-09-04 16:45",
+            "exit_bar_time": "2024-09-04 16:55",
+            "policy_exit_bar_time": "2024-09-04 17:10",
+            "policy_hold_context": "BASE",
+            "hold_bars": 2,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": 10.22,
+            "policy_delta_net": -2.87,
+            "probe_3bar_delta_net": -2.87,
+            "pattern_score": 1.2948104452586433
+          },
+          {
+            "split": "validation",
+            "direction": "SHORT",
+            "entry_bar_time": "2025-04-23 16:50",
+            "exit_bar_time": "2025-04-23 17:05",
+            "policy_exit_bar_time": "2025-04-23 17:15",
+            "policy_hold_context": "BASE",
+            "hold_bars": 3,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": 8.13,
+            "policy_delta_net": -1.9952000000002952,
+            "probe_3bar_delta_net": 10.982299999999704,
+            "pattern_score": 3.000620245315614
+          }
+        ]
+      },
+      "wide_range_doji": {
+        "label": "Wide-Range Doji",
+        "total_exit_count": 54,
+        "state_exit_count": 19,
+        "broker_sl_count": 14,
+        "exit_reason_counts": {
+          "STATE_EXIT_MARGIN": 19,
+          "BROKER_SL": 14,
+          "TIME_EXIT": 16,
+          "TIME_EXIT_NY_POSTCASH": 1,
+          "TIME_EXIT_MONDAY_SHORT": 2,
+          "TIME_EXIT_NY_POSTCASH_SHORT": 2
+        },
+        "state_exit_share_of_state_exits": 0.05413105413105413,
+        "policy_hold_summary": {
+          "count": 19,
+          "positive_count": 9,
+          "negative_count": 9,
+          "sum_delta_net": -11.10710000000021
+        },
+        "probe_3bar_summary": {
+          "count": 19,
+          "positive_count": 10,
+          "negative_count": 8,
+          "sum_delta_net": 19.4346999999979
+        },
+        "top_policy_missed_profit_cases": [
+          {
+            "split": "hist_2024",
+            "direction": "LONG",
+            "entry_bar_time": "2024-05-20 16:40",
+            "exit_bar_time": "2024-05-20 16:50",
+            "policy_exit_bar_time": "2024-05-20 17:05",
+            "policy_hold_context": "BASE",
+            "hold_bars": 2,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": 0.84,
+            "policy_delta_net": 15.276000000000277,
+            "probe_3bar_delta_net": 15.276000000000277,
+            "pattern_score": 1.3141748734086631
+          },
+          {
+            "split": "hist_2024",
+            "direction": "LONG",
+            "entry_bar_time": "2024-12-02 16:35",
+            "exit_bar_time": "2024-12-02 16:45",
+            "policy_exit_bar_time": "2024-12-02 17:00",
+            "policy_hold_context": "BASE",
+            "hold_bars": 2,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": -0.52,
+            "policy_delta_net": 14.5275,
+            "probe_3bar_delta_net": 14.5275,
+            "pattern_score": 2.2636138873965175
+          },
+          {
+            "split": "test",
+            "direction": "SHORT",
+            "entry_bar_time": "2026-02-06 16:35",
+            "exit_bar_time": "2026-02-06 16:45",
+            "policy_exit_bar_time": "2026-02-06 17:00",
+            "policy_hold_context": "BASE",
+            "hold_bars": 2,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": -12.97,
+            "policy_delta_net": 14.050000000000729,
+            "probe_3bar_delta_net": 14.050000000000729,
+            "pattern_score": 1.749444417751197
+          },
+          {
+            "split": "test",
+            "direction": "LONG",
+            "entry_bar_time": "2025-11-20 16:35",
+            "exit_bar_time": "2025-11-20 16:45",
+            "policy_exit_bar_time": "2025-11-20 17:00",
+            "policy_hold_context": "BASE",
+            "hold_bars": 2,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": 4.37,
+            "policy_delta_net": 13.02,
+            "probe_3bar_delta_net": 13.02,
+            "pattern_score": 2.4884020436429
+          },
+          {
+            "split": "hist_2024",
+            "direction": "LONG",
+            "entry_bar_time": "2024-09-09 16:35",
+            "exit_bar_time": "2024-09-09 16:45",
+            "policy_exit_bar_time": "2024-09-09 17:00",
+            "policy_hold_context": "BASE",
+            "hold_bars": 2,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": -0.84,
+            "policy_delta_net": 10.918399999999675,
+            "probe_3bar_delta_net": 10.918399999999675,
+            "pattern_score": 1.6194843099775216
+          }
+        ],
+        "top_policy_saved_loss_cases": [
+          {
+            "split": "hist_2024",
+            "direction": "LONG",
+            "entry_bar_time": "2024-11-25 16:35",
+            "exit_bar_time": "2024-11-25 16:45",
+            "policy_exit_bar_time": "2024-11-25 17:00",
+            "policy_hold_context": "BASE",
+            "hold_bars": 2,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": 18.74,
+            "policy_delta_net": -37.321599999999165,
+            "probe_3bar_delta_net": -37.321599999999165,
+            "pattern_score": 1.805383607712759
+          },
+          {
+            "split": "validation",
+            "direction": "SHORT",
+            "entry_bar_time": "2025-09-03 16:40",
+            "exit_bar_time": "2025-09-03 16:55",
+            "policy_exit_bar_time": "2025-09-03 17:05",
+            "policy_hold_context": "BASE",
+            "hold_bars": 3,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": -9.45,
+            "policy_delta_net": -20.7,
+            "probe_3bar_delta_net": -18.885300000001806,
+            "pattern_score": 1.4513772494283308
+          },
+          {
+            "split": "hist_2024",
+            "direction": "SHORT",
+            "entry_bar_time": "2024-09-12 16:50",
+            "exit_bar_time": "2024-09-12 17:00",
+            "policy_exit_bar_time": "2024-09-12 17:15",
+            "policy_hold_context": "BASE",
+            "hold_bars": 2,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": -9.07,
+            "policy_delta_net": -9.696599999999817,
+            "probe_3bar_delta_net": -9.696599999999817,
+            "pattern_score": 1.2530614512939802
+          },
+          {
+            "split": "hist_2024",
+            "direction": "LONG",
+            "entry_bar_time": "2024-03-18 16:40",
+            "exit_bar_time": "2024-03-18 16:50",
+            "policy_exit_bar_time": "2024-03-18 17:05",
+            "policy_hold_context": "BASE",
+            "hold_bars": 2,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": 0.81,
+            "policy_delta_net": -9.152500000000508,
+            "probe_3bar_delta_net": -9.152500000000508,
+            "pattern_score": 2.441494650836649
+          },
+          {
+            "split": "hist_2024",
+            "direction": "SHORT",
+            "entry_bar_time": "2024-05-03 17:20",
+            "exit_bar_time": "2024-05-03 17:30",
+            "policy_exit_bar_time": "2024-05-03 17:45",
+            "policy_hold_context": "BASE",
+            "hold_bars": 2,
+            "close_reason": "STATE_EXIT_MARGIN",
+            "net_profit": -1.67,
+            "policy_delta_net": -4.7460000000003495,
+            "probe_3bar_delta_net": -4.7460000000003495,
+            "pattern_score": 1.8792335297566687
+          }
+        ]
+      }
+    }
+  }
+}

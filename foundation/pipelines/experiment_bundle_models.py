@@ -8,6 +8,7 @@ from pydantic import BaseModel, ConfigDict, Field, ValidationError, field_valida
 
 
 JsonValue = Any
+TesterModel = Literal["real_ticks"]
 
 BundleStatus = Literal["draft", "ready", "running", "completed", "failed"]
 SchemaType = Literal["probs3"]
@@ -100,7 +101,7 @@ class DataSnapshot(BundleBaseModel):
 class RuntimeSnapshot(BundleBaseModel):
     symbol: str
     timeframe: str
-    tester_model: str
+    tester_model: TesterModel
     deposit: float
     leverage: int
     sizing_mode: str

@@ -1,0 +1,20 @@
+| code | trades | return_pct | profit_factor | max_dd_pct | latest_external_skip_rate | latest_argmax_class_share | latest_avg_normalized_entropy | latest_risk_context_rate | ready_row_gap | governance_reasons |
+|---|---|---|---|---|---|---|---|---|---|---|
+| 05DP | None | None | None | None | 0.263889 | None | None | None | None | None |
+| 07E | None | None | None | None | 0.263889 | None | None | None | None | None |
+| 08C | None | None | None | None | 0.263889 | None | None | None | None | None |
+| 09C | None | None | None | None | 0.263889 | None | None | None | None | None |
+| 10C | None | None | None | None | 0.263889 | None | None | None | None | None |
+| 11B | None | None | None | None | 0.263889 | None | None | None | None | None |
+| 12B | None | None | None | None | 0.263889 | None | None | None | None | None |
+| 13C | None | None | None | None | 0.263889 | None | None | None | None | None |
+| 14A | None | None | None | None | 0.263889 | None | None | None | None | None |
+| 15A | None | None | None | None | 0.263889 | None | None | None | None | None |
+| 17E | None | None | None | None | 0.263889 | None | None | None | None | None |
+| 18E | None | None | None | None | 0.263889 | None | None | None | None | None |
+| 19A | None | None | None | None | 0.263889 | None | None | None | None | None |
+| 20A | None | None | None | None | 0.263889 | None | None | None | None | None |
+| 21e18 | None | None | None | None | 0.263889 | None | None | None | None | None |
+| 21P_m2602 | None | None | None | None | 0.263889 | None | None | None | None | None |
+| 22A | None | None | None | None | 0.263889 | None | None | None | None | None |
+| 06H | None | None | None | None | 0.409722 | None | None | None | None | None |

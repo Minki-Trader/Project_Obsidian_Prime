@@ -1,0 +1,948 @@
+{
+  "generated_at_utc": "2026-04-08T12:19:19.047232+00:00",
+  "methodology": {
+    "baseline_run": "22A",
+    "comparison_runs": [
+      "22B",
+      "22C",
+      "22D",
+      "22E"
+    ],
+    "split_names": {
+      "hist_2024": "2024 historical",
+      "val_2501": "2025 validation Jan-Sep",
+      "oos_2501": "2501 OOS"
+    },
+    "position_reconstruction": "group trade ledger rows by position_identifier, then compare positions by entry_bar_time_server + direction",
+    "winner_definition": "baseline position net_profit > 0",
+    "big_winner_definition": "baseline position net_profit >= 75th percentile of positive baseline position net_profit for that split",
+    "loser_definition": "baseline position net_profit < 0",
+    "deep_loser_definition": "baseline position net_profit <= 25th percentile of negative baseline position net_profit for that split"
+  },
+  "splits": {
+    "hist_2024": {
+      "label": "2024 historical",
+      "baseline": {
+        "run_code": "22A",
+        "run_label": "baseline_time_exit",
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22A_05dp_base_hold5_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+        "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_22a_05dp_base_hist_2024_v1\\logs\\att_0001_trades.csv",
+        "headline": {
+          "net_profit": 116.41,
+          "return_pct": 23.282,
+          "trade_count": 384,
+          "win_rate": 0.5,
+          "profit_factor": 1.1333875698964158,
+          "expectancy_per_trade": 0.3031510416666667,
+          "max_dd_pct": 14.862801894547303,
+          "recovery_factor": 1.5329207268896496,
+          "extra": {
+            "final_balance": 616.41,
+            "initial_deposit": 500.0
+          }
+        },
+        "position_summary": {
+          "position_count": 384,
+          "ledger_row_count": 384,
+          "position_level_net_profit": 116.41,
+          "position_level_gross_profit": 116.41,
+          "mean_hold_bars": 5.0,
+          "partial_affected_positions": 0,
+          "break_even_positions": 0,
+          "trail_positions": 0,
+          "close_reason_breakdown": {
+            "TIME_EXIT": 384
+          }
+        }
+      },
+      "variants": {
+        "22B": {
+          "run_code": "22B",
+          "run_label": "break_even",
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22B_05dp_be50_lock10_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+          "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_22b_05dp_be50_lock10_v1_hist_2024\\logs\\att_0001_trades.csv",
+          "headline": {
+            "net_profit": 187.98,
+            "return_pct": 37.596,
+            "trade_count": 397,
+            "win_rate": 0.5566750629722922,
+            "profit_factor": 1.232542029021364,
+            "expectancy_per_trade": 0.4735012594458438,
+            "max_dd_pct": 11.528134926637417,
+            "recovery_factor": 2.91261233343663,
+            "extra": {
+              "final_balance": 687.98,
+              "initial_deposit": 500.0
+            }
+          },
+          "position_summary": {
+            "position_count": 397,
+            "ledger_row_count": 397,
+            "position_level_net_profit": 187.98,
+            "position_level_gross_profit": 187.98,
+            "mean_hold_bars": 4.7683,
+            "partial_affected_positions": 0,
+            "break_even_positions": 48,
+            "trail_positions": 0,
+            "close_reason_breakdown": {
+              "TIME_EXIT": 349,
+              "BREAK_EVEN_STOP": 48
+            }
+          },
+          "comparison_to_22A": {
+            "matched_position_count": 368,
+            "baseline_overlap_rate": 0.9583,
+            "variant_overlap_rate": 0.927,
+            "baseline_only_position_count": 16,
+            "variant_only_position_count": 29,
+            "matched_profit_delta": -52.84,
+            "baseline_only_profit": 24.89,
+            "variant_only_profit": 149.3,
+            "net_delta_vs_baseline": 71.57,
+            "improved_count": 15,
+            "worsened_count": 25,
+            "unchanged_count": 328,
+            "winner_clip_rate": 0.1366,
+            "winner_flip_to_loss_rate": 0.0,
+            "loser_mitigation_rate": 0.0757,
+            "loser_flip_to_profit_rate": 0.0757,
+            "big_winner_threshold": 7.123,
+            "big_winner_count": 46,
+            "big_winner_clip_rate": 0.1739,
+            "deep_loser_threshold": -6.135,
+            "deep_loser_count": 47,
+            "deep_loser_mitigation_rate": 0.0638,
+            "mean_matched_profit_delta": -0.1436,
+            "event_position_count": 40,
+            "event_position_share": 0.1087,
+            "event_on_baseline_winner_share": 0.65,
+            "event_on_baseline_loser_share": 0.35
+          }
+        },
+        "22C": {
+          "run_code": "22C",
+          "run_label": "trailing_stop",
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22C_05dp_trail60_dist35_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+          "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_22c_05dp_trail60_dist35_v1_hist_2024\\logs\\att_0001_trades.csv",
+          "headline": {
+            "net_profit": 79.19,
+            "return_pct": 15.838,
+            "trade_count": 410,
+            "win_rate": 0.5341463414634147,
+            "profit_factor": 1.0876170033856298,
+            "expectancy_per_trade": 0.19314634146341464,
+            "max_dd_pct": 13.05828473010529,
+            "recovery_factor": 1.1869004796163074,
+            "extra": {
+              "final_balance": 579.19,
+              "initial_deposit": 500.0
+            }
+          },
+          "position_summary": {
+            "position_count": 410,
+            "ledger_row_count": 410,
+            "position_level_net_profit": 79.19,
+            "position_level_gross_profit": 79.19,
+            "mean_hold_bars": 4.5927,
+            "partial_affected_positions": 0,
+            "break_even_positions": 0,
+            "trail_positions": 94,
+            "close_reason_breakdown": {
+              "TIME_EXIT": 316,
+              "TRAIL_STOP": 94
+            }
+          },
+          "comparison_to_22A": {
+            "matched_position_count": 354,
+            "baseline_overlap_rate": 0.9219,
+            "variant_overlap_rate": 0.8634,
+            "baseline_only_position_count": 30,
+            "variant_only_position_count": 56,
+            "matched_profit_delta": -69.88,
+            "baseline_only_profit": 35.5,
+            "variant_only_profit": 68.16,
+            "net_delta_vs_baseline": -37.22,
+            "improved_count": 31,
+            "worsened_count": 38,
+            "unchanged_count": 285,
+            "winner_clip_rate": 0.2147,
+            "winner_flip_to_loss_rate": 0.0,
+            "loser_mitigation_rate": 0.0339,
+            "loser_flip_to_profit_rate": 0.0339,
+            "big_winner_threshold": 7.123,
+            "big_winner_count": 43,
+            "big_winner_clip_rate": 0.5581,
+            "deep_loser_threshold": -6.135,
+            "deep_loser_count": 45,
+            "deep_loser_mitigation_rate": 0.0222,
+            "mean_matched_profit_delta": -0.1974,
+            "event_position_count": 69,
+            "event_position_share": 0.1949,
+            "event_on_baseline_winner_share": 0.913,
+            "event_on_baseline_loser_share": 0.087
+          }
+        },
+        "22D": {
+          "run_code": "22D",
+          "run_label": "partial_stop_loss",
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22D_05dp_psl45_half_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+          "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_22d_05dp_psl45_half_v1_hist_2024\\logs\\att_0001_trades.csv",
+          "headline": {
+            "net_profit": 70.43,
+            "return_pct": 14.086000000000002,
+            "trade_count": 543,
+            "win_rate": 0.35359116022099446,
+            "profit_factor": 1.0829593507426645,
+            "expectancy_per_trade": 0.12970534069981585,
+            "max_dd_pct": 16.747563314674913,
+            "recovery_factor": 0.823068832534767,
+            "extra": {
+              "final_balance": 570.43,
+              "initial_deposit": 500.0
+            }
+          },
+          "position_summary": {
+            "position_count": 384,
+            "ledger_row_count": 543,
+            "position_level_net_profit": 70.43,
+            "position_level_gross_profit": 70.43,
+            "mean_hold_bars": 5.0,
+            "partial_affected_positions": 159,
+            "break_even_positions": 0,
+            "trail_positions": 0,
+            "close_reason_breakdown": {
+              "TIME_EXIT": 384,
+              "PARTIAL_STOP_LOSS": 159
+            }
+          },
+          "comparison_to_22A": {
+            "matched_position_count": 384,
+            "baseline_overlap_rate": 1.0,
+            "variant_overlap_rate": 1.0,
+            "baseline_only_position_count": 0,
+            "variant_only_position_count": 0,
+            "matched_profit_delta": -45.98,
+            "baseline_only_profit": 0,
+            "variant_only_profit": 0,
+            "net_delta_vs_baseline": -45.98,
+            "improved_count": 76,
+            "worsened_count": 82,
+            "unchanged_count": 226,
+            "winner_clip_rate": 0.1354,
+            "winner_flip_to_loss_rate": 0.0781,
+            "loser_mitigation_rate": 0.3958,
+            "loser_flip_to_profit_rate": 0.0,
+            "big_winner_threshold": 7.123,
+            "big_winner_count": 48,
+            "big_winner_clip_rate": 0.1667,
+            "deep_loser_threshold": -6.135,
+            "deep_loser_count": 48,
+            "deep_loser_mitigation_rate": 1.0,
+            "mean_matched_profit_delta": -0.1197,
+            "event_position_count": 159,
+            "event_position_share": 0.4141,
+            "event_on_baseline_winner_share": 0.1635,
+            "event_on_baseline_loser_share": 0.8365
+          }
+        },
+        "22E": {
+          "run_code": "22E",
+          "run_label": "partial_take_profit",
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22E_05dp_ptp60_half_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+          "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_22e_05dp_ptp60_half_v1_hist_2024\\logs\\att_0001_trades.csv",
+          "headline": {
+            "net_profit": 67.47,
+            "return_pct": 13.494,
+            "trade_count": 494,
+            "win_rate": 0.611336032388664,
+            "profit_factor": 1.0784060800446242,
+            "expectancy_per_trade": 0.13657894736842105,
+            "max_dd_pct": 15.354954884421923,
+            "recovery_factor": 0.8600382409177815,
+            "extra": {
+              "final_balance": 567.47,
+              "initial_deposit": 500.0
+            }
+          },
+          "position_summary": {
+            "position_count": 384,
+            "ledger_row_count": 494,
+            "position_level_net_profit": 67.47,
+            "position_level_gross_profit": 67.47,
+            "mean_hold_bars": 5.0,
+            "partial_affected_positions": 110,
+            "break_even_positions": 0,
+            "trail_positions": 0,
+            "close_reason_breakdown": {
+              "TIME_EXIT": 384,
+              "PARTIAL_TAKE_PROFIT": 110
+            }
+          },
+          "comparison_to_22A": {
+            "matched_position_count": 384,
+            "baseline_overlap_rate": 1.0,
+            "variant_overlap_rate": 1.0,
+            "baseline_only_position_count": 0,
+            "variant_only_position_count": 0,
+            "matched_profit_delta": -48.94,
+            "baseline_only_profit": 0,
+            "variant_only_profit": 0,
+            "net_delta_vs_baseline": -48.94,
+            "improved_count": 49,
+            "worsened_count": 61,
+            "unchanged_count": 274,
+            "winner_clip_rate": 0.3177,
+            "winner_flip_to_loss_rate": 0.0,
+            "loser_mitigation_rate": 0.0312,
+            "loser_flip_to_profit_rate": 0.026,
+            "big_winner_threshold": 7.123,
+            "big_winner_count": 48,
+            "big_winner_clip_rate": 1.0,
+            "deep_loser_threshold": -6.135,
+            "deep_loser_count": 48,
+            "deep_loser_mitigation_rate": 0.0208,
+            "mean_matched_profit_delta": -0.1274,
+            "event_position_count": 110,
+            "event_position_share": 0.2865,
+            "event_on_baseline_winner_share": 0.9455,
+            "event_on_baseline_loser_share": 0.0545
+          }
+        }
+      }
+    },
+    "val_2501": {
+      "label": "2025 validation Jan-Sep",
+      "baseline": {
+        "run_code": "22A",
+        "run_label": "baseline_time_exit",
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22A_05dp_base_hold5_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json",
+        "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_22a_05dp_base_val_2501_v1\\logs\\att_0002_trades.csv",
+        "headline": {
+          "net_profit": 612.85,
+          "return_pct": 122.57000000000001,
+          "trade_count": 405,
+          "win_rate": 0.5358024691358024,
+          "profit_factor": 1.5552837351744633,
+          "expectancy_per_trade": 1.51320987654321,
+          "max_dd_pct": 12.603127209868777,
+          "recovery_factor": 4.173021925643466,
+          "extra": {
+            "final_balance": 1112.85,
+            "initial_deposit": 500.0
+          }
+        },
+        "position_summary": {
+          "position_count": 405,
+          "ledger_row_count": 405,
+          "position_level_net_profit": 612.85,
+          "position_level_gross_profit": 612.85,
+          "mean_hold_bars": 5.0,
+          "partial_affected_positions": 0,
+          "break_even_positions": 0,
+          "trail_positions": 0,
+          "close_reason_breakdown": {
+            "TIME_EXIT": 405
+          }
+        }
+      },
+      "variants": {
+        "22B": {
+          "run_code": "22B",
+          "run_label": "break_even",
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22B_05dp_be50_lock10_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json",
+          "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_22b_05dp_be50_lock10_v1_val_2501\\logs\\att_0002_trades.csv",
+          "headline": {
+            "net_profit": 372.11,
+            "return_pct": 74.422,
+            "trade_count": 442,
+            "win_rate": 0.6312217194570136,
+            "profit_factor": 1.365659761801816,
+            "expectancy_per_trade": 0.8418778280542987,
+            "max_dd_pct": 11.558104816531777,
+            "recovery_factor": 3.4242201159473615,
+            "extra": {
+              "final_balance": 872.11,
+              "initial_deposit": 500.0
+            }
+          },
+          "position_summary": {
+            "position_count": 442,
+            "ledger_row_count": 442,
+            "position_level_net_profit": 372.11,
+            "position_level_gross_profit": 372.11,
+            "mean_hold_bars": 4.3869,
+            "partial_affected_positions": 0,
+            "break_even_positions": 120,
+            "trail_positions": 0,
+            "close_reason_breakdown": {
+              "BREAK_EVEN_STOP": 120,
+              "TIME_EXIT": 322
+            }
+          },
+          "comparison_to_22A": {
+            "matched_position_count": 367,
+            "baseline_overlap_rate": 0.9062,
+            "variant_overlap_rate": 0.8303,
+            "baseline_only_position_count": 38,
+            "variant_only_position_count": 75,
+            "matched_profit_delta": -134.13,
+            "baseline_only_profit": 197.61,
+            "variant_only_profit": 91.0,
+            "net_delta_vs_baseline": -240.74,
+            "improved_count": 45,
+            "worsened_count": 42,
+            "unchanged_count": 280,
+            "winner_clip_rate": 0.2154,
+            "winner_flip_to_loss_rate": 0.0,
+            "loser_mitigation_rate": 0.1977,
+            "loser_flip_to_profit_rate": 0.1977,
+            "big_winner_threshold": 9.41,
+            "big_winner_count": 43,
+            "big_winner_clip_rate": 0.2326,
+            "deep_loser_threshold": -8.085,
+            "deep_loser_count": 41,
+            "deep_loser_mitigation_rate": 0.1463,
+            "mean_matched_profit_delta": -0.3655,
+            "event_position_count": 87,
+            "event_position_share": 0.2371,
+            "event_on_baseline_winner_share": 0.6092,
+            "event_on_baseline_loser_share": 0.3908
+          }
+        },
+        "22C": {
+          "run_code": "22C",
+          "run_label": "trailing_stop",
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22C_05dp_trail60_dist35_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json",
+          "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_22c_05dp_trail60_dist35_v1_val_2501\\logs\\att_0002_trades.csv",
+          "headline": {
+            "net_profit": 473.13,
+            "return_pct": 94.626,
+            "trade_count": 467,
+            "win_rate": 0.6188436830835118,
+            "profit_factor": 1.4143829317638406,
+            "expectancy_per_trade": 1.0131263383297644,
+            "max_dd_pct": 10.456977799174185,
+            "recovery_factor": 4.188844621513942,
+            "extra": {
+              "final_balance": 973.13,
+              "initial_deposit": 500.0
+            }
+          },
+          "position_summary": {
+            "position_count": 467,
+            "ledger_row_count": 467,
+            "position_level_net_profit": 473.13,
+            "position_level_gross_profit": 473.13,
+            "mean_hold_bars": 4.0193,
+            "partial_affected_positions": 0,
+            "break_even_positions": 0,
+            "trail_positions": 193,
+            "close_reason_breakdown": {
+              "TRAIL_STOP": 193,
+              "TIME_EXIT": 274
+            }
+          },
+          "comparison_to_22A": {
+            "matched_position_count": 359,
+            "baseline_overlap_rate": 0.8864,
+            "variant_overlap_rate": 0.7687,
+            "baseline_only_position_count": 46,
+            "variant_only_position_count": 108,
+            "matched_profit_delta": -177.29,
+            "baseline_only_profit": 115.0,
+            "variant_only_profit": 152.57,
+            "net_delta_vs_baseline": -139.72,
+            "improved_count": 56,
+            "worsened_count": 70,
+            "unchanged_count": 233,
+            "winner_clip_rate": 0.3608,
+            "winner_flip_to_loss_rate": 0.0,
+            "loser_mitigation_rate": 0.1273,
+            "loser_flip_to_profit_rate": 0.1273,
+            "big_winner_threshold": 9.41,
+            "big_winner_count": 47,
+            "big_winner_clip_rate": 0.7872,
+            "deep_loser_threshold": -8.085,
+            "deep_loser_count": 39,
+            "deep_loser_mitigation_rate": 0.0769,
+            "mean_matched_profit_delta": -0.4938,
+            "event_position_count": 126,
+            "event_position_share": 0.351,
+            "event_on_baseline_winner_share": 0.8333,
+            "event_on_baseline_loser_share": 0.1667
+          }
+        },
+        "22D": {
+          "run_code": "22D",
+          "run_label": "partial_stop_loss",
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22D_05dp_psl45_half_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json",
+          "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_22d_05dp_psl45_half_v1_val_2501\\logs\\att_0002_trades.csv",
+          "headline": {
+            "net_profit": 414.17,
+            "return_pct": 82.834,
+            "trade_count": 611,
+            "win_rate": 0.35515548281505727,
+            "profit_factor": 1.394395033043213,
+            "expectancy_per_trade": 0.6778559738134207,
+            "max_dd_pct": 10.417076917017837,
+            "recovery_factor": 3.9146502835538772,
+            "extra": {
+              "final_balance": 914.17,
+              "initial_deposit": 500.0
+            }
+          },
+          "position_summary": {
+            "position_count": 405,
+            "ledger_row_count": 611,
+            "position_level_net_profit": 414.17,
+            "position_level_gross_profit": 414.17,
+            "mean_hold_bars": 5.0,
+            "partial_affected_positions": 206,
+            "break_even_positions": 0,
+            "trail_positions": 0,
+            "close_reason_breakdown": {
+              "PARTIAL_STOP_LOSS": 206,
+              "TIME_EXIT": 405
+            }
+          },
+          "comparison_to_22A": {
+            "matched_position_count": 405,
+            "baseline_overlap_rate": 1.0,
+            "variant_overlap_rate": 1.0,
+            "baseline_only_position_count": 0,
+            "variant_only_position_count": 0,
+            "matched_profit_delta": -198.68,
+            "baseline_only_profit": 0,
+            "variant_only_profit": 0,
+            "net_delta_vs_baseline": -198.68,
+            "improved_count": 92,
+            "worsened_count": 114,
+            "unchanged_count": 199,
+            "winner_clip_rate": 0.2535,
+            "winner_flip_to_loss_rate": 0.1152,
+            "loser_mitigation_rate": 0.4894,
+            "loser_flip_to_profit_rate": 0.0,
+            "big_winner_threshold": 9.41,
+            "big_winner_count": 55,
+            "big_winner_clip_rate": 0.3091,
+            "deep_loser_threshold": -8.085,
+            "deep_loser_count": 47,
+            "deep_loser_mitigation_rate": 1.0,
+            "mean_matched_profit_delta": -0.4906,
+            "event_position_count": 206,
+            "event_position_share": 0.5086,
+            "event_on_baseline_winner_share": 0.267,
+            "event_on_baseline_loser_share": 0.733
+          }
+        },
+        "22E": {
+          "run_code": "22E",
+          "run_label": "partial_take_profit",
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22E_05dp_ptp60_half_0001\\mt5_attempts\\att_0002\\tester_attempt_summary.json",
+          "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_22e_05dp_ptp60_half_v1_val_2501\\logs\\att_0002_trades.csv",
+          "headline": {
+            "net_profit": 471.32,
+            "return_pct": 94.26400000000001,
+            "trade_count": 596,
+            "win_rate": 0.6845637583892618,
+            "profit_factor": 1.4530616168412958,
+            "expectancy_per_trade": 0.7908053691275168,
+            "max_dd_pct": 11.928945654068823,
+            "recovery_factor": 3.6252595954157405,
+            "extra": {
+              "final_balance": 971.32,
+              "initial_deposit": 500.0
+            }
+          },
+          "position_summary": {
+            "position_count": 405,
+            "ledger_row_count": 596,
+            "position_level_net_profit": 471.32,
+            "position_level_gross_profit": 471.32,
+            "mean_hold_bars": 5.0,
+            "partial_affected_positions": 191,
+            "break_even_positions": 0,
+            "trail_positions": 0,
+            "close_reason_breakdown": {
+              "PARTIAL_TAKE_PROFIT": 191,
+              "TIME_EXIT": 405
+            }
+          },
+          "comparison_to_22A": {
+            "matched_position_count": 405,
+            "baseline_overlap_rate": 1.0,
+            "variant_overlap_rate": 1.0,
+            "baseline_only_position_count": 0,
+            "variant_only_position_count": 0,
+            "matched_profit_delta": -141.53,
+            "baseline_only_profit": 0,
+            "variant_only_profit": 0,
+            "net_delta_vs_baseline": -141.53,
+            "improved_count": 90,
+            "worsened_count": 99,
+            "unchanged_count": 216,
+            "winner_clip_rate": 0.4562,
+            "winner_flip_to_loss_rate": 0.0,
+            "loser_mitigation_rate": 0.1436,
+            "loser_flip_to_profit_rate": 0.1064,
+            "big_winner_threshold": 9.41,
+            "big_winner_count": 55,
+            "big_winner_clip_rate": 1.0,
+            "deep_loser_threshold": -8.085,
+            "deep_loser_count": 47,
+            "deep_loser_mitigation_rate": 0.0851,
+            "mean_matched_profit_delta": -0.3495,
+            "event_position_count": 191,
+            "event_position_share": 0.4716,
+            "event_on_baseline_winner_share": 0.8586,
+            "event_on_baseline_loser_share": 0.1414
+          }
+        }
+      }
+    },
+    "oos_2501": {
+      "label": "2501 OOS",
+      "baseline": {
+        "run_code": "22A",
+        "run_label": "baseline_time_exit",
+        "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22A_05dp_base_hold5_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+        "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_22a_05dp_base_oos_2501_v1\\logs\\att_0003_trades.csv",
+        "headline": {
+          "net_profit": 342.87,
+          "return_pct": 68.574,
+          "trade_count": 275,
+          "win_rate": 0.5563636363636364,
+          "profit_factor": 1.492530238170483,
+          "expectancy_per_trade": 1.2468,
+          "max_dd_pct": 19.393561462311947,
+          "recovery_factor": 3.4452371382636664,
+          "extra": {
+            "final_balance": 842.87,
+            "initial_deposit": 500.0
+          }
+        },
+        "position_summary": {
+          "position_count": 275,
+          "ledger_row_count": 275,
+          "position_level_net_profit": 342.87,
+          "position_level_gross_profit": 342.87,
+          "mean_hold_bars": 5.0,
+          "partial_affected_positions": 0,
+          "break_even_positions": 0,
+          "trail_positions": 0,
+          "close_reason_breakdown": {
+            "TIME_EXIT": 275
+          }
+        }
+      },
+      "variants": {
+        "22B": {
+          "run_code": "22B",
+          "run_label": "break_even",
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22B_05dp_be50_lock10_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+          "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_22b_05dp_be50_lock10_v1_oos_2501\\logs\\att_0003_trades.csv",
+          "headline": {
+            "net_profit": 255.34,
+            "return_pct": 51.068000000000005,
+            "trade_count": 290,
+            "win_rate": 0.6344827586206897,
+            "profit_factor": 1.4228043449463506,
+            "expectancy_per_trade": 0.8804827586206897,
+            "max_dd_pct": 15.704780144924676,
+            "recovery_factor": 3.129166666666666,
+            "extra": {
+              "final_balance": 755.34,
+              "initial_deposit": 500.0
+            }
+          },
+          "position_summary": {
+            "position_count": 290,
+            "ledger_row_count": 290,
+            "position_level_net_profit": 255.34,
+            "position_level_gross_profit": 255.34,
+            "mean_hold_bars": 4.5138,
+            "partial_affected_positions": 0,
+            "break_even_positions": 69,
+            "trail_positions": 0,
+            "close_reason_breakdown": {
+              "TIME_EXIT": 221,
+              "BREAK_EVEN_STOP": 69
+            }
+          },
+          "comparison_to_22A": {
+            "matched_position_count": 243,
+            "baseline_overlap_rate": 0.8836,
+            "variant_overlap_rate": 0.8379,
+            "baseline_only_position_count": 32,
+            "variant_only_position_count": 47,
+            "matched_profit_delta": -115.65,
+            "baseline_only_profit": -7.07,
+            "variant_only_profit": 21.05,
+            "net_delta_vs_baseline": -87.53,
+            "improved_count": 17,
+            "worsened_count": 38,
+            "unchanged_count": 188,
+            "winner_clip_rate": 0.2754,
+            "winner_flip_to_loss_rate": 0.0,
+            "loser_mitigation_rate": 0.1524,
+            "loser_flip_to_profit_rate": 0.1524,
+            "big_winner_threshold": 9.87,
+            "big_winner_count": 34,
+            "big_winner_clip_rate": 0.2941,
+            "deep_loser_threshold": -8.2,
+            "deep_loser_count": 23,
+            "deep_loser_mitigation_rate": 0.2174,
+            "mean_matched_profit_delta": -0.4759,
+            "event_position_count": 55,
+            "event_position_share": 0.2263,
+            "event_on_baseline_winner_share": 0.7091,
+            "event_on_baseline_loser_share": 0.2909
+          }
+        },
+        "22C": {
+          "run_code": "22C",
+          "run_label": "trailing_stop",
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22C_05dp_trail60_dist35_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+          "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_22c_05dp_trail60_dist35_v1_oos_2501\\logs\\att_0003_trades.csv",
+          "headline": {
+            "net_profit": 293.04,
+            "return_pct": 58.608000000000004,
+            "trade_count": 301,
+            "win_rate": 0.6046511627906976,
+            "profit_factor": 1.418311849599589,
+            "expectancy_per_trade": 0.9735548172757476,
+            "max_dd_pct": 24.51159829705965,
+            "recovery_factor": 2.3783783783783776,
+            "extra": {
+              "final_balance": 793.04,
+              "initial_deposit": 500.0
+            }
+          },
+          "position_summary": {
+            "position_count": 301,
+            "ledger_row_count": 301,
+            "position_level_net_profit": 293.04,
+            "position_level_gross_profit": 293.04,
+            "mean_hold_bars": 4.299,
+            "partial_affected_positions": 0,
+            "break_even_positions": 0,
+            "trail_positions": 103,
+            "close_reason_breakdown": {
+              "TIME_EXIT": 198,
+              "TRAIL_STOP": 103
+            }
+          },
+          "comparison_to_22A": {
+            "matched_position_count": 240,
+            "baseline_overlap_rate": 0.8727,
+            "variant_overlap_rate": 0.7973,
+            "baseline_only_position_count": 35,
+            "variant_only_position_count": 61,
+            "matched_profit_delta": -96.48,
+            "baseline_only_profit": -48.76,
+            "variant_only_profit": -2.11,
+            "net_delta_vs_baseline": -49.83,
+            "improved_count": 27,
+            "worsened_count": 50,
+            "unchanged_count": 163,
+            "winner_clip_rate": 0.3623,
+            "winner_flip_to_loss_rate": 0.0,
+            "loser_mitigation_rate": 0.0882,
+            "loser_flip_to_profit_rate": 0.0882,
+            "big_winner_threshold": 9.87,
+            "big_winner_count": 34,
+            "big_winner_clip_rate": 0.7941,
+            "deep_loser_threshold": -8.2,
+            "deep_loser_count": 22,
+            "deep_loser_mitigation_rate": 0.1364,
+            "mean_matched_profit_delta": -0.402,
+            "event_position_count": 77,
+            "event_position_share": 0.3208,
+            "event_on_baseline_winner_share": 0.8831,
+            "event_on_baseline_loser_share": 0.1169
+          }
+        },
+        "22D": {
+          "run_code": "22D",
+          "run_label": "partial_stop_loss",
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22D_05dp_psl45_half_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+          "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_22d_05dp_psl45_half_v1_oos_2501\\logs\\att_0003_trades.csv",
+          "headline": {
+            "net_profit": 266.73,
+            "return_pct": 53.346000000000004,
+            "trade_count": 411,
+            "win_rate": 0.3722627737226277,
+            "profit_factor": 1.3934418975130543,
+            "expectancy_per_trade": 0.648978102189781,
+            "max_dd_pct": 15.21799445105034,
+            "recovery_factor": 3.473499153535616,
+            "extra": {
+              "final_balance": 766.73,
+              "initial_deposit": 500.0
+            }
+          },
+          "position_summary": {
+            "position_count": 275,
+            "ledger_row_count": 411,
+            "position_level_net_profit": 266.73,
+            "position_level_gross_profit": 266.73,
+            "mean_hold_bars": 5.0,
+            "partial_affected_positions": 136,
+            "break_even_positions": 0,
+            "trail_positions": 0,
+            "close_reason_breakdown": {
+              "PARTIAL_STOP_LOSS": 136,
+              "TIME_EXIT": 275
+            }
+          },
+          "comparison_to_22A": {
+            "matched_position_count": 275,
+            "baseline_overlap_rate": 1.0,
+            "variant_overlap_rate": 1.0,
+            "baseline_only_position_count": 0,
+            "variant_only_position_count": 0,
+            "matched_profit_delta": -76.14,
+            "baseline_only_profit": 0,
+            "variant_only_profit": 0,
+            "net_delta_vs_baseline": -76.14,
+            "improved_count": 62,
+            "worsened_count": 72,
+            "unchanged_count": 141,
+            "winner_clip_rate": 0.2353,
+            "winner_flip_to_loss_rate": 0.1503,
+            "loser_mitigation_rate": 0.5082,
+            "loser_flip_to_profit_rate": 0.0,
+            "big_winner_threshold": 9.87,
+            "big_winner_count": 39,
+            "big_winner_clip_rate": 0.2051,
+            "deep_loser_threshold": -8.2,
+            "deep_loser_count": 31,
+            "deep_loser_mitigation_rate": 1.0,
+            "mean_matched_profit_delta": -0.2769,
+            "event_position_count": 136,
+            "event_position_share": 0.4945,
+            "event_on_baseline_winner_share": 0.2647,
+            "event_on_baseline_loser_share": 0.7353
+          }
+        },
+        "22E": {
+          "run_code": "22E",
+          "run_label": "partial_take_profit",
+          "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\22_point_exit_management\\02_runs\\active\\22E_05dp_ptp60_half_0001\\mt5_attempts\\att_0003\\tester_attempt_summary.json",
+          "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_22e_05dp_ptp60_half_v1_oos_2501\\logs\\att_0003_trades.csv",
+          "headline": {
+            "net_profit": 251.66,
+            "return_pct": 50.332,
+            "trade_count": 390,
+            "win_rate": 0.6871794871794872,
+            "profit_factor": 1.3773805596377051,
+            "expectancy_per_trade": 0.6452820512820513,
+            "max_dd_pct": 19.06128550074738,
+            "recovery_factor": 2.6313258051024677,
+            "extra": {
+              "final_balance": 751.66,
+              "initial_deposit": 500.0
+            }
+          },
+          "position_summary": {
+            "position_count": 275,
+            "ledger_row_count": 390,
+            "position_level_net_profit": 251.66,
+            "position_level_gross_profit": 251.66,
+            "mean_hold_bars": 5.0,
+            "partial_affected_positions": 115,
+            "break_even_positions": 0,
+            "trail_positions": 0,
+            "close_reason_breakdown": {
+              "TIME_EXIT": 275,
+              "PARTIAL_TAKE_PROFIT": 115
+            }
+          },
+          "comparison_to_22A": {
+            "matched_position_count": 275,
+            "baseline_overlap_rate": 1.0,
+            "variant_overlap_rate": 1.0,
+            "baseline_only_position_count": 0,
+            "variant_only_position_count": 0,
+            "matched_profit_delta": -91.21,
+            "baseline_only_profit": 0,
+            "variant_only_profit": 0,
+            "net_delta_vs_baseline": -91.21,
+            "improved_count": 48,
+            "worsened_count": 67,
+            "unchanged_count": 160,
+            "winner_clip_rate": 0.4379,
+            "winner_flip_to_loss_rate": 0.0,
+            "loser_mitigation_rate": 0.0902,
+            "loser_flip_to_profit_rate": 0.0656,
+            "big_winner_threshold": 9.87,
+            "big_winner_count": 39,
+            "big_winner_clip_rate": 1.0,
+            "deep_loser_threshold": -8.2,
+            "deep_loser_count": 31,
+            "deep_loser_mitigation_rate": 0.0968,
+            "mean_matched_profit_delta": -0.3317,
+            "event_position_count": 115,
+            "event_position_share": 0.4182,
+            "event_on_baseline_winner_share": 0.9043,
+            "event_on_baseline_loser_share": 0.0957
+          }
+        }
+      }
+    }
+  },
+  "aggregate": {
+    "22B": {
+      "run_label": "break_even",
+      "mean_metrics": {
+        "net_delta_vs_baseline": -85.5667,
+        "winner_clip_rate": 0.2091,
+        "loser_mitigation_rate": 0.1419,
+        "big_winner_clip_rate": 0.2335,
+        "deep_loser_mitigation_rate": 0.1425,
+        "baseline_overlap_rate": 0.916,
+        "variant_overlap_rate": 0.8651,
+        "event_position_share": 0.1907
+      }
+    },
+    "22C": {
+      "run_label": "trailing_stop",
+      "mean_metrics": {
+        "net_delta_vs_baseline": -75.59,
+        "winner_clip_rate": 0.3126,
+        "loser_mitigation_rate": 0.0831,
+        "big_winner_clip_rate": 0.7131,
+        "deep_loser_mitigation_rate": 0.0785,
+        "baseline_overlap_rate": 0.8937,
+        "variant_overlap_rate": 0.8098,
+        "event_position_share": 0.2889
+      }
+    },
+    "22D": {
+      "run_label": "partial_stop_loss",
+      "mean_metrics": {
+        "net_delta_vs_baseline": -106.9333,
+        "winner_clip_rate": 0.2081,
+        "loser_mitigation_rate": 0.4645,
+        "big_winner_clip_rate": 0.227,
+        "deep_loser_mitigation_rate": 1.0,
+        "baseline_overlap_rate": 1.0,
+        "variant_overlap_rate": 1.0,
+        "event_position_share": 0.4724
+      }
+    },
+    "22E": {
+      "run_label": "partial_take_profit",
+      "mean_metrics": {
+        "net_delta_vs_baseline": -93.8933,
+        "winner_clip_rate": 0.4039,
+        "loser_mitigation_rate": 0.0883,
+        "big_winner_clip_rate": 1.0,
+        "deep_loser_mitigation_rate": 0.0676,
+        "baseline_overlap_rate": 1.0,
+        "variant_overlap_rate": 1.0,
+        "event_position_share": 0.3921
+      }
+    }
+  }
+}

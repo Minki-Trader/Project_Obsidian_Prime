@@ -33,6 +33,9 @@ UTC = timezone.utc
 DEFAULT_TERMINAL_PATH = Path(r"C:\Program Files\MetaTrader 5\terminal64.exe")
 CONTRACT_SKIP_PREFIXES = ("SESSION_", "EXTERNAL_TIMESTAMP_MISMATCH_")
 STARTUP_SKIP_MARKERS = ("NOT_READY", "WARMUP", "MODEL_NOT_READY")
+MT5_TESTER_MODEL_VALUES = {
+    "real_ticks": 4,
+}
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -53,6 +56,63 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--warmup-bars", type=int, default=300, help="InpWarmupBars override")
     parser.add_argument("--magic-number", type=int, default=26032901, help="EA magic number")
     parser.add_argument("--trade-deviation-points", type=int, default=100, help="EA trade deviation in points")
+    parser.add_argument("--enable-governance", action="store_true", help="Enable governance telemetry/blocking inside the EA")
+    parser.add_argument(
+        "--governance-block-new-entries",
+        action=argparse.BooleanOptionalAction,
+        default=False,
+        help="When governance is enabled, block new entries on threshold breaches (default: false)",
+    )
+    parser.add_argument("--governance-window-bars", type=int, default=144, help="Rolling governance window size in bars")
+    parser.add_argument("--governance-min-samples", type=int, default=48, help="Minimum samples before governance can alert")
+    parser.add_argument(
+        "--governance-max-operational-skip-rate",
+        type=float,
+        default=0.15,
+        help="Maximum allowed operational skip rate within the governance window",
+    )
+    parser.add_argument(
+        "--governance-max-external-skip-rate",
+        type=float,
+        default=0.05,
+        help="Maximum allowed external-symbol skip rate within the governance window",
+    )
+    parser.add_argument(
+        "--governance-max-feature-skip-rate",
+        type=float,
+        default=0.08,
+        help="Maximum allowed feature-related skip rate within the governance window",
+    )
+    parser.add_argument(
+        "--governance-max-consecutive-operational-skips",
+        type=int,
+        default=4,
+        help="Maximum allowed consecutive operational skips before alerting/blocking",
+    )
+    parser.add_argument(
+        "--governance-max-argmax-class-share",
+        type=float,
+        default=0.90,
+        help="Maximum allowed dominance of a single argmax class across ready rows",
+    )
+    parser.add_argument(
+        "--governance-max-extreme-confidence-rate",
+        type=float,
+        default=0.50,
+        help="Maximum allowed rate of extreme-confidence outputs across ready rows",
+    )
+    parser.add_argument(
+        "--governance-extreme-confidence-threshold",
+        type=float,
+        default=0.97,
+        help="Threshold used to mark an output as extreme confidence",
+    )
+    parser.add_argument(
+        "--governance-min-normalized-entropy",
+        type=float,
+        default=0.20,
+        help="Minimum allowed normalized entropy across ready rows",
+    )
     parser.add_argument(
         "--terminal-path",
         default=str(DEFAULT_TERMINAL_PATH),
@@ -196,6 +256,14 @@ def refresh_leaderboard_markdown() -> Path:
     return write_markdown_report(root=ROOT_DIR / "stages", split="validation", sort_by="return_pct")
 
 
+def resolve_tester_model_value(tester_model: str) -> int:
+    try:
+        return MT5_TESTER_MODEL_VALUES[tester_model]
+    except KeyError as exc:
+        allowed = ", ".join(sorted(MT5_TESTER_MODEL_VALUES))
+        raise ValueError(f"unsupported tester_model={tester_model!r}; expected one of: {allowed}") from exc
+
+
 def build_tester_ini_text(
     bundle: ExperimentBundle,
     *,
@@ -210,9 +278,22 @@ def build_tester_ini_text(
     report_path: Path,
     csv_log_relative_path: str,
     trade_ledger_relative_path: str,
+    governance_log_relative_path: str,
+    enable_governance: bool,
+    governance_block_new_entries: bool,
+    governance_window_bars: int,
+    governance_min_samples: int,
+    governance_max_operational_skip_rate: float,
+    governance_max_external_skip_rate: float,
+    governance_max_feature_skip_rate: float,
+    governance_max_consecutive_operational_skips: int,
+    governance_max_argmax_class_share: float,
+    governance_max_extreme_confidence_rate: float,
+    governance_extreme_confidence_threshold: float,
+    governance_min_normalized_entropy: float,
 ) -> str:
     runtime_config_relative = f"Project_Obsidian_Prime\\runtime\\{runtime_id}\\mt5_runtime_config.txt"
-    tester_model_value = 4 if bundle.runtime_snapshot.tester_model == "real_ticks" else 1
+    tester_model_value = resolve_tester_model_value(bundle.runtime_snapshot.tester_model)
     lines = [
         "[Tester]",
         r"Expert=Project_Obsidian_Prime\foundation\mt5\ObsidianPrime_Stage1_ShadowEA.ex5",
@@ -260,6 +341,21 @@ def build_tester_ini_text(
         f"InpWriteTradeLedger={'true' if enable_trading else 'false'}",
         "InpTradeLedgerUseCommonFiles=true",
         f"InpTradeLedgerPath={trade_ledger_relative_path}",
+        f"InpEnableGovernance={'true' if enable_governance else 'false'}",
+        f"InpGovernanceBlockNewEntries={'true' if governance_block_new_entries else 'false'}",
+        f"InpGovernanceWindowBars={governance_window_bars}",
+        f"InpGovernanceMinSamples={governance_min_samples}",
+        f"InpGovernanceMaxOperationalSkipRate={governance_max_operational_skip_rate}",
+        f"InpGovernanceMaxExternalSkipRate={governance_max_external_skip_rate}",
+        f"InpGovernanceMaxFeatureSkipRate={governance_max_feature_skip_rate}",
+        f"InpGovernanceMaxConsecutiveOperationalSkips={governance_max_consecutive_operational_skips}",
+        f"InpGovernanceMaxArgmaxClassShare={governance_max_argmax_class_share}",
+        f"InpGovernanceMaxExtremeConfidenceRate={governance_max_extreme_confidence_rate}",
+        f"InpGovernanceExtremeConfidenceThreshold={governance_extreme_confidence_threshold}",
+        f"InpGovernanceMinNormalizedEntropy={governance_min_normalized_entropy}",
+        f"InpWriteGovernanceLog={'true' if enable_governance else 'false'}",
+        "InpGovernanceLogUseCommonFiles=true",
+        f"InpGovernanceLogPath={governance_log_relative_path}",
         "InpVerboseLog=true",
         "",
     ]
@@ -326,6 +422,109 @@ def parse_shadow_csv(csv_path: Path) -> dict[str, object]:
         "latest_bar_time_server": rows[-1].get("bar_time_server"),
         **classified,
         "rows": rows,
+    }
+
+
+def parse_governance_csv(csv_path: Path) -> dict[str, object]:
+    if not csv_path.exists():
+        return {
+            "row_count": 0,
+            "state_counts": {},
+            "reason_counts": {},
+            "blocked_entry_count": 0,
+            "blocked_signal_count": 0,
+            "latest_state": None,
+            "latest_reason": None,
+            "latest_operational_skip_rate": None,
+            "latest_external_skip_rate": None,
+            "latest_feature_skip_rate": None,
+            "latest_max_argmax_class_share": None,
+            "latest_extreme_confidence_rate": None,
+            "latest_avg_signal_entropy_norm": None,
+            "latest_risk_overlay_rate": None,
+            "max_operational_skip_rate": None,
+            "max_external_skip_rate": None,
+            "max_feature_skip_rate": None,
+            "max_argmax_class_share": None,
+            "max_extreme_confidence_rate": None,
+            "min_avg_signal_entropy_norm": None,
+            "alert_or_block_rows": 0,
+        }
+
+    with csv_path.open("r", encoding="utf-8-sig", newline="") as handle:
+        reader = csv.DictReader(handle)
+        rows = list(reader)
+
+    if not rows:
+        return {
+            "row_count": 0,
+            "state_counts": {},
+            "reason_counts": {},
+            "blocked_entry_count": 0,
+            "blocked_signal_count": 0,
+            "latest_state": None,
+            "latest_reason": None,
+            "latest_operational_skip_rate": None,
+            "latest_external_skip_rate": None,
+            "latest_feature_skip_rate": None,
+            "latest_max_argmax_class_share": None,
+            "latest_extreme_confidence_rate": None,
+            "latest_avg_signal_entropy_norm": None,
+            "latest_risk_overlay_rate": None,
+            "max_operational_skip_rate": None,
+            "max_external_skip_rate": None,
+            "max_feature_skip_rate": None,
+            "max_argmax_class_share": None,
+            "max_extreme_confidence_rate": None,
+            "min_avg_signal_entropy_norm": None,
+            "alert_or_block_rows": 0,
+        }
+
+    state_counts = Counter((row.get("governance_state") or "").strip() for row in rows if (row.get("governance_state") or "").strip())
+    reason_counts = Counter((row.get("governance_reason") or "").strip() for row in rows if (row.get("governance_reason") or "").strip())
+    blocked_entry_count = sum(1 for row in rows if (row.get("entry_blocked_this_bar") or "").strip().lower() == "true")
+    blocked_signal_count = sum(
+        1
+        for row in rows
+        if (row.get("entry_blocked_this_bar") or "").strip().lower() == "true"
+        and (row.get("decision") or "").strip() in {"LONG", "SHORT"}
+    )
+    alert_or_block_rows = sum(
+        1 for row in rows if (row.get("governance_state") or "").strip() in {"ALERT", "BLOCKED"}
+    )
+
+    op_skip_values = [value for value in (parse_float(row.get("operational_skip_rate")) for row in rows) if value is not None]
+    external_skip_values = [value for value in (parse_float(row.get("external_skip_rate")) for row in rows) if value is not None]
+    feature_skip_values = [value for value in (parse_float(row.get("feature_skip_rate")) for row in rows) if value is not None]
+    argmax_share_values = [value for value in (parse_float(row.get("max_argmax_class_share")) for row in rows) if value is not None]
+    extreme_rate_values = [value for value in (parse_float(row.get("extreme_confidence_rate")) for row in rows) if value is not None]
+    entropy_values = [value for value in (parse_float(row.get("avg_signal_entropy_norm")) for row in rows) if value is not None]
+    overlay_values = [value for value in (parse_float(row.get("risk_overlay_rate")) for row in rows) if value is not None]
+
+    latest_row = rows[-1]
+    return {
+        "row_count": len(rows),
+        "state_counts": dict(state_counts),
+        "reason_counts": dict(reason_counts),
+        "blocked_entry_count": blocked_entry_count,
+        "blocked_signal_count": blocked_signal_count,
+        "latest_state": (latest_row.get("governance_state") or "").strip() or None,
+        "latest_reason": (latest_row.get("governance_reason") or "").strip() or None,
+        "latest_operational_skip_rate": parse_float(latest_row.get("operational_skip_rate")),
+        "latest_external_skip_rate": parse_float(latest_row.get("external_skip_rate")),
+        "latest_feature_skip_rate": parse_float(latest_row.get("feature_skip_rate")),
+        "latest_max_argmax_class_share": parse_float(latest_row.get("max_argmax_class_share")),
+        "latest_extreme_confidence_rate": parse_float(latest_row.get("extreme_confidence_rate")),
+        "latest_avg_signal_entropy_norm": parse_float(latest_row.get("avg_signal_entropy_norm")),
+        "latest_risk_overlay_rate": parse_float(latest_row.get("risk_overlay_rate")),
+        "max_operational_skip_rate": max(op_skip_values) if op_skip_values else None,
+        "max_external_skip_rate": max(external_skip_values) if external_skip_values else None,
+        "max_feature_skip_rate": max(feature_skip_values) if feature_skip_values else None,
+        "max_argmax_class_share": max(argmax_share_values) if argmax_share_values else None,
+        "max_extreme_confidence_rate": max(extreme_rate_values) if extreme_rate_values else None,
+        "min_avg_signal_entropy_norm": min(entropy_values) if entropy_values else None,
+        "max_risk_overlay_rate": max(overlay_values) if overlay_values else None,
+        "alert_or_block_rows": alert_or_block_rows,
     }
 
 
@@ -717,13 +916,23 @@ def main() -> int:
         / "logs"
         / f"{attempt_id}_trades.csv"
     ).as_posix().replace("/", "\\")
+    governance_log_relative_path = (
+        Path("Project_Obsidian_Prime")
+        / "runtime"
+        / runtime_id
+        / "logs"
+        / f"{attempt_id}_governance.csv"
+    ).as_posix().replace("/", "\\")
     csv_log_path = (common_project_root / "runtime" / runtime_id / "logs" / f"{attempt_id}_shadow.csv").resolve()
     trade_ledger_path = (common_project_root / "runtime" / runtime_id / "logs" / f"{attempt_id}_trades.csv").resolve()
+    governance_log_path = (common_project_root / "runtime" / runtime_id / "logs" / f"{attempt_id}_governance.csv").resolve()
     csv_log_path.parent.mkdir(parents=True, exist_ok=True)
     if csv_log_path.exists():
         csv_log_path.unlink()
     if trade_ledger_path.exists():
         trade_ledger_path.unlink()
+    if governance_log_path.exists():
+        governance_log_path.unlink()
 
     ini_text = build_tester_ini_text(
         bundle,
@@ -738,6 +947,19 @@ def main() -> int:
         report_path=report_path,
         csv_log_relative_path=csv_log_relative_path,
         trade_ledger_relative_path=trade_ledger_relative_path,
+        governance_log_relative_path=governance_log_relative_path,
+        enable_governance=args.enable_governance,
+        governance_block_new_entries=args.governance_block_new_entries,
+        governance_window_bars=args.governance_window_bars,
+        governance_min_samples=args.governance_min_samples,
+        governance_max_operational_skip_rate=args.governance_max_operational_skip_rate,
+        governance_max_external_skip_rate=args.governance_max_external_skip_rate,
+        governance_max_feature_skip_rate=args.governance_max_feature_skip_rate,
+        governance_max_consecutive_operational_skips=args.governance_max_consecutive_operational_skips,
+        governance_max_argmax_class_share=args.governance_max_argmax_class_share,
+        governance_max_extreme_confidence_rate=args.governance_max_extreme_confidence_rate,
+        governance_extreme_confidence_threshold=args.governance_extreme_confidence_threshold,
+        governance_min_normalized_entropy=args.governance_min_normalized_entropy,
     )
     write_text(ini_path, ini_text)
 
@@ -756,6 +978,7 @@ def main() -> int:
         )
 
         parsed = parse_shadow_csv(csv_log_path)
+        governance_metrics = parse_governance_csv(governance_log_path)
         shadow_rows = parsed.pop("rows", [])
         expected_ready_rows = expected_ready_row_count(bundle, args.split_name)
         ready_row_gap = (
@@ -786,8 +1009,10 @@ def main() -> int:
             "tester_report_path": str(report_path),
             "csv_log_path": str(csv_log_path),
             "trade_ledger_path": str(trade_ledger_path),
+            "governance_log_path": str(governance_log_path),
             "split_name": args.split_name,
             "enable_trading": args.enable_trading,
+            "enable_governance": args.enable_governance,
             "date_window": {
                 "from_date": from_date,
                 "to_date": to_date,
@@ -795,6 +1020,7 @@ def main() -> int:
             },
             "coverage_check": coverage_check,
             "metrics": parsed,
+            "governance_metrics": governance_metrics,
             "financial_metrics": financial_metrics,
         }
         summary_path.write_text(json.dumps(summary_payload, indent=2, ensure_ascii=False), encoding="utf-8")
@@ -802,6 +1028,7 @@ def main() -> int:
         ini_artifact_id = f"art_{attempt_id}_tester_ini"
         csv_artifact_id = f"art_{attempt_id}_shadow_csv"
         trade_ledger_artifact_id = f"art_{attempt_id}_trade_ledger"
+        governance_artifact_id = f"art_{attempt_id}_governance_csv"
         summary_artifact_id = f"art_{attempt_id}_attempt_summary"
         upsert_artifact(
             bundle,
@@ -834,6 +1061,18 @@ def main() -> int:
                     path=str(trade_ledger_path),
                     format="csv",
                     sha256=compute_sha256(trade_ledger_path),
+                    required=False,
+                ),
+            )
+        if governance_log_path.exists():
+            upsert_artifact(
+                bundle,
+                ArtifactRef(
+                    artifact_id=governance_artifact_id,
+                    role="mt5_governance_csv",
+                    path=str(governance_log_path),
+                    format="csv",
+                    sha256=compute_sha256(governance_log_path),
                     required=False,
                 ),
             )
@@ -885,6 +1124,14 @@ def main() -> int:
                 "attempt_id": attempt_id,
                 "csv_log_path": str(csv_log_path),
                 "trade_ledger_path": str(trade_ledger_path),
+                "governance_log_path": str(governance_log_path),
+                "governance_enabled": args.enable_governance,
+                "governance_state_counts": dict(governance_metrics["state_counts"]),
+                "governance_reason_counts": dict(governance_metrics["reason_counts"]),
+                "governance_blocked_entry_count": int(governance_metrics["blocked_entry_count"]),
+                "governance_blocked_signal_count": int(governance_metrics["blocked_signal_count"]),
+                "governance_latest_state": governance_metrics["latest_state"],
+                "governance_latest_reason": governance_metrics["latest_reason"],
             },
         )
         split_results.headline.net_profit = financial_metrics["headline"]["net_profit"]
@@ -937,7 +1184,10 @@ def main() -> int:
         bundle.results.report_refs = [
             ref
             for ref in bundle.results.report_refs
-            if not (ref.split == args.split_name and ref.role in {"mt5_shadow_csv", "mt5_trade_ledger", "mt5_attempt_summary"})
+            if not (
+                ref.split == args.split_name
+                and ref.role in {"mt5_shadow_csv", "mt5_trade_ledger", "mt5_governance_csv", "mt5_attempt_summary"}
+            )
         ]
         new_report_refs = [
             ReportReference(
@@ -962,6 +1212,15 @@ def main() -> int:
                     description=f"MT5 closed trade ledger for {attempt_id}",
                 )
             )
+        if governance_log_path.exists():
+            new_report_refs.append(
+                ReportReference(
+                    role="mt5_governance_csv",
+                    split=args.split_name,
+                    artifact_id=governance_artifact_id,
+                    description=f"MT5 governance telemetry log for {attempt_id}",
+                )
+            )
         bundle.results.report_refs.extend(new_report_refs)
         bundle.run_attempts.append(
             RunAttempt(
@@ -983,10 +1242,18 @@ def main() -> int:
                     "net_profit": financial_metrics["headline"]["net_profit"],
                     "return_pct": financial_metrics["headline"]["return_pct"],
                     "max_dd_pct": financial_metrics["risk"]["equity_dd_pct"],
+                    "governance_latest_state": governance_metrics["latest_state"],
+                    "governance_blocked_signal_count": governance_metrics["blocked_signal_count"],
                 },
                 report_artifact_ids=[
                     artifact_id
-                    for artifact_id in [csv_artifact_id, trade_ledger_artifact_id if trade_ledger_path.exists() else None, summary_artifact_id, ini_artifact_id]
+                    for artifact_id in [
+                        csv_artifact_id,
+                        trade_ledger_artifact_id if trade_ledger_path.exists() else None,
+                        governance_artifact_id if governance_log_path.exists() else None,
+                        summary_artifact_id,
+                        ini_artifact_id,
+                    ]
                     if artifact_id is not None
                 ],
             )
