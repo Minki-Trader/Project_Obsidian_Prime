@@ -9,36 +9,44 @@
 1. `AGENTS.md`
 2. `docs/context/stage_reporting_standard.md`
 3. `docs/context/regular_experiment_roadmap_20260409.md`
-4. `stages/34_outside_bar_mainline_promotion/00_spec/stage_brief.md`
-5. `stages/34_outside_bar_mainline_promotion/03_reviews/review_index.md`
-6. `stages/34_outside_bar_mainline_promotion/04_selected/selection_status.md`
-7. `stages/34_outside_bar_mainline_promotion/04_selected/runtime_handoff_status.md`
-8. `stages/33_outside_bar_state_exit_followup/00_spec/stage_brief.md`
-9. `stages/33_outside_bar_state_exit_followup/03_reviews/review_index.md`
-10. `stages/33_outside_bar_state_exit_followup/04_selected/selection_status.md`
-11. `stages/32_candle_pattern_exit_diagnostic/00_spec/stage_brief.md`
-12. `stages/32_candle_pattern_exit_diagnostic/03_reviews/review_index.md`
-13. `stages/32_candle_pattern_exit_diagnostic/04_selected/selection_status.md`
-14. `stages/31_impulse_candle_exit_diagnostic/00_spec/stage_brief.md`
-15. `stages/31_impulse_candle_exit_diagnostic/03_reviews/review_index.md`
-16. `stages/31_impulse_candle_exit_diagnostic/04_selected/selection_status.md`
-17. `stages/30_macro_mismatch_root_cause/00_spec/stage_brief.md`
-18. `stages/30_macro_mismatch_root_cause/03_reviews/review_index.md`
-19. `stages/30_macro_mismatch_root_cause/04_selected/selection_status.md`
-20. `docs/context/stage23_27_wave2_crosssplit_synthesis_20260412.md`
-21. `stages/29_fusion_long_repair/00_spec/stage_brief.md`
-22. `stages/29_fusion_long_repair/03_reviews/review_index.md`
-23. `stages/29_fusion_long_repair/04_selected/selection_status.md`
-24. `stages/28_retrain_feature_checks/00_spec/stage_brief.md`
-25. `stages/28_retrain_feature_checks/03_reviews/review_index.md`
-26. `stages/28_retrain_feature_checks/04_selected/selection_status.md`
-27. `stages/27_vol_adaptive_overlay/04_selected/selection_status.md`
-28. `stages/26_gov_adaptive_overlay/04_selected/selection_status.md`
-29. `stages/25_soft_contextual_control/04_selected/selection_status.md`
-30. `foundation/reports/governance_selected_runs_standard_20260409.md`
+4. `stages/35_candle_sidecar_simplification_check/00_spec/stage_brief.md`
+5. `stages/35_candle_sidecar_simplification_check/03_reviews/review_index.md`
+6. `stages/35_candle_sidecar_simplification_check/04_selected/selection_status.md`
+7. `stages/34_outside_bar_mainline_promotion/00_spec/stage_brief.md`
+8. `stages/34_outside_bar_mainline_promotion/03_reviews/review_index.md`
+9. `stages/34_outside_bar_mainline_promotion/04_selected/selection_status.md`
+10. `stages/34_outside_bar_mainline_promotion/04_selected/runtime_handoff_status.md`
+11. `stages/33_outside_bar_state_exit_followup/00_spec/stage_brief.md`
+12. `stages/33_outside_bar_state_exit_followup/03_reviews/review_index.md`
+13. `stages/33_outside_bar_state_exit_followup/04_selected/selection_status.md`
+14. `stages/32_candle_pattern_exit_diagnostic/00_spec/stage_brief.md`
+15. `stages/32_candle_pattern_exit_diagnostic/03_reviews/review_index.md`
+16. `stages/32_candle_pattern_exit_diagnostic/04_selected/selection_status.md`
+17. `stages/31_impulse_candle_exit_diagnostic/00_spec/stage_brief.md`
+18. `stages/31_impulse_candle_exit_diagnostic/03_reviews/review_index.md`
+19. `stages/31_impulse_candle_exit_diagnostic/04_selected/selection_status.md`
+20. `stages/30_macro_mismatch_root_cause/00_spec/stage_brief.md`
+21. `stages/30_macro_mismatch_root_cause/03_reviews/review_index.md`
+22. `stages/30_macro_mismatch_root_cause/04_selected/selection_status.md`
+23. `docs/context/stage23_27_wave2_crosssplit_synthesis_20260412.md`
+24. `stages/29_fusion_long_repair/00_spec/stage_brief.md`
+25. `stages/29_fusion_long_repair/03_reviews/review_index.md`
+26. `stages/29_fusion_long_repair/04_selected/selection_status.md`
+27. `stages/28_retrain_feature_checks/00_spec/stage_brief.md`
+28. `stages/28_retrain_feature_checks/03_reviews/review_index.md`
+29. `stages/28_retrain_feature_checks/04_selected/selection_status.md`
+30. `stages/27_vol_adaptive_overlay/04_selected/selection_status.md`
+31. `stages/26_gov_adaptive_overlay/04_selected/selection_status.md`
+32. `stages/25_soft_contextual_control/04_selected/selection_status.md`
+33. `foundation/reports/governance_selected_runs_standard_20260409.md`
 
 ## Current Decisions
 
+- Stage 35 simplification status: `wave1_completed`
+- Stage 35 verified carry: `35A_34d_refcarry_0001`
+- Stage 35 simplification candidate: `35B_34b_simpleref_0001`
+- Stage 35 simplification decision: `keep_34D_do_not_simplify_to_34B`
+- Stage 35 simplification read: `governance-only simplification preserved validation and test, but gave back too much hist_2024 edge to justify removing the candle sidecar`
 - Stage 34 mainline status: `wave1_completed`
 - Stage 34 new regular incumbent: `34D_29s_outbarlong_0001`
 - Stage 34 new regular shadow: `34B_29s_refcarry_0001`
@@ -98,6 +106,16 @@
 
 ## Why This Branch Matters
 
+- Stage 35 then asked the cleanest next-step question after the Stage 34 promotion and handoff check:
+  - can the live line be simplified back to the governance-only `34B` backbone without losing what made `34D` worth keeping
+- That Stage 35 read answered `no`:
+  - validation stayed effectively identical
+  - test stayed exactly identical
+  - `hist_2024` fell materially from `46.374` to `39.100`
+- The practical read is therefore:
+  - the candle sidecar is not cosmetic
+  - it is still earning its moving-part cost in the older window
+- That closes the most obvious `remove the sidecar entirely` simplification path and keeps `34D` as the live regular answer.
 - Stage 34 then brought the Stage 33 extra finding back into the regular alpha lane and tested it directly against the active `29N / 29S` mainline.
 - That Stage 34 read showed that the `33C` candle-sidecar survives regular-stage scrutiny:
   - `34C` improved `hist_2024` strongly while preserving the current `test` window
@@ -153,6 +171,8 @@
 
 - keep `34D` as the live regular lane; it is now the strongest balanced operating answer
 - treat the `34D` experiment bundle as the verified runtime handoff reference, not just as a stage-local winner
+- close the plain `34B` governance-only simplification path for now; Stage 35 showed that it gives back too much `hist_2024` edge
+- if simplification reopens later, require a narrower reduction than `remove the candle sidecar entirely`
 - keep `34B` as the main regular shadow because it isolates the governance-only line behind the new incumbent
 - keep `34C` as the candle-sidecar decomposition reference; it proved value but is not the preferred operating mix by itself
 - if the next regular stage opens, start from the verified `34D` bundle handoff and test simplification against `34B` first
