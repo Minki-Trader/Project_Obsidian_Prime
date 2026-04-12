@@ -1,7 +1,7 @@
 # Current Working State
 
 - updated_on: `2026-04-12`
-- active_branch: `codex/governance-stage22-ablation`
+- active_branch: `codex/stage35-34d-runtime-handoff`
 - main_base_note: `main is behind the active Stage 22 + governance line; use this note before assuming main reflects the latest decision chain`
 
 ## Read This First
@@ -12,29 +12,30 @@
 4. `stages/34_outside_bar_mainline_promotion/00_spec/stage_brief.md`
 5. `stages/34_outside_bar_mainline_promotion/03_reviews/review_index.md`
 6. `stages/34_outside_bar_mainline_promotion/04_selected/selection_status.md`
-7. `stages/33_outside_bar_state_exit_followup/00_spec/stage_brief.md`
-8. `stages/33_outside_bar_state_exit_followup/03_reviews/review_index.md`
-9. `stages/33_outside_bar_state_exit_followup/04_selected/selection_status.md`
-10. `stages/32_candle_pattern_exit_diagnostic/00_spec/stage_brief.md`
-11. `stages/32_candle_pattern_exit_diagnostic/03_reviews/review_index.md`
-12. `stages/32_candle_pattern_exit_diagnostic/04_selected/selection_status.md`
-13. `stages/31_impulse_candle_exit_diagnostic/00_spec/stage_brief.md`
-14. `stages/31_impulse_candle_exit_diagnostic/03_reviews/review_index.md`
-15. `stages/31_impulse_candle_exit_diagnostic/04_selected/selection_status.md`
-16. `stages/30_macro_mismatch_root_cause/00_spec/stage_brief.md`
-17. `stages/30_macro_mismatch_root_cause/03_reviews/review_index.md`
-18. `stages/30_macro_mismatch_root_cause/04_selected/selection_status.md`
-19. `docs/context/stage23_27_wave2_crosssplit_synthesis_20260412.md`
-20. `stages/29_fusion_long_repair/00_spec/stage_brief.md`
-21. `stages/29_fusion_long_repair/03_reviews/review_index.md`
-22. `stages/29_fusion_long_repair/04_selected/selection_status.md`
-23. `stages/28_retrain_feature_checks/00_spec/stage_brief.md`
-24. `stages/28_retrain_feature_checks/03_reviews/review_index.md`
-25. `stages/28_retrain_feature_checks/04_selected/selection_status.md`
-26. `stages/27_vol_adaptive_overlay/04_selected/selection_status.md`
-27. `stages/26_gov_adaptive_overlay/04_selected/selection_status.md`
-28. `stages/25_soft_contextual_control/04_selected/selection_status.md`
-29. `foundation/reports/governance_selected_runs_standard_20260409.md`
+7. `stages/34_outside_bar_mainline_promotion/04_selected/runtime_handoff_status.md`
+8. `stages/33_outside_bar_state_exit_followup/00_spec/stage_brief.md`
+9. `stages/33_outside_bar_state_exit_followup/03_reviews/review_index.md`
+10. `stages/33_outside_bar_state_exit_followup/04_selected/selection_status.md`
+11. `stages/32_candle_pattern_exit_diagnostic/00_spec/stage_brief.md`
+12. `stages/32_candle_pattern_exit_diagnostic/03_reviews/review_index.md`
+13. `stages/32_candle_pattern_exit_diagnostic/04_selected/selection_status.md`
+14. `stages/31_impulse_candle_exit_diagnostic/00_spec/stage_brief.md`
+15. `stages/31_impulse_candle_exit_diagnostic/03_reviews/review_index.md`
+16. `stages/31_impulse_candle_exit_diagnostic/04_selected/selection_status.md`
+17. `stages/30_macro_mismatch_root_cause/00_spec/stage_brief.md`
+18. `stages/30_macro_mismatch_root_cause/03_reviews/review_index.md`
+19. `stages/30_macro_mismatch_root_cause/04_selected/selection_status.md`
+20. `docs/context/stage23_27_wave2_crosssplit_synthesis_20260412.md`
+21. `stages/29_fusion_long_repair/00_spec/stage_brief.md`
+22. `stages/29_fusion_long_repair/03_reviews/review_index.md`
+23. `stages/29_fusion_long_repair/04_selected/selection_status.md`
+24. `stages/28_retrain_feature_checks/00_spec/stage_brief.md`
+25. `stages/28_retrain_feature_checks/03_reviews/review_index.md`
+26. `stages/28_retrain_feature_checks/04_selected/selection_status.md`
+27. `stages/27_vol_adaptive_overlay/04_selected/selection_status.md`
+28. `stages/26_gov_adaptive_overlay/04_selected/selection_status.md`
+29. `stages/25_soft_contextual_control/04_selected/selection_status.md`
+30. `foundation/reports/governance_selected_runs_standard_20260409.md`
 
 ## Current Decisions
 
@@ -44,6 +45,9 @@
 - Stage 34 decomposition reference: `34C_29n_outbarlong_0001`
 - Stage 34 mainline decision: `promote_34D_over_29N_and_29S`
 - Stage 34 promotion read: `29S governance carry plus long-only outside-bar suppression is the first clean regular-stage upgrade beyond 29N`
+- Stage 34 handoff status: `bundle_runtime_verified`
+- Stage 34 handoff runtime id: `exp_34d_29s_outbarlong_v1_handoff`
+- Stage 34 handoff verification read: `fresh bundle-driven validation / test / hist_2024 reruns matched att_0001 / att_0002 / att_0003 exactly; the known test ready-row gap remains 35`
 - Stage 33 follow-up status: `wave1_completed`
 - Stage 33 carry check: `33A_29n_refcarry_0001`
 - Stage 33 best new candidate: `33C_29n_outbar_long_0001`
@@ -103,6 +107,10 @@
   - versus `29N`, it improved `validation`, `test`, and `hist_2024`
   - versus `29S`, it held the same current-window shape while materially improving `hist_2024`
 - That makes `34D` the first regular-stage promotion built from a formerly extra-only candle-shape idea.
+- This branch then verified that the selected `34D` bundle survives the shared handoff path:
+  - compile into a fresh Common Files runtime package
+  - rerun through the shared bundle-driven tester path
+  - reproduce the existing `validation / test / hist_2024` metrics exactly
 - Stage 33 then converted the Stage 32 candle-shape diagnosis into a real MT5 runtime follow-up on top of `29N`.
 - That Stage 33 read first reran a direct carry clone (`33A`) and matched `29N` exactly, which confirmed the EA-side outside-bar suppressor path did not create a hidden regression.
 - The same Stage 33 read then showed that targeted `outside adverse bar -> suppress STATE_EXIT_MARGIN` logic does have runtime value:
@@ -144,8 +152,10 @@
 ## Current Follow-Up Bias
 
 - keep `34D` as the live regular lane; it is now the strongest balanced operating answer
+- treat the `34D` experiment bundle as the verified runtime handoff reference, not just as a stage-local winner
 - keep `34B` as the main regular shadow because it isolates the governance-only line behind the new incumbent
 - keep `34C` as the candle-sidecar decomposition reference; it proved value but is not the preferred operating mix by itself
+- if the next regular stage opens, start from the verified `34D` bundle handoff and test simplification against `34B` first
 - if the outside-bar topic reopens inside the regular lane, keep it long-only first
 - if a simplification pass is needed later, compare `34D` against `34B` before removing the candle-sidecar
 - if the outside-bar topic reopens, start from `33C` long-only without the ATR floor
