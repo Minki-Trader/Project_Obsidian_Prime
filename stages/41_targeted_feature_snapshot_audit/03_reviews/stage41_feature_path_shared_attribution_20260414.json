@@ -1,0 +1,2982 @@
+{
+  "reviewed_on_utc": "2026-04-14T11:17:27.821980+00:00",
+  "pair_summaries": [
+    {
+      "label": "batch_a",
+      "row_count": 72,
+      "decision_diff_count": 22,
+      "trade_action_diff_count": 38,
+      "start_bar_time_server": "2026.03.02 16:35:00",
+      "end_bar_time_server": "2026.03.09 20:30:00"
+    },
+    {
+      "label": "batch_b",
+      "row_count": 49,
+      "decision_diff_count": 10,
+      "trade_action_diff_count": 18,
+      "start_bar_time_server": "2026.03.12 18:40:00",
+      "end_bar_time_server": "2026.04.07 20:50:00"
+    }
+  ],
+  "snapshot_row_count": 121,
+  "decision_diff_count": 32,
+  "decision_reason_diff_count": 57,
+  "trade_action_diff_count": 56,
+  "feature_checksum_diff_count": 121,
+  "decision_pair_counts": [
+    {
+      "builtin": "NO_TRADE",
+      "contract": "NO_TRADE",
+      "count": 60
+    },
+    {
+      "builtin": "LONG",
+      "contract": "LONG",
+      "count": 25
+    },
+    {
+      "builtin": "LONG",
+      "contract": "NO_TRADE",
+      "count": 15
+    },
+    {
+      "builtin": "SHORT",
+      "contract": "NO_TRADE",
+      "count": 11
+    },
+    {
+      "builtin": "NO_TRADE",
+      "contract": "LONG",
+      "count": 5
+    },
+    {
+      "builtin": "SHORT",
+      "contract": "SHORT",
+      "count": 4
+    },
+    {
+      "builtin": "NO_TRADE",
+      "contract": "SHORT",
+      "count": 1
+    }
+  ],
+  "decision_transition_counts": [
+    {
+      "transition": "same",
+      "count": 89
+    },
+    {
+      "transition": "long_to_no_trade",
+      "count": 15
+    },
+    {
+      "transition": "short_to_no_trade",
+      "count": 11
+    },
+    {
+      "transition": "no_trade_to_long",
+      "count": 5
+    },
+    {
+      "transition": "no_trade_to_short",
+      "count": 1
+    }
+  ],
+  "trade_action_pair_counts": [
+    {
+      "builtin": "NO_ENTRY_SIGNAL",
+      "contract": "NO_ENTRY_SIGNAL",
+      "count": 49
+    },
+    {
+      "builtin": "POSITION_ALREADY_OPEN",
+      "contract": "NO_ENTRY_SIGNAL",
+      "count": 14
+    },
+    {
+      "builtin": "POSITION_ALREADY_OPEN",
+      "contract": "POSITION_ALREADY_OPEN",
+      "count": 11
+    },
+    {
+      "builtin": "NO_ENTRY_SIGNAL",
+      "contract": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+      "count": 6
+    },
+    {
+      "builtin": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+      "contract": "NO_ENTRY_SIGNAL",
+      "count": 5
+    },
+    {
+      "builtin": "ENTRY_BLOCKED_AFTER_EXIT",
+      "contract": "POSITION_ALREADY_OPEN",
+      "count": 3
+    },
+    {
+      "builtin": "NO_ENTRY_SIGNAL",
+      "contract": "POSITION_ALREADY_OPEN",
+      "count": 2
+    },
+    {
+      "builtin": "POSITION_ALREADY_OPEN",
+      "contract": "ENTRY_BLOCKED_AFTER_EXIT",
+      "count": 2
+    },
+    {
+      "builtin": "ENTRY_BLOCKED_AFTER_EXIT",
+      "contract": "NO_ENTRY_SIGNAL",
+      "count": 2
+    },
+    {
+      "builtin": "ENTRY_BUY_OK_VOL_0.1100_STOP_24747.81000_RISK_7.07_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "contract": "ENTRY_BUY_OK_VOL_0.1100_STOP_24747.81000_RISK_7.07_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "count": 1
+    },
+    {
+      "builtin": "NO_ENTRY_SIGNAL",
+      "contract": "ENTRY_BUY_OK_VOL_0.0800_STOP_24774.17000_RISK_7.31_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "count": 1
+    },
+    {
+      "builtin": "NO_ENTRY_SIGNAL",
+      "contract": "ENTRY_BLOCKED_AFTER_EXIT",
+      "count": 1
+    },
+    {
+      "builtin": "ENTRY_SELL_OK_VOL_0.0600_STOP_24631.47000_RISK_8.99_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_2.0000",
+      "contract": "NO_ENTRY_SIGNAL",
+      "count": 1
+    },
+    {
+      "builtin": "ENTRY_BLOCKED_AFTER_EXIT",
+      "contract": "ENTRY_SELL_OK_VOL_0.0500_STOP_24593.81000_RISK_8.67_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_2.0000",
+      "count": 1
+    },
+    {
+      "builtin": "ENTRY_SELL_OK_VOL_0.0500_STOP_24564.42000_RISK_8.36_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_2.0000",
+      "contract": "NO_ENTRY_SIGNAL",
+      "count": 1
+    },
+    {
+      "builtin": "ENTRY_BUY_OK_VOL_0.1100_STOP_24544.35000_RISK_9.23_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "contract": "NO_ENTRY_SIGNAL",
+      "count": 1
+    },
+    {
+      "builtin": "POSITION_ALREADY_OPEN",
+      "contract": "ENTRY_BUY_OK_VOL_0.1100_STOP_24586.24000_RISK_9.38_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "count": 1
+    },
+    {
+      "builtin": "ENTRY_BUY_OK_VOL_0.1300_STOP_24564.78000_RISK_9.40_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "contract": "NO_ENTRY_SIGNAL",
+      "count": 1
+    },
+    {
+      "builtin": "NO_ENTRY_SIGNAL",
+      "contract": "ENTRY_BUY_OK_VOL_0.0600_STOP_24462.95000_RISK_6.52_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "count": 1
+    },
+    {
+      "builtin": "ENTRY_BUY_OK_VOL_0.0700_STOP_24469.59000_RISK_6.82_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "contract": "POSITION_ALREADY_OPEN",
+      "count": 1
+    },
+    {
+      "builtin": "POSITION_ALREADY_OPEN",
+      "contract": "ENTRY_BUY_OK_VOL_0.0800_STOP_24534.46000_RISK_6.31_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "count": 1
+    },
+    {
+      "builtin": "ENTRY_BUY_OK_VOL_0.1100_STOP_24534.41000_RISK_6.92_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "contract": "POSITION_ALREADY_OPEN",
+      "count": 1
+    },
+    {
+      "builtin": "POSITION_ALREADY_OPEN",
+      "contract": "ENTRY_BUY_OK_VOL_0.1300_STOP_24589.65000_RISK_7.02_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "count": 1
+    },
+    {
+      "builtin": "ENTRY_BUY_OK_VOL_0.1300_STOP_24603.05000_RISK_6.68_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "contract": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+      "count": 1
+    },
+    {
+      "builtin": "ENTRY_BUY_OK_VOL_0.1000_STOP_24654.38000_RISK_4.93_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "contract": "NO_ENTRY_SIGNAL",
+      "count": 1
+    },
+    {
+      "builtin": "ENTRY_BUY_OK_VOL_0.1000_STOP_24589.56000_RISK_4.91_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "contract": "NO_ENTRY_SIGNAL",
+      "count": 1
+    },
+    {
+      "builtin": "ENTRY_BUY_OK_VOL_0.1300_STOP_24623.08000_RISK_9.28_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "contract": "ENTRY_BUY_OK_VOL_0.1300_STOP_24623.08000_RISK_9.28_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "count": 1
+    },
+    {
+      "builtin": "ENTRY_BUY_OK_VOL_0.1200_STOP_24523.62000_RISK_9.05_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "contract": "ENTRY_BUY_OK_VOL_0.1200_STOP_24523.62000_RISK_9.05_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "count": 1
+    },
+    {
+      "builtin": "ENTRY_BUY_OK_VOL_0.0800_STOP_24595.12000_RISK_6.27_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "contract": "ENTRY_BUY_OK_VOL_0.0800_STOP_24595.12000_RISK_6.27_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "count": 1
+    },
+    {
+      "builtin": "ENTRY_SELL_OK_VOL_0.1300_STOP_23897.85000_RISK_9.00_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_2.0000",
+      "contract": "ENTRY_SELL_OK_VOL_0.1300_STOP_23897.85000_RISK_9.00_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_2.0000",
+      "count": 1
+    },
+    {
+      "builtin": "POSITION_ALREADY_OPEN",
+      "contract": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+      "count": 1
+    },
+    {
+      "builtin": "NO_ENTRY_SIGNAL",
+      "contract": "ENTRY_SELL_OK_VOL_0.1300_STOP_23872.92000_RISK_9.11_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_2.0000",
+      "count": 1
+    },
+    {
+      "builtin": "ENTRY_BUY_OK_VOL_0.1200_STOP_23962.58000_RISK_8.50_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "contract": "ENTRY_BUY_OK_VOL_0.1100_STOP_23962.58000_RISK_7.80_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "count": 1
+    },
+    {
+      "builtin": "POSITION_ALREADY_OPEN",
+      "contract": "ENTRY_BUY_OK_VOL_0.1100_STOP_23982.33000_RISK_7.69_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "count": 1
+    },
+    {
+      "builtin": "ENTRY_BUY_OK_VOL_0.0900_STOP_23998.08000_RISK_5.46_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "contract": "NO_ENTRY_SIGNAL",
+      "count": 1
+    },
+    {
+      "builtin": "ENTRY_BUY_OK_VOL_0.1300_STOP_24070.63000_RISK_5.99_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "contract": "NO_ENTRY_SIGNAL",
+      "count": 1
+    }
+  ],
+  "probability_delta_summaries": {
+    "p_short_delta_contract_minus_builtin": {
+      "count": 121,
+      "mean": -0.014106297520661157,
+      "median": -0.016225000000000045,
+      "p10": -0.03325100000000003,
+      "p90": 0.00529099999999999,
+      "min": -0.040017000000000025,
+      "max": 0.019510000000000027
+    },
+    "p_flat_delta_contract_minus_builtin": {
+      "count": 121,
+      "mean": 0.03730526446280992,
+      "median": 0.048461000000000004,
+      "p10": -0.03570300000000001,
+      "p90": 0.08814,
+      "min": -0.07185200000000003,
+      "max": 0.10450999999999999
+    },
+    "p_long_delta_contract_minus_builtin": {
+      "count": 121,
+      "mean": -0.02319893388429753,
+      "median": -0.032366000000000006,
+      "p10": -0.05913600000000002,
+      "p90": 0.028932000000000013,
+      "min": -0.065187,
+      "max": 0.05234099999999997
+    }
+  },
+  "top_feature_diffs": [
+    {
+      "feature": "atr_14",
+      "count": 121,
+      "mean_abs_diff": 5.238909292559503,
+      "p90_abs_diff": 11.579924702099994,
+      "max_abs_diff": 21.265420670300003,
+      "mean_signed_delta_contract_minus_builtin": -0.9956897841363633
+    },
+    {
+      "feature": "atr_50",
+      "count": 121,
+      "mean_abs_diff": 5.626953228508264,
+      "p90_abs_diff": 8.7785493971,
+      "max_abs_diff": 12.523219434400005,
+      "mean_signed_delta_contract_minus_builtin": -5.566246226116528
+    },
+    {
+      "feature": "stoch_kd_diff",
+      "count": 121,
+      "mean_abs_diff": 0.389416140131405,
+      "p90_abs_diff": 0.8825648444,
+      "max_abs_diff": 5.606088873299999,
+      "mean_signed_delta_contract_minus_builtin": 0.011039208956198343
+    },
+    {
+      "feature": "bb_squeeze",
+      "count": 121,
+      "mean_abs_diff": 0.01652892561983471,
+      "p90_abs_diff": 0.0,
+      "max_abs_diff": 1.0,
+      "mean_signed_delta_contract_minus_builtin": 0.01652892561983471
+    },
+    {
+      "feature": "atr_14_over_atr_50",
+      "count": 121,
+      "mean_abs_diff": 0.20069812609008264,
+      "p90_abs_diff": 0.2808092737000001,
+      "max_abs_diff": 0.3762035949,
+      "mean_signed_delta_contract_minus_builtin": 0.10623070451487601
+    },
+    {
+      "feature": "return_1_over_atr_14",
+      "count": 121,
+      "mean_abs_diff": 0.04110298798016528,
+      "p90_abs_diff": 0.1096632709,
+      "max_abs_diff": 0.25811814590000015,
+      "mean_signed_delta_contract_minus_builtin": -0.0007571969355371992
+    },
+    {
+      "feature": "aapl_xnas_log_return_1",
+      "count": 121,
+      "mean_abs_diff": 0.0,
+      "p90_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "mean_signed_delta_contract_minus_builtin": 0.0
+    },
+    {
+      "feature": "amzn_xnas_log_return_1",
+      "count": 121,
+      "mean_abs_diff": 0.0,
+      "p90_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "mean_signed_delta_contract_minus_builtin": 0.0
+    },
+    {
+      "feature": "bb_position_20",
+      "count": 121,
+      "mean_abs_diff": 0.0,
+      "p90_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "mean_signed_delta_contract_minus_builtin": 0.0
+    },
+    {
+      "feature": "bollinger_width_20",
+      "count": 121,
+      "mean_abs_diff": 0.0,
+      "p90_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "mean_signed_delta_contract_minus_builtin": 0.0
+    },
+    {
+      "feature": "close_ema20_ratio",
+      "count": 121,
+      "mean_abs_diff": 0.0,
+      "p90_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "mean_signed_delta_contract_minus_builtin": 0.0
+    },
+    {
+      "feature": "close_ema50_ratio",
+      "count": 121,
+      "mean_abs_diff": 0.0,
+      "p90_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "mean_signed_delta_contract_minus_builtin": 0.0
+    },
+    {
+      "feature": "close_open_ratio",
+      "count": 121,
+      "mean_abs_diff": 0.0,
+      "p90_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "mean_signed_delta_contract_minus_builtin": 0.0
+    },
+    {
+      "feature": "close_prev_close_ratio",
+      "count": 121,
+      "mean_abs_diff": 0.0,
+      "p90_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "mean_signed_delta_contract_minus_builtin": 0.0
+    },
+    {
+      "feature": "ema20_ema50_diff",
+      "count": 121,
+      "mean_abs_diff": 0.0,
+      "p90_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "mean_signed_delta_contract_minus_builtin": 0.0
+    },
+    {
+      "feature": "ema20_ema50_spread_zscore_50",
+      "count": 121,
+      "mean_abs_diff": 0.0,
+      "p90_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "mean_signed_delta_contract_minus_builtin": 0.0
+    },
+    {
+      "feature": "ema50_ema200_diff",
+      "count": 121,
+      "mean_abs_diff": 0.0,
+      "p90_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "mean_signed_delta_contract_minus_builtin": 0.0
+    },
+    {
+      "feature": "ema9_ema20_diff",
+      "count": 121,
+      "mean_abs_diff": 0.0,
+      "p90_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "mean_signed_delta_contract_minus_builtin": 0.0
+    },
+    {
+      "feature": "gap_percent",
+      "count": 121,
+      "mean_abs_diff": 0.0,
+      "p90_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "mean_signed_delta_contract_minus_builtin": 0.0
+    },
+    {
+      "feature": "historical_vol_20",
+      "count": 121,
+      "mean_abs_diff": 0.0,
+      "p90_abs_diff": 0.0,
+      "max_abs_diff": 0.0,
+      "mean_signed_delta_contract_minus_builtin": 0.0
+    }
+  ],
+  "top_rows_by_feature_diff": [
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 17:40:00",
+      "feature_checksum_builtin": 17460862395674538644,
+      "feature_checksum_contract": 12027261906483904570,
+      "decision_builtin": "SHORT",
+      "decision_contract": "SHORT",
+      "decision_reason_builtin": "DUAL_SIGNAL_SHORT_WINS",
+      "decision_reason_contract": "DUAL_SIGNAL_SHORT_WINS",
+      "trade_action_reason_builtin": "ENTRY_BLOCKED_AFTER_EXIT",
+      "trade_action_reason_contract": "ENTRY_SELL_OK_VOL_0.0500_STOP_24593.81000_RISK_8.67_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_2.0000",
+      "shadow_trade_action_reason_builtin": "ENTRY_BLOCKED_AFTER_EXIT",
+      "shadow_trade_action_reason_contract": "ENTRY_SELL_OK_VOL_0.0500_STOP_24593.81000_RISK_8.67_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_2.0000",
+      "p_short_delta_contract_minus_builtin": 0.002929999999999988,
+      "p_flat_delta_contract_minus_builtin": -0.05026699999999999,
+      "p_long_delta_contract_minus_builtin": 0.04733699999999996,
+      "decision_transition": "same",
+      "max_feature_abs_diff": 21.265420670300003,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 21.265420670300003,
+          "signed_delta_contract_minus_builtin": -21.265420670300003,
+          "builtin_value": 86.6821428571,
+          "contract_value": 65.4167221868
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 1.9539702113000033,
+          "signed_delta_contract_minus_builtin": -1.9539702113000033,
+          "builtin_value": 49.359,
+          "contract_value": 47.4050297887
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.3762035949,
+          "signed_delta_contract_minus_builtin": -0.3762035949,
+          "builtin_value": 1.7561567872,
+          "contract_value": 1.3799531923
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.13144572529999998,
+          "signed_delta_contract_minus_builtin": 0.13144572529999998,
+          "builtin_value": 0.4043535572,
+          "contract_value": 0.5357992825
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.030599930099999284,
+          "signed_delta_contract_minus_builtin": 0.030599930099999284,
+          "builtin_value": 6.7970159802,
+          "contract_value": 6.8276159103
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 17:35:00",
+      "feature_checksum_builtin": 114878416342602749,
+      "feature_checksum_contract": 13326243113524486756,
+      "decision_builtin": "SHORT",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "DUAL_SIGNAL_SHORT_WINS",
+      "decision_reason_contract": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.004127999999999965,
+      "p_flat_delta_contract_minus_builtin": -0.03570300000000001,
+      "p_long_delta_contract_minus_builtin": 0.039831000000000005,
+      "decision_transition": "short_to_no_trade",
+      "max_feature_abs_diff": 18.564409073600004,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 18.564409073600004,
+          "signed_delta_contract_minus_builtin": -18.564409073600004,
+          "builtin_value": 83.8785714286,
+          "contract_value": 65.314162355
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 1.7587655214999955,
+          "signed_delta_contract_minus_builtin": -1.7587655214999955,
+          "builtin_value": 48.769,
+          "contract_value": 47.0102344785
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.35808511389999986,
+          "signed_delta_contract_minus_builtin": -0.35808511389999986,
+          "builtin_value": 1.2785570183,
+          "contract_value": 0.9204719044
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.33055526560000015,
+          "signed_delta_contract_minus_builtin": -0.33055526560000015,
+          "builtin_value": 1.7199157544,
+          "contract_value": 1.3893604888
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.15532070789999997,
+          "signed_delta_contract_minus_builtin": 0.15532070789999997,
+          "builtin_value": 0.546456496,
+          "contract_value": 0.7017772039
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 17:45:00",
+      "feature_checksum_builtin": 8751358790152959311,
+      "feature_checksum_contract": 8280706530724126494,
+      "decision_builtin": "SHORT",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "DUAL_SIGNAL_SHORT_WINS",
+      "decision_reason_contract": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "trade_action_reason_builtin": "ENTRY_SELL_OK_VOL_0.0500_STOP_24564.42000_RISK_8.36_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_2.0000",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "ENTRY_SELL_OK_VOL_0.0500_STOP_24564.42000_RISK_8.36_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_2.0000",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": 0.012260999999999966,
+      "p_flat_delta_contract_minus_builtin": -0.051398,
+      "p_long_delta_contract_minus_builtin": 0.039138000000000006,
+      "decision_transition": "short_to_no_trade",
+      "max_feature_abs_diff": 18.027329397999992,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 18.027329397999992,
+          "signed_delta_contract_minus_builtin": -18.027329397999992,
+          "builtin_value": 83.6107142857,
+          "contract_value": 65.5833848877
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 2.372070808299995,
+          "signed_delta_contract_minus_builtin": -2.372070808299995,
+          "builtin_value": 50.184,
+          "contract_value": 47.8119291917
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.2943880858000001,
+          "signed_delta_contract_minus_builtin": -0.2943880858000001,
+          "builtin_value": 1.6660830999,
+          "contract_value": 1.3716950141
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.07308189319999997,
+          "signed_delta_contract_minus_builtin": -0.07308189319999997,
+          "builtin_value": -0.2658717673,
+          "contract_value": -0.3389536605
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.039867898899999865,
+          "signed_delta_contract_minus_builtin": 0.039867898899999865,
+          "builtin_value": 6.8138191427,
+          "contract_value": 6.8536870416
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.02 17:30:00",
+      "feature_checksum_builtin": 15982092486564552470,
+      "feature_checksum_contract": 8425560256657474761,
+      "decision_builtin": "NO_TRADE",
+      "decision_contract": "LONG",
+      "decision_reason_builtin": "LONG_MARGIN_FAIL",
+      "decision_reason_contract": "DUAL_SIGNAL_LONG_WINS",
+      "trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "trade_action_reason_contract": "ENTRY_BLOCKED_AFTER_EXIT",
+      "shadow_trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_contract": "ENTRY_BLOCKED_AFTER_EXIT",
+      "p_short_delta_contract_minus_builtin": 0.01194099999999998,
+      "p_flat_delta_contract_minus_builtin": -0.05423700000000001,
+      "p_long_delta_contract_minus_builtin": 0.042296,
+      "decision_transition": "no_trade_to_long",
+      "max_feature_abs_diff": 17.8960367612,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 17.8960367612,
+          "signed_delta_contract_minus_builtin": -17.8960367612,
+          "builtin_value": 73.9321428571,
+          "contract_value": 56.0361060959
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 2.0812571278000007,
+          "signed_delta_contract_minus_builtin": -2.0812571278000007,
+          "builtin_value": 41.616,
+          "contract_value": 39.5347428722
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.3591427813999999,
+          "signed_delta_contract_minus_builtin": -0.3591427813999999,
+          "builtin_value": 1.7765316911,
+          "contract_value": 1.4173889097
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.13589897600000006,
+          "signed_delta_contract_minus_builtin": -0.13589897600000006,
+          "builtin_value": -0.4255271455,
+          "contract_value": -0.5614261215
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.004053268600000326,
+          "signed_delta_contract_minus_builtin": -0.004053268600000326,
+          "builtin_value": -3.6108947752,
+          "contract_value": -3.6149480438
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 17:30:00",
+      "feature_checksum_builtin": 12384152394569874726,
+      "feature_checksum_contract": 3012402839988654590,
+      "decision_builtin": "SHORT",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "DUAL_SIGNAL_SHORT_WINS",
+      "decision_reason_contract": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": 0.01893600000000001,
+      "p_flat_delta_contract_minus_builtin": -0.05670399999999998,
+      "p_long_delta_contract_minus_builtin": 0.037769,
+      "decision_transition": "short_to_no_trade",
+      "max_feature_abs_diff": 17.5333746067,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 17.5333746067,
+          "signed_delta_contract_minus_builtin": -17.5333746067,
+          "builtin_value": 81.4678571429,
+          "contract_value": 63.9344825362
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 2.748352571799998,
+          "signed_delta_contract_minus_builtin": -2.748352571799998,
+          "builtin_value": 49.019,
+          "contract_value": 46.2706474282
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.4409659581000005,
+          "signed_delta_contract_minus_builtin": -0.4409659581000005,
+          "builtin_value": -5.8882685987,
+          "contract_value": -6.3292345568
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.2802145601000001,
+          "signed_delta_contract_minus_builtin": -0.2802145601000001,
+          "builtin_value": 1.6619648941,
+          "contract_value": 1.381750334
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.13023416529999993,
+          "signed_delta_contract_minus_builtin": -0.13023416529999993,
+          "builtin_value": -0.4748916939,
+          "contract_value": -0.6051258592
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 17:25:00",
+      "feature_checksum_builtin": 17834313726846816647,
+      "feature_checksum_contract": 12327577051667416878,
+      "decision_builtin": "SHORT",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "DUAL_SIGNAL_SHORT_WINS",
+      "decision_reason_contract": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": 0.014440999999999982,
+      "p_flat_delta_contract_minus_builtin": -0.047153,
+      "p_long_delta_contract_minus_builtin": 0.03271199999999996,
+      "decision_transition": "short_to_no_trade",
+      "max_feature_abs_diff": 15.424403422600008,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 15.424403422600008,
+          "signed_delta_contract_minus_builtin": -15.424403422600008,
+          "builtin_value": 80.45,
+          "contract_value": 65.0255965774
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 2.8493597658999974,
+          "signed_delta_contract_minus_builtin": -2.8493597658999974,
+          "builtin_value": 49.049,
+          "contract_value": 46.1996402341
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.3477421464999999,
+          "signed_delta_contract_minus_builtin": 0.3477421464999999,
+          "builtin_value": -5.3433164139,
+          "contract_value": -4.9955742674
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.23270513250000002,
+          "signed_delta_contract_minus_builtin": -0.23270513250000002,
+          "builtin_value": 1.6401965382,
+          "contract_value": 1.4074914057
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.1096632709,
+          "signed_delta_contract_minus_builtin": -0.1096632709,
+          "builtin_value": -0.4623141278,
+          "contract_value": -0.5719773987
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.02 17:25:00",
+      "feature_checksum_builtin": 3194526431319385070,
+      "feature_checksum_contract": 16155019493697030701,
+      "decision_builtin": "NO_TRADE",
+      "decision_contract": "LONG",
+      "decision_reason_builtin": "LONG_MARGIN_FAIL",
+      "decision_reason_contract": "LONG_FILTERS_OK",
+      "trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "trade_action_reason_contract": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_contract": "POSITION_ALREADY_OPEN",
+      "p_short_delta_contract_minus_builtin": 0.007461999999999969,
+      "p_flat_delta_contract_minus_builtin": -0.047099,
+      "p_long_delta_contract_minus_builtin": 0.03963699999999998,
+      "decision_transition": "no_trade_to_long",
+      "max_feature_abs_diff": 15.221556072599995,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 15.221556072599995,
+          "signed_delta_contract_minus_builtin": -15.221556072599995,
+          "builtin_value": 70.1642857143,
+          "contract_value": 54.9427296417
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 1.7830991101000038,
+          "signed_delta_contract_minus_builtin": -1.7830991101000038,
+          "builtin_value": 40.691,
+          "contract_value": 38.9079008899
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.31219683369999984,
+          "signed_delta_contract_minus_builtin": -0.31219683369999984,
+          "builtin_value": 1.7243195231,
+          "contract_value": 1.4121226894
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.005923114699999999,
+          "signed_delta_contract_minus_builtin": 0.005923114699999999,
+          "builtin_value": 0.0213796861,
+          "contract_value": 0.0273028008
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.0043538672999998695,
+          "signed_delta_contract_minus_builtin": 0.0043538672999998695,
+          "builtin_value": -1.2408747447,
+          "contract_value": -1.2365208774
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 17:55:00",
+      "feature_checksum_builtin": 3609377844177439975,
+      "feature_checksum_contract": 15035235703637858656,
+      "decision_builtin": "NO_TRADE",
+      "decision_contract": "LONG",
+      "decision_reason_builtin": "LONG_MARGIN_FAIL",
+      "decision_reason_contract": "LONG_FILTERS_OK",
+      "trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "trade_action_reason_contract": "ENTRY_BUY_OK_VOL_0.0600_STOP_24462.95000_RISK_6.52_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "shadow_trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_contract": "ENTRY_BUY_OK_VOL_0.0600_STOP_24462.95000_RISK_6.52_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "p_short_delta_contract_minus_builtin": 0.019510000000000027,
+      "p_flat_delta_contract_minus_builtin": -0.07185200000000003,
+      "p_long_delta_contract_minus_builtin": 0.05234099999999997,
+      "decision_transition": "no_trade_to_long",
+      "max_feature_abs_diff": 14.967541366600003,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 14.967541366600003,
+          "signed_delta_contract_minus_builtin": -14.967541366600003,
+          "builtin_value": 77.575,
+          "contract_value": 62.6074586334
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 0.4667900199999977,
+          "signed_delta_contract_minus_builtin": -0.4667900199999977,
+          "builtin_value": 47.809,
+          "contract_value": 47.34220998
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.31715680699999993,
+          "signed_delta_contract_minus_builtin": 0.31715680699999993,
+          "builtin_value": 8.6225392849,
+          "contract_value": 8.9396960919
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.30015765530000005,
+          "signed_delta_contract_minus_builtin": -0.30015765530000005,
+          "builtin_value": 1.6226024389,
+          "contract_value": 1.3224447836
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.021578656,
+          "signed_delta_contract_minus_builtin": 0.021578656,
+          "builtin_value": 0.0902609706,
+          "contract_value": 0.1118396266
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 18:00:00",
+      "feature_checksum_builtin": 13252152083787600720,
+      "feature_checksum_contract": 15031036925333521960,
+      "decision_builtin": "NO_TRADE",
+      "decision_contract": "LONG",
+      "decision_reason_builtin": "LONG_MARGIN_FAIL",
+      "decision_reason_contract": "LONG_FILTERS_OK",
+      "trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "trade_action_reason_contract": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_contract": "POSITION_ALREADY_OPEN",
+      "p_short_delta_contract_minus_builtin": 0.017193000000000014,
+      "p_flat_delta_contract_minus_builtin": -0.06272,
+      "p_long_delta_contract_minus_builtin": 0.04552800000000001,
+      "decision_transition": "no_trade_to_long",
+      "max_feature_abs_diff": 14.350216983299994,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 14.350216983299994,
+          "signed_delta_contract_minus_builtin": -14.350216983299994,
+          "builtin_value": 75.7714285714,
+          "contract_value": 61.4212115881
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 0.6736342214000004,
+          "signed_delta_contract_minus_builtin": -0.6736342214000004,
+          "builtin_value": 47.989,
+          "contract_value": 47.3153657786
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.2808092737000001,
+          "signed_delta_contract_minus_builtin": -0.2808092737000001,
+          "builtin_value": 1.5789332674,
+          "contract_value": 1.2981239937
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.1778954734,
+          "signed_delta_contract_minus_builtin": 0.1778954734,
+          "builtin_value": -1.1555546251,
+          "contract_value": -0.9776591517
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.08700685210000003,
+          "signed_delta_contract_minus_builtin": -0.08700685210000003,
+          "builtin_value": -0.3724031685,
+          "contract_value": -0.4594100206
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 18:05:00",
+      "feature_checksum_builtin": 1483518061078830715,
+      "feature_checksum_contract": 18343337420119514800,
+      "decision_builtin": "NO_TRADE",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "LONG_MARGIN_FAIL",
+      "decision_reason_contract": "LONG_MARGIN_FAIL",
+      "trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": 0.009801999999999977,
+      "p_flat_delta_contract_minus_builtin": -0.054169999999999996,
+      "p_long_delta_contract_minus_builtin": 0.04436900000000005,
+      "decision_transition": "same",
+      "max_feature_abs_diff": 14.280303525299992,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 14.280303525299992,
+          "signed_delta_contract_minus_builtin": -14.280303525299992,
+          "builtin_value": 74.225,
+          "contract_value": 59.9446964747
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 0.7999415375000041,
+          "signed_delta_contract_minus_builtin": -0.7999415375000041,
+          "builtin_value": 47.984,
+          "contract_value": 47.1840584625
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.2764259486999998,
+          "signed_delta_contract_minus_builtin": -0.2764259486999998,
+          "builtin_value": 1.5468697899,
+          "contract_value": 1.2704438412
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.09238102200000003,
+          "signed_delta_contract_minus_builtin": 0.09238102200000003,
+          "builtin_value": 0.3877895392,
+          "contract_value": 0.4801705612
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.06122561839999996,
+          "signed_delta_contract_minus_builtin": -0.06122561839999996,
+          "builtin_value": -2.1048950146,
+          "contract_value": -2.166120633
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 17:20:00",
+      "feature_checksum_builtin": 15935931581151442238,
+      "feature_checksum_contract": 5048016215534477137,
+      "decision_builtin": "SHORT",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "DUAL_SIGNAL_SHORT_WINS",
+      "decision_reason_contract": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": 0.015330999999999984,
+      "p_flat_delta_contract_minus_builtin": -0.042655,
+      "p_long_delta_contract_minus_builtin": 0.02732399999999996,
+      "decision_transition": "short_to_no_trade",
+      "max_feature_abs_diff": 13.610071817700003,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 13.610071817700003,
+          "signed_delta_contract_minus_builtin": -13.610071817700003,
+          "builtin_value": 79.2607142857,
+          "contract_value": 65.650642468
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 2.4997344550000022,
+          "signed_delta_contract_minus_builtin": -2.4997344550000022,
+          "builtin_value": 48.481,
+          "contract_value": 45.981265545
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.3833249031999997,
+          "signed_delta_contract_minus_builtin": 0.3833249031999997,
+          "builtin_value": -2.3095466724,
+          "contract_value": -1.9262217692
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.2071126324000001,
+          "signed_delta_contract_minus_builtin": -0.2071126324000001,
+          "builtin_value": 1.6348820009,
+          "contract_value": 1.4277693685
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.17346181520000004,
+          "signed_delta_contract_minus_builtin": -0.17346181520000004,
+          "builtin_value": -0.836724432,
+          "contract_value": -1.0101862472
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.02 17:20:00",
+      "feature_checksum_builtin": 7370350365093213184,
+      "feature_checksum_contract": 13348831459245113363,
+      "decision_builtin": "NO_TRADE",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "LONG_MARGIN_FAIL",
+      "decision_reason_contract": "LONG_MARGIN_FAIL",
+      "trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": 0.01107199999999997,
+      "p_flat_delta_contract_minus_builtin": -0.04426399999999997,
+      "p_long_delta_contract_minus_builtin": 0.033192,
+      "decision_transition": "same",
+      "max_feature_abs_diff": 12.578983462800004,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 12.578983462800004,
+          "signed_delta_contract_minus_builtin": -12.578983462800004,
+          "builtin_value": 67.325,
+          "contract_value": 54.7460165372
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 1.367529703199999,
+          "signed_delta_contract_minus_builtin": -1.367529703199999,
+          "builtin_value": 39.896,
+          "contract_value": 38.5284702968
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.26658883339999995,
+          "signed_delta_contract_minus_builtin": -0.26658883339999995,
+          "builtin_value": 1.6875125326,
+          "contract_value": 1.4209236992
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.0664983898,
+          "signed_delta_contract_minus_builtin": -0.0664983898,
+          "builtin_value": -0.2894130484,
+          "contract_value": -0.3559114382
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.0343290084,
+          "signed_delta_contract_minus_builtin": 0.0343290084,
+          "builtin_value": -0.1529146461,
+          "contract_value": -0.1185856377
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.03.12 20:20:00",
+      "feature_checksum_builtin": 4388717055125716592,
+      "feature_checksum_contract": 11212450278158774353,
+      "decision_builtin": "NO_TRADE",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "decision_reason_contract": "LONG_MARGIN_FAIL",
+      "trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "trade_action_reason_contract": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_contract": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.026139999999999997,
+      "p_flat_delta_contract_minus_builtin": 0.07766800000000001,
+      "p_long_delta_contract_minus_builtin": -0.05152799999999996,
+      "decision_transition": "same",
+      "max_feature_abs_diff": 12.523219434400005,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 12.523219434400005,
+          "signed_delta_contract_minus_builtin": -12.523219434400005,
+          "builtin_value": 54.542,
+          "contract_value": 42.0187805656
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 0.9203760918000015,
+          "signed_delta_contract_minus_builtin": 0.9203760918000015,
+          "builtin_value": 49.7178571429,
+          "contract_value": 50.6382332347
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.29358155769999994,
+          "signed_delta_contract_minus_builtin": 0.29358155769999994,
+          "builtin_value": 0.9115517792,
+          "contract_value": 1.2051333369
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.1393392532999993,
+          "signed_delta_contract_minus_builtin": -0.1393392532999993,
+          "builtin_value": -9.4290006659,
+          "contract_value": -9.5683399192
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.00867400279999997,
+          "signed_delta_contract_minus_builtin": 0.00867400279999997,
+          "builtin_value": -0.4772355356,
+          "contract_value": -0.4685615328
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.03.12 20:15:00",
+      "feature_checksum_builtin": 13871433620962383681,
+      "feature_checksum_contract": 5299958443916814431,
+      "decision_builtin": "NO_TRADE",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "decision_reason_contract": "LONG_MARGIN_FAIL",
+      "trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.02087100000000003,
+      "p_flat_delta_contract_minus_builtin": 0.05639899999999998,
+      "p_long_delta_contract_minus_builtin": -0.035528000000000004,
+      "decision_transition": "same",
+      "max_feature_abs_diff": 11.919693301099997,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 11.919693301099997,
+          "signed_delta_contract_minus_builtin": -11.919693301099997,
+          "builtin_value": 54.046,
+          "contract_value": 42.1263066989
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 3.8505839890000004,
+          "signed_delta_contract_minus_builtin": -3.8505839890000004,
+          "builtin_value": 55.5571428571,
+          "contract_value": 51.7065588681
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.19945702059999992,
+          "signed_delta_contract_minus_builtin": 0.19945702059999992,
+          "builtin_value": 1.0279603089,
+          "contract_value": 1.2274173295
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.015072854900000016,
+          "signed_delta_contract_minus_builtin": -0.015072854900000016,
+          "builtin_value": -0.2024018849,
+          "contract_value": -0.2174747398
+        },
+        {
+          "feature": "aapl_xnas_log_return_1",
+          "abs_diff": 0.0,
+          "signed_delta_contract_minus_builtin": 0.0,
+          "builtin_value": -0.0004312457,
+          "contract_value": -0.0004312457
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.03.12 20:10:00",
+      "feature_checksum_builtin": 18428306214023222378,
+      "feature_checksum_contract": 10834933540010585539,
+      "decision_builtin": "LONG",
+      "decision_contract": "LONG",
+      "decision_reason_builtin": "LONG_FILTERS_OK",
+      "decision_reason_contract": "LONG_FILTERS_OK",
+      "trade_action_reason_builtin": "ENTRY_BUY_OK_VOL_0.0800_STOP_24595.12000_RISK_6.27_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "trade_action_reason_contract": "ENTRY_BUY_OK_VOL_0.0800_STOP_24595.12000_RISK_6.27_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "shadow_trade_action_reason_builtin": "ENTRY_BUY_OK_VOL_0.0800_STOP_24595.12000_RISK_6.27_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "shadow_trade_action_reason_contract": "ENTRY_BUY_OK_VOL_0.0800_STOP_24595.12000_RISK_6.27_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "p_short_delta_contract_minus_builtin": -0.017174999999999996,
+      "p_flat_delta_contract_minus_builtin": 0.053925,
+      "p_long_delta_contract_minus_builtin": -0.03674900000000003,
+      "decision_transition": "same",
+      "max_feature_abs_diff": 11.649972757,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 11.649972757,
+          "signed_delta_contract_minus_builtin": -11.649972757,
+          "builtin_value": 53.886,
+          "contract_value": 42.236027243
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 3.128650889199996,
+          "signed_delta_contract_minus_builtin": -3.128650889199996,
+          "builtin_value": 55.9857142857,
+          "contract_value": 52.8570633965
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.21250277670000006,
+          "signed_delta_contract_minus_builtin": 0.21250277670000006,
+          "builtin_value": 1.0389658591,
+          "contract_value": 1.2514686358
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.025085491800000026,
+          "signed_delta_contract_minus_builtin": -0.025085491800000026,
+          "builtin_value": -0.4238074105,
+          "contract_value": -0.4488929023
+        },
+        {
+          "feature": "aapl_xnas_log_return_1",
+          "abs_diff": 0.0,
+          "signed_delta_contract_minus_builtin": 0.0,
+          "builtin_value": -0.0015666004,
+          "contract_value": -0.0015666004
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 18:10:00",
+      "feature_checksum_builtin": 18354395397145921438,
+      "feature_checksum_contract": 640707706223289129,
+      "decision_builtin": "LONG",
+      "decision_contract": "LONG",
+      "decision_reason_builtin": "LONG_FILTERS_OK",
+      "decision_reason_contract": "LONG_FILTERS_OK",
+      "trade_action_reason_builtin": "ENTRY_BUY_OK_VOL_0.0700_STOP_24469.59000_RISK_6.82_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "trade_action_reason_contract": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_builtin": "ENTRY_BUY_OK_VOL_0.0700_STOP_24469.59000_RISK_6.82_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "shadow_trade_action_reason_contract": "POSITION_ALREADY_OPEN",
+      "p_short_delta_contract_minus_builtin": 0.010997999999999952,
+      "p_flat_delta_contract_minus_builtin": -0.046905999999999975,
+      "p_long_delta_contract_minus_builtin": 0.03590700000000002,
+      "decision_transition": "same",
+      "max_feature_abs_diff": 11.579924702099994,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 11.579924702099994,
+          "signed_delta_contract_minus_builtin": -11.579924702099994,
+          "builtin_value": 69.6178571429,
+          "contract_value": 58.0379324408
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 1.1236227092000064,
+          "signed_delta_contract_minus_builtin": -1.1236227092000064,
+          "builtin_value": 48.029,
+          "contract_value": 46.9053772908
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.2121555850000001,
+          "signed_delta_contract_minus_builtin": -0.2121555850000001,
+          "builtin_value": 1.4494962865,
+          "contract_value": 1.2373407015
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.03439554900000008,
+          "signed_delta_contract_minus_builtin": -0.03439554900000008,
+          "builtin_value": -1.6989183357,
+          "contract_value": -1.7333138847
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.01361077320000001,
+          "signed_delta_contract_minus_builtin": -0.01361077320000001,
+          "builtin_value": -0.0682164312,
+          "contract_value": -0.0818272044
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 17:50:00",
+      "feature_checksum_builtin": 16798342824157235007,
+      "feature_checksum_contract": 15245007727740634537,
+      "decision_builtin": "SHORT",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "DUAL_SIGNAL_SHORT_WINS",
+      "decision_reason_contract": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": 0.0034430000000000294,
+      "p_flat_delta_contract_minus_builtin": -0.026285000000000003,
+      "p_long_delta_contract_minus_builtin": 0.022842999999999947,
+      "decision_transition": "short_to_no_trade",
+      "max_feature_abs_diff": 11.568999747100008,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 11.568999747100008,
+          "signed_delta_contract_minus_builtin": -11.568999747100008,
+          "builtin_value": 77.0928571429,
+          "contract_value": 65.5238573958
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 2.4433093938,
+          "signed_delta_contract_minus_builtin": -2.4433093938,
+          "builtin_value": 50.594,
+          "contract_value": 48.1506906062
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.16294667640000005,
+          "signed_delta_contract_minus_builtin": -0.16294667640000005,
+          "builtin_value": 1.5237549342,
+          "contract_value": 1.3608082578
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.0527779093999996,
+          "signed_delta_contract_minus_builtin": 0.0527779093999996,
+          "builtin_value": 4.2489000155,
+          "contract_value": 4.3016779249
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.0097352427,
+          "signed_delta_contract_minus_builtin": 0.0097352427,
+          "builtin_value": 0.0551379265,
+          "contract_value": 0.0648731692
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.03.12 20:05:00",
+      "feature_checksum_builtin": 12215053627262128075,
+      "feature_checksum_contract": 6284543363101128314,
+      "decision_builtin": "NO_TRADE",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "LONG_MARGIN_FAIL",
+      "decision_reason_contract": "LONG_MARGIN_FAIL",
+      "trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.024436999999999987,
+      "p_flat_delta_contract_minus_builtin": 0.06439999999999999,
+      "p_long_delta_contract_minus_builtin": -0.039964,
+      "decision_transition": "same",
+      "max_feature_abs_diff": 11.281788528100002,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 11.281788528100002,
+          "signed_delta_contract_minus_builtin": -11.281788528100002,
+          "builtin_value": 53.191,
+          "contract_value": 41.9092114719
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 1.9006350236000031,
+          "signed_delta_contract_minus_builtin": -1.9006350236000031,
+          "builtin_value": 54.3428571429,
+          "contract_value": 52.4422221193
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.22967413550000004,
+          "signed_delta_contract_minus_builtin": 0.22967413550000004,
+          "builtin_value": 1.0216551135,
+          "contract_value": 1.251329249
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.13092492150000012,
+          "signed_delta_contract_minus_builtin": 0.13092492150000012,
+          "builtin_value": 2.7974903609,
+          "contract_value": 2.9284152824
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.022706614800000025,
+          "signed_delta_contract_minus_builtin": 0.022706614800000025,
+          "builtin_value": 0.626519727,
+          "contract_value": 0.6492263418
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.02 17:15:00",
+      "feature_checksum_builtin": 14054462498704796487,
+      "feature_checksum_contract": 838752812576839824,
+      "decision_builtin": "NO_TRADE",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "LONG_MARGIN_FAIL",
+      "decision_reason_contract": "LONG_MARGIN_FAIL",
+      "trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": 0.0021300000000000208,
+      "p_flat_delta_contract_minus_builtin": -0.031062000000000006,
+      "p_long_delta_contract_minus_builtin": 0.028932000000000013,
+      "decision_transition": "same",
+      "max_feature_abs_diff": 11.1356085643,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 11.1356085643,
+          "signed_delta_contract_minus_builtin": -11.1356085643,
+          "builtin_value": 66.3428571429,
+          "contract_value": 55.2072485786
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 1.231132350800003,
+          "signed_delta_contract_minus_builtin": -1.231132350800003,
+          "builtin_value": 39.551,
+          "contract_value": 38.3198676492
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.23670506739999997,
+          "signed_delta_contract_minus_builtin": -0.23670506739999997,
+          "builtin_value": 1.6774002463,
+          "contract_value": 1.4406951789
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.0890348158,
+          "signed_delta_contract_minus_builtin": 0.0890348158,
+          "builtin_value": 0.4414098414,
+          "contract_value": 0.5304446572
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.023262736199999967,
+          "signed_delta_contract_minus_builtin": 0.023262736199999967,
+          "builtin_value": 3.0297692712,
+          "contract_value": 3.0530320074
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 17:15:00",
+      "feature_checksum_builtin": 830620162200098137,
+      "feature_checksum_contract": 4650342659060468957,
+      "decision_builtin": "SHORT",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "DUAL_SIGNAL_SHORT_WINS",
+      "decision_reason_contract": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "trade_action_reason_builtin": "ENTRY_SELL_OK_VOL_0.0600_STOP_24631.47000_RISK_8.99_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_2.0000",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "ENTRY_SELL_OK_VOL_0.0600_STOP_24631.47000_RISK_8.99_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_2.0000",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": 0.007838999999999985,
+      "p_flat_delta_contract_minus_builtin": -0.03117299999999998,
+      "p_long_delta_contract_minus_builtin": 0.023333999999999966,
+      "decision_transition": "short_to_no_trade",
+      "max_feature_abs_diff": 11.127330089400004,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 11.127330089400004,
+          "signed_delta_contract_minus_builtin": -11.127330089400004,
+          "builtin_value": 74.8857142857,
+          "contract_value": 63.7583841963
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 2.4881780150000026,
+          "signed_delta_contract_minus_builtin": -2.4881780150000026,
+          "builtin_value": 47.566,
+          "contract_value": 45.077821985
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.15994689149999997,
+          "signed_delta_contract_minus_builtin": -0.15994689149999997,
+          "builtin_value": 1.5743538302,
+          "contract_value": 1.4144069387
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.04794228080000007,
+          "signed_delta_contract_minus_builtin": 0.04794228080000007,
+          "builtin_value": -1.7958467991,
+          "contract_value": -1.7479045183
+        },
+        {
+          "feature": "aapl_xnas_log_return_1",
+          "abs_diff": 0.0,
+          "signed_delta_contract_minus_builtin": 0.0,
+          "builtin_value": 0.000947203,
+          "contract_value": 0.000947203
+        }
+      ]
+    }
+  ],
+  "decision_diff_rows": [
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 20:00:00",
+      "feature_checksum_builtin": 2059053299139442827,
+      "feature_checksum_contract": 9752669611543191417,
+      "decision_builtin": "LONG",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "LONG_FILTERS_OK",
+      "decision_reason_contract": "THRESHOLD_FAIL",
+      "trade_action_reason_builtin": "ENTRY_BUY_OK_VOL_0.1000_STOP_24654.38000_RISK_4.93_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "ENTRY_BUY_OK_VOL_0.1000_STOP_24654.38000_RISK_4.93_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.03393600000000002,
+      "p_flat_delta_contract_minus_builtin": 0.09861200000000003,
+      "p_long_delta_contract_minus_builtin": -0.06467600000000001,
+      "decision_transition": "long_to_no_trade",
+      "max_feature_abs_diff": 7.560392731299999,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 7.560392731299999,
+          "signed_delta_contract_minus_builtin": -7.560392731299999,
+          "builtin_value": 50.452,
+          "contract_value": 42.8916072687
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 4.294143735599995,
+          "signed_delta_contract_minus_builtin": 4.294143735599995,
+          "builtin_value": 35.1928571429,
+          "contract_value": 39.4870008785
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.2970526801000002,
+          "signed_delta_contract_minus_builtin": -0.2970526801000002,
+          "builtin_value": -6.2787010286,
+          "contract_value": -6.5757537087
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.22307173749999998,
+          "signed_delta_contract_minus_builtin": 0.22307173749999998,
+          "builtin_value": 0.6975512793,
+          "contract_value": 0.9206230168
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.027800474800000002,
+          "signed_delta_contract_minus_builtin": 0.027800474800000002,
+          "builtin_value": -0.2556405753,
+          "contract_value": -0.2278401005
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 20:20:00",
+      "feature_checksum_builtin": 12469400328946107708,
+      "feature_checksum_contract": 16704588566869142137,
+      "decision_builtin": "LONG",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "LONG_FILTERS_OK",
+      "decision_reason_contract": "LONG_MARGIN_FAIL",
+      "trade_action_reason_builtin": "ENTRY_BUY_OK_VOL_0.1000_STOP_24589.56000_RISK_4.91_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "ENTRY_BUY_OK_VOL_0.1000_STOP_24589.56000_RISK_4.91_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.03769600000000001,
+      "p_flat_delta_contract_minus_builtin": 0.09625300000000003,
+      "p_long_delta_contract_minus_builtin": -0.058558,
+      "decision_transition": "long_to_no_trade",
+      "max_feature_abs_diff": 8.450064846499998,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 8.450064846499998,
+          "signed_delta_contract_minus_builtin": -8.450064846499998,
+          "builtin_value": 50.716,
+          "contract_value": 42.2659351535
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 3.2844565308999947,
+          "signed_delta_contract_minus_builtin": 3.2844565308999947,
+          "builtin_value": 35.0678571429,
+          "contract_value": 38.3523136738
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.21594932919999998,
+          "signed_delta_contract_minus_builtin": 0.21594932919999998,
+          "builtin_value": 0.6914555001,
+          "contract_value": 0.9074048293
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.16288474490000127,
+          "signed_delta_contract_minus_builtin": 0.16288474490000127,
+          "builtin_value": -11.5153102717,
+          "contract_value": -11.3524255268
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.09448261810000003,
+          "signed_delta_contract_minus_builtin": 0.09448261810000003,
+          "builtin_value": -1.103265326,
+          "contract_value": -1.0087827079
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 20:05:00",
+      "feature_checksum_builtin": 4747835108987166711,
+      "feature_checksum_contract": 7492751317186651550,
+      "decision_builtin": "LONG",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "LONG_FILTERS_OK",
+      "decision_reason_contract": "LONG_MARGIN_FAIL",
+      "trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.03325100000000003,
+      "p_flat_delta_contract_minus_builtin": 0.095557,
+      "p_long_delta_contract_minus_builtin": -0.06230600000000003,
+      "decision_transition": "long_to_no_trade",
+      "max_feature_abs_diff": 7.750224877000001,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 7.750224877000001,
+          "signed_delta_contract_minus_builtin": -7.750224877000001,
+          "builtin_value": 50.499,
+          "contract_value": 42.748775123
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 4.402215101399996,
+          "signed_delta_contract_minus_builtin": 4.402215101399996,
+          "builtin_value": 34.8178571429,
+          "contract_value": 39.2200722443
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.5875948696000002,
+          "signed_delta_contract_minus_builtin": -0.5875948696000002,
+          "builtin_value": -11.8000984109,
+          "contract_value": -12.3876932805
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.22797870679999999,
+          "signed_delta_contract_minus_builtin": 0.22797870679999999,
+          "builtin_value": 0.6894761707,
+          "contract_value": 0.9174548775
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.06844567600000007,
+          "signed_delta_contract_minus_builtin": 0.06844567600000007,
+          "builtin_value": -0.6097939999,
+          "contract_value": -0.5413483239
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 19:30:00",
+      "feature_checksum_builtin": 8205805254536117623,
+      "feature_checksum_contract": 15413445680936151990,
+      "decision_builtin": "LONG",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "DUAL_SIGNAL_LONG_WINS",
+      "decision_reason_contract": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.028131000000000017,
+      "p_flat_delta_contract_minus_builtin": 0.08629199999999998,
+      "p_long_delta_contract_minus_builtin": -0.05816199999999999,
+      "decision_transition": "long_to_no_trade",
+      "max_feature_abs_diff": 9.2252449494,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 9.2252449494,
+          "signed_delta_contract_minus_builtin": -9.2252449494,
+          "builtin_value": 59.139,
+          "contract_value": 49.9137550506
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 4.346792575000002,
+          "signed_delta_contract_minus_builtin": 4.346792575000002,
+          "builtin_value": 50.375,
+          "contract_value": 54.721792575
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.24452014439999992,
+          "signed_delta_contract_minus_builtin": 0.24452014439999992,
+          "builtin_value": 0.8518067603,
+          "contract_value": 1.0963269047
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.013802430000000004,
+          "signed_delta_contract_minus_builtin": -0.013802430000000004,
+          "builtin_value": 0.1737588579,
+          "contract_value": 0.1599564279
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.011385063399999673,
+          "signed_delta_contract_minus_builtin": 0.011385063399999673,
+          "builtin_value": 6.4118690188,
+          "contract_value": 6.4232540822
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 19:15:00",
+      "feature_checksum_builtin": 2700937529654959072,
+      "feature_checksum_contract": 4840655208182727196,
+      "decision_builtin": "LONG",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "LONG_FILTERS_OK",
+      "decision_reason_contract": "LONG_MARGIN_FAIL",
+      "trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.026608999999999994,
+      "p_flat_delta_contract_minus_builtin": 0.08534599999999998,
+      "p_long_delta_contract_minus_builtin": -0.05873700000000004,
+      "decision_transition": "long_to_no_trade",
+      "max_feature_abs_diff": 8.155931995099998,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 8.155931995099998,
+          "signed_delta_contract_minus_builtin": 8.155931995099998,
+          "builtin_value": 35.8035714286,
+          "contract_value": 43.9595034237
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 4.544396105099999,
+          "signed_delta_contract_minus_builtin": -4.544396105099999,
+          "builtin_value": 48.884,
+          "contract_value": 44.3396038949
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.2590084966,
+          "signed_delta_contract_minus_builtin": 0.2590084966,
+          "builtin_value": 0.7324190211,
+          "contract_value": 0.9914275177
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.06412151990000003,
+          "signed_delta_contract_minus_builtin": -0.06412151990000003,
+          "builtin_value": -1.5565611466,
+          "contract_value": -1.6206826665
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.005182175100000002,
+          "signed_delta_contract_minus_builtin": -0.005182175100000002,
+          "builtin_value": 0.0279313074,
+          "contract_value": 0.0227491323
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 19:10:00",
+      "feature_checksum_builtin": 2716951139505823909,
+      "feature_checksum_contract": 10003726020668404696,
+      "decision_builtin": "LONG",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "LONG_FILTERS_OK",
+      "decision_reason_contract": "LONG_MARGIN_FAIL",
+      "trade_action_reason_builtin": "ENTRY_BUY_OK_VOL_0.1300_STOP_24603.05000_RISK_6.68_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "trade_action_reason_contract": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "ENTRY_BUY_OK_VOL_0.1300_STOP_24603.05000_RISK_6.68_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "shadow_trade_action_reason_contract": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.024073999999999984,
+      "p_flat_delta_contract_minus_builtin": 0.08347099999999996,
+      "p_long_delta_contract_minus_builtin": -0.059398000000000006,
+      "decision_transition": "long_to_no_trade",
+      "max_feature_abs_diff": 8.470124566099997,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 8.470124566099997,
+          "signed_delta_contract_minus_builtin": 8.470124566099997,
+          "builtin_value": 36.6785714286,
+          "contract_value": 45.1486959947
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 4.531138882100002,
+          "signed_delta_contract_minus_builtin": -4.531138882100002,
+          "builtin_value": 49.194,
+          "contract_value": 44.6628611179
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.2652874821000001,
+          "signed_delta_contract_minus_builtin": 0.2652874821000001,
+          "builtin_value": 0.7455903449,
+          "contract_value": 1.010877827
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.0601280434,
+          "signed_delta_contract_minus_builtin": -0.0601280434,
+          "builtin_value": 0.3205032858,
+          "contract_value": 0.2603752424
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.04290027709999977,
+          "signed_delta_contract_minus_builtin": -0.04290027709999977,
+          "builtin_value": -2.8417005724,
+          "contract_value": -2.8846008495
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 19:00:00",
+      "feature_checksum_builtin": 9498370698877090361,
+      "feature_checksum_contract": 2307793462070057317,
+      "decision_builtin": "LONG",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "LONG_FILTERS_OK",
+      "decision_reason_contract": "LONG_MARGIN_FAIL",
+      "trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.023048999999999986,
+      "p_flat_delta_contract_minus_builtin": 0.080868,
+      "p_long_delta_contract_minus_builtin": -0.05781999999999998,
+      "decision_transition": "long_to_no_trade",
+      "max_feature_abs_diff": 9.136526546799999,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 9.136526546799999,
+          "signed_delta_contract_minus_builtin": 9.136526546799999,
+          "builtin_value": 37.0714285714,
+          "contract_value": 46.2079551182
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 3.963480302999997,
+          "signed_delta_contract_minus_builtin": -3.963480302999997,
+          "builtin_value": 48.869,
+          "contract_value": 44.905519697
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.3713845681000003,
+          "signed_delta_contract_minus_builtin": -0.3713845681000003,
+          "builtin_value": 3.0078858985,
+          "contract_value": 2.6365013304
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.2704160767999999,
+          "signed_delta_contract_minus_builtin": 0.2704160767999999,
+          "builtin_value": 0.7585878281,
+          "contract_value": 1.0290039049
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.0386576337,
+          "signed_delta_contract_minus_builtin": 0.0386576337,
+          "builtin_value": -0.1955108644,
+          "contract_value": -0.1568532307
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.04.07 20:40:00",
+      "feature_checksum_builtin": 7514999021168005695,
+      "feature_checksum_contract": 11459250759890392978,
+      "decision_builtin": "LONG",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "LONG_FILTERS_OK",
+      "decision_reason_contract": "LONG_MARGIN_FAIL",
+      "trade_action_reason_builtin": "ENTRY_BUY_OK_VOL_0.1300_STOP_24070.63000_RISK_5.99_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "ENTRY_BUY_OK_VOL_0.1300_STOP_24070.63000_RISK_5.99_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.019364000000000048,
+      "p_flat_delta_contract_minus_builtin": 0.07968599999999998,
+      "p_long_delta_contract_minus_builtin": -0.06032199999999999,
+      "decision_transition": "long_to_no_trade",
+      "max_feature_abs_diff": 8.130204484400004,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 8.130204484400004,
+          "signed_delta_contract_minus_builtin": -8.130204484400004,
+          "builtin_value": 47.453,
+          "contract_value": 39.3227955156
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 6.917265503899998,
+          "signed_delta_contract_minus_builtin": 6.917265503899998,
+          "builtin_value": 32.9107142857,
+          "contract_value": 39.8279797896
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.34175167229999914,
+          "signed_delta_contract_minus_builtin": -0.34175167229999914,
+          "builtin_value": 10.1150336515,
+          "contract_value": 9.7732819792
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.3193037241000001,
+          "signed_delta_contract_minus_builtin": 0.3193037241000001,
+          "builtin_value": 0.6935433858,
+          "contract_value": 1.0128471099
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.1598377403000001,
+          "signed_delta_contract_minus_builtin": -0.1598377403000001,
+          "builtin_value": 0.9203079291,
+          "contract_value": 0.7604701888
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.04.07 20:15:00",
+      "feature_checksum_builtin": 14841209788331832428,
+      "feature_checksum_contract": 7054501170465601104,
+      "decision_builtin": "LONG",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "LONG_FILTERS_OK",
+      "decision_reason_contract": "LONG_MARGIN_FAIL",
+      "trade_action_reason_builtin": "ENTRY_BLOCKED_AFTER_EXIT",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "ENTRY_BLOCKED_AFTER_EXIT",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.025577000000000016,
+      "p_flat_delta_contract_minus_builtin": 0.07930700000000002,
+      "p_long_delta_contract_minus_builtin": -0.05373,
+      "decision_transition": "long_to_no_trade",
+      "max_feature_abs_diff": 7.231561784699998,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 7.231561784699998,
+          "signed_delta_contract_minus_builtin": -7.231561784699998,
+          "builtin_value": 46.503,
+          "contract_value": 39.2714382153
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 4.961477118600001,
+          "signed_delta_contract_minus_builtin": 4.961477118600001,
+          "builtin_value": 34.3214285714,
+          "contract_value": 39.28290569
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 1.7615648621000006,
+          "signed_delta_contract_minus_builtin": -1.7615648621000006,
+          "builtin_value": -3.5755663973,
+          "contract_value": -5.3371312594
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.2622443834,
+          "signed_delta_contract_minus_builtin": 0.2622443834,
+          "builtin_value": 0.7380476221,
+          "contract_value": 1.0002920055
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.048732510299999976,
+          "signed_delta_contract_minus_builtin": 0.048732510299999976,
+          "builtin_value": -0.3858436836,
+          "contract_value": -0.3371111733
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 19:20:00",
+      "feature_checksum_builtin": 3154217105428322810,
+      "feature_checksum_contract": 8941984803223288882,
+      "decision_builtin": "LONG",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "DUAL_SIGNAL_LONG_WINS",
+      "decision_reason_contract": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.02099000000000001,
+      "p_flat_delta_contract_minus_builtin": 0.073607,
+      "p_long_delta_contract_minus_builtin": -0.052617000000000025,
+      "decision_transition": "long_to_no_trade",
+      "max_feature_abs_diff": 8.395629476800003,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 8.395629476800003,
+          "signed_delta_contract_minus_builtin": -8.395629476800003,
+          "builtin_value": 58.444,
+          "contract_value": 50.0483705232
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 5.875992741200001,
+          "signed_delta_contract_minus_builtin": 5.875992741200001,
+          "builtin_value": 50.1785714286,
+          "contract_value": 56.0545641698
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.7699085833999995,
+          "signed_delta_contract_minus_builtin": 0.7699085833999995,
+          "builtin_value": -5.9196052679,
+          "contract_value": -5.1496966845
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.26143253450000004,
+          "signed_delta_contract_minus_builtin": 0.26143253450000004,
+          "builtin_value": 0.8585752417,
+          "contract_value": 1.1200077762
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.0381536804,
+          "signed_delta_contract_minus_builtin": -0.0381536804,
+          "builtin_value": 0.3639704846,
+          "contract_value": 0.3258168042
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 19:15:00",
+      "feature_checksum_builtin": 8628794636404239549,
+      "feature_checksum_contract": 5335341689392073608,
+      "decision_builtin": "LONG",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "DUAL_SIGNAL_LONG_WINS",
+      "decision_reason_contract": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "trade_action_reason_builtin": "ENTRY_BUY_OK_VOL_0.1300_STOP_24564.78000_RISK_9.40_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "ENTRY_BUY_OK_VOL_0.1300_STOP_24564.78000_RISK_9.40_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.020496000000000014,
+      "p_flat_delta_contract_minus_builtin": 0.072156,
+      "p_long_delta_contract_minus_builtin": -0.051659999999999984,
+      "decision_transition": "long_to_no_trade",
+      "max_feature_abs_diff": 7.942907629700002,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 7.942907629700002,
+          "signed_delta_contract_minus_builtin": -7.942907629700002,
+          "builtin_value": 58.079,
+          "contract_value": 50.1360923703
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 5.222222952099997,
+          "signed_delta_contract_minus_builtin": 5.222222952099997,
+          "builtin_value": 51.625,
+          "contract_value": 56.8472229521
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.8825648444,
+          "signed_delta_contract_minus_builtin": -0.8825648444,
+          "builtin_value": -5.6242201247,
+          "contract_value": -6.5067849691
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.2449827726999999,
+          "signed_delta_contract_minus_builtin": 0.2449827726999999,
+          "builtin_value": 0.8888754972,
+          "contract_value": 1.1338582699
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.030717041099999953,
+          "signed_delta_contract_minus_builtin": -0.030717041099999953,
+          "builtin_value": 0.3343745565,
+          "contract_value": 0.3036575154
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 17:55:00",
+      "feature_checksum_builtin": 3609377844177439975,
+      "feature_checksum_contract": 15035235703637858656,
+      "decision_builtin": "NO_TRADE",
+      "decision_contract": "LONG",
+      "decision_reason_builtin": "LONG_MARGIN_FAIL",
+      "decision_reason_contract": "LONG_FILTERS_OK",
+      "trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "trade_action_reason_contract": "ENTRY_BUY_OK_VOL_0.0600_STOP_24462.95000_RISK_6.52_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "shadow_trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_contract": "ENTRY_BUY_OK_VOL_0.0600_STOP_24462.95000_RISK_6.52_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "p_short_delta_contract_minus_builtin": 0.019510000000000027,
+      "p_flat_delta_contract_minus_builtin": -0.07185200000000003,
+      "p_long_delta_contract_minus_builtin": 0.05234099999999997,
+      "decision_transition": "no_trade_to_long",
+      "max_feature_abs_diff": 14.967541366600003,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 14.967541366600003,
+          "signed_delta_contract_minus_builtin": -14.967541366600003,
+          "builtin_value": 77.575,
+          "contract_value": 62.6074586334
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 0.4667900199999977,
+          "signed_delta_contract_minus_builtin": -0.4667900199999977,
+          "builtin_value": 47.809,
+          "contract_value": 47.34220998
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.31715680699999993,
+          "signed_delta_contract_minus_builtin": 0.31715680699999993,
+          "builtin_value": 8.6225392849,
+          "contract_value": 8.9396960919
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.30015765530000005,
+          "signed_delta_contract_minus_builtin": -0.30015765530000005,
+          "builtin_value": 1.6226024389,
+          "contract_value": 1.3224447836
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.021578656,
+          "signed_delta_contract_minus_builtin": 0.021578656,
+          "builtin_value": 0.0902609706,
+          "contract_value": 0.1118396266
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.03.26 19:40:00",
+      "feature_checksum_builtin": 9234602116365846898,
+      "feature_checksum_contract": 17828555348066236883,
+      "decision_builtin": "SHORT",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "SHORT_FILTERS_OK",
+      "decision_reason_contract": "SHORT_MARGIN_FAIL",
+      "trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "trade_action_reason_contract": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_contract": "STATE_EXIT_MARGIN_CLOSE_OK|NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.029485999999999957,
+      "p_flat_delta_contract_minus_builtin": 0.06579200000000002,
+      "p_long_delta_contract_minus_builtin": -0.036306000000000005,
+      "decision_transition": "short_to_no_trade",
+      "max_feature_abs_diff": 6.896962972400004,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 6.896962972400004,
+          "signed_delta_contract_minus_builtin": -6.896962972400004,
+          "builtin_value": 41.835,
+          "contract_value": 34.9380370276
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 3.468460431299995,
+          "signed_delta_contract_minus_builtin": 3.468460431299995,
+          "builtin_value": 35.2857142857,
+          "contract_value": 38.754174717
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.6229883270999999,
+          "signed_delta_contract_minus_builtin": -0.6229883270999999,
+          "builtin_value": -6.4485632554,
+          "contract_value": -7.0715515825
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.2657762693,
+          "signed_delta_contract_minus_builtin": 0.2657762693,
+          "builtin_value": 0.8434496064,
+          "contract_value": 1.1092258757
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.02788761900000003,
+          "signed_delta_contract_minus_builtin": 0.02788761900000003,
+          "builtin_value": -0.3115969409,
+          "contract_value": -0.2837093219
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 18:00:00",
+      "feature_checksum_builtin": 13252152083787600720,
+      "feature_checksum_contract": 15031036925333521960,
+      "decision_builtin": "NO_TRADE",
+      "decision_contract": "LONG",
+      "decision_reason_builtin": "LONG_MARGIN_FAIL",
+      "decision_reason_contract": "LONG_FILTERS_OK",
+      "trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "trade_action_reason_contract": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_contract": "POSITION_ALREADY_OPEN",
+      "p_short_delta_contract_minus_builtin": 0.017193000000000014,
+      "p_flat_delta_contract_minus_builtin": -0.06272,
+      "p_long_delta_contract_minus_builtin": 0.04552800000000001,
+      "decision_transition": "no_trade_to_long",
+      "max_feature_abs_diff": 14.350216983299994,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 14.350216983299994,
+          "signed_delta_contract_minus_builtin": -14.350216983299994,
+          "builtin_value": 75.7714285714,
+          "contract_value": 61.4212115881
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 0.6736342214000004,
+          "signed_delta_contract_minus_builtin": -0.6736342214000004,
+          "builtin_value": 47.989,
+          "contract_value": 47.3153657786
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.2808092737000001,
+          "signed_delta_contract_minus_builtin": -0.2808092737000001,
+          "builtin_value": 1.5789332674,
+          "contract_value": 1.2981239937
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.1778954734,
+          "signed_delta_contract_minus_builtin": 0.1778954734,
+          "builtin_value": -1.1555546251,
+          "contract_value": -0.9776591517
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.08700685210000003,
+          "signed_delta_contract_minus_builtin": -0.08700685210000003,
+          "builtin_value": -0.3724031685,
+          "contract_value": -0.4594100206
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.03.26 19:45:00",
+      "feature_checksum_builtin": 16559731216728842985,
+      "feature_checksum_contract": 3255776399793288459,
+      "decision_builtin": "SHORT",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "SHORT_FILTERS_OK",
+      "decision_reason_contract": "SHORT_MARGIN_FAIL",
+      "trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.026210999999999984,
+      "p_flat_delta_contract_minus_builtin": 0.06120700000000001,
+      "p_long_delta_contract_minus_builtin": -0.03499600000000003,
+      "decision_transition": "short_to_no_trade",
+      "max_feature_abs_diff": 6.8007237128,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 6.8007237128,
+          "signed_delta_contract_minus_builtin": -6.8007237128,
+          "builtin_value": 41.445,
+          "contract_value": 34.6442762872
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 3.1110193801000037,
+          "signed_delta_contract_minus_builtin": 3.1110193801000037,
+          "builtin_value": 34.3214285714,
+          "contract_value": 37.4324479515
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.25236012539999997,
+          "signed_delta_contract_minus_builtin": 0.25236012539999997,
+          "builtin_value": 0.8281198835,
+          "contract_value": 1.0804800089
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.11580198450000001,
+          "signed_delta_contract_minus_builtin": -0.11580198450000001,
+          "builtin_value": -0.2668924419,
+          "contract_value": -0.3826944264
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.02119613849999999,
+          "signed_delta_contract_minus_builtin": -0.02119613849999999,
+          "builtin_value": 0.2550364542,
+          "contract_value": 0.2338403157
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.03.26 19:50:00",
+      "feature_checksum_builtin": 3365546239617303869,
+      "feature_checksum_contract": 7680582393691022659,
+      "decision_builtin": "NO_TRADE",
+      "decision_contract": "SHORT",
+      "decision_reason_builtin": "SHORT_MARGIN_FAIL",
+      "decision_reason_contract": "SHORT_FILTERS_OK",
+      "trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "trade_action_reason_contract": "ENTRY_SELL_OK_VOL_0.1300_STOP_23872.92000_RISK_9.11_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_2.0000",
+      "shadow_trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_contract": "ENTRY_SELL_OK_VOL_0.1300_STOP_23872.92000_RISK_9.11_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_2.0000",
+      "p_short_delta_contract_minus_builtin": -0.025227999999999973,
+      "p_flat_delta_contract_minus_builtin": 0.05811700000000003,
+      "p_long_delta_contract_minus_builtin": -0.032889,
+      "decision_transition": "no_trade_to_short",
+      "max_feature_abs_diff": 6.948609239299998,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 6.948609239299998,
+          "signed_delta_contract_minus_builtin": -6.948609239299998,
+          "builtin_value": 41.635,
+          "contract_value": 34.6863907607
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 2.347987383499998,
+          "signed_delta_contract_minus_builtin": 2.347987383499998,
+          "builtin_value": 35.0357142857,
+          "contract_value": 37.3837016692
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.2362661209,
+          "signed_delta_contract_minus_builtin": 0.2362661209,
+          "builtin_value": 0.8414966803,
+          "contract_value": 1.0777628012
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.07453852029999997,
+          "signed_delta_contract_minus_builtin": 0.07453852029999997,
+          "builtin_value": -0.7222880745,
+          "contract_value": -0.6477495542
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.030006254399999988,
+          "signed_delta_contract_minus_builtin": 0.030006254399999988,
+          "builtin_value": -0.4777473986,
+          "contract_value": -0.4477411442
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 17:30:00",
+      "feature_checksum_builtin": 12384152394569874726,
+      "feature_checksum_contract": 3012402839988654590,
+      "decision_builtin": "SHORT",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "DUAL_SIGNAL_SHORT_WINS",
+      "decision_reason_contract": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": 0.01893600000000001,
+      "p_flat_delta_contract_minus_builtin": -0.05670399999999998,
+      "p_long_delta_contract_minus_builtin": 0.037769,
+      "decision_transition": "short_to_no_trade",
+      "max_feature_abs_diff": 17.5333746067,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 17.5333746067,
+          "signed_delta_contract_minus_builtin": -17.5333746067,
+          "builtin_value": 81.4678571429,
+          "contract_value": 63.9344825362
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 2.748352571799998,
+          "signed_delta_contract_minus_builtin": -2.748352571799998,
+          "builtin_value": 49.019,
+          "contract_value": 46.2706474282
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.4409659581000005,
+          "signed_delta_contract_minus_builtin": -0.4409659581000005,
+          "builtin_value": -5.8882685987,
+          "contract_value": -6.3292345568
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.2802145601000001,
+          "signed_delta_contract_minus_builtin": -0.2802145601000001,
+          "builtin_value": 1.6619648941,
+          "contract_value": 1.381750334
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.13023416529999993,
+          "signed_delta_contract_minus_builtin": -0.13023416529999993,
+          "builtin_value": -0.4748916939,
+          "contract_value": -0.6051258592
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.03.26 19:55:00",
+      "feature_checksum_builtin": 17491219067648493707,
+      "feature_checksum_contract": 802673120669905397,
+      "decision_builtin": "SHORT",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "SHORT_FILTERS_OK",
+      "decision_reason_contract": "SHORT_MARGIN_FAIL",
+      "trade_action_reason_builtin": "ENTRY_BLOCKED_AFTER_EXIT",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "ENTRY_BLOCKED_AFTER_EXIT",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.024778999999999995,
+      "p_flat_delta_contract_minus_builtin": 0.055532000000000026,
+      "p_long_delta_contract_minus_builtin": -0.030752999999999975,
+      "decision_transition": "short_to_no_trade",
+      "max_feature_abs_diff": 7.1943370539,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 7.1943370539,
+          "signed_delta_contract_minus_builtin": -7.1943370539,
+          "builtin_value": 41.757,
+          "contract_value": 34.5626629461
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 1.1598658357000033,
+          "signed_delta_contract_minus_builtin": 1.1598658357000033,
+          "builtin_value": 35.5892857143,
+          "contract_value": 36.74915155
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.2109664967999999,
+          "signed_delta_contract_minus_builtin": 0.2109664967999999,
+          "builtin_value": 0.8522950814,
+          "contract_value": 1.0632615782
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.012866891800000002,
+          "signed_delta_contract_minus_builtin": -0.012866891800000002,
+          "builtin_value": 0.407674183,
+          "contract_value": 0.3948072912
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.006809641899999885,
+          "signed_delta_contract_minus_builtin": -0.006809641899999885,
+          "builtin_value": 1.5770988352,
+          "contract_value": 1.5702891933
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.03.26 19:35:00",
+      "feature_checksum_builtin": 2658135436040298187,
+      "feature_checksum_contract": 14524900693227767589,
+      "decision_builtin": "SHORT",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "SHORT_FILTERS_OK",
+      "decision_reason_contract": "SHORT_MARGIN_FAIL",
+      "trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.01755699999999999,
+      "p_flat_delta_contract_minus_builtin": 0.055255,
+      "p_long_delta_contract_minus_builtin": -0.03769800000000001,
+      "decision_transition": "short_to_no_trade",
+      "max_feature_abs_diff": 6.420268338700005,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 6.420268338700005,
+          "signed_delta_contract_minus_builtin": -6.420268338700005,
+          "builtin_value": 41.505,
+          "contract_value": 35.0847316613
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 4.761363980900001,
+          "signed_delta_contract_minus_builtin": 4.761363980900001,
+          "builtin_value": 34.8392857143,
+          "contract_value": 39.6006496952
+        },
+        {
+          "feature": "bb_squeeze",
+          "abs_diff": 1.0,
+          "signed_delta_contract_minus_builtin": 1.0,
+          "builtin_value": 0.0,
+          "contract_value": 1.0
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.2893148956000001,
+          "signed_delta_contract_minus_builtin": 0.2893148956000001,
+          "builtin_value": 0.8393997281,
+          "contract_value": 1.1287146237
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.1752248533999996,
+          "signed_delta_contract_minus_builtin": -0.1752248533999996,
+          "builtin_value": -10.0150609018,
+          "contract_value": -10.1902857552
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.04.07 20:00:00",
+      "feature_checksum_builtin": 13497822914783889708,
+      "feature_checksum_contract": 5319330362343019644,
+      "decision_builtin": "LONG",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "LONG_FILTERS_OK",
+      "decision_reason_contract": "LONG_MARGIN_FAIL",
+      "trade_action_reason_builtin": "ENTRY_BUY_OK_VOL_0.0900_STOP_23998.08000_RISK_5.46_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "ENTRY_BUY_OK_VOL_0.0900_STOP_23998.08000_RISK_5.46_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_1.4000",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.019596000000000002,
+      "p_flat_delta_contract_minus_builtin": 0.05461499999999997,
+      "p_long_delta_contract_minus_builtin": -0.035019999999999996,
+      "decision_transition": "long_to_no_trade",
+      "max_feature_abs_diff": 7.6183495361000055,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 7.6183495361000055,
+          "signed_delta_contract_minus_builtin": -7.6183495361000055,
+          "builtin_value": 47.468,
+          "contract_value": 39.8496504639
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 1.6162508944999985,
+          "signed_delta_contract_minus_builtin": -1.6162508944999985,
+          "builtin_value": 43.3035714286,
+          "contract_value": 41.6873205341
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.13384636989999998,
+          "signed_delta_contract_minus_builtin": 0.13384636989999998,
+          "builtin_value": 0.9122687164,
+          "contract_value": 1.0461150863
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.08255404980000003,
+          "signed_delta_contract_minus_builtin": -0.08255404980000003,
+          "builtin_value": 0.9040702569,
+          "contract_value": 0.8215162071
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.01967917099999994,
+          "signed_delta_contract_minus_builtin": -0.01967917099999994,
+          "builtin_value": -0.5075770818,
+          "contract_value": -0.5272562528
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.02 17:30:00",
+      "feature_checksum_builtin": 15982092486564552470,
+      "feature_checksum_contract": 8425560256657474761,
+      "decision_builtin": "NO_TRADE",
+      "decision_contract": "LONG",
+      "decision_reason_builtin": "LONG_MARGIN_FAIL",
+      "decision_reason_contract": "DUAL_SIGNAL_LONG_WINS",
+      "trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "trade_action_reason_contract": "ENTRY_BLOCKED_AFTER_EXIT",
+      "shadow_trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_contract": "ENTRY_BLOCKED_AFTER_EXIT",
+      "p_short_delta_contract_minus_builtin": 0.01194099999999998,
+      "p_flat_delta_contract_minus_builtin": -0.05423700000000001,
+      "p_long_delta_contract_minus_builtin": 0.042296,
+      "decision_transition": "no_trade_to_long",
+      "max_feature_abs_diff": 17.8960367612,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 17.8960367612,
+          "signed_delta_contract_minus_builtin": -17.8960367612,
+          "builtin_value": 73.9321428571,
+          "contract_value": 56.0361060959
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 2.0812571278000007,
+          "signed_delta_contract_minus_builtin": -2.0812571278000007,
+          "builtin_value": 41.616,
+          "contract_value": 39.5347428722
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.3591427813999999,
+          "signed_delta_contract_minus_builtin": -0.3591427813999999,
+          "builtin_value": 1.7765316911,
+          "contract_value": 1.4173889097
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.13589897600000006,
+          "signed_delta_contract_minus_builtin": -0.13589897600000006,
+          "builtin_value": -0.4255271455,
+          "contract_value": -0.5614261215
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.004053268600000326,
+          "signed_delta_contract_minus_builtin": -0.004053268600000326,
+          "builtin_value": -3.6108947752,
+          "contract_value": -3.6149480438
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 17:45:00",
+      "feature_checksum_builtin": 8751358790152959311,
+      "feature_checksum_contract": 8280706530724126494,
+      "decision_builtin": "SHORT",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "DUAL_SIGNAL_SHORT_WINS",
+      "decision_reason_contract": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "trade_action_reason_builtin": "ENTRY_SELL_OK_VOL_0.0500_STOP_24564.42000_RISK_8.36_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_2.0000",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "ENTRY_SELL_OK_VOL_0.0500_STOP_24564.42000_RISK_8.36_STOPMODE_broker_native_STOPPOLICY_direction_split_STOPMULT_2.0000",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": 0.012260999999999966,
+      "p_flat_delta_contract_minus_builtin": -0.051398,
+      "p_long_delta_contract_minus_builtin": 0.039138000000000006,
+      "decision_transition": "short_to_no_trade",
+      "max_feature_abs_diff": 18.027329397999992,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 18.027329397999992,
+          "signed_delta_contract_minus_builtin": -18.027329397999992,
+          "builtin_value": 83.6107142857,
+          "contract_value": 65.5833848877
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 2.372070808299995,
+          "signed_delta_contract_minus_builtin": -2.372070808299995,
+          "builtin_value": 50.184,
+          "contract_value": 47.8119291917
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.2943880858000001,
+          "signed_delta_contract_minus_builtin": -0.2943880858000001,
+          "builtin_value": 1.6660830999,
+          "contract_value": 1.3716950141
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.07308189319999997,
+          "signed_delta_contract_minus_builtin": -0.07308189319999997,
+          "builtin_value": -0.2658717673,
+          "contract_value": -0.3389536605
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.039867898899999865,
+          "signed_delta_contract_minus_builtin": 0.039867898899999865,
+          "builtin_value": 6.8138191427,
+          "contract_value": 6.8536870416
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 17:25:00",
+      "feature_checksum_builtin": 17834313726846816647,
+      "feature_checksum_contract": 12327577051667416878,
+      "decision_builtin": "SHORT",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "DUAL_SIGNAL_SHORT_WINS",
+      "decision_reason_contract": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": 0.014440999999999982,
+      "p_flat_delta_contract_minus_builtin": -0.047153,
+      "p_long_delta_contract_minus_builtin": 0.03271199999999996,
+      "decision_transition": "short_to_no_trade",
+      "max_feature_abs_diff": 15.424403422600008,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 15.424403422600008,
+          "signed_delta_contract_minus_builtin": -15.424403422600008,
+          "builtin_value": 80.45,
+          "contract_value": 65.0255965774
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 2.8493597658999974,
+          "signed_delta_contract_minus_builtin": -2.8493597658999974,
+          "builtin_value": 49.049,
+          "contract_value": 46.1996402341
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.3477421464999999,
+          "signed_delta_contract_minus_builtin": 0.3477421464999999,
+          "builtin_value": -5.3433164139,
+          "contract_value": -4.9955742674
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.23270513250000002,
+          "signed_delta_contract_minus_builtin": -0.23270513250000002,
+          "builtin_value": 1.6401965382,
+          "contract_value": 1.4074914057
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.1096632709,
+          "signed_delta_contract_minus_builtin": -0.1096632709,
+          "builtin_value": -0.4623141278,
+          "contract_value": -0.5719773987
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.02 17:25:00",
+      "feature_checksum_builtin": 3194526431319385070,
+      "feature_checksum_contract": 16155019493697030701,
+      "decision_builtin": "NO_TRADE",
+      "decision_contract": "LONG",
+      "decision_reason_builtin": "LONG_MARGIN_FAIL",
+      "decision_reason_contract": "LONG_FILTERS_OK",
+      "trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "trade_action_reason_contract": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_builtin": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_contract": "POSITION_ALREADY_OPEN",
+      "p_short_delta_contract_minus_builtin": 0.007461999999999969,
+      "p_flat_delta_contract_minus_builtin": -0.047099,
+      "p_long_delta_contract_minus_builtin": 0.03963699999999998,
+      "decision_transition": "no_trade_to_long",
+      "max_feature_abs_diff": 15.221556072599995,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "abs_diff": 15.221556072599995,
+          "signed_delta_contract_minus_builtin": -15.221556072599995,
+          "builtin_value": 70.1642857143,
+          "contract_value": 54.9427296417
+        },
+        {
+          "feature": "atr_50",
+          "abs_diff": 1.7830991101000038,
+          "signed_delta_contract_minus_builtin": -1.7830991101000038,
+          "builtin_value": 40.691,
+          "contract_value": 38.9079008899
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.31219683369999984,
+          "signed_delta_contract_minus_builtin": -0.31219683369999984,
+          "builtin_value": 1.7243195231,
+          "contract_value": 1.4121226894
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.005923114699999999,
+          "signed_delta_contract_minus_builtin": 0.005923114699999999,
+          "builtin_value": 0.0213796861,
+          "contract_value": 0.0273028008
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.0043538672999998695,
+          "signed_delta_contract_minus_builtin": 0.0043538672999998695,
+          "builtin_value": -1.2408747447,
+          "contract_value": -1.2365208774
+        }
+      ]
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.04.07 20:10:00",
+      "feature_checksum_builtin": 8247896239231033062,
+      "feature_checksum_contract": 15832625818356977092,
+      "decision_builtin": "LONG",
+      "decision_contract": "NO_TRADE",
+      "decision_reason_builtin": "LONG_FILTERS_OK",
+      "decision_reason_contract": "LONG_MARGIN_FAIL",
+      "trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "shadow_trade_action_reason_builtin": "POSITION_ALREADY_OPEN",
+      "shadow_trade_action_reason_contract": "NO_ENTRY_SIGNAL",
+      "p_short_delta_contract_minus_builtin": -0.01685700000000001,
+      "p_flat_delta_contract_minus_builtin": 0.045186000000000004,
+      "p_long_delta_contract_minus_builtin": -0.028328999999999993,
+      "decision_transition": "long_to_no_trade",
+      "max_feature_abs_diff": 6.909695698599997,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 6.909695698599997,
+          "signed_delta_contract_minus_builtin": -6.909695698599997,
+          "builtin_value": 46.503,
+          "contract_value": 39.5933043014
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 1.6101674985999992,
+          "signed_delta_contract_minus_builtin": -1.6101674985999992,
+          "builtin_value": 42.1071428571,
+          "contract_value": 40.4969753585
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.1173522989000001,
+          "signed_delta_contract_minus_builtin": 0.1173522989000001,
+          "builtin_value": 0.9054715364,
+          "contract_value": 1.0228238353
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.038780928500000034,
+          "signed_delta_contract_minus_builtin": 0.038780928500000034,
+          "builtin_value": -2.2086498927,
+          "contract_value": -2.1698689642
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.012032971900000022,
+          "signed_delta_contract_minus_builtin": -0.012032971900000022,
+          "builtin_value": -0.3026386786,
+          "contract_value": -0.3146716505
+        }
+      ]
+    }
+  ]
+}

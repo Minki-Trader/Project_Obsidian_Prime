@@ -1,0 +1,42 @@
+# Stage 41 Review Index
+
+- latest margin bridge confirmation review:
+  - `stage41_margin_bridge_confirmation_20260414.md`
+- latest margin fine replay review:
+  - `stage41_margin_fine_replay_20260414.md`
+- latest margin sensitivity replay review:
+  - `stage41_margin_sensitivity_replay_20260414.md`
+- latest threshold sensitivity review:
+  - `stage41_threshold_sensitivity_20260414.md`
+- latest shared feature-path attribution review:
+  - `stage41_feature_path_shared_attribution_20260414.md`
+- latest targeted feature snapshot audit review:
+  - `stage41_targeted_feature_snapshot_audit_20260414_att0005.md`
+- prior localized diagnostic read:
+  - `stage41_targeted_feature_snapshot_audit_20260414.md`
+- key chain:
+  - `att_0004` localized audit proved external exact-match alignment on the Stage 40 windows, but left large ATR and ATR-derived feature drift
+  - `att_0005` localized audit closed that drift to float-noise scale after patching MT5 feature-path ATR and Stochastic calculations to match the Python contract
+  - `att_0007` through `att_0010` then sampled six latest-window A/B drift clusters on the simpler `34B` bundle and showed that the shared built-in-versus-contract gap is dominated by ATR-path feature changes, with most decision flips moving from directional entries to `NO_TRADE`
+  - `stage41_threshold_sensitivity_20260414.md` then showed that `25 / 26` sampled directional-to-`NO_TRADE` flips are fixed-base `max_probability_margin` failures, with zero sampled contextual soft-suppressor activations on the relevant direction and only one pure threshold-cross row
+  - `stage41_margin_sensitivity_replay_20260414.md` then replayed the latest window on fresh `34B` bundles across `min_margin=0.0600 / 0.0625 / 0.0650 / 0.0675 / 0.0700`, found `0.0600` as the only materially better contract-aligned setting, and confirmed the same `0.0600` outcome exactly on the operating `34D` bundle
+  - `stage41_margin_fine_replay_20260414.md` then stress-tested the operating `34D` lane locally around that candidate on `0.05875 / 0.06000 / 0.06125` and kept `0.06000` as the best tested operating point
+  - `stage41_margin_bridge_confirmation_20260414.md` then extended that check to the carried `2024.01.01 -> 2026.04.13` contract-aligned bridge and again kept `0.06000` above the `0.0675` contract baseline
+- generator:
+  - `analyze_stage41_targeted_feature_snapshot_audit.py`
+  - `analyze_stage41_feature_path_shared_attribution.py`
+  - `analyze_stage41_threshold_sensitivity.py`
+  - `analyze_stage41_margin_sensitivity_replay.py`
+  - `analyze_stage41_margin_fine_replay.py`
+  - `analyze_stage41_margin_bridge_confirmation.py`
+- read order:
+  - `../00_spec/stage_brief.md`
+  - `../01_inputs/input_refs.md`
+  - `stage41_margin_bridge_confirmation_20260414.md`
+  - `stage41_margin_fine_replay_20260414.md`
+  - `stage41_margin_sensitivity_replay_20260414.md`
+  - `stage41_threshold_sensitivity_20260414.md`
+  - `stage41_feature_path_shared_attribution_20260414.md`
+  - `stage41_targeted_feature_snapshot_audit_20260414.md`
+  - `stage41_targeted_feature_snapshot_audit_20260414_att0005.md`
+  - `../04_selected/selection_status.md`

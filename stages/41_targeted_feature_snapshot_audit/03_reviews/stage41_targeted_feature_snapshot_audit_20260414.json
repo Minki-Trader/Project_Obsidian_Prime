@@ -1,0 +1,817 @@
+{
+  "reviewed_on_utc": "2026-04-14T10:07:32.493779+00:00",
+  "snapshot_row_count": 14,
+  "ready_row_count": 14,
+  "skip_row_count": 0,
+  "rows_with_feature_matrix_match": 14,
+  "rows_missing_feature_matrix_timestamp": 0,
+  "row_max_abs_diff": {
+    "count": 14,
+    "mean": 23.03601514761788,
+    "median": 25.780023818969724,
+    "p90": 29.04910736083984,
+    "max": 29.672051544189458
+  },
+  "row_tolerance_counts": {
+    "le_1e-9": 0,
+    "le_1e-6": 0,
+    "le_1e-4": 0
+  },
+  "top_feature_drifts": [
+    {
+      "feature": "atr_50",
+      "count": 14,
+      "mean_abs_diff": 23.03601514761788,
+      "median_abs_diff": 25.780023818969724,
+      "p90_abs_diff": 29.04910736083984,
+      "max_abs_diff": 29.672051544189458,
+      "worst_timestamp": "2026-03-23T18:15:00+00:00"
+    },
+    {
+      "feature": "atr_14",
+      "count": 14,
+      "mean_abs_diff": 4.974893632214815,
+      "median_abs_diff": 4.850007792874411,
+      "p90_abs_diff": 7.292263848435276,
+      "max_abs_diff": 7.598382786299219,
+      "worst_timestamp": "2026-03-23T18:15:00+00:00"
+    },
+    {
+      "feature": "bb_squeeze",
+      "count": 14,
+      "mean_abs_diff": 0.2857142857142857,
+      "median_abs_diff": 0.0,
+      "p90_abs_diff": 1.0,
+      "max_abs_diff": 1.0,
+      "worst_timestamp": "2026-03-23T17:20:00+00:00"
+    },
+    {
+      "feature": "stoch_kd_diff",
+      "count": 14,
+      "mean_abs_diff": 0.19287491207903348,
+      "median_abs_diff": 0.1085132097406254,
+      "p90_abs_diff": 0.49997352251303234,
+      "max_abs_diff": 0.8417595037218994,
+      "worst_timestamp": "2026-03-23T18:05:00+00:00"
+    },
+    {
+      "feature": "atr_14_over_atr_50",
+      "count": 14,
+      "mean_abs_diff": 0.3564267598010881,
+      "median_abs_diff": 0.35903063652103884,
+      "p90_abs_diff": 0.3803419556853815,
+      "max_abs_diff": 0.3871184187084046,
+      "worst_timestamp": "2026-03-23T18:15:00+00:00"
+    },
+    {
+      "feature": "return_1_over_atr_14",
+      "count": 14,
+      "mean_abs_diff": 0.030973997706663873,
+      "median_abs_diff": 0.019281325154711912,
+      "p90_abs_diff": 0.05629256673729833,
+      "max_abs_diff": 0.13312446367919928,
+      "worst_timestamp": "2026-03-23T18:05:00+00:00"
+    },
+    {
+      "feature": "ema50_ema200_diff",
+      "count": 14,
+      "mean_abs_diff": 2.0622867730984192e-06,
+      "median_abs_diff": 1.7080718706097286e-06,
+      "p90_abs_diff": 4.4750528161330304e-06,
+      "max_abs_diff": 5.794346861875965e-06,
+      "worst_timestamp": "2026-03-23T17:20:00+00:00"
+    },
+    {
+      "feature": "ema20_ema50_diff",
+      "count": 14,
+      "mean_abs_diff": 1.5520795772415243e-06,
+      "median_abs_diff": 1.7367500007026138e-06,
+      "p90_abs_diff": 2.6603128134183864e-06,
+      "max_abs_diff": 3.4851898504939527e-06,
+      "worst_timestamp": "2026-03-23T17:45:00+00:00"
+    },
+    {
+      "feature": "rsi_50",
+      "count": 14,
+      "mean_abs_diff": 9.920054131790884e-07,
+      "median_abs_diff": 1.0833148458289088e-06,
+      "p90_abs_diff": 1.7492129678942091e-06,
+      "max_abs_diff": 1.879033206364511e-06,
+      "worst_timestamp": "2026-04-02T20:20:00+00:00"
+    },
+    {
+      "feature": "rsi_14",
+      "count": 14,
+      "mean_abs_diff": 8.252031814695979e-07,
+      "median_abs_diff": 8.715042980611543e-07,
+      "p90_abs_diff": 1.3700296896956843e-06,
+      "max_abs_diff": 1.8100164069778657e-06,
+      "worst_timestamp": "2026-04-02T20:25:00+00:00"
+    },
+    {
+      "feature": "ema9_ema20_diff",
+      "count": 14,
+      "mean_abs_diff": 3.698282920540562e-07,
+      "median_abs_diff": 2.8112646432987276e-07,
+      "p90_abs_diff": 7.979178128891818e-07,
+      "max_abs_diff": 8.85450194942905e-07,
+      "worst_timestamp": "2026-03-23T17:55:00+00:00"
+    },
+    {
+      "feature": "stochrsi_kd_diff",
+      "count": 14,
+      "mean_abs_diff": 3.2716910038286885e-07,
+      "median_abs_diff": 1.8968599868607328e-07,
+      "p90_abs_diff": 8.677736314410823e-07,
+      "max_abs_diff": 8.742259751670645e-07,
+      "worst_timestamp": "2026-04-02T20:45:00+00:00"
+    },
+    {
+      "feature": "rsi_14_minus_50",
+      "count": 14,
+      "mean_abs_diff": 1.487678709745564e-07,
+      "median_abs_diff": 1.3720258795757445e-07,
+      "p90_abs_diff": 2.9557949172698287e-07,
+      "max_abs_diff": 4.178213863781366e-07,
+      "worst_timestamp": "2026-03-23T17:50:00+00:00"
+    },
+    {
+      "feature": "usdx_zscore_20",
+      "count": 14,
+      "mean_abs_diff": 5.4623211902051135e-08,
+      "median_abs_diff": 2.7649992379030763e-08,
+      "p90_abs_diff": 1.0085777102375462e-07,
+      "max_abs_diff": 2.4174653323605355e-07,
+      "worst_timestamp": "2026-04-02T20:25:00+00:00"
+    },
+    {
+      "feature": "vix_zscore_20",
+      "count": 14,
+      "mean_abs_diff": 2.9221459309820245e-08,
+      "median_abs_diff": 2.0136547873583766e-08,
+      "p90_abs_diff": 5.396217039876917e-08,
+      "max_abs_diff": 1.1468483895882287e-07,
+      "worst_timestamp": "2026-04-02T20:25:00+00:00"
+    },
+    {
+      "feature": "rsi_14_slope_3",
+      "count": 14,
+      "mean_abs_diff": 3.124678167400395e-08,
+      "median_abs_diff": 2.4162927214632646e-08,
+      "p90_abs_diff": 5.287744746507173e-08,
+      "max_abs_diff": 1.0552807605535008e-07,
+      "worst_timestamp": "2026-03-23T17:20:00+00:00"
+    },
+    {
+      "feature": "us10yr_zscore_20",
+      "count": 14,
+      "mean_abs_diff": 2.5758293274129914e-08,
+      "median_abs_diff": 1.7718209843753385e-08,
+      "p90_abs_diff": 4.9726822481943604e-08,
+      "max_abs_diff": 9.779321308300837e-08,
+      "worst_timestamp": "2026-03-23T18:10:00+00:00"
+    },
+    {
+      "feature": "close_ema50_ratio",
+      "count": 14,
+      "mean_abs_diff": 2.821931417112162e-08,
+      "median_abs_diff": 3.0744091827905606e-08,
+      "p90_abs_diff": 4.356602656407915e-08,
+      "max_abs_diff": 5.5269335996754876e-08,
+      "worst_timestamp": "2026-03-23T18:15:00+00:00"
+    },
+    {
+      "feature": "sma50_sma200_ratio",
+      "count": 14,
+      "mean_abs_diff": 3.6046077186594316e-08,
+      "median_abs_diff": 3.580252072588053e-08,
+      "p90_abs_diff": 5.0037745369380106e-08,
+      "max_abs_diff": 5.4200402832549344e-08,
+      "worst_timestamp": "2026-03-23T18:00:00+00:00"
+    },
+    {
+      "feature": "close_ema20_ratio",
+      "count": 14,
+      "mean_abs_diff": 2.4616673921507015e-08,
+      "median_abs_diff": 2.0839965753083334e-08,
+      "p90_abs_diff": 4.6150122123833635e-08,
+      "max_abs_diff": 5.175111073008054e-08,
+      "worst_timestamp": "2026-04-02T20:40:00+00:00"
+    }
+  ],
+  "worst_rows": [
+    {
+      "timestamp": "2026-03-23T18:15:00+00:00",
+      "bar_time_server": "2026.03.23 18:15:00",
+      "row_ready": true,
+      "skip_reason": "",
+      "matched_feature_count": 54,
+      "max_abs_diff": 29.672051544189458,
+      "mean_abs_diff": 0.7021206093366851,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 29.672051544189458,
+          "mt5_value": 91.495,
+          "python_value": 61.82294845581055
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 7.598382786299219,
+          "mt5_value": 50.3678571429,
+          "python_value": 57.96623992919922
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.3871184187084046,
+          "mt5_value": 0.550498466,
+          "python_value": 0.9376168847084045
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.22508500950146448,
+          "mt5_value": 11.2960622205,
+          "python_value": 11.070977210998535
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.031864817560952746,
+          "mt5_value": -0.2430889861,
+          "python_value": -0.21122416853904724
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-23T18:00:00+00:00",
+      "bar_time_server": "2026.03.23 18:00:00",
+      "row_ready": true,
+      "skip_reason": "",
+      "matched_feature_count": 54,
+      "max_abs_diff": 29.06768295288086,
+      "mean_abs_diff": 0.6841181862002913,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 29.06768295288086,
+          "mt5_value": 91.595,
+          "python_value": 62.52731704711914
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 6.86240506854805,
+          "mt5_value": 53.1357142857,
+          "python_value": 59.99811935424805
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.6177828852322751,
+          "mt5_value": -4.0569593366,
+          "python_value": -4.674742221832275
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.3794346171160766,
+          "mt5_value": 0.5801158828,
+          "python_value": 0.9595504999160767
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.015072131494674679,
+          "mt5_value": 0.13177591,
+          "python_value": 0.11670377850532532
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-23T18:10:00+00:00",
+      "bar_time_server": "2026.03.23 18:10:00",
+      "row_ready": true,
+      "skip_reason": "",
+      "matched_feature_count": 54,
+      "max_abs_diff": 29.005764312744134,
+      "mean_abs_diff": 0.6749075339072236,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 29.005764312744134,
+          "mt5_value": 91.32,
+          "python_value": 62.31423568725586
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 6.957049887506642,
+          "mt5_value": 52.5642857143,
+          "python_value": 59.52133560180664
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.37957500017043455,
+          "mt5_value": 0.5756054064,
+          "python_value": 0.9551804065704346
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.09816488366484322,
+          "mt5_value": 9.5027491178,
+          "python_value": 9.600914001464844
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.004447614675241469,
+          "mt5_value": 0.038051756,
+          "python_value": 0.03360414132475853
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-23T17:55:00+00:00",
+      "bar_time_server": "2026.03.23 17:55:00",
+      "row_ready": true,
+      "skip_reason": "",
+      "matched_feature_count": 54,
+      "max_abs_diff": 28.616104431152337,
+      "mean_abs_diff": 0.6290011471080815,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 28.616104431152337,
+          "mt5_value": 91.695,
+          "python_value": 63.078895568847656
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 4.854016004261325,
+          "mt5_value": 57.0285714286,
+          "python_value": 61.88258743286133
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.35909712080678713,
+          "mt5_value": 0.6219376349,
+          "python_value": 0.9810347557067871
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.09973838711025396,
+          "mt5_value": -3.9297883234,
+          "python_value": -4.029526710510254
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.037095741983627306,
+          "mt5_value": -0.4729238615,
+          "python_value": -0.4358281195163727
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-23T18:05:00+00:00",
+      "bar_time_server": "2026.03.23 18:05:00",
+      "row_ready": true,
+      "skip_reason": "",
+      "matched_feature_count": 54,
+      "max_abs_diff": 28.333229980468744,
+      "mean_abs_diff": 0.6801832765976955,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 28.333229980468744,
+          "mt5_value": 91.21,
+          "python_value": 62.87677001953125
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 7.0411083766535185,
+          "mt5_value": 54.3857142857,
+          "python_value": 61.426822662353516
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.8417595037218994,
+          "mt5_value": 1.5614866606,
+          "python_value": 2.4032461643218994
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.380670650906073,
+          "mt5_value": 0.5962692061,
+          "python_value": 0.976939857006073
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.13312446367919928,
+          "mt5_value": 1.16138088,
+          "python_value": 1.0282564163208008
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-23T17:50:00+00:00",
+      "bar_time_server": "2026.03.23 17:50:00",
+      "row_ready": true,
+      "skip_reason": "",
+      "matched_feature_count": 54,
+      "max_abs_diff": 27.786638031005864,
+      "mean_abs_diff": 0.5719107609723605,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 27.786638031005864,
+          "mt5_value": 91.26,
+          "python_value": 63.47336196899414
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 2.65954764225625,
+          "mt5_value": 60.6178571429,
+          "python_value": 63.27740478515625
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.3326802266192138,
+          "mt5_value": 0.6642324912,
+          "python_value": 0.9969127178192139
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.08539461204838883,
+          "mt5_value": -3.0790970237,
+          "python_value": -2.9937024116516113
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.018915126546978744,
+          "mt5_value": 0.4500392773,
+          "python_value": 0.43112415075302124
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-23T17:45:00+00:00",
+      "bar_time_server": "2026.03.23 17:45:00",
+      "row_ready": true,
+      "skip_reason": "",
+      "matched_feature_count": 54,
+      "max_abs_diff": 27.47391830444336,
+      "mean_abs_diff": 0.5203930115979154,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 27.47391830444336,
+          "mt5_value": 90.86,
+          "python_value": 63.38608169555664
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.3029029166212097,
+          "mt5_value": 0.6899547184,
+          "python_value": 0.9928576350212097
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 0.24407152446953262,
+          "mt5_value": 62.6892857143,
+          "python_value": 62.93335723876953
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.07936052685268535,
+          "mt5_value": -5.5608596384,
+          "python_value": -5.6402201652526855
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.0009582907068542423,
+          "mt5_value": -0.2470943004,
+          "python_value": -0.24613600969314575
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-03-23T17:20:00+00:00",
+      "bar_time_server": "2026.03.23 17:20:00",
+      "row_ready": true,
+      "skip_reason": "",
+      "matched_feature_count": 54,
+      "max_abs_diff": 24.08612933349609,
+      "mean_abs_diff": 0.6118906479391275,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 24.08612933349609,
+          "mt5_value": 89.127,
+          "python_value": 65.0408706665039
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 7.399901907770314,
+          "mt5_value": 62.6892857143,
+          "python_value": 70.08918762207031
+        },
+        {
+          "feature": "bb_squeeze",
+          "abs_diff": 1.0,
+          "mt5_value": 0.0,
+          "python_value": 1.0
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.37424733416367184,
+          "mt5_value": 0.7033703111,
+          "python_value": 1.0776176452636719
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.11728803237099683,
+          "mt5_value": 10.9785408171,
+          "python_value": 10.861252784729004
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-04-02T20:35:00+00:00",
+      "bar_time_server": "2026.04.02 20:35:00",
+      "row_ready": true,
+      "skip_reason": "",
+      "matched_feature_count": 54,
+      "max_abs_diff": 16.890506286621097,
+      "mean_abs_diff": 0.4141075060819138,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 16.890506286621097,
+          "mt5_value": 60.395,
+          "python_value": 43.504493713378906
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 3.971071515735936,
+          "mt5_value": 39.5535714286,
+          "python_value": 43.52464294433594
+        },
+        {
+          "feature": "bb_squeeze",
+          "abs_diff": 1.0,
+          "mt5_value": 0.0,
+          "python_value": 1.0
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.3455485783991943,
+          "mt5_value": 0.6549146689,
+          "python_value": 1.0004632472991943
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.12239976062543967,
+          "mt5_value": -3.0919027792,
+          "python_value": -3.2143025398254395
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-04-02T20:40:00+00:00",
+      "bar_time_server": "2026.04.02 20:40:00",
+      "row_ready": true,
+      "skip_reason": "",
+      "matched_feature_count": 54,
+      "max_abs_diff": 16.770595703124997,
+      "mean_abs_diff": 0.4101910801905451,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 16.770595703124997,
+          "mt5_value": 59.785,
+          "python_value": 43.014404296875
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 3.8978843688964844,
+          "mt5_value": 37.875,
+          "python_value": 41.772884368896484
+        },
+        {
+          "feature": "bb_squeeze",
+          "abs_diff": 1.0,
+          "mt5_value": 0.0,
+          "python_value": 1.0
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.33761699271860957,
+          "mt5_value": 0.6335201137,
+          "python_value": 0.9711371064186096
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.136210489550586,
+          "mt5_value": -7.2782697198,
+          "python_value": -7.414480209350586
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-04-02T20:30:00+00:00",
+      "bar_time_server": "2026.04.02 20:30:00",
+      "row_ready": true,
+      "skip_reason": "",
+      "matched_feature_count": 54,
+      "max_abs_diff": 16.548475646972655,
+      "mean_abs_diff": 0.39051717563116956,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 16.548475646972655,
+          "mt5_value": 60.4,
+          "python_value": 43.851524353027344
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 4.102089473222264,
+          "mt5_value": 40.7321428571,
+          "python_value": 44.834232330322266
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.3480366898240723,
+          "mt5_value": 0.6743732261,
+          "python_value": 1.0224099159240723
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.06967183492421913,
+          "mt5_value": 4.3138044224,
+          "python_value": 4.383476257324219
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.01964752376244508,
+          "mt5_value": -0.2147397846,
+          "python_value": -0.19509226083755493
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-04-02T20:45:00+00:00",
+      "bar_time_server": "2026.04.02 20:45:00",
+      "row_ready": true,
+      "skip_reason": "",
+      "matched_feature_count": 54,
+      "max_abs_diff": 16.495887145996093,
+      "mean_abs_diff": 0.4353053130129671,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 16.495887145996093,
+          "mt5_value": 59.235,
+          "python_value": 42.739112854003906
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 5.485534122969142,
+          "mt5_value": 35.3928571429,
+          "python_value": 40.87839126586914
+        },
+        {
+          "feature": "bb_squeeze",
+          "abs_diff": 1.0,
+          "mt5_value": 0.0,
+          "python_value": 1.0
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.35896415223529055,
+          "mt5_value": 0.5974990655,
+          "python_value": 0.9564632177352905
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.13198603800078068,
+          "mt5_value": -8.4585775297,
+          "python_value": -8.326591491699219
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-04-02T20:25:00+00:00",
+      "bar_time_server": "2026.04.02 20:25:00",
+      "row_ready": true,
+      "skip_reason": "",
+      "matched_feature_count": 54,
+      "max_abs_diff": 16.076508331298825,
+      "mean_abs_diff": 0.37345104132924206,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 16.076508331298825,
+          "mt5_value": 60.425,
+          "python_value": 44.34849166870117
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 3.7294485909312485,
+          "mt5_value": 43.0535714286,
+          "python_value": 46.78302001953125
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.34238272199168707,
+          "mt5_value": 0.7125125598,
+          "python_value": 1.054895281791687
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.01481773457187957,
+          "mt5_value": 0.1858769407,
+          "python_value": 0.17105920612812042
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.0031911778282225356,
+          "mt5_value": 10.9707859111,
+          "python_value": 10.973977088928223
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-04-02T20:20:00+00:00",
+      "bar_time_server": "2026.04.02 20:20:00",
+      "row_ready": true,
+      "skip_reason": "",
+      "matched_feature_count": 54,
+      "max_abs_diff": 15.680720062255858,
+      "mean_abs_diff": 0.3885078000851968,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "abs_diff": 15.680720062255858,
+          "mt5_value": 60.47,
+          "python_value": 44.78927993774414
+        },
+        {
+          "feature": "atr_14",
+          "abs_diff": 4.845999581487497,
+          "mt5_value": 43.7857142857,
+          "python_value": 48.6317138671875
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "abs_diff": 0.36169921693450924,
+          "mt5_value": 0.7240898675,
+          "python_value": 1.0857890844345093
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "abs_diff": 0.0722156276744137,
+          "mt5_value": 9.6173110714,
+          "python_value": 9.545095443725586
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "abs_diff": 0.01878168443443909,
+          "mt5_value": 0.1884823964,
+          "python_value": 0.1697007119655609
+        }
+      ]
+    }
+  ],
+  "missing_rows": [],
+  "external_status_breakdown": {
+    "AAPL.xnas": {
+      "exact_match": 14
+    },
+    "AMD.xnas": {
+      "exact_match": 14
+    },
+    "AMZN.xnas": {
+      "exact_match": 14
+    },
+    "GOOGL.xnas": {
+      "exact_match": 14
+    },
+    "META.xnas": {
+      "exact_match": 14
+    },
+    "MSFT.xnas": {
+      "exact_match": 14
+    },
+    "NVDA.xnas": {
+      "exact_match": 14
+    },
+    "TSLA.xnas": {
+      "exact_match": 14
+    },
+    "US10YR": {
+      "exact_match": 14
+    },
+    "USDX": {
+      "exact_match": 14
+    },
+    "VIX": {
+      "exact_match": 14
+    }
+  },
+  "snapshot_jsonl": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_39a_34d_bridge_ext_v1\\logs\\att_0004_feature_snapshot.jsonl",
+  "feature_matrix": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\data\\processed\\fpmarkets_v2\\features\\extended_window\\feature_matrix.parquet",
+  "feature_schema": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\34_outside_bar_mainline_promotion\\02_runs\\active\\34D_29s_outbarlong_0001\\artifacts\\feature_schema.json"
+}

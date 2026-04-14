@@ -1,0 +1,67 @@
+# Stage 41 Input Refs
+
+- Stage 40 parity brief:
+  - `stages/40_runtime_parity_deep_audit/00_spec/stage_brief.md`
+  - `stages/40_runtime_parity_deep_audit/03_reviews/stage40_runtime_parity_deep_audit_20260413.md`
+  - `stages/40_runtime_parity_deep_audit/04_selected/selection_status.md`
+- Stage 39 runtime continuity source:
+  - `stages/39_window_extension_mt5_validation/02_runs/active/39A_34d_bridge_ext_0001/experiment_bundle.json`
+- localized pre-patch MT5 audit artifacts:
+  - `C:\Users\awdse\AppData\Roaming\MetaQuotes\Terminal\Common\Files\Project_Obsidian_Prime\runtime\exp_39a_34d_bridge_ext_v1\logs\att_0004_feature_snapshot.jsonl`
+  - `stages/39_window_extension_mt5_validation/02_runs/active/39A_34d_bridge_ext_0001/mt5_attempts/att_0004/tester_attempt_summary.json`
+- localized post-patch MT5 audit artifacts:
+  - `C:\Users\awdse\AppData\Roaming\MetaQuotes\Terminal\Common\Files\Project_Obsidian_Prime\runtime\exp_39a_34d_bridge_ext_v1\logs\att_0005_feature_snapshot.jsonl`
+  - `stages/39_window_extension_mt5_validation/02_runs/active/39A_34d_bridge_ext_0001/mt5_attempts/att_0005/tester_attempt_summary.json`
+- shared latest-window feature-path attribution artifacts:
+  - `C:\Users\awdse\AppData\Roaming\MetaQuotes\Terminal\Common\Files\Project_Obsidian_Prime\runtime\exp_39b_34b_bridge_ext_v1\logs\att_0007_feature_snapshot.jsonl`
+  - `C:\Users\awdse\AppData\Roaming\MetaQuotes\Terminal\Common\Files\Project_Obsidian_Prime\runtime\exp_39b_34b_bridge_ext_v1\logs\att_0008_feature_snapshot.jsonl`
+  - `C:\Users\awdse\AppData\Roaming\MetaQuotes\Terminal\Common\Files\Project_Obsidian_Prime\runtime\exp_39b_34b_bridge_ext_v1\logs\att_0009_feature_snapshot.jsonl`
+  - `C:\Users\awdse\AppData\Roaming\MetaQuotes\Terminal\Common\Files\Project_Obsidian_Prime\runtime\exp_39b_34b_bridge_ext_v1\logs\att_0010_feature_snapshot.jsonl`
+  - `stages/39_window_extension_mt5_validation/02_runs/active/39B_34b_bridge_ext_0001/mt5_attempts/att_0007/tester_attempt_summary.json`
+  - `stages/39_window_extension_mt5_validation/02_runs/active/39B_34b_bridge_ext_0001/mt5_attempts/att_0008/tester_attempt_summary.json`
+  - `stages/39_window_extension_mt5_validation/02_runs/active/39B_34b_bridge_ext_0001/mt5_attempts/att_0009/tester_attempt_summary.json`
+  - `stages/39_window_extension_mt5_validation/02_runs/active/39B_34b_bridge_ext_0001/mt5_attempts/att_0010/tester_attempt_summary.json`
+- fixed-margin replay source bundles:
+  - `stages/39_window_extension_mt5_validation/02_runs/active/39B_34b_bridge_ext_0001/experiment_bundle.json`
+  - `stages/39_window_extension_mt5_validation/02_runs/active/39A_34d_bridge_ext_0001/experiment_bundle.json`
+- fixed-margin replay outputs:
+  - `stages/41_targeted_feature_snapshot_audit/02_runs/active/41A_34b_margin0600_0001/mt5_attempts/att_0001/tester_attempt_summary.json`
+  - `stages/41_targeted_feature_snapshot_audit/02_runs/active/41B_34b_margin0625_0001/mt5_attempts/att_0001/tester_attempt_summary.json`
+  - `stages/41_targeted_feature_snapshot_audit/02_runs/active/41C_34b_margin0650_0001/mt5_attempts/att_0001/tester_attempt_summary.json`
+  - `stages/41_targeted_feature_snapshot_audit/02_runs/active/41D_34b_margin0675_0001/mt5_attempts/att_0001/tester_attempt_summary.json`
+  - `stages/41_targeted_feature_snapshot_audit/02_runs/active/41E_34b_margin0700_0001/mt5_attempts/att_0001/tester_attempt_summary.json`
+  - `stages/41_targeted_feature_snapshot_audit/02_runs/active/41F_34d_margin0600_0001/mt5_attempts/att_0001/tester_attempt_summary.json`
+- fixed-margin fine replay outputs:
+  - `stages/41_targeted_feature_snapshot_audit/02_runs/active/41G_34d_margin05875_0001/mt5_attempts/att_0001/tester_attempt_summary.json`
+  - `stages/41_targeted_feature_snapshot_audit/02_runs/active/41F_34d_margin0600_0001/mt5_attempts/att_0001/tester_attempt_summary.json`
+  - `stages/41_targeted_feature_snapshot_audit/02_runs/active/41H_34d_margin06125_0001/mt5_attempts/att_0001/tester_attempt_summary.json`
+- bridge confirmation outputs:
+  - `stages/41_targeted_feature_snapshot_audit/02_runs/active/41I_34d_bridge_contract0675_0001/mt5_attempts/att_0001/tester_attempt_summary.json`
+  - `stages/41_targeted_feature_snapshot_audit/02_runs/active/41J_34d_bridge_contract0600_0001/mt5_attempts/att_0001/tester_attempt_summary.json`
+- shared processed feature surface:
+  - `data/processed/fpmarkets_v2/features/extended_window/feature_matrix.parquet`
+- current operating feature schema:
+  - `stages/34_outside_bar_mainline_promotion/02_runs/active/34D_29s_outbarlong_0001/artifacts/feature_schema.json`
+- current operating ONNX:
+  - `stages/34_outside_bar_mainline_promotion/02_runs/active/34D_29s_outbarlong_0001/artifacts/model_probonly.onnx`
+- generated localized review outputs:
+  - `stages/41_targeted_feature_snapshot_audit/03_reviews/stage41_targeted_feature_snapshot_audit_20260414.md`
+  - `stages/41_targeted_feature_snapshot_audit/03_reviews/stage41_targeted_feature_snapshot_audit_20260414_att0005.md`
+- generated shared attribution outputs:
+  - `stages/41_targeted_feature_snapshot_audit/03_reviews/analyze_stage41_feature_path_shared_attribution.py`
+  - `stages/41_targeted_feature_snapshot_audit/03_reviews/stage41_feature_path_shared_attribution_20260414.json`
+  - `stages/41_targeted_feature_snapshot_audit/03_reviews/stage41_feature_path_shared_attribution_20260414.md`
+- generated fixed-margin replay outputs:
+  - `stages/41_targeted_feature_snapshot_audit/03_reviews/analyze_stage41_margin_sensitivity_replay.py`
+  - `stages/41_targeted_feature_snapshot_audit/03_reviews/stage41_margin_sensitivity_replay_20260414.json`
+  - `stages/41_targeted_feature_snapshot_audit/03_reviews/stage41_margin_sensitivity_replay_20260414.md`
+- generated fixed-margin fine replay outputs:
+  - `stages/41_targeted_feature_snapshot_audit/01_inputs/build_stage41_margin_fine_replay_runs.py`
+  - `stages/41_targeted_feature_snapshot_audit/03_reviews/analyze_stage41_margin_fine_replay.py`
+  - `stages/41_targeted_feature_snapshot_audit/03_reviews/stage41_margin_fine_replay_20260414.json`
+  - `stages/41_targeted_feature_snapshot_audit/03_reviews/stage41_margin_fine_replay_20260414.md`
+- generated bridge confirmation outputs:
+  - `stages/41_targeted_feature_snapshot_audit/01_inputs/build_stage41_margin_bridge_confirmation_runs.py`
+  - `stages/41_targeted_feature_snapshot_audit/03_reviews/analyze_stage41_margin_bridge_confirmation.py`
+  - `stages/41_targeted_feature_snapshot_audit/03_reviews/stage41_margin_bridge_confirmation_20260414.json`
+  - `stages/41_targeted_feature_snapshot_audit/03_reviews/stage41_margin_bridge_confirmation_20260414.md`

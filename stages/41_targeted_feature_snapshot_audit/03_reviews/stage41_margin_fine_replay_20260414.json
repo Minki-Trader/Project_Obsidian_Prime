@@ -1,0 +1,536 @@
+{
+  "reviewed_on_utc": "2026-04-14T15:28:03.147386+00:00",
+  "reference_builtin": {
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\39_window_extension_mt5_validation\\02_runs\\active\\39A_34d_bridge_ext_0001\\mt5_attempts\\att_0007\\tester_attempt_summary.json",
+    "attempt_id": "att_0007",
+    "net_profit": -84.47,
+    "return_pct": -16.894000000000002,
+    "trade_count": 99,
+    "win_rate": 0.43434343434343436,
+    "profit_factor": 0.6373277231548666,
+    "expectancy_per_trade": -0.8532323232323232,
+    "max_dd_pct": 17.60587261375197,
+    "ulcer_index": 8.362953126401184,
+    "long_signal_count": 125,
+    "short_signal_count": 100,
+    "no_trade_count": 1991,
+    "no_trade_rate": 0.8984657039711191,
+    "decision_reason_breakdown": {
+      "SKIPPED": 5972,
+      "DUAL_SIGNAL_LONG_WINS": 55,
+      "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 777,
+      "LONG_MARGIN_FAIL": 403,
+      "THRESHOLD_FAIL": 699,
+      "SHORT_FILTERS_OK": 32,
+      "DUAL_SIGNAL_SHORT_WINS": 68,
+      "SHORT_MARGIN_FAIL_SOFT_CONTEXT": 31,
+      "SHORT_MARGIN_FAIL": 65,
+      "LONG_FILTERS_OK": 70,
+      "LONG_MARGIN_FAIL_SOFT_CONTEXT": 16
+    },
+    "shadow_csv_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_39a_34d_bridge_ext_v1\\logs\\att_0007_shadow.csv",
+    "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_39a_34d_bridge_ext_v1\\logs\\att_0007_trades.csv"
+  },
+  "reference_contract": {
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\39_window_extension_mt5_validation\\02_runs\\active\\39A_34d_bridge_ext_0001\\mt5_attempts\\att_0008\\tester_attempt_summary.json",
+    "attempt_id": "att_0008",
+    "net_profit": -100.75,
+    "return_pct": -20.150000000000002,
+    "trade_count": 91,
+    "win_rate": 0.4175824175824176,
+    "profit_factor": 0.5511049723756906,
+    "expectancy_per_trade": -1.1071428571428572,
+    "max_dd_pct": 21.654238618524335,
+    "ulcer_index": 12.241955697513276,
+    "long_signal_count": 97,
+    "short_signal_count": 99,
+    "no_trade_count": 2020,
+    "no_trade_rate": 0.9115523465703971,
+    "decision_reason_breakdown": {
+      "SKIPPED": 5972,
+      "DUAL_SIGNAL_LONG_WINS": 43,
+      "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 640,
+      "LONG_MARGIN_FAIL": 339,
+      "LONG_FILTERS_OK": 54,
+      "THRESHOLD_FAIL": 897,
+      "SHORT_FILTERS_OK": 28,
+      "DUAL_SIGNAL_SHORT_WINS": 71,
+      "SHORT_MARGIN_FAIL": 103,
+      "SHORT_MARGIN_FAIL_SOFT_CONTEXT": 38,
+      "LONG_MARGIN_FAIL_SOFT_CONTEXT": 3
+    },
+    "shadow_csv_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_39a_34d_bridge_ext_v1\\logs\\att_0008_shadow.csv",
+    "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_39a_34d_bridge_ext_v1\\logs\\att_0008_trades.csv"
+  },
+  "records": [
+    {
+      "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\41_targeted_feature_snapshot_audit\\02_runs\\active\\41G_34d_margin05875_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+      "attempt_id": "att_0001",
+      "net_profit": -91.2,
+      "return_pct": -18.240000000000002,
+      "trade_count": 110,
+      "win_rate": 0.41818181818181815,
+      "profit_factor": 0.6541130959153487,
+      "expectancy_per_trade": -0.8290909090909091,
+      "max_dd_pct": 21.805337519623233,
+      "ulcer_index": 12.440954272583156,
+      "long_signal_count": 126,
+      "short_signal_count": 137,
+      "no_trade_count": 1953,
+      "no_trade_rate": 0.8813176895306859,
+      "decision_reason_breakdown": {
+        "SKIPPED": 5972,
+        "DUAL_SIGNAL_LONG_WINS": 54,
+        "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 605,
+        "LONG_FILTERS_OK": 72,
+        "LONG_MARGIN_FAIL": 321,
+        "THRESHOLD_FAIL": 897,
+        "SHORT_FILTERS_OK": 42,
+        "DUAL_SIGNAL_SHORT_WINS": 95,
+        "SHORT_MARGIN_FAIL_SOFT_CONTEXT": 32,
+        "SHORT_MARGIN_FAIL": 95,
+        "LONG_MARGIN_FAIL_SOFT_CONTEXT": 3
+      },
+      "shadow_csv_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_41g_34d_margin05875_v1\\logs\\att_0001_shadow.csv",
+      "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_41g_34d_margin05875_v1\\logs\\att_0001_trades.csv",
+      "label": "34D margin 0.05875",
+      "family": "34D",
+      "min_margin": 0.05875,
+      "run_dir": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\41_targeted_feature_snapshot_audit\\02_runs\\active\\41G_34d_margin05875_0001",
+      "delta_vs_contract_baseline": {
+        "net_profit_delta": 9.549999999999997,
+        "return_pct_delta": 1.9100000000000001,
+        "trade_count_delta": 19.0,
+        "profit_factor_delta": 0.10300812353965816,
+        "max_dd_pct_delta": 0.1510989010988979,
+        "ulcer_index_delta": 0.19899857506987928,
+        "long_signal_delta": 29.0,
+        "short_signal_delta": 38.0,
+        "no_trade_delta": -67.0
+      },
+      "delta_vs_builtin_reference": {
+        "net_profit_delta": -6.730000000000004,
+        "return_pct_delta": -1.346,
+        "trade_count_delta": 11.0,
+        "profit_factor_delta": 0.016785372760482087,
+        "max_dd_pct_delta": 4.199464905871263,
+        "ulcer_index_delta": 4.078001146181972,
+        "long_signal_delta": 1.0,
+        "short_signal_delta": 37.0,
+        "no_trade_delta": -38.0
+      },
+      "delta_vs_center": {
+        "net_profit_delta": -0.8400000000000034,
+        "return_pct_delta": -0.1680000000000028,
+        "trade_count_delta": 4.0,
+        "profit_factor_delta": 0.018321076568311168,
+        "max_dd_pct_delta": 1.136185243328093,
+        "ulcer_index_delta": 0.17589661271517798,
+        "long_signal_delta": 8.0,
+        "short_signal_delta": 5.0,
+        "no_trade_delta": -13.0
+      }
+    },
+    {
+      "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\41_targeted_feature_snapshot_audit\\02_runs\\active\\41F_34d_margin0600_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+      "attempt_id": "att_0001",
+      "net_profit": -90.36,
+      "return_pct": -18.072,
+      "trade_count": 106,
+      "win_rate": 0.41509433962264153,
+      "profit_factor": 0.6357920193470376,
+      "expectancy_per_trade": -0.8524528301886792,
+      "max_dd_pct": 20.66915227629514,
+      "ulcer_index": 12.265057659867978,
+      "long_signal_count": 118,
+      "short_signal_count": 132,
+      "no_trade_count": 1966,
+      "no_trade_rate": 0.8871841155234657,
+      "decision_reason_breakdown": {
+        "SKIPPED": 5972,
+        "DUAL_SIGNAL_LONG_WINS": 52,
+        "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 611,
+        "LONG_MARGIN_FAIL": 327,
+        "LONG_FILTERS_OK": 66,
+        "THRESHOLD_FAIL": 897,
+        "SHORT_FILTERS_OK": 41,
+        "DUAL_SIGNAL_SHORT_WINS": 91,
+        "SHORT_MARGIN_FAIL_SOFT_CONTEXT": 32,
+        "SHORT_MARGIN_FAIL": 96,
+        "LONG_MARGIN_FAIL_SOFT_CONTEXT": 3
+      },
+      "shadow_csv_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_41f_34d_margin0600_v1\\logs\\att_0001_shadow.csv",
+      "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_41f_34d_margin0600_v1\\logs\\att_0001_trades.csv",
+      "label": "34D margin 0.06000",
+      "family": "34D",
+      "min_margin": 0.06,
+      "run_dir": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\41_targeted_feature_snapshot_audit\\02_runs\\active\\41F_34d_margin0600_0001",
+      "delta_vs_contract_baseline": {
+        "net_profit_delta": 10.39,
+        "return_pct_delta": 2.078000000000003,
+        "trade_count_delta": 15.0,
+        "profit_factor_delta": 0.08468704697134699,
+        "max_dd_pct_delta": -0.9850863422291951,
+        "ulcer_index_delta": 0.0231019623547013,
+        "long_signal_delta": 21.0,
+        "short_signal_delta": 33.0,
+        "no_trade_delta": -54.0
+      },
+      "delta_vs_builtin_reference": {
+        "net_profit_delta": -5.890000000000001,
+        "return_pct_delta": -1.1779999999999973,
+        "trade_count_delta": 7.0,
+        "profit_factor_delta": -0.0015357038078290808,
+        "max_dd_pct_delta": 3.06327966254317,
+        "ulcer_index_delta": 3.902104533466794,
+        "long_signal_delta": -7.0,
+        "short_signal_delta": 32.0,
+        "no_trade_delta": -25.0
+      },
+      "delta_vs_center": {
+        "net_profit_delta": 0.0,
+        "return_pct_delta": 0.0,
+        "trade_count_delta": 0.0,
+        "profit_factor_delta": 0.0,
+        "max_dd_pct_delta": 0.0,
+        "ulcer_index_delta": 0.0,
+        "long_signal_delta": 0.0,
+        "short_signal_delta": 0.0,
+        "no_trade_delta": 0.0
+      }
+    },
+    {
+      "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\41_targeted_feature_snapshot_audit\\02_runs\\active\\41H_34d_margin06125_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+      "attempt_id": "att_0001",
+      "net_profit": -96.12,
+      "return_pct": -19.224000000000004,
+      "trade_count": 105,
+      "win_rate": 0.4095238095238095,
+      "profit_factor": 0.6119186046511628,
+      "expectancy_per_trade": -0.9154285714285715,
+      "max_dd_pct": 21.232339089481954,
+      "ulcer_index": 12.466780871702738,
+      "long_signal_count": 115,
+      "short_signal_count": 126,
+      "no_trade_count": 1975,
+      "no_trade_rate": 0.891245487364621,
+      "decision_reason_breakdown": {
+        "SKIPPED": 5972,
+        "DUAL_SIGNAL_LONG_WINS": 51,
+        "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 615,
+        "LONG_MARGIN_FAIL": 329,
+        "LONG_FILTERS_OK": 64,
+        "THRESHOLD_FAIL": 897,
+        "SHORT_FILTERS_OK": 38,
+        "DUAL_SIGNAL_SHORT_WINS": 88,
+        "SHORT_MARGIN_FAIL_SOFT_CONTEXT": 33,
+        "SHORT_MARGIN_FAIL": 98,
+        "LONG_MARGIN_FAIL_SOFT_CONTEXT": 3
+      },
+      "shadow_csv_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_41h_34d_margin06125_v1\\logs\\att_0001_shadow.csv",
+      "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_41h_34d_margin06125_v1\\logs\\att_0001_trades.csv",
+      "label": "34D margin 0.06125",
+      "family": "34D",
+      "min_margin": 0.06125,
+      "run_dir": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\41_targeted_feature_snapshot_audit\\02_runs\\active\\41H_34d_margin06125_0001",
+      "delta_vs_contract_baseline": {
+        "net_profit_delta": 4.6299999999999955,
+        "return_pct_delta": 0.9259999999999984,
+        "trade_count_delta": 14.0,
+        "profit_factor_delta": 0.06081363227547221,
+        "max_dd_pct_delta": -0.42189952904238126,
+        "ulcer_index_delta": 0.22482517418946202,
+        "long_signal_delta": 18.0,
+        "short_signal_delta": 27.0,
+        "no_trade_delta": -45.0
+      },
+      "delta_vs_builtin_reference": {
+        "net_profit_delta": -11.650000000000006,
+        "return_pct_delta": -2.330000000000002,
+        "trade_count_delta": 6.0,
+        "profit_factor_delta": -0.025409118503703865,
+        "max_dd_pct_delta": 3.626466475729984,
+        "ulcer_index_delta": 4.103827745301555,
+        "long_signal_delta": -10.0,
+        "short_signal_delta": 26.0,
+        "no_trade_delta": -16.0
+      },
+      "delta_vs_center": {
+        "net_profit_delta": -5.760000000000005,
+        "return_pct_delta": -1.1520000000000046,
+        "trade_count_delta": -1.0,
+        "profit_factor_delta": -0.023873414695874784,
+        "max_dd_pct_delta": 0.5631868131868139,
+        "ulcer_index_delta": 0.20172321183476072,
+        "long_signal_delta": -3.0,
+        "short_signal_delta": -6.0,
+        "no_trade_delta": 9.0
+      }
+    }
+  ],
+  "center_record": {
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\41_targeted_feature_snapshot_audit\\02_runs\\active\\41F_34d_margin0600_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+    "attempt_id": "att_0001",
+    "net_profit": -90.36,
+    "return_pct": -18.072,
+    "trade_count": 106,
+    "win_rate": 0.41509433962264153,
+    "profit_factor": 0.6357920193470376,
+    "expectancy_per_trade": -0.8524528301886792,
+    "max_dd_pct": 20.66915227629514,
+    "ulcer_index": 12.265057659867978,
+    "long_signal_count": 118,
+    "short_signal_count": 132,
+    "no_trade_count": 1966,
+    "no_trade_rate": 0.8871841155234657,
+    "decision_reason_breakdown": {
+      "SKIPPED": 5972,
+      "DUAL_SIGNAL_LONG_WINS": 52,
+      "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 611,
+      "LONG_MARGIN_FAIL": 327,
+      "LONG_FILTERS_OK": 66,
+      "THRESHOLD_FAIL": 897,
+      "SHORT_FILTERS_OK": 41,
+      "DUAL_SIGNAL_SHORT_WINS": 91,
+      "SHORT_MARGIN_FAIL_SOFT_CONTEXT": 32,
+      "SHORT_MARGIN_FAIL": 96,
+      "LONG_MARGIN_FAIL_SOFT_CONTEXT": 3
+    },
+    "shadow_csv_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_41f_34d_margin0600_v1\\logs\\att_0001_shadow.csv",
+    "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_41f_34d_margin0600_v1\\logs\\att_0001_trades.csv",
+    "label": "34D margin 0.06000",
+    "family": "34D",
+    "min_margin": 0.06,
+    "run_dir": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\41_targeted_feature_snapshot_audit\\02_runs\\active\\41F_34d_margin0600_0001",
+    "delta_vs_contract_baseline": {
+      "net_profit_delta": 10.39,
+      "return_pct_delta": 2.078000000000003,
+      "trade_count_delta": 15.0,
+      "profit_factor_delta": 0.08468704697134699,
+      "max_dd_pct_delta": -0.9850863422291951,
+      "ulcer_index_delta": 0.0231019623547013,
+      "long_signal_delta": 21.0,
+      "short_signal_delta": 33.0,
+      "no_trade_delta": -54.0
+    },
+    "delta_vs_builtin_reference": {
+      "net_profit_delta": -5.890000000000001,
+      "return_pct_delta": -1.1779999999999973,
+      "trade_count_delta": 7.0,
+      "profit_factor_delta": -0.0015357038078290808,
+      "max_dd_pct_delta": 3.06327966254317,
+      "ulcer_index_delta": 3.902104533466794,
+      "long_signal_delta": -7.0,
+      "short_signal_delta": 32.0,
+      "no_trade_delta": -25.0
+    },
+    "delta_vs_center": {
+      "net_profit_delta": 0.0,
+      "return_pct_delta": 0.0,
+      "trade_count_delta": 0.0,
+      "profit_factor_delta": 0.0,
+      "max_dd_pct_delta": 0.0,
+      "ulcer_index_delta": 0.0,
+      "long_signal_delta": 0.0,
+      "short_signal_delta": 0.0,
+      "no_trade_delta": 0.0
+    }
+  },
+  "best_record": {
+    "summary_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\41_targeted_feature_snapshot_audit\\02_runs\\active\\41F_34d_margin0600_0001\\mt5_attempts\\att_0001\\tester_attempt_summary.json",
+    "attempt_id": "att_0001",
+    "net_profit": -90.36,
+    "return_pct": -18.072,
+    "trade_count": 106,
+    "win_rate": 0.41509433962264153,
+    "profit_factor": 0.6357920193470376,
+    "expectancy_per_trade": -0.8524528301886792,
+    "max_dd_pct": 20.66915227629514,
+    "ulcer_index": 12.265057659867978,
+    "long_signal_count": 118,
+    "short_signal_count": 132,
+    "no_trade_count": 1966,
+    "no_trade_rate": 0.8871841155234657,
+    "decision_reason_breakdown": {
+      "SKIPPED": 5972,
+      "DUAL_SIGNAL_LONG_WINS": 52,
+      "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL": 611,
+      "LONG_MARGIN_FAIL": 327,
+      "LONG_FILTERS_OK": 66,
+      "THRESHOLD_FAIL": 897,
+      "SHORT_FILTERS_OK": 41,
+      "DUAL_SIGNAL_SHORT_WINS": 91,
+      "SHORT_MARGIN_FAIL_SOFT_CONTEXT": 32,
+      "SHORT_MARGIN_FAIL": 96,
+      "LONG_MARGIN_FAIL_SOFT_CONTEXT": 3
+    },
+    "shadow_csv_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_41f_34d_margin0600_v1\\logs\\att_0001_shadow.csv",
+    "trade_ledger_path": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\Common\\Files\\Project_Obsidian_Prime\\runtime\\exp_41f_34d_margin0600_v1\\logs\\att_0001_trades.csv",
+    "label": "34D margin 0.06000",
+    "family": "34D",
+    "min_margin": 0.06,
+    "run_dir": "C:\\Users\\awdse\\AppData\\Roaming\\MetaQuotes\\Terminal\\D0E8209F77C8CF37AD8BF550E51FF075\\MQL5\\Experts\\Project_Obsidian_Prime\\stages\\41_targeted_feature_snapshot_audit\\02_runs\\active\\41F_34d_margin0600_0001",
+    "delta_vs_contract_baseline": {
+      "net_profit_delta": 10.39,
+      "return_pct_delta": 2.078000000000003,
+      "trade_count_delta": 15.0,
+      "profit_factor_delta": 0.08468704697134699,
+      "max_dd_pct_delta": -0.9850863422291951,
+      "ulcer_index_delta": 0.0231019623547013,
+      "long_signal_delta": 21.0,
+      "short_signal_delta": 33.0,
+      "no_trade_delta": -54.0
+    },
+    "delta_vs_builtin_reference": {
+      "net_profit_delta": -5.890000000000001,
+      "return_pct_delta": -1.1779999999999973,
+      "trade_count_delta": 7.0,
+      "profit_factor_delta": -0.0015357038078290808,
+      "max_dd_pct_delta": 3.06327966254317,
+      "ulcer_index_delta": 3.902104533466794,
+      "long_signal_delta": -7.0,
+      "short_signal_delta": 32.0,
+      "no_trade_delta": -25.0
+    },
+    "delta_vs_center": {
+      "net_profit_delta": 0.0,
+      "return_pct_delta": 0.0,
+      "trade_count_delta": 0.0,
+      "profit_factor_delta": 0.0,
+      "max_dd_pct_delta": 0.0,
+      "ulcer_index_delta": 0.0,
+      "long_signal_delta": 0.0,
+      "short_signal_delta": 0.0,
+      "no_trade_delta": 0.0
+    }
+  },
+  "pairwise_compares_vs_center": [
+    {
+      "label": "34D margin 0.05875",
+      "delta_vs_center": {
+        "net_profit_delta": -0.8400000000000034,
+        "return_pct_delta": -0.1680000000000028,
+        "trade_count_delta": 4.0,
+        "profit_factor_delta": 0.018321076568311168,
+        "max_dd_pct_delta": 1.136185243328093,
+        "ulcer_index_delta": 0.17589661271517798,
+        "long_signal_delta": 8.0,
+        "short_signal_delta": 5.0,
+        "no_trade_delta": -13.0
+      },
+      "shadow_compare_vs_center": {
+        "shared_rows": 8188,
+        "shared_ready_rows": 2216,
+        "decision_diff_count": 13,
+        "decision_reason_diff_count": 13,
+        "trade_action_diff_count": 30
+      },
+      "trade_compare_vs_center": {
+        "left_trade_count": 106,
+        "right_trade_count": 110,
+        "mismatch_row_count": 4
+      }
+    },
+    {
+      "label": "34D margin 0.06125",
+      "delta_vs_center": {
+        "net_profit_delta": -5.760000000000005,
+        "return_pct_delta": -1.1520000000000046,
+        "trade_count_delta": -1.0,
+        "profit_factor_delta": -0.023873414695874784,
+        "max_dd_pct_delta": 0.5631868131868139,
+        "ulcer_index_delta": 0.20172321183476072,
+        "long_signal_delta": -3.0,
+        "short_signal_delta": -6.0,
+        "no_trade_delta": 9.0
+      },
+      "shadow_compare_vs_center": {
+        "shared_rows": 8188,
+        "shared_ready_rows": 2216,
+        "decision_diff_count": 9,
+        "decision_reason_diff_count": 9,
+        "trade_action_diff_count": 12
+      },
+      "trade_compare_vs_center": {
+        "left_trade_count": 106,
+        "right_trade_count": 105,
+        "mismatch_row_count": 1
+      }
+    }
+  ],
+  "best_reason_deltas_vs_contract_baseline": [
+    {
+      "reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "delta_count": -29,
+      "best_count": 611,
+      "baseline_count": 640
+    },
+    {
+      "reason": "DUAL_SIGNAL_SHORT_WINS",
+      "delta_count": 20,
+      "best_count": 91,
+      "baseline_count": 71
+    },
+    {
+      "reason": "SHORT_FILTERS_OK",
+      "delta_count": 13,
+      "best_count": 41,
+      "baseline_count": 28
+    },
+    {
+      "reason": "LONG_FILTERS_OK",
+      "delta_count": 12,
+      "best_count": 66,
+      "baseline_count": 54
+    },
+    {
+      "reason": "LONG_MARGIN_FAIL",
+      "delta_count": -12,
+      "best_count": 327,
+      "baseline_count": 339
+    },
+    {
+      "reason": "DUAL_SIGNAL_LONG_WINS",
+      "delta_count": 9,
+      "best_count": 52,
+      "baseline_count": 43
+    },
+    {
+      "reason": "SHORT_MARGIN_FAIL",
+      "delta_count": -7,
+      "best_count": 96,
+      "baseline_count": 103
+    },
+    {
+      "reason": "SHORT_MARGIN_FAIL_SOFT_CONTEXT",
+      "delta_count": -6,
+      "best_count": 32,
+      "baseline_count": 38
+    },
+    {
+      "reason": "LONG_MARGIN_FAIL_SOFT_CONTEXT",
+      "delta_count": 0,
+      "best_count": 3,
+      "baseline_count": 3
+    },
+    {
+      "reason": "SKIPPED",
+      "delta_count": 0,
+      "best_count": 5972,
+      "baseline_count": 5972
+    },
+    {
+      "reason": "THRESHOLD_FAIL",
+      "delta_count": 0,
+      "best_count": 897,
+      "baseline_count": 897
+    }
+  ],
+  "response_shape": {
+    "best_label": "34D margin 0.06000",
+    "best_min_margin": 0.06,
+    "center_is_best": true,
+    "left_vs_center_net_delta": -0.8400000000000034,
+    "right_vs_center_net_delta": -5.760000000000005
+  }
+}

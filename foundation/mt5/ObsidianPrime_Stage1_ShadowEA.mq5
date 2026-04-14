@@ -39,6 +39,7 @@ input bool                 InpDumpModelIo          = true;
 input bool                 InpRunSmokeOnInit       = true;
 input ENUM_OP_FEATURE_MODE InpFeatureMode          = OP_FEATURE_MODE_ZERO_SMOKE;
 input int                  InpWarmupBars           = 300;
+input bool                 InpUseContractAlignedFeatureIndicators = true;
 input double               InpShortThreshold       = 0.333333;
 input double               InpLongThreshold        = 0.333333;
 input double               InpMinMargin            = 0.0;
@@ -68,6 +69,11 @@ input double               InpGovernanceMinNormalizedEntropy = 0.20;
 input bool                 InpWriteGovernanceLog   = true;
 input bool                 InpGovernanceLogUseCommonFiles = false;
 input string               InpGovernanceLogPath    = "Project_Obsidian_Prime\\obsidian_prime_stage1_governance_log.csv";
+input bool                 InpEnableFeatureSnapshotAudit = false;
+input bool                 InpFeatureSnapshotAuditUseCommonFiles = false;
+input string               InpFeatureSnapshotAuditPath = "Project_Obsidian_Prime\\obsidian_prime_stage1_feature_snapshot_audit.jsonl";
+input string               InpFeatureSnapshotAuditTargetWindowsUtc = "";
+input bool                 InpFeatureSnapshotAuditIncludeSkipRows = true;
 input bool                 InpVerboseLog           = true;
 
 datetime g_last_chart_bar_open = 0;
@@ -242,9 +248,19 @@ double   g_managed_stop_atr_mult_applied = 0.0;
 double   g_managed_peak_favorable_points = 0.0;
 bool     g_managed_exit_rule_triggered[];
 double   g_last_trade_fill_price = 0.0;
+bool     g_feature_snapshot_audit_windows_loaded = false;
+string   g_feature_snapshot_audit_window_start_texts[];
+string   g_feature_snapshot_audit_window_end_texts[];
 bool     g_external_alignment_fallback_used = false;
 int      g_external_alignment_fallback_count = 0;
 string   g_external_alignment_fallback_details = "";
+string   g_external_audit_symbols[];
+string   g_external_audit_requested_close_texts[];
+string   g_external_audit_selected_close_texts[];
+string   g_external_audit_statuses[];
+string   g_external_audit_details[];
+int      g_external_audit_stale_bars[];
+bool     g_external_audit_fallback_used_flags[];
 int      g_governance_skip_category_window[];
 int      g_governance_inference_ready_window[];
 int      g_governance_argmax_window[];
@@ -308,11 +324,196 @@ string TrimText(const string value)
    return out;
 }
 
+void ResetExternalAuditTelemetry()
+{
+   ArrayResize(g_external_audit_symbols, 0);
+   ArrayResize(g_external_audit_requested_close_texts, 0);
+   ArrayResize(g_external_audit_selected_close_texts, 0);
+   ArrayResize(g_external_audit_statuses, 0);
+   ArrayResize(g_external_audit_details, 0);
+   ArrayResize(g_external_audit_stale_bars, 0);
+   ArrayResize(g_external_audit_fallback_used_flags, 0);
+}
+
 void ResetExternalAlignmentTelemetry()
 {
    g_external_alignment_fallback_used = false;
    g_external_alignment_fallback_count = 0;
    g_external_alignment_fallback_details = "";
+   ResetExternalAuditTelemetry();
+}
+
+string NormalizeFeatureSnapshotAuditTimeText(const string raw_text)
+{
+   string normalized = TrimText(raw_text);
+   StringReplace(normalized, "T", " ");
+   StringReplace(normalized, "-", ".");
+   if(StringLen(normalized) == 16)
+      normalized += ":00";
+   return normalized;
+}
+
+bool IsValidFeatureSnapshotAuditTimeText(const string value)
+{
+   if(StringLen(value) != 19)
+      return false;
+   if(StringGetCharacter(value, 4) != '.' ||
+      StringGetCharacter(value, 7) != '.' ||
+      StringGetCharacter(value, 10) != ' ' ||
+      StringGetCharacter(value, 13) != ':' ||
+      StringGetCharacter(value, 16) != ':')
+   {
+      return false;
+   }
+   return (StringToTime(value) > 0);
+}
+
+bool LoadFeatureSnapshotAuditWindows(string &error_text)
+{
+   g_feature_snapshot_audit_windows_loaded = false;
+   ArrayResize(g_feature_snapshot_audit_window_start_texts, 0);
+   ArrayResize(g_feature_snapshot_audit_window_end_texts, 0);
+   error_text = "";
+
+   if(!InpEnableFeatureSnapshotAudit)
+      return true;
+
+   string raw_spec = TrimText(InpFeatureSnapshotAuditTargetWindowsUtc);
+   if(StringLen(raw_spec) <= 0)
+   {
+      error_text = "InpFeatureSnapshotAuditTargetWindowsUtc must not be empty when snapshot audit is enabled";
+      return false;
+   }
+   StringReplace(raw_spec, "|", ";");
+
+   string raw_windows[];
+   int raw_window_count = StringSplit(raw_spec, ';', raw_windows);
+   if(raw_window_count <= 0)
+   {
+      ArrayResize(raw_windows, 1);
+      raw_windows[0] = raw_spec;
+      raw_window_count = 1;
+   }
+
+   for(int i = 0; i < raw_window_count; i++)
+   {
+      string token = TrimText(raw_windows[i]);
+      if(StringLen(token) <= 0)
+         continue;
+
+      int delimiter_pos = StringFind(token, "..");
+      int delimiter_len = 2;
+      if(delimiter_pos < 0)
+      {
+         delimiter_pos = StringFind(token, "->");
+         delimiter_len = 2;
+      }
+
+      string start_text = token;
+      string end_text = token;
+      if(delimiter_pos >= 0)
+      {
+         start_text = StringSubstr(token, 0, delimiter_pos);
+         end_text = StringSubstr(token, delimiter_pos + delimiter_len);
+      }
+
+      start_text = NormalizeFeatureSnapshotAuditTimeText(start_text);
+      end_text = NormalizeFeatureSnapshotAuditTimeText(end_text);
+      if(!IsValidFeatureSnapshotAuditTimeText(start_text) || !IsValidFeatureSnapshotAuditTimeText(end_text))
+      {
+         error_text = "invalid snapshot audit window timestamp: " + token;
+         return false;
+      }
+      if(end_text < start_text)
+      {
+         error_text = "snapshot audit window end must be >= start: " + token;
+         return false;
+      }
+
+      const int window_index = ArraySize(g_feature_snapshot_audit_window_start_texts);
+      ArrayResize(g_feature_snapshot_audit_window_start_texts, window_index + 1);
+      ArrayResize(g_feature_snapshot_audit_window_end_texts, window_index + 1);
+      g_feature_snapshot_audit_window_start_texts[window_index] = start_text;
+      g_feature_snapshot_audit_window_end_texts[window_index] = end_text;
+   }
+
+   if(ArraySize(g_feature_snapshot_audit_window_start_texts) <= 0)
+   {
+      error_text = "no usable snapshot audit windows were parsed";
+      return false;
+   }
+
+   g_feature_snapshot_audit_windows_loaded = true;
+   return true;
+}
+
+bool ShouldCaptureFeatureSnapshotAudit(const datetime bar_time_server, const bool row_ready)
+{
+   if(!InpEnableFeatureSnapshotAudit || !g_feature_snapshot_audit_windows_loaded)
+      return false;
+   if(!InpFeatureSnapshotAuditIncludeSkipRows && !row_ready)
+      return false;
+
+   const string bar_time_text = TimeToString(bar_time_server, TIME_DATE | TIME_SECONDS);
+   const int window_count = ArraySize(g_feature_snapshot_audit_window_start_texts);
+   for(int i = 0; i < window_count; i++)
+   {
+      if(bar_time_text >= g_feature_snapshot_audit_window_start_texts[i] &&
+         bar_time_text <= g_feature_snapshot_audit_window_end_texts[i])
+      {
+         return true;
+      }
+   }
+   return false;
+}
+
+int EnsureExternalAuditSlot(const string symbol)
+{
+   const int current_count = ArraySize(g_external_audit_symbols);
+   for(int i = 0; i < current_count; i++)
+   {
+      if(g_external_audit_symbols[i] == symbol)
+         return i;
+   }
+
+   const int slot = current_count;
+   ArrayResize(g_external_audit_symbols, slot + 1);
+   ArrayResize(g_external_audit_requested_close_texts, slot + 1);
+   ArrayResize(g_external_audit_selected_close_texts, slot + 1);
+   ArrayResize(g_external_audit_statuses, slot + 1);
+   ArrayResize(g_external_audit_details, slot + 1);
+   ArrayResize(g_external_audit_stale_bars, slot + 1);
+   ArrayResize(g_external_audit_fallback_used_flags, slot + 1);
+
+   g_external_audit_symbols[slot] = symbol;
+   g_external_audit_requested_close_texts[slot] = "";
+   g_external_audit_selected_close_texts[slot] = "";
+   g_external_audit_statuses[slot] = "not_requested";
+   g_external_audit_details[slot] = "";
+   g_external_audit_stale_bars[slot] = 0;
+   g_external_audit_fallback_used_flags[slot] = false;
+   return slot;
+}
+
+void RecordExternalAuditState(
+   const string symbol,
+   const datetime target_close_utc,
+   const datetime selected_close_utc,
+   const string status,
+   const int stale_bars,
+   const bool fallback_used,
+   const string detail
+)
+{
+   const int slot = EnsureExternalAuditSlot(symbol);
+   g_external_audit_requested_close_texts[slot] = TimeToString(target_close_utc, TIME_DATE | TIME_SECONDS);
+   g_external_audit_selected_close_texts[slot] = (selected_close_utc > 0)
+      ? TimeToString(selected_close_utc, TIME_DATE | TIME_SECONDS)
+      : "";
+   g_external_audit_statuses[slot] = status;
+   g_external_audit_stale_bars[slot] = stale_bars;
+   g_external_audit_fallback_used_flags[slot] = fallback_used;
+   g_external_audit_details[slot] = detail;
 }
 
 bool SameUtcCalendarDate(const datetime left_value, const datetime right_value)
@@ -2698,6 +2899,101 @@ string CsvInteger(const long value)
    return (string)value;
 }
 
+string EscapeJson(const string value)
+{
+   string escaped = "";
+   for(int i = 0; i < StringLen(value); i++)
+   {
+      const string ch = StringSubstr(value, i, 1);
+      if(ch == "\\")
+         escaped += "\\\\";
+      else if(ch == "\"")
+         escaped += "\\\"";
+      else if(ch == "\r")
+         escaped += "\\r";
+      else if(ch == "\n")
+         escaped += "\\n";
+      else if(ch == "\t")
+         escaped += "\\t";
+      else
+         escaped += ch;
+   }
+   return escaped;
+}
+
+string JsonQuoted(const string value)
+{
+   return "\"" + EscapeJson(value) + "\"";
+}
+
+string JsonBool(const bool value)
+{
+   return value ? "true" : "false";
+}
+
+string JsonDouble(const double value, const int digits = 10)
+{
+   if(!IsUsableValue(value))
+      return "null";
+   return DoubleToString(value, digits);
+}
+
+string ResolveActiveFeatureName(const int feature_index)
+{
+   if(feature_index >= 0 &&
+      feature_index < ArraySize(g_effective_feature_names) &&
+      g_effective_feature_names[feature_index] != "")
+   {
+      return g_effective_feature_names[feature_index];
+   }
+   return "feature_" + (string)feature_index;
+}
+
+string BuildFeatureSnapshotValuesJson(const double &features[])
+{
+   string payload = "[";
+   const int feature_count = ArraySize(features);
+   for(int i = 0; i < feature_count; i++)
+   {
+      if(i > 0)
+         payload += ",";
+      payload +=
+         "{" +
+         "\"index\":" + (string)i + "," +
+         "\"name\":" + JsonQuoted(ResolveActiveFeatureName(i)) + "," +
+         "\"value\":" + JsonDouble(features[i], 10) +
+         "}";
+   }
+   payload += "]";
+   return payload;
+}
+
+string BuildExternalAuditJson()
+{
+   string payload = "[";
+   const int count = ArraySize(g_external_audit_symbols);
+   for(int i = 0; i < count; i++)
+   {
+      if(i > 0)
+         payload += ",";
+      payload +=
+         "{" +
+         "\"symbol\":" + JsonQuoted(g_external_audit_symbols[i]) + "," +
+         "\"requested_close_utc\":" + JsonQuoted(g_external_audit_requested_close_texts[i]) + "," +
+         "\"selected_close_utc\":" +
+            (g_external_audit_selected_close_texts[i] != ""
+               ? JsonQuoted(g_external_audit_selected_close_texts[i])
+               : "null") + "," +
+         "\"status\":" + JsonQuoted(g_external_audit_statuses[i]) + "," +
+         "\"fallback_used\":" + JsonBool(g_external_audit_fallback_used_flags[i]) + "," +
+         "\"stale_bars\":" + (string)g_external_audit_stale_bars[i] + "," +
+         "\"detail\":" + JsonQuoted(g_external_audit_details[i]) +
+         "}";
+   }
+   payload += "]";
+   return payload;
+}
+
 bool TextStartsWith(const string value, const string prefix)
 {
    if(StringLen(prefix) <= 0)
@@ -3121,6 +3417,109 @@ bool EnsureFolderPath(const string file_path, const bool use_common_files)
    if(use_common_files)
       return FolderCreate(folder_path, FILE_COMMON);
    return FolderCreate(folder_path);
+}
+
+bool EnsureFeatureSnapshotAuditReady()
+{
+   if(!InpEnableFeatureSnapshotAudit)
+      return true;
+
+   EnsureFolderPath(InpFeatureSnapshotAuditPath, InpFeatureSnapshotAuditUseCommonFiles);
+
+   int read_flags = FILE_READ | FILE_TXT | FILE_ANSI;
+   if(InpFeatureSnapshotAuditUseCommonFiles)
+      read_flags |= FILE_COMMON;
+
+   int read_handle = FileOpen(InpFeatureSnapshotAuditPath, read_flags);
+   if(read_handle != INVALID_HANDLE)
+   {
+      FileClose(read_handle);
+      return true;
+   }
+
+   int write_flags = FILE_WRITE | FILE_TXT | FILE_ANSI;
+   if(InpFeatureSnapshotAuditUseCommonFiles)
+      write_flags |= FILE_COMMON;
+
+   int handle = FileOpen(InpFeatureSnapshotAuditPath, write_flags);
+   if(handle == INVALID_HANDLE)
+   {
+      Log(StringFormat("failed to create feature snapshot audit log err=%d path=%s", GetLastError(), InpFeatureSnapshotAuditPath));
+      return false;
+   }
+   FileClose(handle);
+   return true;
+}
+
+void AppendFeatureSnapshotAudit(
+   const datetime bar_time_server,
+   const string feature_mode,
+   const int feature_ready_count,
+   const bool feature_vector_complete,
+   const bool row_ready,
+   const string skip_reason,
+   const ulong feature_checksum,
+   const double &features[],
+   const double p_short,
+   const double p_flat,
+   const double p_long,
+   const string decision,
+   const string decision_reason,
+   const string cycle_tag,
+   const string trade_action_reason
+)
+{
+   if(!ShouldCaptureFeatureSnapshotAudit(bar_time_server, row_ready))
+      return;
+   if(!EnsureFeatureSnapshotAuditReady())
+      return;
+
+   int flags = FILE_READ | FILE_WRITE | FILE_TXT | FILE_ANSI;
+   if(InpFeatureSnapshotAuditUseCommonFiles)
+      flags |= FILE_COMMON;
+
+   int handle = FileOpen(InpFeatureSnapshotAuditPath, flags);
+   if(handle == INVALID_HANDLE)
+   {
+      Log(StringFormat("failed to append feature snapshot audit err=%d path=%s", GetLastError(), InpFeatureSnapshotAuditPath));
+      return;
+   }
+
+   FileSeek(handle, 0, SEEK_END);
+
+   string payload =
+      "{" +
+      "\"event_timestamp_gmt\":" + JsonQuoted(TimeToString(TimeGMT(), TIME_DATE | TIME_SECONDS)) + "," +
+      "\"bar_time_server\":" + JsonQuoted(TimeToString(bar_time_server, TIME_DATE | TIME_SECONDS)) + "," +
+      "\"symbol\":" + JsonQuoted(_Symbol) + "," +
+      "\"timeframe\":" + JsonQuoted(EnumToString(_Period)) + "," +
+      "\"cycle_tag\":" + JsonQuoted(cycle_tag) + "," +
+      "\"feature_mode\":" + JsonQuoted(feature_mode) + "," +
+      "\"feature_count\":" + (string)ArraySize(features) + "," +
+      "\"feature_ready_count\":" + (string)feature_ready_count + "," +
+      "\"feature_vector_complete\":" + JsonBool(feature_vector_complete) + "," +
+      "\"row_ready\":" + JsonBool(row_ready) + "," +
+      "\"skip_reason\":" + JsonQuoted(skip_reason) + "," +
+      "\"feature_checksum\":" + (string)feature_checksum + "," +
+      "\"p_short\":" + JsonDouble(p_short, 6) + "," +
+      "\"p_flat\":" + JsonDouble(p_flat, 6) + "," +
+      "\"p_long\":" + JsonDouble(p_long, 6) + "," +
+      "\"decision\":" + JsonQuoted(decision) + "," +
+      "\"decision_reason\":" + JsonQuoted(decision_reason) + "," +
+      "\"trade_action_reason\":" + JsonQuoted(trade_action_reason) + "," +
+      "\"external_alignment_mode\":" + JsonQuoted(g_effective_external_alignment_mode) + "," +
+      "\"external_relaxed_scope\":" + JsonQuoted(g_effective_external_relaxed_scope) + "," +
+      "\"external_fallback_used\":" + JsonBool(g_external_alignment_fallback_used) + "," +
+      "\"external_fallback_count\":" + (string)g_external_alignment_fallback_count + "," +
+      "\"external_fallback_details\":" + JsonQuoted(g_external_alignment_fallback_details) + "," +
+      "\"feature_fingerprint\":" + JsonQuoted(g_effective_feature_fingerprint) + "," +
+      "\"onnx_model_path\":" + JsonQuoted(g_effective_onnx_model_path) + "," +
+      "\"external_inputs\":" + BuildExternalAuditJson() + "," +
+      "\"features\":" + BuildFeatureSnapshotValuesJson(features) +
+      "}";
+
+   FileWriteString(handle, payload + "\r\n");
+   FileClose(handle);
 }
 
 bool EnsureLogHeader()
@@ -3692,6 +4091,23 @@ double RollingMaxSlice(const double &values[], const int start_index, const int 
    return out;
 }
 
+bool ComputeRollingMeanSeries(const double &values[], const int total_count, const int window, double &out[])
+{
+   ArrayResize(out, total_count);
+   for(int i = 0; i < total_count; i++)
+      out[i] = EMPTY_VALUE;
+
+   if(window <= 0)
+      return false;
+
+   for(int i = window - 1; i < total_count; i++)
+   {
+      const int start_index = i - window + 1;
+      out[i] = RollingMeanSlice(values, start_index, window);
+   }
+   return true;
+}
+
 bool ComputeEmaSeries(const double &values[], const int total_count, const int period, double &out[])
 {
    ArrayResize(out, total_count);
@@ -3793,6 +4209,43 @@ bool ComputeWilderSmoothSeries(const double &values[], const int total_count, co
    return true;
 }
 
+bool ComputeStochasticSeries(
+   const double &high_values[],
+   const double &low_values[],
+   const double &close_values[],
+   const int total_count,
+   const int period,
+   const int smooth_k,
+   const int smooth_d,
+   double &raw_k_out[],
+   double &k_out[],
+   double &d_out[]
+)
+{
+   ArrayResize(raw_k_out, total_count);
+   for(int i = 0; i < total_count; i++)
+      raw_k_out[i] = EMPTY_VALUE;
+
+   if(period <= 0 || smooth_k <= 0 || smooth_d <= 0)
+      return false;
+
+   for(int i = period - 1; i < total_count; i++)
+   {
+      const int start_index = i - period + 1;
+      const double lowest_low = RollingMinSlice(low_values, start_index, period);
+      const double highest_high = RollingMaxSlice(high_values, start_index, period);
+      if(!IsUsableValue(lowest_low) || !IsUsableValue(highest_high) || !IsUsableValue(close_values[i]))
+         continue;
+      raw_k_out[i] = SafeDivideValue((close_values[i] - lowest_low) * 100.0, highest_high - lowest_low);
+   }
+
+   if(!ComputeRollingMeanSeries(raw_k_out, total_count, smooth_k, k_out))
+      return false;
+   if(!ComputeRollingMeanSeries(k_out, total_count, smooth_d, d_out))
+      return false;
+   return true;
+}
+
 bool LoadExternalSymbolRatesAligned(
    const string symbol,
    const int bars_needed,
@@ -3801,9 +4254,12 @@ bool LoadExternalSymbolRatesAligned(
    string &skip_reason
 )
 {
+   RecordExternalAuditState(symbol, target_close_utc, 0, "requested", 0, false, "");
+
    if(!SymbolSelect(symbol, true))
    {
       skip_reason = "EXTERNAL_SYMBOL_SELECT_FAIL_" + symbol;
+      RecordExternalAuditState(symbol, target_close_utc, 0, "symbol_select_fail", 0, false, skip_reason);
       return false;
    }
 
@@ -3818,6 +4274,7 @@ bool LoadExternalSymbolRatesAligned(
       if(!AllowExternalStaleFallback(symbol))
       {
          skip_reason = "EXTERNAL_TIMESTAMP_MISMATCH_" + symbol;
+         RecordExternalAuditState(symbol, target_close_utc, 0, "timestamp_mismatch", 0, false, skip_reason);
          return false;
       }
 
@@ -3825,6 +4282,7 @@ bool LoadExternalSymbolRatesAligned(
       if(target_shift < 0)
       {
          skip_reason = "EXTERNAL_TIMESTAMP_MISMATCH_" + symbol;
+         RecordExternalAuditState(symbol, target_close_utc, 0, "timestamp_mismatch", 0, false, skip_reason);
          return false;
       }
       using_stale_fallback = true;
@@ -3834,6 +4292,7 @@ bool LoadExternalSymbolRatesAligned(
    if(copied != bars_needed)
    {
       skip_reason = StringFormat("EXTERNAL_RATES_NOT_READY_%s_%d_OF_%d_ERR_%d", symbol, copied, bars_needed, GetLastError());
+      RecordExternalAuditState(symbol, target_close_utc, 0, "rates_not_ready", 0, using_stale_fallback, skip_reason);
       return false;
    }
 
@@ -3847,6 +4306,7 @@ bool LoadExternalSymbolRatesAligned(
          !SameUtcCalendarDate(latest_close_utc, target_close_utc))
       {
          skip_reason = StringFormat("EXTERNAL_TIMESTAMP_MISMATCH_%s", symbol);
+         RecordExternalAuditState(symbol, target_close_utc, latest_close_utc, "timestamp_mismatch", 0, using_stale_fallback, skip_reason);
          return false;
       }
 
@@ -3854,12 +4314,16 @@ bool LoadExternalSymbolRatesAligned(
       if(stale_bars <= 0 || stale_bars > g_effective_external_max_stale_bars)
       {
          skip_reason = StringFormat("EXTERNAL_TIMESTAMP_MISMATCH_%s", symbol);
+         RecordExternalAuditState(symbol, target_close_utc, latest_close_utc, "timestamp_mismatch", stale_bars, using_stale_fallback, skip_reason);
          return false;
       }
 
       RecordExternalAlignmentFallback(symbol, stale_bars);
+      RecordExternalAuditState(symbol, target_close_utc, latest_close_utc, "stale_fallback", stale_bars, true, "stale_closed_bar");
+      return true;
    }
 
+   RecordExternalAuditState(symbol, target_close_utc, latest_close_utc, "exact_match", 0, false, "");
    return true;
 }
 
@@ -3945,15 +4409,21 @@ bool BuildPriceCorePartialFeatures(
    }
 
    double close_values[];
+   double high_values[];
+   double low_values[];
    double log_return_1_series[];
    double hl_range_series[];
    ArrayResize(close_values, total_bars);
+   ArrayResize(high_values, total_bars);
+   ArrayResize(low_values, total_bars);
    ArrayResize(log_return_1_series, total_bars);
    ArrayResize(hl_range_series, total_bars);
 
    for(int i = 0; i < total_bars; i++)
    {
       close_values[i] = rates[i].close;
+      high_values[i] = rates[i].high;
+      low_values[i] = rates[i].low;
       log_return_1_series[i] = EMPTY_VALUE;
       hl_range_series[i] = EMPTY_VALUE;
    }
@@ -3988,6 +4458,43 @@ bool BuildPriceCorePartialFeatures(
       IsUsableValue(hv5_std) ? (hv5_std * MathSqrt(OP_BARS_PER_YEAR_5M)) : EMPTY_VALUE,
       value_historical_vol_20
    );
+
+   double true_range_series[];
+   if(!ComputeTrueRangeSeries(rates, total_bars, true_range_series))
+   {
+      skip_reason = "CUSTOM_TR_FAIL";
+      return false;
+   }
+
+   double atr14_series[];
+   double atr20_series[];
+   double atr50_series[];
+   double stoch_raw_k_series[];
+   double stoch_k_series[];
+   double stoch_d_series[];
+   if(InpUseContractAlignedFeatureIndicators)
+   {
+      if(!ComputeWilderSmoothSeries(true_range_series, total_bars, 14, atr14_series))
+      {
+         skip_reason = "CUSTOM_ATR14_FAIL";
+         return false;
+      }
+      if(!ComputeWilderSmoothSeries(true_range_series, total_bars, 20, atr20_series))
+      {
+         skip_reason = "CUSTOM_ATR20_FAIL";
+         return false;
+      }
+      if(!ComputeWilderSmoothSeries(true_range_series, total_bars, 50, atr50_series))
+      {
+         skip_reason = "CUSTOM_ATR50_FAIL";
+         return false;
+      }
+      if(!ComputeStochasticSeries(high_values, low_values, close_values, total_bars, 14, 3, 3, stoch_raw_k_series, stoch_k_series, stoch_d_series))
+      {
+         skip_reason = "CUSTOM_STOCH14_FAIL";
+         return false;
+      }
+   }
 
    double ema9_current[];
    double ema20_series[];
@@ -4025,16 +4532,19 @@ bool BuildPriceCorePartialFeatures(
       return false;
    if(!CopyIndicatorBufferWindow(g_handle_rsi50, 0, 1, 1, rsi50_current, "RSI50", skip_reason))
       return false;
-   if(!CopyIndicatorBufferWindow(g_handle_stoch14, 0, 1, 1, stoch_k_current, "STOCH_MAIN", skip_reason))
-      return false;
-   if(!CopyIndicatorBufferWindow(g_handle_stoch14, 1, 1, 1, stoch_d_current, "STOCH_SIGNAL", skip_reason))
-      return false;
-   if(!CopyIndicatorBufferWindow(g_handle_atr14, 0, 1, 1, atr14_current, "ATR14", skip_reason))
-      return false;
-   if(!CopyIndicatorBufferWindow(g_handle_atr20, 0, 1, 1, atr20_current, "ATR20", skip_reason))
-      return false;
-   if(!CopyIndicatorBufferWindow(g_handle_atr50, 0, 1, 1, atr50_current, "ATR50", skip_reason))
-      return false;
+   if(!InpUseContractAlignedFeatureIndicators)
+   {
+      if(!CopyIndicatorBufferWindow(g_handle_stoch14, 0, 1, 1, stoch_k_current, "STOCH_MAIN", skip_reason))
+         return false;
+      if(!CopyIndicatorBufferWindow(g_handle_stoch14, 1, 1, 1, stoch_d_current, "STOCH_SIGNAL", skip_reason))
+         return false;
+      if(!CopyIndicatorBufferWindow(g_handle_atr14, 0, 1, 1, atr14_current, "ATR14", skip_reason))
+         return false;
+      if(!CopyIndicatorBufferWindow(g_handle_atr20, 0, 1, 1, atr20_current, "ATR20", skip_reason))
+         return false;
+      if(!CopyIndicatorBufferWindow(g_handle_atr50, 0, 1, 1, atr50_current, "ATR50", skip_reason))
+         return false;
+   }
    if(!CopyIndicatorBufferWindow(g_handle_bands20, 0, 1, 1, bb_mid_current, "BB_MID", skip_reason))
       return false;
    if(!CopyIndicatorBufferWindow(g_handle_bands20, 1, 1, 1, bb_upper_current, "BB_UPPER", skip_reason))
@@ -4053,9 +4563,24 @@ bool BuildPriceCorePartialFeatures(
    for(int i = 0; i < 50; i++)
       ema20_ema50_diff_series[i] = ema20_series[i] - ema50_series[i];
 
-   const double value_atr_14 = atr14_current[0];
-   const double value_atr_20 = atr20_current[0];
-   const double value_atr_50 = atr50_current[0];
+   double value_atr_14 = EMPTY_VALUE;
+   double value_atr_20 = EMPTY_VALUE;
+   double value_atr_50 = EMPTY_VALUE;
+   double value_stoch_kd_diff = EMPTY_VALUE;
+   if(InpUseContractAlignedFeatureIndicators)
+   {
+      value_atr_14 = atr14_series[t];
+      value_atr_20 = atr20_series[t];
+      value_atr_50 = atr50_series[t];
+      value_stoch_kd_diff = stoch_k_series[t] - stoch_d_series[t];
+   }
+   else
+   {
+      value_atr_14 = atr14_current[0];
+      value_atr_20 = atr20_current[0];
+      value_atr_50 = atr50_current[0];
+      value_stoch_kd_diff = stoch_k_current[0] - stoch_d_current[0];
+   }
    const double value_return_1_over_atr_14 = SafeDivideValue(
       value_us100_simple_return_1,
       SafeDivideValue(value_atr_14, rates[t].close)
@@ -4071,7 +4596,6 @@ bool BuildPriceCorePartialFeatures(
    const double value_rsi_50 = rsi50_current[0];
    const double value_rsi_14_slope_3 = (rsi14_window[17] - rsi14_window[14]) / 3.0;
    const double value_rsi_14_minus_50 = rsi14_window[17] - 50.0;
-   const double value_stoch_kd_diff = stoch_k_current[0] - stoch_d_current[0];
    const double value_atr_14_over_atr_50 = SafeDivideValue(value_atr_14, value_atr_50);
    const double value_bollinger_width_20 = SafeDivideValue(bb_upper_current[0] - bb_lower_current[0], bb_mid_current[0]);
    const double value_bb_position_20 = SafeDivideValue(rates[t].close - bb_lower_current[0], bb_upper_current[0] - bb_lower_current[0]);
@@ -4206,13 +4730,6 @@ bool BuildPriceCorePartialFeatures(
          return false;
       }
       value_trix_15 = SafeDivideValue(trix_ema3[t], trix_ema3[t - 1]) - 1.0;
-
-      double true_range_series[];
-      if(!ComputeTrueRangeSeries(rates, total_bars, true_range_series))
-      {
-         skip_reason = "CUSTOM_TR_FAIL";
-         return false;
-      }
 
       double atr10_series[];
       if(!ComputeWilderSmoothSeries(true_range_series, total_bars, 10, atr10_series))
@@ -6019,6 +6536,7 @@ bool RunShadowCycle(const datetime bar_time_server, const string cycle_tag)
       RecordGovernanceObservation(skip_reason, false, p_short, p_flat, p_long, decision, planned_risk_context, planned_risk_pct_multiplier);
       AppendShadowLog(bar_time_server, feature_mode, feature_ready_count, false, skip_reason, feature_checksum, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, "", 0.0);
       AppendGovernanceLog(bar_time_server, cycle_tag, false, skip_reason, DecisionToString(decision), decision_reason, "", p_short, p_flat, p_long, false);
+      AppendFeatureSnapshotAudit(bar_time_server, feature_mode, feature_ready_count, feature_vector_complete, false, skip_reason, feature_checksum, features, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, "");
       Log(StringFormat("%s skipped: %s", cycle_tag, skip_reason));
       return false;
    }
@@ -6028,6 +6546,7 @@ bool RunShadowCycle(const datetime bar_time_server, const string cycle_tag)
       RecordGovernanceObservation(skip_reason, false, p_short, p_flat, p_long, decision, planned_risk_context, planned_risk_pct_multiplier);
       AppendShadowLog(bar_time_server, feature_mode, feature_ready_count, false, skip_reason, feature_checksum, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, "", 0.0);
       AppendGovernanceLog(bar_time_server, cycle_tag, false, skip_reason, DecisionToString(decision), decision_reason, "", p_short, p_flat, p_long, false);
+      AppendFeatureSnapshotAudit(bar_time_server, feature_mode, feature_ready_count, feature_vector_complete, false, skip_reason, feature_checksum, features, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, "");
       Log(StringFormat("%s skipped: %s", cycle_tag, skip_reason));
       return false;
    }
@@ -6037,6 +6556,7 @@ bool RunShadowCycle(const datetime bar_time_server, const string cycle_tag)
       RecordGovernanceObservation(skip_reason, false, p_short, p_flat, p_long, decision, planned_risk_context, planned_risk_pct_multiplier);
       AppendShadowLog(bar_time_server, feature_mode, feature_ready_count, false, skip_reason, feature_checksum, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, "", 0.0);
       AppendGovernanceLog(bar_time_server, cycle_tag, false, skip_reason, DecisionToString(decision), decision_reason, "", p_short, p_flat, p_long, false);
+      AppendFeatureSnapshotAudit(bar_time_server, feature_mode, feature_ready_count, feature_vector_complete, false, skip_reason, feature_checksum, features, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, "");
       Log(StringFormat("%s skipped: %s", cycle_tag, skip_reason));
       return false;
    }
@@ -6050,6 +6570,7 @@ bool RunShadowCycle(const datetime bar_time_server, const string cycle_tag)
       RecordGovernanceObservation(skip_reason, false, p_short, p_flat, p_long, decision, planned_risk_context, planned_risk_pct_multiplier);
       AppendShadowLog(bar_time_server, feature_mode, feature_ready_count, false, skip_reason, feature_checksum, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, "", 0.0);
       AppendGovernanceLog(bar_time_server, cycle_tag, false, skip_reason, DecisionToString(decision), decision_reason, "", p_short, p_flat, p_long, false);
+      AppendFeatureSnapshotAudit(bar_time_server, feature_mode, feature_ready_count, feature_vector_complete, false, skip_reason, feature_checksum, features, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, "");
       Log(StringFormat("%s skipped: %s mode=%s ready=%d", cycle_tag, skip_reason, feature_mode, feature_ready_count));
       return false;
    }
@@ -6059,6 +6580,7 @@ bool RunShadowCycle(const datetime bar_time_server, const string cycle_tag)
       RecordGovernanceObservation(skip_reason, false, p_short, p_flat, p_long, decision, planned_risk_context, planned_risk_pct_multiplier);
       AppendShadowLog(bar_time_server, feature_mode, feature_ready_count, false, skip_reason, feature_checksum, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, "", 0.0);
       AppendGovernanceLog(bar_time_server, cycle_tag, false, skip_reason, DecisionToString(decision), decision_reason, "", p_short, p_flat, p_long, false);
+      AppendFeatureSnapshotAudit(bar_time_server, feature_mode, feature_ready_count, feature_vector_complete, false, skip_reason, feature_checksum, features, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, "");
       Log(StringFormat("%s inference failed: %s", cycle_tag, skip_reason));
       return false;
    }
@@ -6083,6 +6605,7 @@ bool RunShadowCycle(const datetime bar_time_server, const string cycle_tag)
          RecordGovernanceObservation(skip_reason, false, p_short, p_flat, p_long, decision, planned_risk_context, planned_risk_pct_multiplier);
          AppendShadowLog(bar_time_server, feature_mode, feature_ready_count, false, skip_reason, feature_checksum, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, "", 0.0);
          AppendGovernanceLog(bar_time_server, cycle_tag, false, skip_reason, DecisionToString(decision), decision_reason, "", p_short, p_flat, p_long, false);
+         AppendFeatureSnapshotAudit(bar_time_server, feature_mode, feature_ready_count, feature_vector_complete, false, skip_reason, feature_checksum, features, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, "");
          Log(StringFormat("%s short gate failed: %s", cycle_tag, skip_reason));
          return false;
       }
@@ -6124,6 +6647,7 @@ bool RunShadowCycle(const datetime bar_time_server, const string cycle_tag)
       trade_action_reason = entry_action_reason;
    AppendShadowLog(bar_time_server, feature_mode, feature_ready_count, row_ready, "", feature_checksum, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, trade_action_reason, g_last_trade_fill_price);
    AppendGovernanceLog(bar_time_server, cycle_tag, row_ready, "", DecisionToString(decision), decision_reason, trade_action_reason, p_short, p_flat, p_long, entry_blocked_this_bar);
+   AppendFeatureSnapshotAudit(bar_time_server, feature_mode, feature_ready_count, feature_vector_complete, row_ready, "", feature_checksum, features, p_short, p_flat, p_long, DecisionToString(decision), decision_reason, cycle_tag, trade_action_reason);
 
    Log(StringFormat(
       "%s bar=%s mode=%s ready=%d p_short=%.6f p_flat=%.6f p_long=%.6f decision=%s reason=%s",
@@ -6190,14 +6714,26 @@ int OnInit()
       }
    }
 
+   string feature_snapshot_audit_error = "";
+   if(!LoadFeatureSnapshotAuditWindows(feature_snapshot_audit_error))
+   {
+      Log(feature_snapshot_audit_error);
+      return INIT_PARAMETERS_INCORRECT;
+   }
+
    if(!LoadRuntimeConfig())
       return INIT_FAILED;
 
    ResetManagedTradeTracking();
    ResetGovernanceState();
-   EnsureLogHeader();
-   EnsureTradeLedgerHeader();
-   EnsureGovernanceLogHeader();
+   if(!EnsureLogHeader())
+      return INIT_FAILED;
+   if(!EnsureTradeLedgerHeader())
+      return INIT_FAILED;
+   if(!EnsureGovernanceLogHeader())
+      return INIT_FAILED;
+   if(!EnsureFeatureSnapshotAuditReady())
+      return INIT_FAILED;
    g_trade.SetExpertMagicNumber((ulong)InpMagicNumber);
    g_trade.SetDeviationInPoints(InpTradeDeviationPoints);
 

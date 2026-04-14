@@ -54,6 +54,12 @@ def build_parser() -> argparse.ArgumentParser:
     parser.add_argument("--feature-mode", type=int, default=1, help="EA feature mode (default: 1 = PRICE_CORE_PARTIAL)")
     parser.add_argument("--enable-trading", action="store_true", help="Enable market orders in the EA")
     parser.add_argument("--warmup-bars", type=int, default=300, help="InpWarmupBars override")
+    parser.add_argument(
+        "--use-contract-aligned-feature-indicators",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="Use contract-matching ATR/Stochastic feature calculations inside the EA (default: true)",
+    )
     parser.add_argument("--magic-number", type=int, default=26032901, help="EA magic number")
     parser.add_argument("--trade-deviation-points", type=int, default=100, help="EA trade deviation in points")
     parser.add_argument("--enable-governance", action="store_true", help="Enable governance telemetry/blocking inside the EA")
@@ -112,6 +118,24 @@ def build_parser() -> argparse.ArgumentParser:
         type=float,
         default=0.20,
         help="Minimum allowed normalized entropy across ready rows",
+    )
+    parser.add_argument(
+        "--enable-feature-snapshot-audit",
+        action="store_true",
+        help="Enable targeted MT5 feature snapshot dumps for parity debugging",
+    )
+    parser.add_argument(
+        "--feature-snapshot-audit-target-windows",
+        help=(
+            "Pipe-separated bar_time_server windows in full timestamp form, "
+            "for example 2026.03.23 17:20:00..2026.03.23 18:15:00|2026.04.02 20:20:00..2026.04.02 20:45:00"
+        ),
+    )
+    parser.add_argument(
+        "--feature-snapshot-audit-include-skip-rows",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="When feature snapshot audit is enabled, include skip rows in the JSONL dump (default: true)",
     )
     parser.add_argument(
         "--terminal-path",
@@ -273,12 +297,14 @@ def build_tester_ini_text(
     feature_mode: int,
     enable_trading: bool,
     warmup_bars: int,
+    use_contract_aligned_feature_indicators: bool,
     magic_number: int,
     trade_deviation_points: int,
     report_path: Path,
     csv_log_relative_path: str,
     trade_ledger_relative_path: str,
     governance_log_relative_path: str,
+    feature_snapshot_audit_relative_path: str,
     enable_governance: bool,
     governance_block_new_entries: bool,
     governance_window_bars: int,
@@ -291,7 +317,13 @@ def build_tester_ini_text(
     governance_max_extreme_confidence_rate: float,
     governance_extreme_confidence_threshold: float,
     governance_min_normalized_entropy: float,
+    enable_feature_snapshot_audit: bool,
+    feature_snapshot_audit_target_windows: str | None,
+    feature_snapshot_audit_include_skip_rows: bool,
 ) -> str:
+    if enable_feature_snapshot_audit and not feature_snapshot_audit_target_windows:
+        raise ValueError("feature snapshot audit requires --feature-snapshot-audit-target-windows")
+
     runtime_config_relative = f"Project_Obsidian_Prime\\runtime\\{runtime_id}\\mt5_runtime_config.txt"
     tester_model_value = resolve_tester_model_value(bundle.runtime_snapshot.tester_model)
     lines = [
@@ -327,6 +359,7 @@ def build_tester_ini_text(
         "InpRunSmokeOnInit=true",
         f"InpFeatureMode={feature_mode}",
         f"InpWarmupBars={warmup_bars}",
+        f"InpUseContractAlignedFeatureIndicators={'true' if use_contract_aligned_feature_indicators else 'false'}",
         "InpShortThreshold=0.333333",
         "InpLongThreshold=0.333333",
         "InpMinMargin=0.0",
@@ -356,6 +389,11 @@ def build_tester_ini_text(
         f"InpWriteGovernanceLog={'true' if enable_governance else 'false'}",
         "InpGovernanceLogUseCommonFiles=true",
         f"InpGovernanceLogPath={governance_log_relative_path}",
+        f"InpEnableFeatureSnapshotAudit={'true' if enable_feature_snapshot_audit else 'false'}",
+        "InpFeatureSnapshotAuditUseCommonFiles=true",
+        f"InpFeatureSnapshotAuditPath={feature_snapshot_audit_relative_path}",
+        f"InpFeatureSnapshotAuditTargetWindowsUtc={feature_snapshot_audit_target_windows or ''}",
+        f"InpFeatureSnapshotAuditIncludeSkipRows={'true' if feature_snapshot_audit_include_skip_rows else 'false'}",
         "InpVerboseLog=true",
         "",
     ]
@@ -923,9 +961,19 @@ def main() -> int:
         / "logs"
         / f"{attempt_id}_governance.csv"
     ).as_posix().replace("/", "\\")
+    feature_snapshot_audit_relative_path = (
+        Path("Project_Obsidian_Prime")
+        / "runtime"
+        / runtime_id
+        / "logs"
+        / f"{attempt_id}_feature_snapshot.jsonl"
+    ).as_posix().replace("/", "\\")
     csv_log_path = (common_project_root / "runtime" / runtime_id / "logs" / f"{attempt_id}_shadow.csv").resolve()
     trade_ledger_path = (common_project_root / "runtime" / runtime_id / "logs" / f"{attempt_id}_trades.csv").resolve()
     governance_log_path = (common_project_root / "runtime" / runtime_id / "logs" / f"{attempt_id}_governance.csv").resolve()
+    feature_snapshot_audit_path = (
+        common_project_root / "runtime" / runtime_id / "logs" / f"{attempt_id}_feature_snapshot.jsonl"
+    ).resolve()
     csv_log_path.parent.mkdir(parents=True, exist_ok=True)
     if csv_log_path.exists():
         csv_log_path.unlink()
@@ -933,6 +981,8 @@ def main() -> int:
         trade_ledger_path.unlink()
     if governance_log_path.exists():
         governance_log_path.unlink()
+    if feature_snapshot_audit_path.exists():
+        feature_snapshot_audit_path.unlink()
 
     ini_text = build_tester_ini_text(
         bundle,
@@ -942,12 +992,14 @@ def main() -> int:
         feature_mode=args.feature_mode,
         enable_trading=args.enable_trading,
         warmup_bars=args.warmup_bars,
+        use_contract_aligned_feature_indicators=args.use_contract_aligned_feature_indicators,
         magic_number=args.magic_number,
         trade_deviation_points=args.trade_deviation_points,
         report_path=report_path,
         csv_log_relative_path=csv_log_relative_path,
         trade_ledger_relative_path=trade_ledger_relative_path,
         governance_log_relative_path=governance_log_relative_path,
+        feature_snapshot_audit_relative_path=feature_snapshot_audit_relative_path,
         enable_governance=args.enable_governance,
         governance_block_new_entries=args.governance_block_new_entries,
         governance_window_bars=args.governance_window_bars,
@@ -960,6 +1012,9 @@ def main() -> int:
         governance_max_extreme_confidence_rate=args.governance_max_extreme_confidence_rate,
         governance_extreme_confidence_threshold=args.governance_extreme_confidence_threshold,
         governance_min_normalized_entropy=args.governance_min_normalized_entropy,
+        enable_feature_snapshot_audit=args.enable_feature_snapshot_audit,
+        feature_snapshot_audit_target_windows=args.feature_snapshot_audit_target_windows,
+        feature_snapshot_audit_include_skip_rows=args.feature_snapshot_audit_include_skip_rows,
     )
     write_text(ini_path, ini_text)
 
@@ -1010,9 +1065,13 @@ def main() -> int:
             "csv_log_path": str(csv_log_path),
             "trade_ledger_path": str(trade_ledger_path),
             "governance_log_path": str(governance_log_path),
+            "feature_snapshot_audit_path": str(feature_snapshot_audit_path),
             "split_name": args.split_name,
             "enable_trading": args.enable_trading,
             "enable_governance": args.enable_governance,
+            "use_contract_aligned_feature_indicators": args.use_contract_aligned_feature_indicators,
+            "enable_feature_snapshot_audit": args.enable_feature_snapshot_audit,
+            "feature_snapshot_audit_target_windows": args.feature_snapshot_audit_target_windows,
             "date_window": {
                 "from_date": from_date,
                 "to_date": to_date,
@@ -1029,6 +1088,7 @@ def main() -> int:
         csv_artifact_id = f"art_{attempt_id}_shadow_csv"
         trade_ledger_artifact_id = f"art_{attempt_id}_trade_ledger"
         governance_artifact_id = f"art_{attempt_id}_governance_csv"
+        feature_snapshot_artifact_id = f"art_{attempt_id}_feature_snapshot_jsonl"
         summary_artifact_id = f"art_{attempt_id}_attempt_summary"
         upsert_artifact(
             bundle,
@@ -1073,6 +1133,18 @@ def main() -> int:
                     path=str(governance_log_path),
                     format="csv",
                     sha256=compute_sha256(governance_log_path),
+                    required=False,
+                ),
+            )
+        if feature_snapshot_audit_path.exists():
+            upsert_artifact(
+                bundle,
+                ArtifactRef(
+                    artifact_id=feature_snapshot_artifact_id,
+                    role="mt5_feature_snapshot_jsonl",
+                    path=str(feature_snapshot_audit_path),
+                    format="jsonl",
+                    sha256=compute_sha256(feature_snapshot_audit_path),
                     required=False,
                 ),
             )
@@ -1125,7 +1197,11 @@ def main() -> int:
                 "csv_log_path": str(csv_log_path),
                 "trade_ledger_path": str(trade_ledger_path),
                 "governance_log_path": str(governance_log_path),
+                "feature_snapshot_audit_path": str(feature_snapshot_audit_path),
                 "governance_enabled": args.enable_governance,
+                "use_contract_aligned_feature_indicators": args.use_contract_aligned_feature_indicators,
+                "feature_snapshot_audit_enabled": args.enable_feature_snapshot_audit,
+                "feature_snapshot_audit_target_windows": args.feature_snapshot_audit_target_windows,
                 "governance_state_counts": dict(governance_metrics["state_counts"]),
                 "governance_reason_counts": dict(governance_metrics["reason_counts"]),
                 "governance_blocked_entry_count": int(governance_metrics["blocked_entry_count"]),
@@ -1186,7 +1262,7 @@ def main() -> int:
             for ref in bundle.results.report_refs
             if not (
                 ref.split == args.split_name
-                and ref.role in {"mt5_shadow_csv", "mt5_trade_ledger", "mt5_governance_csv", "mt5_attempt_summary"}
+                and ref.role in {"mt5_shadow_csv", "mt5_trade_ledger", "mt5_governance_csv", "mt5_feature_snapshot_jsonl", "mt5_attempt_summary"}
             )
         ]
         new_report_refs = [
@@ -1221,6 +1297,15 @@ def main() -> int:
                     description=f"MT5 governance telemetry log for {attempt_id}",
                 )
             )
+        if feature_snapshot_audit_path.exists():
+            new_report_refs.append(
+                ReportReference(
+                    role="mt5_feature_snapshot_jsonl",
+                    split=args.split_name,
+                    artifact_id=feature_snapshot_artifact_id,
+                    description=f"MT5 targeted feature snapshot audit log for {attempt_id}",
+                )
+            )
         bundle.results.report_refs.extend(new_report_refs)
         bundle.run_attempts.append(
             RunAttempt(
@@ -1230,6 +1315,7 @@ def main() -> int:
                 ended_at_utc=utc_now_iso(),
                 summary_metrics={
                     "split_name": args.split_name,
+                    "use_contract_aligned_feature_indicators": args.use_contract_aligned_feature_indicators,
                     "row_count": parsed["row_count"],
                     "ready_row_count": parsed["ready_row_count"],
                     "ready_rate": parsed["ready_rate"],
@@ -1251,6 +1337,7 @@ def main() -> int:
                         csv_artifact_id,
                         trade_ledger_artifact_id if trade_ledger_path.exists() else None,
                         governance_artifact_id if governance_log_path.exists() else None,
+                        feature_snapshot_artifact_id if feature_snapshot_audit_path.exists() else None,
                         summary_artifact_id,
                         ini_artifact_id,
                     ]
@@ -1269,6 +1356,8 @@ def main() -> int:
 
         print(f"[done] attempt_id={attempt_id}")
         print(f"[done] csv_log={csv_log_path}")
+        if feature_snapshot_audit_path.exists():
+            print(f"[done] feature_snapshot={feature_snapshot_audit_path}")
         print(f"[done] summary={summary_path}")
         if leaderboard_path is not None:
             print(f"[done] leaderboard={leaderboard_path}")
@@ -1282,6 +1371,10 @@ def main() -> int:
             "bundle_json": str(bundle_path),
             "tester_ini_path": str(ini_path),
             "csv_log_path": str(csv_log_path),
+            "feature_snapshot_audit_path": str(feature_snapshot_audit_path),
+            "use_contract_aligned_feature_indicators": args.use_contract_aligned_feature_indicators,
+            "enable_feature_snapshot_audit": args.enable_feature_snapshot_audit,
+            "feature_snapshot_audit_target_windows": args.feature_snapshot_audit_target_windows,
             "error_type": exc.__class__.__name__,
             "error": str(exc),
         }

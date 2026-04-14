@@ -1,0 +1,4321 @@
+{
+  "reviewed_on_utc": "2026-04-14T15:03:58.175547+00:00",
+  "rule_surface": {
+    "base_short_threshold": 0.3333333333333333,
+    "base_long_threshold": 0.3333333333333333,
+    "base_min_margin": 0.0675,
+    "contextual_rules": [
+      {
+        "rule_id": "filters_02",
+        "context": "monday",
+        "direction": "short",
+        "threshold_add": 0.05,
+        "min_margin_add": 0.05
+      },
+      {
+        "rule_id": "filters_03",
+        "context": "ny_postcash",
+        "direction": "short",
+        "threshold_add": 0.05,
+        "min_margin_add": 0.03
+      },
+      {
+        "rule_id": "filters_04",
+        "context": "late_session",
+        "direction": "long",
+        "threshold_add": 0.02,
+        "min_margin_add": 0.01
+      }
+    ]
+  },
+  "pair_summaries": [
+    {
+      "label": "batch_a",
+      "row_count": 72,
+      "decision_diff_count": 22,
+      "start_bar_time_server": "2026.03.02 16:35:00",
+      "end_bar_time_server": "2026.03.09 20:30:00"
+    },
+    {
+      "label": "batch_b",
+      "row_count": 49,
+      "decision_diff_count": 10,
+      "start_bar_time_server": "2026.03.12 18:40:00",
+      "end_bar_time_server": "2026.04.07 20:50:00"
+    }
+  ],
+  "snapshot_row_count": 121,
+  "decision_diff_count": 32,
+  "directional_to_no_trade_count": 26,
+  "recovery_to_direction_count": 6,
+  "transition_counts": [
+    {
+      "transition": "long_to_no_trade",
+      "count": 15
+    },
+    {
+      "transition": "short_to_no_trade",
+      "count": 11
+    },
+    {
+      "transition": "no_trade_to_long",
+      "count": 5
+    },
+    {
+      "transition": "no_trade_to_short",
+      "count": 1
+    }
+  ],
+  "cause_counts": [
+    {
+      "cause_category": "margin_cross",
+      "count": 25
+    },
+    {
+      "cause_category": "margin_recovery",
+      "count": 6
+    },
+    {
+      "cause_category": "threshold_cross",
+      "count": 1
+    }
+  ],
+  "contextual_rule_counts": [
+    {
+      "active_contextual_rules": "none",
+      "count": 32
+    }
+  ],
+  "margin_comparator_shift_counts": [
+    {
+      "transition": "short_to_no_trade",
+      "builtin_comparator_source": "long",
+      "contract_comparator_source": "long",
+      "count": 7
+    },
+    {
+      "transition": "long_to_no_trade",
+      "builtin_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "count": 7
+    },
+    {
+      "transition": "no_trade_to_long",
+      "builtin_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "count": 4
+    },
+    {
+      "transition": "long_to_no_trade",
+      "builtin_comparator_source": "short",
+      "contract_comparator_source": "flat",
+      "count": 4
+    },
+    {
+      "transition": "short_to_no_trade",
+      "builtin_comparator_source": "long",
+      "contract_comparator_source": "flat",
+      "count": 4
+    },
+    {
+      "transition": "long_to_no_trade",
+      "builtin_comparator_source": "flat",
+      "contract_comparator_source": "flat",
+      "count": 3
+    },
+    {
+      "transition": "no_trade_to_long",
+      "builtin_comparator_source": "flat",
+      "contract_comparator_source": "short",
+      "count": 1
+    },
+    {
+      "transition": "no_trade_to_short",
+      "builtin_comparator_source": "long",
+      "contract_comparator_source": "long",
+      "count": 1
+    }
+  ],
+  "transition_summaries": [
+    {
+      "transition": "long_to_no_trade",
+      "count": 15,
+      "metrics": {
+        "built_margin_headroom": {
+          "count": 15,
+          "mean": 0.01863266666666665,
+          "min": 0.0003710000000000102,
+          "max": 0.07721899999999998
+        },
+        "built_threshold_headroom": {
+          "count": 15,
+          "mean": 0.09181226666666668,
+          "min": 0.05759266666666668,
+          "max": 0.1298866666666667
+        },
+        "contract_margin_headroom": {
+          "count": 15,
+          "mean": -0.05202420000000001,
+          "min": -0.16291700000000003,
+          "max": -0.0008130000000000082
+        },
+        "contract_threshold_headroom": {
+          "count": 15,
+          "mean": 0.04159366666666668,
+          "min": -0.0036353333333333238,
+          "max": 0.10489066666666669
+        },
+        "margin_headroom_delta": {
+          "count": 15,
+          "mean": -0.07065686666666667,
+          "min": -0.16328800000000004,
+          "max": -0.011471999999999982
+        },
+        "p_flat_delta": {
+          "count": 15,
+          "mean": 0.07378226666666667,
+          "min": 0.03315499999999999,
+          "max": 0.09861200000000003
+        },
+        "p_long_delta": {
+          "count": 15,
+          "mean": -0.0502186,
+          "min": -0.06467600000000001,
+          "max": -0.023513000000000006
+        },
+        "p_short_delta": {
+          "count": 15,
+          "mean": -0.023563933333333342,
+          "min": -0.03769600000000001,
+          "max": -0.009641999999999984
+        },
+        "threshold_headroom_delta": {
+          "count": 15,
+          "mean": -0.0502186,
+          "min": -0.06467600000000001,
+          "max": -0.023513000000000006
+        }
+      },
+      "selected_feature_delta_summaries": {
+        "atr_14": {
+          "count": 15,
+          "mean": 4.1083605713199995,
+          "min": -1.6162508944999985,
+          "max": 9.136526546799999
+        },
+        "atr_14_over_atr_50": {
+          "count": 15,
+          "mean": 0.22615886942666666,
+          "min": 0.1173522989000001,
+          "max": 0.3193037241000001
+        },
+        "atr_50": {
+          "count": 15,
+          "mean": -7.066662369466667,
+          "min": -9.2252449494,
+          "max": -3.963480302999997
+        },
+        "bb_squeeze": {
+          "count": 15,
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "return_1_over_atr_14": {
+          "count": 15,
+          "mean": -0.003992401519999993,
+          "min": -0.1598377403000001,
+          "max": 0.09448261810000003
+        },
+        "stoch_kd_diff": {
+          "count": 15,
+          "mean": -0.22750681123333333,
+          "min": -1.7615648621000006,
+          "max": 0.7699085833999995
+        }
+      }
+    },
+    {
+      "transition": "no_trade_to_long",
+      "count": 5,
+      "metrics": {
+        "built_margin_headroom": {
+          "count": 5,
+          "mean": -0.02978320000000001,
+          "min": -0.07028800000000002,
+          "max": -0.013355000000000006
+        },
+        "built_threshold_headroom": {
+          "count": 5,
+          "mean": 0.06894166666666669,
+          "min": 0.01128166666666669,
+          "max": 0.13253066666666669
+        },
+        "contract_margin_headroom": {
+          "count": 5,
+          "mean": 0.007983999999999991,
+          "min": 0.0005539999999999989,
+          "max": 0.017237000000000002
+        },
+        "contract_threshold_headroom": {
+          "count": 5,
+          "mean": 0.10890106666666668,
+          "min": 0.06362266666666666,
+          "max": 0.15252566666666667
+        },
+        "margin_headroom_delta": {
+          "count": 5,
+          "mean": 0.0377672,
+          "min": 0.025718999999999992,
+          "max": 0.07225199999999998
+        },
+        "p_flat_delta": {
+          "count": 5,
+          "mean": -0.050035800000000005,
+          "min": -0.07185200000000003,
+          "max": -0.014270999999999992
+        },
+        "p_long_delta": {
+          "count": 5,
+          "mean": 0.03995939999999999,
+          "min": 0.019994999999999985,
+          "max": 0.05234099999999997
+        },
+        "p_short_delta": {
+          "count": 5,
+          "mean": 0.010076399999999996,
+          "min": -0.005724000000000007,
+          "max": 0.019510000000000027
+        },
+        "threshold_headroom_delta": {
+          "count": 5,
+          "mean": 0.03995939999999999,
+          "min": 0.019994999999999985,
+          "max": 0.05234099999999997
+        }
+      },
+      "selected_feature_delta_summaries": {
+        "atr_14": {
+          "count": 5,
+          "mean": -14.290621369479997,
+          "min": -17.8960367612,
+          "max": -9.017755663699994
+        },
+        "atr_14_over_atr_50": {
+          "count": 5,
+          "mean": -0.29413040118,
+          "min": -0.3591427813999999,
+          "max": -0.21834546180000003
+        },
+        "atr_50": {
+          "count": 5,
+          "mean": -1.0883870727000016,
+          "min": -2.0812571278000007,
+          "max": -0.43715488420000526
+        },
+        "bb_squeeze": {
+          "count": 5,
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "return_1_over_atr_14": {
+          "count": 5,
+          "mean": -0.024130186700000018,
+          "min": -0.13589897600000006,
+          "max": 0.0747531239
+        },
+        "stoch_kd_diff": {
+          "count": 5,
+          "mean": 0.09423252857999989,
+          "min": -0.024190236200000048,
+          "max": 0.31715680699999993
+        }
+      }
+    },
+    {
+      "transition": "no_trade_to_short",
+      "count": 1,
+      "metrics": {
+        "built_margin_headroom": {
+          "count": 1,
+          "mean": -0.003961000000000048,
+          "min": -0.003961000000000048,
+          "max": -0.003961000000000048
+        },
+        "built_threshold_headroom": {
+          "count": 1,
+          "mean": 0.07597766666666667,
+          "min": 0.07597766666666667,
+          "max": 0.07597766666666667
+        },
+        "contract_margin_headroom": {
+          "count": 1,
+          "mean": 0.003699999999999981,
+          "min": 0.003699999999999981,
+          "max": 0.003699999999999981
+        },
+        "contract_threshold_headroom": {
+          "count": 1,
+          "mean": 0.05074966666666669,
+          "min": 0.05074966666666669,
+          "max": 0.05074966666666669
+        },
+        "margin_headroom_delta": {
+          "count": 1,
+          "mean": 0.007661000000000029,
+          "min": 0.007661000000000029,
+          "max": 0.007661000000000029
+        },
+        "p_flat_delta": {
+          "count": 1,
+          "mean": 0.05811700000000003,
+          "min": 0.05811700000000003,
+          "max": 0.05811700000000003
+        },
+        "p_long_delta": {
+          "count": 1,
+          "mean": -0.032889,
+          "min": -0.032889,
+          "max": -0.032889
+        },
+        "p_short_delta": {
+          "count": 1,
+          "mean": -0.025227999999999973,
+          "min": -0.025227999999999973,
+          "max": -0.025227999999999973
+        },
+        "threshold_headroom_delta": {
+          "count": 1,
+          "mean": -0.025227999999999973,
+          "min": -0.025227999999999973,
+          "max": -0.025227999999999973
+        }
+      },
+      "selected_feature_delta_summaries": {
+        "atr_14": {
+          "count": 1,
+          "mean": 2.347987383499998,
+          "min": 2.347987383499998,
+          "max": 2.347987383499998
+        },
+        "atr_14_over_atr_50": {
+          "count": 1,
+          "mean": 0.2362661209,
+          "min": 0.2362661209,
+          "max": 0.2362661209
+        },
+        "atr_50": {
+          "count": 1,
+          "mean": -6.948609239299998,
+          "min": -6.948609239299998,
+          "max": -6.948609239299998
+        },
+        "bb_squeeze": {
+          "count": 1,
+          "mean": 0.0,
+          "min": 0.0,
+          "max": 0.0
+        },
+        "return_1_over_atr_14": {
+          "count": 1,
+          "mean": 0.030006254399999988,
+          "min": 0.030006254399999988,
+          "max": 0.030006254399999988
+        },
+        "stoch_kd_diff": {
+          "count": 1,
+          "mean": 0.07453852029999997,
+          "min": 0.07453852029999997,
+          "max": 0.07453852029999997
+        }
+      }
+    },
+    {
+      "transition": "short_to_no_trade",
+      "count": 11,
+      "metrics": {
+        "built_margin_headroom": {
+          "count": 11,
+          "mean": 0.012529727272727255,
+          "min": 0.003925000000000012,
+          "max": 0.036504999999999954
+        },
+        "built_threshold_headroom": {
+          "count": 11,
+          "mean": 0.09478248484848487,
+          "min": 0.06758066666666668,
+          "max": 0.15143066666666666
+        },
+        "contract_margin_headroom": {
+          "count": 11,
+          "mean": -0.014209090909090914,
+          "min": -0.03955700000000001,
+          "max": -0.0022559999999999802
+        },
+        "contract_threshold_headroom": {
+          "count": 11,
+          "mean": 0.09206339393939396,
+          "min": 0.04024666666666671,
+          "max": 0.1473026666666667
+        },
+        "margin_headroom_delta": {
+          "count": 11,
+          "mean": -0.02673881818181817,
+          "min": -0.058033999999999974,
+          "max": -0.011992999999999976
+        },
+        "p_flat_delta": {
+          "count": 11,
+          "mean": -0.004844090909090901,
+          "min": -0.05670399999999998,
+          "max": 0.06579200000000002
+        },
+        "p_long_delta": {
+          "count": 11,
+          "mean": 0.0075634545454545295,
+          "min": -0.03769800000000001,
+          "max": 0.039831000000000005
+        },
+        "p_short_delta": {
+          "count": 11,
+          "mean": -0.002719090909090903,
+          "min": -0.029485999999999957,
+          "max": 0.01893600000000001
+        },
+        "threshold_headroom_delta": {
+          "count": 11,
+          "mean": -0.002719090909090903,
+          "min": -0.029485999999999957,
+          "max": 0.01893600000000001
+        }
+      },
+      "selected_feature_delta_summaries": {
+        "atr_14": {
+          "count": 11,
+          "mean": -8.486837138827275,
+          "min": -18.564409073600004,
+          "max": 4.761363980900001
+        },
+        "atr_14_over_atr_50": {
+          "count": 11,
+          "mean": -0.05904104156363641,
+          "min": -0.33055526560000015,
+          "max": 0.2893148956000001
+        },
+        "atr_50": {
+          "count": 11,
+          "mean": -4.042914782645455,
+          "min": -7.1943370539,
+          "max": -1.7587655214999955
+        },
+        "bb_squeeze": {
+          "count": 11,
+          "mean": 0.09090909090909091,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "return_1_over_atr_14": {
+          "count": 11,
+          "mean": -0.027582715890909083,
+          "min": -0.17346181520000004,
+          "max": 0.15532070789999997
+        },
+        "stoch_kd_diff": {
+          "count": 11,
+          "mean": -0.07711097637272733,
+          "min": -0.6229883270999999,
+          "max": 0.3833249031999997
+        }
+      }
+    }
+  ],
+  "threshold_cross_rows": [
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 20:00:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "LONG_FILTERS_OK",
+      "contract_decision_reason": "THRESHOLD_FAIL",
+      "cause_category": "threshold_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.03393600000000002,
+      "p_flat_delta_contract_minus_builtin": 0.09861200000000003,
+      "p_long_delta_contract_minus_builtin": -0.06467600000000001,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -7.560392731299999,
+          "abs_diff": 7.560392731299999,
+          "builtin_value": 50.452,
+          "contract_value": 42.8916072687
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 4.294143735599995,
+          "abs_diff": 4.294143735599995,
+          "builtin_value": 35.1928571429,
+          "contract_value": 39.4870008785
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.2970526801000002,
+          "abs_diff": 0.2970526801000002,
+          "builtin_value": -6.2787010286,
+          "contract_value": -6.5757537087
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.22307173749999998,
+          "abs_diff": 0.22307173749999998,
+          "builtin_value": 0.6975512793,
+          "contract_value": 0.9206230168
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.027800474800000002,
+          "abs_diff": 0.027800474800000002,
+          "builtin_value": -0.2556405753,
+          "contract_value": -0.2278401005
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-09T16:00:00-04:00",
+        "is_monday": true,
+        "is_postcash": true,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.06104066666666669,
+      "contract_threshold_headroom": -0.0036353333333333238,
+      "built_margin": 0.06787100000000001,
+      "contract_margin": -0.09541700000000003,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.0003710000000000102,
+      "contract_margin_headroom": -0.16291700000000003,
+      "built_comparator_source": "flat",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    }
+  ],
+  "margin_cross_rows": [
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 19:15:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "LONG_FILTERS_OK",
+      "contract_decision_reason": "LONG_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.026608999999999994,
+      "p_flat_delta_contract_minus_builtin": 0.08534599999999998,
+      "p_long_delta_contract_minus_builtin": -0.05873700000000004,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 8.155931995099998,
+          "abs_diff": 8.155931995099998,
+          "builtin_value": 35.8035714286,
+          "contract_value": 43.9595034237
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -4.544396105099999,
+          "abs_diff": 4.544396105099999,
+          "builtin_value": 48.884,
+          "contract_value": 44.3396038949
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.2590084966,
+          "abs_diff": 0.2590084966,
+          "builtin_value": 0.7324190211,
+          "contract_value": 0.9914275177
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.06412151990000003,
+          "abs_diff": 0.06412151990000003,
+          "builtin_value": -1.5565611466,
+          "contract_value": -1.6206826665
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.005182175100000002,
+          "abs_diff": 0.005182175100000002,
+          "builtin_value": 0.0279313074,
+          "contract_value": 0.0227491323
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-09T15:15:00-04:00",
+        "is_monday": true,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.0694076666666667,
+      "contract_threshold_headroom": 0.010670666666666662,
+      "built_margin": 0.094966,
+      "contract_margin": -0.04911700000000002,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.02746599999999999,
+      "contract_margin_headroom": -0.11661700000000003,
+      "built_comparator_source": "flat",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 19:10:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "LONG_FILTERS_OK",
+      "contract_decision_reason": "LONG_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.024073999999999984,
+      "p_flat_delta_contract_minus_builtin": 0.08347099999999996,
+      "p_long_delta_contract_minus_builtin": -0.059398000000000006,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 8.470124566099997,
+          "abs_diff": 8.470124566099997,
+          "builtin_value": 36.6785714286,
+          "contract_value": 45.1486959947
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -4.531138882100002,
+          "abs_diff": 4.531138882100002,
+          "builtin_value": 49.194,
+          "contract_value": 44.6628611179
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.2652874821000001,
+          "abs_diff": 0.2652874821000001,
+          "builtin_value": 0.7455903449,
+          "contract_value": 1.010877827
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.0601280434,
+          "abs_diff": 0.0601280434,
+          "builtin_value": 0.3205032858,
+          "contract_value": 0.2603752424
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.04290027709999977,
+          "abs_diff": 0.04290027709999977,
+          "builtin_value": -2.8417005724,
+          "contract_value": -2.8846008495
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-09T15:10:00-04:00",
+        "is_monday": true,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.0749556666666667,
+      "contract_threshold_headroom": 0.015557666666666692,
+      "built_margin": 0.105269,
+      "contract_margin": -0.03759999999999997,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.037769,
+      "contract_margin_headroom": -0.10509999999999997,
+      "built_comparator_source": "flat",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 20:05:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "LONG_FILTERS_OK",
+      "contract_decision_reason": "LONG_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.03325100000000003,
+      "p_flat_delta_contract_minus_builtin": 0.095557,
+      "p_long_delta_contract_minus_builtin": -0.06230600000000003,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -7.750224877000001,
+          "abs_diff": 7.750224877000001,
+          "builtin_value": 50.499,
+          "contract_value": 42.748775123
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 4.402215101399996,
+          "abs_diff": 4.402215101399996,
+          "builtin_value": 34.8178571429,
+          "contract_value": 39.2200722443
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.5875948696000002,
+          "abs_diff": 0.5875948696000002,
+          "builtin_value": -11.8000984109,
+          "contract_value": -12.3876932805
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.22797870679999999,
+          "abs_diff": 0.22797870679999999,
+          "builtin_value": 0.6894761707,
+          "contract_value": 0.9174548775
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.06844567600000007,
+          "abs_diff": 0.06844567600000007,
+          "builtin_value": -0.6097939999,
+          "contract_value": -0.5413483239
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-09T16:05:00-04:00",
+        "is_monday": true,
+        "is_postcash": true,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.08595966666666671,
+      "contract_threshold_headroom": 0.023653666666666684,
+      "built_margin": 0.111294,
+      "contract_margin": -0.01127800000000001,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.043794,
+      "contract_margin_headroom": -0.07877800000000001,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 19:00:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "LONG_FILTERS_OK",
+      "contract_decision_reason": "LONG_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.023048999999999986,
+      "p_flat_delta_contract_minus_builtin": 0.080868,
+      "p_long_delta_contract_minus_builtin": -0.05781999999999998,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 9.136526546799999,
+          "abs_diff": 9.136526546799999,
+          "builtin_value": 37.0714285714,
+          "contract_value": 46.2079551182
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -3.963480302999997,
+          "abs_diff": 3.963480302999997,
+          "builtin_value": 48.869,
+          "contract_value": 44.905519697
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.3713845681000003,
+          "abs_diff": 0.3713845681000003,
+          "builtin_value": 3.0078858985,
+          "contract_value": 2.6365013304
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.2704160767999999,
+          "abs_diff": 0.2704160767999999,
+          "builtin_value": 0.7585878281,
+          "contract_value": 1.0290039049
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.0386576337,
+          "abs_diff": 0.0386576337,
+          "builtin_value": -0.1955108644,
+          "contract_value": -0.1568532307
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-09T15:00:00-04:00",
+        "is_monday": true,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.10799266666666668,
+      "contract_threshold_headroom": 0.0501726666666667,
+      "built_margin": 0.144719,
+      "contract_margin": 0.040569999999999995,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.07721899999999998,
+      "contract_margin_headroom": -0.02693000000000001,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.04.07 20:00:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "LONG_FILTERS_OK",
+      "contract_decision_reason": "LONG_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.019596000000000002,
+      "p_flat_delta_contract_minus_builtin": 0.05461499999999997,
+      "p_long_delta_contract_minus_builtin": -0.035019999999999996,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -7.6183495361000055,
+          "abs_diff": 7.6183495361000055,
+          "builtin_value": 47.468,
+          "contract_value": 39.8496504639
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -1.6162508944999985,
+          "abs_diff": 1.6162508944999985,
+          "builtin_value": 43.3035714286,
+          "contract_value": 41.6873205341
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.13384636989999998,
+          "abs_diff": 0.13384636989999998,
+          "builtin_value": 0.9122687164,
+          "contract_value": 1.0461150863
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.08255404980000003,
+          "abs_diff": 0.08255404980000003,
+          "builtin_value": 0.9040702569,
+          "contract_value": 0.8215162071
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.01967917099999994,
+          "abs_diff": 0.01967917099999994,
+          "builtin_value": -0.5075770818,
+          "contract_value": -0.5272562528
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-04-07T16:00:00-04:00",
+        "is_monday": false,
+        "is_postcash": true,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.05759266666666668,
+      "contract_threshold_headroom": 0.022572666666666685,
+      "built_margin": 0.07741599999999998,
+      "contract_margin": -0.01221899999999998,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.00991599999999998,
+      "contract_margin_headroom": -0.07971899999999998,
+      "built_comparator_source": "flat",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 20:20:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "LONG_FILTERS_OK",
+      "contract_decision_reason": "LONG_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.03769600000000001,
+      "p_flat_delta_contract_minus_builtin": 0.09625300000000003,
+      "p_long_delta_contract_minus_builtin": -0.058558,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -8.450064846499998,
+          "abs_diff": 8.450064846499998,
+          "builtin_value": 50.716,
+          "contract_value": 42.2659351535
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 3.2844565308999947,
+          "abs_diff": 3.2844565308999947,
+          "builtin_value": 35.0678571429,
+          "contract_value": 38.3523136738
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.21594932919999998,
+          "abs_diff": 0.21594932919999998,
+          "builtin_value": 0.6914555001,
+          "contract_value": 0.9074048293
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.16288474490000127,
+          "abs_diff": 0.16288474490000127,
+          "builtin_value": -11.5153102717,
+          "contract_value": -11.3524255268
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.09448261810000003,
+          "abs_diff": 0.09448261810000003,
+          "builtin_value": -1.103265326,
+          "contract_value": -1.0087827079
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-09T16:20:00-04:00",
+        "is_monday": true,
+        "is_postcash": true,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.0707066666666667,
+      "contract_threshold_headroom": 0.012148666666666696,
+      "built_margin": 0.070822,
+      "contract_margin": -0.013512999999999997,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.0033219999999999916,
+      "contract_margin_headroom": -0.081013,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.03.26 19:40:00",
+      "decision_transition": "short_to_no_trade",
+      "built_decision": "SHORT",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "SHORT_FILTERS_OK",
+      "contract_decision_reason": "SHORT_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "SHORT",
+      "p_short_delta_contract_minus_builtin": -0.029485999999999957,
+      "p_flat_delta_contract_minus_builtin": 0.06579200000000002,
+      "p_long_delta_contract_minus_builtin": -0.036306000000000005,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -6.896962972400004,
+          "abs_diff": 6.896962972400004,
+          "builtin_value": 41.835,
+          "contract_value": 34.9380370276
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 3.468460431299995,
+          "abs_diff": 3.468460431299995,
+          "builtin_value": 35.2857142857,
+          "contract_value": 38.754174717
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.6229883270999999,
+          "abs_diff": 0.6229883270999999,
+          "builtin_value": -6.4485632554,
+          "contract_value": -7.0715515825
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.2657762693,
+          "abs_diff": 0.2657762693,
+          "builtin_value": 0.8434496064,
+          "contract_value": 1.1092258757
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.02788761900000003,
+          "abs_diff": 0.02788761900000003,
+          "builtin_value": -0.3115969409,
+          "contract_value": -0.2837093219
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-26T15:40:00-04:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": true
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.06973266666666667,
+      "contract_threshold_headroom": 0.04024666666666671,
+      "built_margin": 0.08597699999999997,
+      "contract_margin": 0.027942999999999996,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.018476999999999966,
+      "contract_margin_headroom": -0.03955700000000001,
+      "built_comparator_source": "long",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 17:35:00",
+      "decision_transition": "short_to_no_trade",
+      "built_decision": "SHORT",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "DUAL_SIGNAL_SHORT_WINS",
+      "contract_decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "SHORT",
+      "p_short_delta_contract_minus_builtin": -0.004127999999999965,
+      "p_flat_delta_contract_minus_builtin": -0.03570300000000001,
+      "p_long_delta_contract_minus_builtin": 0.039831000000000005,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -18.564409073600004,
+          "abs_diff": 18.564409073600004,
+          "builtin_value": 83.8785714286,
+          "contract_value": 65.314162355
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -1.7587655214999955,
+          "abs_diff": 1.7587655214999955,
+          "builtin_value": 48.769,
+          "contract_value": 47.0102344785
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.35808511389999986,
+          "abs_diff": 0.35808511389999986,
+          "builtin_value": 1.2785570183,
+          "contract_value": 0.9204719044
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": -0.33055526560000015,
+          "abs_diff": 0.33055526560000015,
+          "builtin_value": 1.7199157544,
+          "contract_value": 1.3893604888
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.15532070789999997,
+          "abs_diff": 0.15532070789999997,
+          "builtin_value": 0.546456496,
+          "contract_value": 0.7017772039
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-03T12:35:00-05:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.15143066666666666,
+      "contract_threshold_headroom": 0.1473026666666667,
+      "built_margin": 0.10400499999999996,
+      "contract_margin": 0.06004599999999999,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.036504999999999954,
+      "contract_margin_headroom": -0.007454000000000016,
+      "built_comparator_source": "long",
+      "contract_comparator_source": "long",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.03.26 19:45:00",
+      "decision_transition": "short_to_no_trade",
+      "built_decision": "SHORT",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "SHORT_FILTERS_OK",
+      "contract_decision_reason": "SHORT_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "SHORT",
+      "p_short_delta_contract_minus_builtin": -0.026210999999999984,
+      "p_flat_delta_contract_minus_builtin": 0.06120700000000001,
+      "p_long_delta_contract_minus_builtin": -0.03499600000000003,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -6.8007237128,
+          "abs_diff": 6.8007237128,
+          "builtin_value": 41.445,
+          "contract_value": 34.6442762872
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 3.1110193801000037,
+          "abs_diff": 3.1110193801000037,
+          "builtin_value": 34.3214285714,
+          "contract_value": 37.4324479515
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.25236012539999997,
+          "abs_diff": 0.25236012539999997,
+          "builtin_value": 0.8281198835,
+          "contract_value": 1.0804800089
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.11580198450000001,
+          "abs_diff": 0.11580198450000001,
+          "builtin_value": -0.2668924419,
+          "contract_value": -0.3826944264
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.02119613849999999,
+          "abs_diff": 0.02119613849999999,
+          "builtin_value": 0.2550364542,
+          "contract_value": 0.2338403157
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-26T15:45:00-04:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": true
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.06816966666666668,
+      "contract_threshold_headroom": 0.0419586666666667,
+      "built_margin": 0.07963799999999999,
+      "contract_margin": 0.037453000000000014,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.012137999999999982,
+      "contract_margin_headroom": -0.03004699999999999,
+      "built_comparator_source": "long",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.04.07 20:40:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "LONG_FILTERS_OK",
+      "contract_decision_reason": "LONG_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.019364000000000048,
+      "p_flat_delta_contract_minus_builtin": 0.07968599999999998,
+      "p_long_delta_contract_minus_builtin": -0.06032199999999999,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -8.130204484400004,
+          "abs_diff": 8.130204484400004,
+          "builtin_value": 47.453,
+          "contract_value": 39.3227955156
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 6.917265503899998,
+          "abs_diff": 6.917265503899998,
+          "builtin_value": 32.9107142857,
+          "contract_value": 39.8279797896
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.34175167229999914,
+          "abs_diff": 0.34175167229999914,
+          "builtin_value": 10.1150336515,
+          "contract_value": 9.7732819792
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.3193037241000001,
+          "abs_diff": 0.3193037241000001,
+          "builtin_value": 0.6935433858,
+          "contract_value": 1.0128471099
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.1598377403000001,
+          "abs_diff": 0.1598377403000001,
+          "builtin_value": 0.9203079291,
+          "contract_value": 0.7604701888
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-04-07T16:40:00-04:00",
+        "is_monday": false,
+        "is_postcash": true,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.10656366666666667,
+      "contract_threshold_headroom": 0.04624166666666668,
+      "built_margin": 0.08352499999999996,
+      "contract_margin": 0.04256700000000002,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.016024999999999956,
+      "contract_margin_headroom": -0.024932999999999983,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.04.07 20:15:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "LONG_FILTERS_OK",
+      "contract_decision_reason": "LONG_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.025577000000000016,
+      "p_flat_delta_contract_minus_builtin": 0.07930700000000002,
+      "p_long_delta_contract_minus_builtin": -0.05373,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -7.231561784699998,
+          "abs_diff": 7.231561784699998,
+          "builtin_value": 46.503,
+          "contract_value": 39.2714382153
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 4.961477118600001,
+          "abs_diff": 4.961477118600001,
+          "builtin_value": 34.3214285714,
+          "contract_value": 39.28290569
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -1.7615648621000006,
+          "abs_diff": 1.7615648621000006,
+          "builtin_value": -3.5755663973,
+          "contract_value": -5.3371312594
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.2622443834,
+          "abs_diff": 0.2622443834,
+          "builtin_value": 0.7380476221,
+          "contract_value": 1.0002920055
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.048732510299999976,
+          "abs_diff": 0.048732510299999976,
+          "builtin_value": -0.3858436836,
+          "contract_value": -0.3371111733
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-04-07T16:15:00-04:00",
+        "is_monday": false,
+        "is_postcash": true,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.09104866666666667,
+      "contract_threshold_headroom": 0.03731866666666667,
+      "built_margin": 0.08783399999999997,
+      "contract_margin": 0.05227499999999996,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.020333999999999963,
+      "contract_margin_headroom": -0.015225000000000044,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 19:20:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "DUAL_SIGNAL_LONG_WINS",
+      "contract_decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.02099000000000001,
+      "p_flat_delta_contract_minus_builtin": 0.073607,
+      "p_long_delta_contract_minus_builtin": -0.052617000000000025,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -8.395629476800003,
+          "abs_diff": 8.395629476800003,
+          "builtin_value": 58.444,
+          "contract_value": 50.0483705232
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 5.875992741200001,
+          "abs_diff": 5.875992741200001,
+          "builtin_value": 50.1785714286,
+          "contract_value": 56.0545641698
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.7699085833999995,
+          "abs_diff": 0.7699085833999995,
+          "builtin_value": -5.9196052679,
+          "contract_value": -5.1496966845
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.26143253450000004,
+          "abs_diff": 0.26143253450000004,
+          "builtin_value": 0.8585752417,
+          "contract_value": 1.1200077762
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.0381536804,
+          "abs_diff": 0.0381536804,
+          "builtin_value": 0.3639704846,
+          "contract_value": 0.3258168042
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-03T14:20:00-05:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.1298866666666667,
+      "contract_threshold_headroom": 0.07726966666666668,
+      "built_margin": 0.076938,
+      "contract_margin": 0.04531099999999999,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.009438000000000002,
+      "contract_margin_headroom": -0.022189000000000014,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 19:15:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "DUAL_SIGNAL_LONG_WINS",
+      "contract_decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.020496000000000014,
+      "p_flat_delta_contract_minus_builtin": 0.072156,
+      "p_long_delta_contract_minus_builtin": -0.051659999999999984,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -7.942907629700002,
+          "abs_diff": 7.942907629700002,
+          "builtin_value": 58.079,
+          "contract_value": 50.1360923703
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 5.222222952099997,
+          "abs_diff": 5.222222952099997,
+          "builtin_value": 51.625,
+          "contract_value": 56.8472229521
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.8825648444,
+          "abs_diff": 0.8825648444,
+          "builtin_value": -5.6242201247,
+          "contract_value": -6.5067849691
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.2449827726999999,
+          "abs_diff": 0.2449827726999999,
+          "builtin_value": 0.8888754972,
+          "contract_value": 1.1338582699
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.030717041099999953,
+          "abs_diff": 0.030717041099999953,
+          "builtin_value": 0.3343745565,
+          "contract_value": 0.3036575154
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-03T14:15:00-05:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.11701766666666669,
+      "contract_threshold_headroom": 0.0653576666666667,
+      "built_margin": 0.07038699999999998,
+      "contract_margin": 0.03922300000000001,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.002886999999999973,
+      "contract_margin_headroom": -0.028276999999999997,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 19:30:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "DUAL_SIGNAL_LONG_WINS",
+      "contract_decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.028131000000000017,
+      "p_flat_delta_contract_minus_builtin": 0.08629199999999998,
+      "p_long_delta_contract_minus_builtin": -0.05816199999999999,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -9.2252449494,
+          "abs_diff": 9.2252449494,
+          "builtin_value": 59.139,
+          "contract_value": 49.9137550506
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 4.346792575000002,
+          "abs_diff": 4.346792575000002,
+          "builtin_value": 50.375,
+          "contract_value": 54.721792575
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.24452014439999992,
+          "abs_diff": 0.24452014439999992,
+          "builtin_value": 0.8518067603,
+          "contract_value": 1.0963269047
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.013802430000000004,
+          "abs_diff": 0.013802430000000004,
+          "builtin_value": 0.1737588579,
+          "contract_value": 0.1599564279
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.011385063399999673,
+          "abs_diff": 0.011385063399999673,
+          "builtin_value": 6.4118690188,
+          "contract_value": 6.4232540822
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-03T14:30:00-05:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.11145166666666667,
+      "contract_threshold_headroom": 0.05328966666666668,
+      "built_margin": 0.07819199999999998,
+      "contract_margin": 0.04816100000000001,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.01069199999999998,
+      "contract_margin_headroom": -0.019338999999999995,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 17:45:00",
+      "decision_transition": "short_to_no_trade",
+      "built_decision": "SHORT",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "DUAL_SIGNAL_SHORT_WINS",
+      "contract_decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "SHORT",
+      "p_short_delta_contract_minus_builtin": 0.012260999999999966,
+      "p_flat_delta_contract_minus_builtin": -0.051398,
+      "p_long_delta_contract_minus_builtin": 0.039138000000000006,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -18.027329397999992,
+          "abs_diff": 18.027329397999992,
+          "builtin_value": 83.6107142857,
+          "contract_value": 65.5833848877
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -2.372070808299995,
+          "abs_diff": 2.372070808299995,
+          "builtin_value": 50.184,
+          "contract_value": 47.8119291917
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": -0.2943880858000001,
+          "abs_diff": 0.2943880858000001,
+          "builtin_value": 1.6660830999,
+          "contract_value": 1.3716950141
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.07308189319999997,
+          "abs_diff": 0.07308189319999997,
+          "builtin_value": -0.2658717673,
+          "contract_value": -0.3389536605
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.039867898899999865,
+          "abs_diff": 0.039867898899999865,
+          "builtin_value": 6.8138191427,
+          "contract_value": 6.8536870416
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-03T12:45:00-05:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.1088446666666667,
+      "contract_threshold_headroom": 0.12110566666666667,
+      "built_margin": 0.07314700000000002,
+      "contract_margin": 0.04626999999999998,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.005647000000000013,
+      "contract_margin_headroom": -0.021230000000000027,
+      "built_comparator_source": "long",
+      "contract_comparator_source": "long",
+      "active_contextual_rules": []
+    }
+  ],
+  "margin_recovery_rows": [
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 17:55:00",
+      "decision_transition": "no_trade_to_long",
+      "built_decision": "NO_TRADE",
+      "contract_decision": "LONG",
+      "built_decision_reason": "LONG_MARGIN_FAIL",
+      "contract_decision_reason": "LONG_FILTERS_OK",
+      "cause_category": "margin_recovery",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": 0.019510000000000027,
+      "p_flat_delta_contract_minus_builtin": -0.07185200000000003,
+      "p_long_delta_contract_minus_builtin": 0.05234099999999997,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -14.967541366600003,
+          "abs_diff": 14.967541366600003,
+          "builtin_value": 77.575,
+          "contract_value": 62.6074586334
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -0.4667900199999977,
+          "abs_diff": 0.4667900199999977,
+          "builtin_value": 47.809,
+          "contract_value": 47.34220998
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.31715680699999993,
+          "abs_diff": 0.31715680699999993,
+          "builtin_value": 8.6225392849,
+          "contract_value": 8.9396960919
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": -0.30015765530000005,
+          "abs_diff": 0.30015765530000005,
+          "builtin_value": 1.6226024389,
+          "contract_value": 1.3224447836
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.021578656,
+          "abs_diff": 0.021578656,
+          "builtin_value": 0.0902609706,
+          "contract_value": 0.1118396266
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-09T13:55:00-04:00",
+        "is_monday": true,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.01128166666666669,
+      "contract_threshold_headroom": 0.06362266666666666,
+      "built_margin": -0.0027880000000000127,
+      "contract_margin": 0.06946399999999997,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": -0.07028800000000002,
+      "contract_margin_headroom": 0.0019639999999999658,
+      "built_comparator_source": "flat",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.02 17:25:00",
+      "decision_transition": "no_trade_to_long",
+      "built_decision": "NO_TRADE",
+      "contract_decision": "LONG",
+      "built_decision_reason": "LONG_MARGIN_FAIL",
+      "contract_decision_reason": "LONG_FILTERS_OK",
+      "cause_category": "margin_recovery",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": 0.007461999999999969,
+      "p_flat_delta_contract_minus_builtin": -0.047099,
+      "p_long_delta_contract_minus_builtin": 0.03963699999999998,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -15.221556072599995,
+          "abs_diff": 15.221556072599995,
+          "builtin_value": 70.1642857143,
+          "contract_value": 54.9427296417
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -1.7830991101000038,
+          "abs_diff": 1.7830991101000038,
+          "builtin_value": 40.691,
+          "contract_value": 38.9079008899
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": -0.31219683369999984,
+          "abs_diff": 0.31219683369999984,
+          "builtin_value": 1.7243195231,
+          "contract_value": 1.4121226894
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.005923114699999999,
+          "abs_diff": 0.005923114699999999,
+          "builtin_value": 0.0213796861,
+          "contract_value": 0.0273028008
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.0043538672999998695,
+          "abs_diff": 0.0043538672999998695,
+          "builtin_value": -1.2408747447,
+          "contract_value": -1.2365208774
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-02T12:25:00-05:00",
+        "is_monday": true,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.06708366666666671,
+      "contract_threshold_headroom": 0.10672066666666669,
+      "built_margin": 0.052562,
+      "contract_margin": 0.084737,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": -0.014938000000000007,
+      "contract_margin_headroom": 0.017237000000000002,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.02 17:30:00",
+      "decision_transition": "no_trade_to_long",
+      "built_decision": "NO_TRADE",
+      "contract_decision": "LONG",
+      "built_decision_reason": "LONG_MARGIN_FAIL",
+      "contract_decision_reason": "DUAL_SIGNAL_LONG_WINS",
+      "cause_category": "margin_recovery",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": 0.01194099999999998,
+      "p_flat_delta_contract_minus_builtin": -0.05423700000000001,
+      "p_long_delta_contract_minus_builtin": 0.042296,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -17.8960367612,
+          "abs_diff": 17.8960367612,
+          "builtin_value": 73.9321428571,
+          "contract_value": 56.0361060959
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -2.0812571278000007,
+          "abs_diff": 2.0812571278000007,
+          "builtin_value": 41.616,
+          "contract_value": 39.5347428722
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": -0.3591427813999999,
+          "abs_diff": 0.3591427813999999,
+          "builtin_value": 1.7765316911,
+          "contract_value": 1.4173889097
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.13589897600000006,
+          "abs_diff": 0.13589897600000006,
+          "builtin_value": -0.4255271455,
+          "contract_value": -0.5614261215
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.004053268600000326,
+          "abs_diff": 0.004053268600000326,
+          "builtin_value": -3.6108947752,
+          "contract_value": -3.6149480438
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-02T12:30:00-05:00",
+        "is_monday": true,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.07748166666666667,
+      "contract_threshold_headroom": 0.11977766666666667,
+      "built_margin": 0.03769899999999998,
+      "contract_margin": 0.068054,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": -0.029801000000000022,
+      "contract_margin_headroom": 0.0005539999999999989,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 18:00:00",
+      "decision_transition": "no_trade_to_long",
+      "built_decision": "NO_TRADE",
+      "contract_decision": "LONG",
+      "built_decision_reason": "LONG_MARGIN_FAIL",
+      "contract_decision_reason": "LONG_FILTERS_OK",
+      "cause_category": "margin_recovery",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": 0.017193000000000014,
+      "p_flat_delta_contract_minus_builtin": -0.06272,
+      "p_long_delta_contract_minus_builtin": 0.04552800000000001,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -14.350216983299994,
+          "abs_diff": 14.350216983299994,
+          "builtin_value": 75.7714285714,
+          "contract_value": 61.4212115881
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -0.6736342214000004,
+          "abs_diff": 0.6736342214000004,
+          "builtin_value": 47.989,
+          "contract_value": 47.3153657786
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": -0.2808092737000001,
+          "abs_diff": 0.2808092737000001,
+          "builtin_value": 1.5789332674,
+          "contract_value": 1.2981239937
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.1778954734,
+          "abs_diff": 0.1778954734,
+          "builtin_value": -1.1555546251,
+          "contract_value": -0.9776591517
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.08700685210000003,
+          "abs_diff": 0.08700685210000003,
+          "builtin_value": -0.3724031685,
+          "contract_value": -0.4594100206
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-09T14:00:00-04:00",
+        "is_monday": true,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.056330666666666696,
+      "contract_threshold_headroom": 0.10185866666666671,
+      "built_margin": 0.054145,
+      "contract_margin": 0.08248,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": -0.013355000000000006,
+      "contract_margin_headroom": 0.014979999999999993,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.02 17:05:00",
+      "decision_transition": "no_trade_to_long",
+      "built_decision": "NO_TRADE",
+      "contract_decision": "LONG",
+      "built_decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "contract_decision_reason": "DUAL_SIGNAL_LONG_WINS",
+      "cause_category": "margin_recovery",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.005724000000000007,
+      "p_flat_delta_contract_minus_builtin": -0.014270999999999992,
+      "p_long_delta_contract_minus_builtin": 0.019994999999999985,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -9.017755663699994,
+          "abs_diff": 9.017755663699994,
+          "builtin_value": 65.2714285714,
+          "contract_value": 56.2536729077
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -0.43715488420000526,
+          "abs_diff": 0.43715488420000526,
+          "builtin_value": 38.328,
+          "contract_value": 37.8908451158
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": -0.21834546180000003,
+          "abs_diff": 0.21834546180000003,
+          "builtin_value": 1.7029698542,
+          "contract_value": 1.4846243924
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.0747531239,
+          "abs_diff": 0.0747531239,
+          "builtin_value": 0.466317556,
+          "contract_value": 0.5410706799
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.024190236200000048,
+          "abs_diff": 0.024190236200000048,
+          "builtin_value": -0.559957347,
+          "contract_value": -0.5841475832
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-02T12:05:00-05:00",
+        "is_monday": true,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.13253066666666669,
+      "contract_threshold_headroom": 0.15252566666666667,
+      "built_margin": 0.04696600000000001,
+      "contract_margin": 0.072685,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": -0.020533999999999997,
+      "contract_margin_headroom": 0.005184999999999995,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.03.26 19:50:00",
+      "decision_transition": "no_trade_to_short",
+      "built_decision": "NO_TRADE",
+      "contract_decision": "SHORT",
+      "built_decision_reason": "SHORT_MARGIN_FAIL",
+      "contract_decision_reason": "SHORT_FILTERS_OK",
+      "cause_category": "margin_recovery",
+      "relevant_direction": "SHORT",
+      "p_short_delta_contract_minus_builtin": -0.025227999999999973,
+      "p_flat_delta_contract_minus_builtin": 0.05811700000000003,
+      "p_long_delta_contract_minus_builtin": -0.032889,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -6.948609239299998,
+          "abs_diff": 6.948609239299998,
+          "builtin_value": 41.635,
+          "contract_value": 34.6863907607
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 2.347987383499998,
+          "abs_diff": 2.347987383499998,
+          "builtin_value": 35.0357142857,
+          "contract_value": 37.3837016692
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.2362661209,
+          "abs_diff": 0.2362661209,
+          "builtin_value": 0.8414966803,
+          "contract_value": 1.0777628012
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.07453852029999997,
+          "abs_diff": 0.07453852029999997,
+          "builtin_value": -0.7222880745,
+          "contract_value": -0.6477495542
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.030006254399999988,
+          "abs_diff": 0.030006254399999988,
+          "builtin_value": -0.4777473986,
+          "contract_value": -0.4477411442
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-26T15:50:00-04:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": true
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.07597766666666667,
+      "contract_threshold_headroom": 0.05074966666666669,
+      "built_margin": 0.06353899999999996,
+      "contract_margin": 0.07119999999999999,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": -0.003961000000000048,
+      "contract_margin_headroom": 0.003699999999999981,
+      "built_comparator_source": "long",
+      "contract_comparator_source": "long",
+      "active_contextual_rules": []
+    }
+  ],
+  "decision_diff_rows": [
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 20:00:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "LONG_FILTERS_OK",
+      "contract_decision_reason": "THRESHOLD_FAIL",
+      "cause_category": "threshold_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.03393600000000002,
+      "p_flat_delta_contract_minus_builtin": 0.09861200000000003,
+      "p_long_delta_contract_minus_builtin": -0.06467600000000001,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -7.560392731299999,
+          "abs_diff": 7.560392731299999,
+          "builtin_value": 50.452,
+          "contract_value": 42.8916072687
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 4.294143735599995,
+          "abs_diff": 4.294143735599995,
+          "builtin_value": 35.1928571429,
+          "contract_value": 39.4870008785
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.2970526801000002,
+          "abs_diff": 0.2970526801000002,
+          "builtin_value": -6.2787010286,
+          "contract_value": -6.5757537087
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.22307173749999998,
+          "abs_diff": 0.22307173749999998,
+          "builtin_value": 0.6975512793,
+          "contract_value": 0.9206230168
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.027800474800000002,
+          "abs_diff": 0.027800474800000002,
+          "builtin_value": -0.2556405753,
+          "contract_value": -0.2278401005
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-09T16:00:00-04:00",
+        "is_monday": true,
+        "is_postcash": true,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.06104066666666669,
+      "contract_threshold_headroom": -0.0036353333333333238,
+      "built_margin": 0.06787100000000001,
+      "contract_margin": -0.09541700000000003,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.0003710000000000102,
+      "contract_margin_headroom": -0.16291700000000003,
+      "built_comparator_source": "flat",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 19:15:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "LONG_FILTERS_OK",
+      "contract_decision_reason": "LONG_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.026608999999999994,
+      "p_flat_delta_contract_minus_builtin": 0.08534599999999998,
+      "p_long_delta_contract_minus_builtin": -0.05873700000000004,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 8.155931995099998,
+          "abs_diff": 8.155931995099998,
+          "builtin_value": 35.8035714286,
+          "contract_value": 43.9595034237
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -4.544396105099999,
+          "abs_diff": 4.544396105099999,
+          "builtin_value": 48.884,
+          "contract_value": 44.3396038949
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.2590084966,
+          "abs_diff": 0.2590084966,
+          "builtin_value": 0.7324190211,
+          "contract_value": 0.9914275177
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.06412151990000003,
+          "abs_diff": 0.06412151990000003,
+          "builtin_value": -1.5565611466,
+          "contract_value": -1.6206826665
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.005182175100000002,
+          "abs_diff": 0.005182175100000002,
+          "builtin_value": 0.0279313074,
+          "contract_value": 0.0227491323
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-09T15:15:00-04:00",
+        "is_monday": true,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.0694076666666667,
+      "contract_threshold_headroom": 0.010670666666666662,
+      "built_margin": 0.094966,
+      "contract_margin": -0.04911700000000002,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.02746599999999999,
+      "contract_margin_headroom": -0.11661700000000003,
+      "built_comparator_source": "flat",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 19:10:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "LONG_FILTERS_OK",
+      "contract_decision_reason": "LONG_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.024073999999999984,
+      "p_flat_delta_contract_minus_builtin": 0.08347099999999996,
+      "p_long_delta_contract_minus_builtin": -0.059398000000000006,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 8.470124566099997,
+          "abs_diff": 8.470124566099997,
+          "builtin_value": 36.6785714286,
+          "contract_value": 45.1486959947
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -4.531138882100002,
+          "abs_diff": 4.531138882100002,
+          "builtin_value": 49.194,
+          "contract_value": 44.6628611179
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.2652874821000001,
+          "abs_diff": 0.2652874821000001,
+          "builtin_value": 0.7455903449,
+          "contract_value": 1.010877827
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.0601280434,
+          "abs_diff": 0.0601280434,
+          "builtin_value": 0.3205032858,
+          "contract_value": 0.2603752424
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.04290027709999977,
+          "abs_diff": 0.04290027709999977,
+          "builtin_value": -2.8417005724,
+          "contract_value": -2.8846008495
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-09T15:10:00-04:00",
+        "is_monday": true,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.0749556666666667,
+      "contract_threshold_headroom": 0.015557666666666692,
+      "built_margin": 0.105269,
+      "contract_margin": -0.03759999999999997,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.037769,
+      "contract_margin_headroom": -0.10509999999999997,
+      "built_comparator_source": "flat",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 20:05:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "LONG_FILTERS_OK",
+      "contract_decision_reason": "LONG_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.03325100000000003,
+      "p_flat_delta_contract_minus_builtin": 0.095557,
+      "p_long_delta_contract_minus_builtin": -0.06230600000000003,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -7.750224877000001,
+          "abs_diff": 7.750224877000001,
+          "builtin_value": 50.499,
+          "contract_value": 42.748775123
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 4.402215101399996,
+          "abs_diff": 4.402215101399996,
+          "builtin_value": 34.8178571429,
+          "contract_value": 39.2200722443
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.5875948696000002,
+          "abs_diff": 0.5875948696000002,
+          "builtin_value": -11.8000984109,
+          "contract_value": -12.3876932805
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.22797870679999999,
+          "abs_diff": 0.22797870679999999,
+          "builtin_value": 0.6894761707,
+          "contract_value": 0.9174548775
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.06844567600000007,
+          "abs_diff": 0.06844567600000007,
+          "builtin_value": -0.6097939999,
+          "contract_value": -0.5413483239
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-09T16:05:00-04:00",
+        "is_monday": true,
+        "is_postcash": true,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.08595966666666671,
+      "contract_threshold_headroom": 0.023653666666666684,
+      "built_margin": 0.111294,
+      "contract_margin": -0.01127800000000001,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.043794,
+      "contract_margin_headroom": -0.07877800000000001,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 19:00:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "LONG_FILTERS_OK",
+      "contract_decision_reason": "LONG_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.023048999999999986,
+      "p_flat_delta_contract_minus_builtin": 0.080868,
+      "p_long_delta_contract_minus_builtin": -0.05781999999999998,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 9.136526546799999,
+          "abs_diff": 9.136526546799999,
+          "builtin_value": 37.0714285714,
+          "contract_value": 46.2079551182
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -3.963480302999997,
+          "abs_diff": 3.963480302999997,
+          "builtin_value": 48.869,
+          "contract_value": 44.905519697
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.3713845681000003,
+          "abs_diff": 0.3713845681000003,
+          "builtin_value": 3.0078858985,
+          "contract_value": 2.6365013304
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.2704160767999999,
+          "abs_diff": 0.2704160767999999,
+          "builtin_value": 0.7585878281,
+          "contract_value": 1.0290039049
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.0386576337,
+          "abs_diff": 0.0386576337,
+          "builtin_value": -0.1955108644,
+          "contract_value": -0.1568532307
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-09T15:00:00-04:00",
+        "is_monday": true,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.10799266666666668,
+      "contract_threshold_headroom": 0.0501726666666667,
+      "built_margin": 0.144719,
+      "contract_margin": 0.040569999999999995,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.07721899999999998,
+      "contract_margin_headroom": -0.02693000000000001,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.04.07 20:00:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "LONG_FILTERS_OK",
+      "contract_decision_reason": "LONG_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.019596000000000002,
+      "p_flat_delta_contract_minus_builtin": 0.05461499999999997,
+      "p_long_delta_contract_minus_builtin": -0.035019999999999996,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -7.6183495361000055,
+          "abs_diff": 7.6183495361000055,
+          "builtin_value": 47.468,
+          "contract_value": 39.8496504639
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -1.6162508944999985,
+          "abs_diff": 1.6162508944999985,
+          "builtin_value": 43.3035714286,
+          "contract_value": 41.6873205341
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.13384636989999998,
+          "abs_diff": 0.13384636989999998,
+          "builtin_value": 0.9122687164,
+          "contract_value": 1.0461150863
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.08255404980000003,
+          "abs_diff": 0.08255404980000003,
+          "builtin_value": 0.9040702569,
+          "contract_value": 0.8215162071
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.01967917099999994,
+          "abs_diff": 0.01967917099999994,
+          "builtin_value": -0.5075770818,
+          "contract_value": -0.5272562528
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-04-07T16:00:00-04:00",
+        "is_monday": false,
+        "is_postcash": true,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.05759266666666668,
+      "contract_threshold_headroom": 0.022572666666666685,
+      "built_margin": 0.07741599999999998,
+      "contract_margin": -0.01221899999999998,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.00991599999999998,
+      "contract_margin_headroom": -0.07971899999999998,
+      "built_comparator_source": "flat",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 20:20:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "LONG_FILTERS_OK",
+      "contract_decision_reason": "LONG_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.03769600000000001,
+      "p_flat_delta_contract_minus_builtin": 0.09625300000000003,
+      "p_long_delta_contract_minus_builtin": -0.058558,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -8.450064846499998,
+          "abs_diff": 8.450064846499998,
+          "builtin_value": 50.716,
+          "contract_value": 42.2659351535
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 3.2844565308999947,
+          "abs_diff": 3.2844565308999947,
+          "builtin_value": 35.0678571429,
+          "contract_value": 38.3523136738
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.21594932919999998,
+          "abs_diff": 0.21594932919999998,
+          "builtin_value": 0.6914555001,
+          "contract_value": 0.9074048293
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.16288474490000127,
+          "abs_diff": 0.16288474490000127,
+          "builtin_value": -11.5153102717,
+          "contract_value": -11.3524255268
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.09448261810000003,
+          "abs_diff": 0.09448261810000003,
+          "builtin_value": -1.103265326,
+          "contract_value": -1.0087827079
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-09T16:20:00-04:00",
+        "is_monday": true,
+        "is_postcash": true,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.0707066666666667,
+      "contract_threshold_headroom": 0.012148666666666696,
+      "built_margin": 0.070822,
+      "contract_margin": -0.013512999999999997,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.0033219999999999916,
+      "contract_margin_headroom": -0.081013,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 17:55:00",
+      "decision_transition": "no_trade_to_long",
+      "built_decision": "NO_TRADE",
+      "contract_decision": "LONG",
+      "built_decision_reason": "LONG_MARGIN_FAIL",
+      "contract_decision_reason": "LONG_FILTERS_OK",
+      "cause_category": "margin_recovery",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": 0.019510000000000027,
+      "p_flat_delta_contract_minus_builtin": -0.07185200000000003,
+      "p_long_delta_contract_minus_builtin": 0.05234099999999997,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -14.967541366600003,
+          "abs_diff": 14.967541366600003,
+          "builtin_value": 77.575,
+          "contract_value": 62.6074586334
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -0.4667900199999977,
+          "abs_diff": 0.4667900199999977,
+          "builtin_value": 47.809,
+          "contract_value": 47.34220998
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.31715680699999993,
+          "abs_diff": 0.31715680699999993,
+          "builtin_value": 8.6225392849,
+          "contract_value": 8.9396960919
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": -0.30015765530000005,
+          "abs_diff": 0.30015765530000005,
+          "builtin_value": 1.6226024389,
+          "contract_value": 1.3224447836
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.021578656,
+          "abs_diff": 0.021578656,
+          "builtin_value": 0.0902609706,
+          "contract_value": 0.1118396266
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-09T13:55:00-04:00",
+        "is_monday": true,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.01128166666666669,
+      "contract_threshold_headroom": 0.06362266666666666,
+      "built_margin": -0.0027880000000000127,
+      "contract_margin": 0.06946399999999997,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": -0.07028800000000002,
+      "contract_margin_headroom": 0.0019639999999999658,
+      "built_comparator_source": "flat",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.03.26 19:40:00",
+      "decision_transition": "short_to_no_trade",
+      "built_decision": "SHORT",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "SHORT_FILTERS_OK",
+      "contract_decision_reason": "SHORT_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "SHORT",
+      "p_short_delta_contract_minus_builtin": -0.029485999999999957,
+      "p_flat_delta_contract_minus_builtin": 0.06579200000000002,
+      "p_long_delta_contract_minus_builtin": -0.036306000000000005,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -6.896962972400004,
+          "abs_diff": 6.896962972400004,
+          "builtin_value": 41.835,
+          "contract_value": 34.9380370276
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 3.468460431299995,
+          "abs_diff": 3.468460431299995,
+          "builtin_value": 35.2857142857,
+          "contract_value": 38.754174717
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.6229883270999999,
+          "abs_diff": 0.6229883270999999,
+          "builtin_value": -6.4485632554,
+          "contract_value": -7.0715515825
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.2657762693,
+          "abs_diff": 0.2657762693,
+          "builtin_value": 0.8434496064,
+          "contract_value": 1.1092258757
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.02788761900000003,
+          "abs_diff": 0.02788761900000003,
+          "builtin_value": -0.3115969409,
+          "contract_value": -0.2837093219
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-26T15:40:00-04:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": true
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.06973266666666667,
+      "contract_threshold_headroom": 0.04024666666666671,
+      "built_margin": 0.08597699999999997,
+      "contract_margin": 0.027942999999999996,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.018476999999999966,
+      "contract_margin_headroom": -0.03955700000000001,
+      "built_comparator_source": "long",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 17:35:00",
+      "decision_transition": "short_to_no_trade",
+      "built_decision": "SHORT",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "DUAL_SIGNAL_SHORT_WINS",
+      "contract_decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "SHORT",
+      "p_short_delta_contract_minus_builtin": -0.004127999999999965,
+      "p_flat_delta_contract_minus_builtin": -0.03570300000000001,
+      "p_long_delta_contract_minus_builtin": 0.039831000000000005,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -18.564409073600004,
+          "abs_diff": 18.564409073600004,
+          "builtin_value": 83.8785714286,
+          "contract_value": 65.314162355
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -1.7587655214999955,
+          "abs_diff": 1.7587655214999955,
+          "builtin_value": 48.769,
+          "contract_value": 47.0102344785
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.35808511389999986,
+          "abs_diff": 0.35808511389999986,
+          "builtin_value": 1.2785570183,
+          "contract_value": 0.9204719044
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": -0.33055526560000015,
+          "abs_diff": 0.33055526560000015,
+          "builtin_value": 1.7199157544,
+          "contract_value": 1.3893604888
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.15532070789999997,
+          "abs_diff": 0.15532070789999997,
+          "builtin_value": 0.546456496,
+          "contract_value": 0.7017772039
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-03T12:35:00-05:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.15143066666666666,
+      "contract_threshold_headroom": 0.1473026666666667,
+      "built_margin": 0.10400499999999996,
+      "contract_margin": 0.06004599999999999,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.036504999999999954,
+      "contract_margin_headroom": -0.007454000000000016,
+      "built_comparator_source": "long",
+      "contract_comparator_source": "long",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.03.26 19:45:00",
+      "decision_transition": "short_to_no_trade",
+      "built_decision": "SHORT",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "SHORT_FILTERS_OK",
+      "contract_decision_reason": "SHORT_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "SHORT",
+      "p_short_delta_contract_minus_builtin": -0.026210999999999984,
+      "p_flat_delta_contract_minus_builtin": 0.06120700000000001,
+      "p_long_delta_contract_minus_builtin": -0.03499600000000003,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -6.8007237128,
+          "abs_diff": 6.8007237128,
+          "builtin_value": 41.445,
+          "contract_value": 34.6442762872
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 3.1110193801000037,
+          "abs_diff": 3.1110193801000037,
+          "builtin_value": 34.3214285714,
+          "contract_value": 37.4324479515
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.25236012539999997,
+          "abs_diff": 0.25236012539999997,
+          "builtin_value": 0.8281198835,
+          "contract_value": 1.0804800089
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.11580198450000001,
+          "abs_diff": 0.11580198450000001,
+          "builtin_value": -0.2668924419,
+          "contract_value": -0.3826944264
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.02119613849999999,
+          "abs_diff": 0.02119613849999999,
+          "builtin_value": 0.2550364542,
+          "contract_value": 0.2338403157
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-26T15:45:00-04:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": true
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.06816966666666668,
+      "contract_threshold_headroom": 0.0419586666666667,
+      "built_margin": 0.07963799999999999,
+      "contract_margin": 0.037453000000000014,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.012137999999999982,
+      "contract_margin_headroom": -0.03004699999999999,
+      "built_comparator_source": "long",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.04.07 20:40:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "LONG_FILTERS_OK",
+      "contract_decision_reason": "LONG_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.019364000000000048,
+      "p_flat_delta_contract_minus_builtin": 0.07968599999999998,
+      "p_long_delta_contract_minus_builtin": -0.06032199999999999,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -8.130204484400004,
+          "abs_diff": 8.130204484400004,
+          "builtin_value": 47.453,
+          "contract_value": 39.3227955156
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 6.917265503899998,
+          "abs_diff": 6.917265503899998,
+          "builtin_value": 32.9107142857,
+          "contract_value": 39.8279797896
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.34175167229999914,
+          "abs_diff": 0.34175167229999914,
+          "builtin_value": 10.1150336515,
+          "contract_value": 9.7732819792
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.3193037241000001,
+          "abs_diff": 0.3193037241000001,
+          "builtin_value": 0.6935433858,
+          "contract_value": 1.0128471099
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.1598377403000001,
+          "abs_diff": 0.1598377403000001,
+          "builtin_value": 0.9203079291,
+          "contract_value": 0.7604701888
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-04-07T16:40:00-04:00",
+        "is_monday": false,
+        "is_postcash": true,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.10656366666666667,
+      "contract_threshold_headroom": 0.04624166666666668,
+      "built_margin": 0.08352499999999996,
+      "contract_margin": 0.04256700000000002,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.016024999999999956,
+      "contract_margin_headroom": -0.024932999999999983,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.04.07 20:15:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "LONG_FILTERS_OK",
+      "contract_decision_reason": "LONG_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.025577000000000016,
+      "p_flat_delta_contract_minus_builtin": 0.07930700000000002,
+      "p_long_delta_contract_minus_builtin": -0.05373,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -7.231561784699998,
+          "abs_diff": 7.231561784699998,
+          "builtin_value": 46.503,
+          "contract_value": 39.2714382153
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 4.961477118600001,
+          "abs_diff": 4.961477118600001,
+          "builtin_value": 34.3214285714,
+          "contract_value": 39.28290569
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -1.7615648621000006,
+          "abs_diff": 1.7615648621000006,
+          "builtin_value": -3.5755663973,
+          "contract_value": -5.3371312594
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.2622443834,
+          "abs_diff": 0.2622443834,
+          "builtin_value": 0.7380476221,
+          "contract_value": 1.0002920055
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.048732510299999976,
+          "abs_diff": 0.048732510299999976,
+          "builtin_value": -0.3858436836,
+          "contract_value": -0.3371111733
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-04-07T16:15:00-04:00",
+        "is_monday": false,
+        "is_postcash": true,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.09104866666666667,
+      "contract_threshold_headroom": 0.03731866666666667,
+      "built_margin": 0.08783399999999997,
+      "contract_margin": 0.05227499999999996,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.020333999999999963,
+      "contract_margin_headroom": -0.015225000000000044,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.02 17:25:00",
+      "decision_transition": "no_trade_to_long",
+      "built_decision": "NO_TRADE",
+      "contract_decision": "LONG",
+      "built_decision_reason": "LONG_MARGIN_FAIL",
+      "contract_decision_reason": "LONG_FILTERS_OK",
+      "cause_category": "margin_recovery",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": 0.007461999999999969,
+      "p_flat_delta_contract_minus_builtin": -0.047099,
+      "p_long_delta_contract_minus_builtin": 0.03963699999999998,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -15.221556072599995,
+          "abs_diff": 15.221556072599995,
+          "builtin_value": 70.1642857143,
+          "contract_value": 54.9427296417
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -1.7830991101000038,
+          "abs_diff": 1.7830991101000038,
+          "builtin_value": 40.691,
+          "contract_value": 38.9079008899
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": -0.31219683369999984,
+          "abs_diff": 0.31219683369999984,
+          "builtin_value": 1.7243195231,
+          "contract_value": 1.4121226894
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.005923114699999999,
+          "abs_diff": 0.005923114699999999,
+          "builtin_value": 0.0213796861,
+          "contract_value": 0.0273028008
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.0043538672999998695,
+          "abs_diff": 0.0043538672999998695,
+          "builtin_value": -1.2408747447,
+          "contract_value": -1.2365208774
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-02T12:25:00-05:00",
+        "is_monday": true,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.06708366666666671,
+      "contract_threshold_headroom": 0.10672066666666669,
+      "built_margin": 0.052562,
+      "contract_margin": 0.084737,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": -0.014938000000000007,
+      "contract_margin_headroom": 0.017237000000000002,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 19:20:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "DUAL_SIGNAL_LONG_WINS",
+      "contract_decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.02099000000000001,
+      "p_flat_delta_contract_minus_builtin": 0.073607,
+      "p_long_delta_contract_minus_builtin": -0.052617000000000025,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -8.395629476800003,
+          "abs_diff": 8.395629476800003,
+          "builtin_value": 58.444,
+          "contract_value": 50.0483705232
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 5.875992741200001,
+          "abs_diff": 5.875992741200001,
+          "builtin_value": 50.1785714286,
+          "contract_value": 56.0545641698
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.7699085833999995,
+          "abs_diff": 0.7699085833999995,
+          "builtin_value": -5.9196052679,
+          "contract_value": -5.1496966845
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.26143253450000004,
+          "abs_diff": 0.26143253450000004,
+          "builtin_value": 0.8585752417,
+          "contract_value": 1.1200077762
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.0381536804,
+          "abs_diff": 0.0381536804,
+          "builtin_value": 0.3639704846,
+          "contract_value": 0.3258168042
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-03T14:20:00-05:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.1298866666666667,
+      "contract_threshold_headroom": 0.07726966666666668,
+      "built_margin": 0.076938,
+      "contract_margin": 0.04531099999999999,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.009438000000000002,
+      "contract_margin_headroom": -0.022189000000000014,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 19:15:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "DUAL_SIGNAL_LONG_WINS",
+      "contract_decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.020496000000000014,
+      "p_flat_delta_contract_minus_builtin": 0.072156,
+      "p_long_delta_contract_minus_builtin": -0.051659999999999984,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -7.942907629700002,
+          "abs_diff": 7.942907629700002,
+          "builtin_value": 58.079,
+          "contract_value": 50.1360923703
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 5.222222952099997,
+          "abs_diff": 5.222222952099997,
+          "builtin_value": 51.625,
+          "contract_value": 56.8472229521
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.8825648444,
+          "abs_diff": 0.8825648444,
+          "builtin_value": -5.6242201247,
+          "contract_value": -6.5067849691
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.2449827726999999,
+          "abs_diff": 0.2449827726999999,
+          "builtin_value": 0.8888754972,
+          "contract_value": 1.1338582699
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.030717041099999953,
+          "abs_diff": 0.030717041099999953,
+          "builtin_value": 0.3343745565,
+          "contract_value": 0.3036575154
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-03T14:15:00-05:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.11701766666666669,
+      "contract_threshold_headroom": 0.0653576666666667,
+      "built_margin": 0.07038699999999998,
+      "contract_margin": 0.03922300000000001,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.002886999999999973,
+      "contract_margin_headroom": -0.028276999999999997,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.02 17:30:00",
+      "decision_transition": "no_trade_to_long",
+      "built_decision": "NO_TRADE",
+      "contract_decision": "LONG",
+      "built_decision_reason": "LONG_MARGIN_FAIL",
+      "contract_decision_reason": "DUAL_SIGNAL_LONG_WINS",
+      "cause_category": "margin_recovery",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": 0.01194099999999998,
+      "p_flat_delta_contract_minus_builtin": -0.05423700000000001,
+      "p_long_delta_contract_minus_builtin": 0.042296,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -17.8960367612,
+          "abs_diff": 17.8960367612,
+          "builtin_value": 73.9321428571,
+          "contract_value": 56.0361060959
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -2.0812571278000007,
+          "abs_diff": 2.0812571278000007,
+          "builtin_value": 41.616,
+          "contract_value": 39.5347428722
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": -0.3591427813999999,
+          "abs_diff": 0.3591427813999999,
+          "builtin_value": 1.7765316911,
+          "contract_value": 1.4173889097
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.13589897600000006,
+          "abs_diff": 0.13589897600000006,
+          "builtin_value": -0.4255271455,
+          "contract_value": -0.5614261215
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.004053268600000326,
+          "abs_diff": 0.004053268600000326,
+          "builtin_value": -3.6108947752,
+          "contract_value": -3.6149480438
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-02T12:30:00-05:00",
+        "is_monday": true,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.07748166666666667,
+      "contract_threshold_headroom": 0.11977766666666667,
+      "built_margin": 0.03769899999999998,
+      "contract_margin": 0.068054,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": -0.029801000000000022,
+      "contract_margin_headroom": 0.0005539999999999989,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 19:30:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "DUAL_SIGNAL_LONG_WINS",
+      "contract_decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.028131000000000017,
+      "p_flat_delta_contract_minus_builtin": 0.08629199999999998,
+      "p_long_delta_contract_minus_builtin": -0.05816199999999999,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -9.2252449494,
+          "abs_diff": 9.2252449494,
+          "builtin_value": 59.139,
+          "contract_value": 49.9137550506
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 4.346792575000002,
+          "abs_diff": 4.346792575000002,
+          "builtin_value": 50.375,
+          "contract_value": 54.721792575
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.24452014439999992,
+          "abs_diff": 0.24452014439999992,
+          "builtin_value": 0.8518067603,
+          "contract_value": 1.0963269047
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.013802430000000004,
+          "abs_diff": 0.013802430000000004,
+          "builtin_value": 0.1737588579,
+          "contract_value": 0.1599564279
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.011385063399999673,
+          "abs_diff": 0.011385063399999673,
+          "builtin_value": 6.4118690188,
+          "contract_value": 6.4232540822
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-03T14:30:00-05:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.11145166666666667,
+      "contract_threshold_headroom": 0.05328966666666668,
+      "built_margin": 0.07819199999999998,
+      "contract_margin": 0.04816100000000001,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.01069199999999998,
+      "contract_margin_headroom": -0.019338999999999995,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.09 18:00:00",
+      "decision_transition": "no_trade_to_long",
+      "built_decision": "NO_TRADE",
+      "contract_decision": "LONG",
+      "built_decision_reason": "LONG_MARGIN_FAIL",
+      "contract_decision_reason": "LONG_FILTERS_OK",
+      "cause_category": "margin_recovery",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": 0.017193000000000014,
+      "p_flat_delta_contract_minus_builtin": -0.06272,
+      "p_long_delta_contract_minus_builtin": 0.04552800000000001,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -14.350216983299994,
+          "abs_diff": 14.350216983299994,
+          "builtin_value": 75.7714285714,
+          "contract_value": 61.4212115881
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -0.6736342214000004,
+          "abs_diff": 0.6736342214000004,
+          "builtin_value": 47.989,
+          "contract_value": 47.3153657786
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": -0.2808092737000001,
+          "abs_diff": 0.2808092737000001,
+          "builtin_value": 1.5789332674,
+          "contract_value": 1.2981239937
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.1778954734,
+          "abs_diff": 0.1778954734,
+          "builtin_value": -1.1555546251,
+          "contract_value": -0.9776591517
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.08700685210000003,
+          "abs_diff": 0.08700685210000003,
+          "builtin_value": -0.3724031685,
+          "contract_value": -0.4594100206
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-09T14:00:00-04:00",
+        "is_monday": true,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.056330666666666696,
+      "contract_threshold_headroom": 0.10185866666666671,
+      "built_margin": 0.054145,
+      "contract_margin": 0.08248,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": -0.013355000000000006,
+      "contract_margin_headroom": 0.014979999999999993,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 17:45:00",
+      "decision_transition": "short_to_no_trade",
+      "built_decision": "SHORT",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "DUAL_SIGNAL_SHORT_WINS",
+      "contract_decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "SHORT",
+      "p_short_delta_contract_minus_builtin": 0.012260999999999966,
+      "p_flat_delta_contract_minus_builtin": -0.051398,
+      "p_long_delta_contract_minus_builtin": 0.039138000000000006,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -18.027329397999992,
+          "abs_diff": 18.027329397999992,
+          "builtin_value": 83.6107142857,
+          "contract_value": 65.5833848877
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -2.372070808299995,
+          "abs_diff": 2.372070808299995,
+          "builtin_value": 50.184,
+          "contract_value": 47.8119291917
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": -0.2943880858000001,
+          "abs_diff": 0.2943880858000001,
+          "builtin_value": 1.6660830999,
+          "contract_value": 1.3716950141
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.07308189319999997,
+          "abs_diff": 0.07308189319999997,
+          "builtin_value": -0.2658717673,
+          "contract_value": -0.3389536605
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.039867898899999865,
+          "abs_diff": 0.039867898899999865,
+          "builtin_value": 6.8138191427,
+          "contract_value": 6.8536870416
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-03T12:45:00-05:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.1088446666666667,
+      "contract_threshold_headroom": 0.12110566666666667,
+      "built_margin": 0.07314700000000002,
+      "contract_margin": 0.04626999999999998,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.005647000000000013,
+      "contract_margin_headroom": -0.021230000000000027,
+      "built_comparator_source": "long",
+      "contract_comparator_source": "long",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.02 17:05:00",
+      "decision_transition": "no_trade_to_long",
+      "built_decision": "NO_TRADE",
+      "contract_decision": "LONG",
+      "built_decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "contract_decision_reason": "DUAL_SIGNAL_LONG_WINS",
+      "cause_category": "margin_recovery",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.005724000000000007,
+      "p_flat_delta_contract_minus_builtin": -0.014270999999999992,
+      "p_long_delta_contract_minus_builtin": 0.019994999999999985,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -9.017755663699994,
+          "abs_diff": 9.017755663699994,
+          "builtin_value": 65.2714285714,
+          "contract_value": 56.2536729077
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -0.43715488420000526,
+          "abs_diff": 0.43715488420000526,
+          "builtin_value": 38.328,
+          "contract_value": 37.8908451158
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": -0.21834546180000003,
+          "abs_diff": 0.21834546180000003,
+          "builtin_value": 1.7029698542,
+          "contract_value": 1.4846243924
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.0747531239,
+          "abs_diff": 0.0747531239,
+          "builtin_value": 0.466317556,
+          "contract_value": 0.5410706799
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.024190236200000048,
+          "abs_diff": 0.024190236200000048,
+          "builtin_value": -0.559957347,
+          "contract_value": -0.5841475832
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-02T12:05:00-05:00",
+        "is_monday": true,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.13253066666666669,
+      "contract_threshold_headroom": 0.15252566666666667,
+      "built_margin": 0.04696600000000001,
+      "contract_margin": 0.072685,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": -0.020533999999999997,
+      "contract_margin_headroom": 0.005184999999999995,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.03.26 19:55:00",
+      "decision_transition": "short_to_no_trade",
+      "built_decision": "SHORT",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "SHORT_FILTERS_OK",
+      "contract_decision_reason": "SHORT_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "SHORT",
+      "p_short_delta_contract_minus_builtin": -0.024778999999999995,
+      "p_flat_delta_contract_minus_builtin": 0.055532000000000026,
+      "p_long_delta_contract_minus_builtin": -0.030752999999999975,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -7.1943370539,
+          "abs_diff": 7.1943370539,
+          "builtin_value": 41.757,
+          "contract_value": 34.5626629461
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 1.1598658357000033,
+          "abs_diff": 1.1598658357000033,
+          "builtin_value": 35.5892857143,
+          "contract_value": 36.74915155
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.2109664967999999,
+          "abs_diff": 0.2109664967999999,
+          "builtin_value": 0.8522950814,
+          "contract_value": 1.0632615782
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.012866891800000002,
+          "abs_diff": 0.012866891800000002,
+          "builtin_value": 0.407674183,
+          "contract_value": 0.3948072912
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.006809641899999885,
+          "abs_diff": 0.006809641899999885,
+          "builtin_value": 1.5770988352,
+          "contract_value": 1.5702891933
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-26T15:55:00-04:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": true
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.07547166666666666,
+      "contract_threshold_headroom": 0.050692666666666664,
+      "built_margin": 0.084926,
+      "contract_margin": 0.061177999999999955,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.017425999999999997,
+      "contract_margin_headroom": -0.00632200000000005,
+      "built_comparator_source": "long",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 17:50:00",
+      "decision_transition": "short_to_no_trade",
+      "built_decision": "SHORT",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "DUAL_SIGNAL_SHORT_WINS",
+      "contract_decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "SHORT",
+      "p_short_delta_contract_minus_builtin": 0.0034430000000000294,
+      "p_flat_delta_contract_minus_builtin": -0.026285000000000003,
+      "p_long_delta_contract_minus_builtin": 0.022842999999999947,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -11.568999747100008,
+          "abs_diff": 11.568999747100008,
+          "builtin_value": 77.0928571429,
+          "contract_value": 65.5238573958
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -2.4433093938,
+          "abs_diff": 2.4433093938,
+          "builtin_value": 50.594,
+          "contract_value": 48.1506906062
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": -0.16294667640000005,
+          "abs_diff": 0.16294667640000005,
+          "builtin_value": 1.5237549342,
+          "contract_value": 1.3608082578
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.0527779093999996,
+          "abs_diff": 0.0527779093999996,
+          "builtin_value": 4.2489000155,
+          "contract_value": 4.3016779249
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.0097352427,
+          "abs_diff": 0.0097352427,
+          "builtin_value": 0.0551379265,
+          "contract_value": 0.0648731692
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-03T12:50:00-05:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.11923666666666666,
+      "contract_threshold_headroom": 0.12267966666666669,
+      "built_margin": 0.07479499999999994,
+      "contract_margin": 0.05539500000000003,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.00729499999999994,
+      "contract_margin_headroom": -0.012104999999999977,
+      "built_comparator_source": "long",
+      "contract_comparator_source": "long",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 17:30:00",
+      "decision_transition": "short_to_no_trade",
+      "built_decision": "SHORT",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "DUAL_SIGNAL_SHORT_WINS",
+      "contract_decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "SHORT",
+      "p_short_delta_contract_minus_builtin": 0.01893600000000001,
+      "p_flat_delta_contract_minus_builtin": -0.05670399999999998,
+      "p_long_delta_contract_minus_builtin": 0.037769,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -17.5333746067,
+          "abs_diff": 17.5333746067,
+          "builtin_value": 81.4678571429,
+          "contract_value": 63.9344825362
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -2.748352571799998,
+          "abs_diff": 2.748352571799998,
+          "builtin_value": 49.019,
+          "contract_value": 46.2706474282
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.4409659581000005,
+          "abs_diff": 0.4409659581000005,
+          "builtin_value": -5.8882685987,
+          "contract_value": -6.3292345568
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": -0.2802145601000001,
+          "abs_diff": 0.2802145601000001,
+          "builtin_value": 1.6619648941,
+          "contract_value": 1.381750334
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.13023416529999993,
+          "abs_diff": 0.13023416529999993,
+          "builtin_value": -0.4748916939,
+          "contract_value": -0.6051258592
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-03T12:30:00-05:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.0955766666666667,
+      "contract_threshold_headroom": 0.11451266666666671,
+      "built_margin": 0.07961299999999999,
+      "contract_margin": 0.06078,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.012112999999999985,
+      "contract_margin_headroom": -0.006720000000000004,
+      "built_comparator_source": "long",
+      "contract_comparator_source": "long",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 17:25:00",
+      "decision_transition": "short_to_no_trade",
+      "built_decision": "SHORT",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "DUAL_SIGNAL_SHORT_WINS",
+      "contract_decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "SHORT",
+      "p_short_delta_contract_minus_builtin": 0.014440999999999982,
+      "p_flat_delta_contract_minus_builtin": -0.047153,
+      "p_long_delta_contract_minus_builtin": 0.03271199999999996,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -15.424403422600008,
+          "abs_diff": 15.424403422600008,
+          "builtin_value": 80.45,
+          "contract_value": 65.0255965774
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -2.8493597658999974,
+          "abs_diff": 2.8493597658999974,
+          "builtin_value": 49.049,
+          "contract_value": 46.1996402341
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.3477421464999999,
+          "abs_diff": 0.3477421464999999,
+          "builtin_value": -5.3433164139,
+          "contract_value": -4.9955742674
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": -0.23270513250000002,
+          "abs_diff": 0.23270513250000002,
+          "builtin_value": 1.6401965382,
+          "contract_value": 1.4074914057
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.1096632709,
+          "abs_diff": 0.1096632709,
+          "builtin_value": -0.4623141278,
+          "contract_value": -0.5719773987
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-03T12:25:00-05:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.09453466666666671,
+      "contract_threshold_headroom": 0.10897566666666669,
+      "built_margin": 0.07142500000000002,
+      "contract_margin": 0.053154000000000035,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.003925000000000012,
+      "contract_margin_headroom": -0.01434599999999997,
+      "built_comparator_source": "long",
+      "contract_comparator_source": "long",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 17:15:00",
+      "decision_transition": "short_to_no_trade",
+      "built_decision": "SHORT",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "DUAL_SIGNAL_SHORT_WINS",
+      "contract_decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "SHORT",
+      "p_short_delta_contract_minus_builtin": 0.007838999999999985,
+      "p_flat_delta_contract_minus_builtin": -0.03117299999999998,
+      "p_long_delta_contract_minus_builtin": 0.023333999999999966,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -11.127330089400004,
+          "abs_diff": 11.127330089400004,
+          "builtin_value": 74.8857142857,
+          "contract_value": 63.7583841963
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -2.4881780150000026,
+          "abs_diff": 2.4881780150000026,
+          "builtin_value": 47.566,
+          "contract_value": 45.077821985
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": -0.15994689149999997,
+          "abs_diff": 0.15994689149999997,
+          "builtin_value": 1.5743538302,
+          "contract_value": 1.4144069387
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.04794228080000007,
+          "abs_diff": 0.04794228080000007,
+          "builtin_value": -1.7958467991,
+          "contract_value": -1.7479045183
+        },
+        {
+          "feature": "aapl_xnas_log_return_1",
+          "signed_delta_contract_minus_builtin": 0.0,
+          "abs_diff": 0.0,
+          "builtin_value": 0.000947203,
+          "contract_value": 0.000947203
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-03T12:15:00-05:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.0905056666666667,
+      "contract_threshold_headroom": 0.09834466666666669,
+      "built_margin": 0.080739,
+      "contract_margin": 0.06524400000000002,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.013239,
+      "contract_margin_headroom": -0.0022559999999999802,
+      "built_comparator_source": "long",
+      "contract_comparator_source": "long",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.03.26 19:35:00",
+      "decision_transition": "short_to_no_trade",
+      "built_decision": "SHORT",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "SHORT_FILTERS_OK",
+      "contract_decision_reason": "SHORT_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "SHORT",
+      "p_short_delta_contract_minus_builtin": -0.01755699999999999,
+      "p_flat_delta_contract_minus_builtin": 0.055255,
+      "p_long_delta_contract_minus_builtin": -0.03769800000000001,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -6.420268338700005,
+          "abs_diff": 6.420268338700005,
+          "builtin_value": 41.505,
+          "contract_value": 35.0847316613
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 4.761363980900001,
+          "abs_diff": 4.761363980900001,
+          "builtin_value": 34.8392857143,
+          "contract_value": 39.6006496952
+        },
+        {
+          "feature": "bb_squeeze",
+          "signed_delta_contract_minus_builtin": 1.0,
+          "abs_diff": 1.0,
+          "builtin_value": 0.0,
+          "contract_value": 1.0
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.2893148956000001,
+          "abs_diff": 0.2893148956000001,
+          "builtin_value": 0.8393997281,
+          "contract_value": 1.1287146237
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": -0.1752248533999996,
+          "abs_diff": 0.1752248533999996,
+          "builtin_value": -10.0150609018,
+          "contract_value": -10.1902857552
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-26T15:35:00-04:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": true
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.06758066666666668,
+      "contract_threshold_headroom": 0.05002366666666669,
+      "built_margin": 0.072631,
+      "contract_margin": 0.05729899999999999,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.005130999999999997,
+      "contract_margin_headroom": -0.010201000000000016,
+      "built_comparator_source": "long",
+      "contract_comparator_source": "flat",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.03.12 19:20:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "DUAL_SIGNAL_LONG_WINS",
+      "contract_decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.01419100000000001,
+      "p_flat_delta_contract_minus_builtin": 0.042622999999999994,
+      "p_long_delta_contract_minus_builtin": -0.028430999999999984,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -8.0942246929,
+          "abs_diff": 8.0942246929,
+          "builtin_value": 48.36,
+          "contract_value": 40.2657753071
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -0.9179281321999966,
+          "abs_diff": 0.9179281321999966,
+          "builtin_value": 56.3607142857,
+          "contract_value": 55.4427861535
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.21148012260000004,
+          "abs_diff": 0.21148012260000004,
+          "builtin_value": 1.1654407421,
+          "contract_value": 1.3769208647
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.005732777700000025,
+          "abs_diff": 0.005732777700000025,
+          "builtin_value": 0.3462593169,
+          "contract_value": 0.3519920946
+        },
+        {
+          "feature": "aapl_xnas_log_return_1",
+          "signed_delta_contract_minus_builtin": 0.0,
+          "abs_diff": 0.0,
+          "builtin_value": -0.00015647,
+          "contract_value": -0.00015647
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-12T15:20:00-04:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.09690566666666667,
+      "contract_threshold_headroom": 0.06847466666666668,
+      "built_margin": 0.07118199999999997,
+      "contract_margin": 0.05694199999999999,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.003681999999999963,
+      "contract_margin_headroom": -0.010558000000000012,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 18:45:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "DUAL_SIGNAL_LONG_WINS",
+      "contract_decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.009641999999999984,
+      "p_flat_delta_contract_minus_builtin": 0.03315499999999999,
+      "p_long_delta_contract_minus_builtin": -0.023513000000000006,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -5.652419544399997,
+          "abs_diff": 5.652419544399997,
+          "builtin_value": 55.724,
+          "contract_value": 50.0715804556
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 0.7026057284000018,
+          "abs_diff": 0.7026057284000018,
+          "builtin_value": 59.9642857143,
+          "contract_value": 60.6668914427
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.1355088619,
+          "abs_diff": 0.1355088619,
+          "builtin_value": 1.0760944246,
+          "contract_value": 1.2116032865
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.03592785469999993,
+          "abs_diff": 0.03592785469999993,
+          "builtin_value": 0.6858424289,
+          "contract_value": 0.7217702836
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.004204460199999982,
+          "abs_diff": 0.004204460199999982,
+          "builtin_value": 0.3630365122,
+          "contract_value": 0.358832052
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-03T13:45:00-05:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.1284036666666667,
+      "contract_threshold_headroom": 0.10489066666666669,
+      "built_margin": 0.08055800000000002,
+      "contract_margin": 0.066687,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.013058000000000014,
+      "contract_margin_headroom": -0.0008130000000000082,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_a",
+      "bar_time_server": "2026.03.03 17:20:00",
+      "decision_transition": "short_to_no_trade",
+      "built_decision": "SHORT",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "DUAL_SIGNAL_SHORT_WINS",
+      "contract_decision_reason": "DUAL_SIGNAL_TIE_OR_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "SHORT",
+      "p_short_delta_contract_minus_builtin": 0.015330999999999984,
+      "p_flat_delta_contract_minus_builtin": -0.042655,
+      "p_long_delta_contract_minus_builtin": 0.02732399999999996,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -13.610071817700003,
+          "abs_diff": 13.610071817700003,
+          "builtin_value": 79.2607142857,
+          "contract_value": 65.650642468
+        },
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -2.4997344550000022,
+          "abs_diff": 2.4997344550000022,
+          "builtin_value": 48.481,
+          "contract_value": 45.981265545
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.3833249031999997,
+          "abs_diff": 0.3833249031999997,
+          "builtin_value": -2.3095466724,
+          "contract_value": -1.9262217692
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": -0.2071126324000001,
+          "abs_diff": 0.2071126324000001,
+          "builtin_value": 1.6348820009,
+          "contract_value": 1.4277693685
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.17346181520000004,
+          "abs_diff": 0.17346181520000004,
+          "builtin_value": -0.836724432,
+          "contract_value": -1.0101862472
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-03T12:20:00-05:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.10152366666666668,
+      "contract_threshold_headroom": 0.11685466666666666,
+      "built_margin": 0.07343099999999997,
+      "contract_margin": 0.06143799999999999,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.005930999999999964,
+      "contract_margin_headroom": -0.006062000000000012,
+      "built_comparator_source": "long",
+      "contract_comparator_source": "long",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.04.07 20:10:00",
+      "decision_transition": "long_to_no_trade",
+      "built_decision": "LONG",
+      "contract_decision": "NO_TRADE",
+      "built_decision_reason": "LONG_FILTERS_OK",
+      "contract_decision_reason": "LONG_MARGIN_FAIL",
+      "cause_category": "margin_cross",
+      "relevant_direction": "LONG",
+      "p_short_delta_contract_minus_builtin": -0.01685700000000001,
+      "p_flat_delta_contract_minus_builtin": 0.045186000000000004,
+      "p_long_delta_contract_minus_builtin": -0.028328999999999993,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -6.909695698599997,
+          "abs_diff": 6.909695698599997,
+          "builtin_value": 46.503,
+          "contract_value": 39.5933043014
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": -1.6101674985999992,
+          "abs_diff": 1.6101674985999992,
+          "builtin_value": 42.1071428571,
+          "contract_value": 40.4969753585
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.1173522989000001,
+          "abs_diff": 0.1173522989000001,
+          "builtin_value": 0.9054715364,
+          "contract_value": 1.0228238353
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.038780928500000034,
+          "abs_diff": 0.038780928500000034,
+          "builtin_value": -2.2086498927,
+          "contract_value": -2.1698689642
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": -0.012032971900000022,
+          "abs_diff": 0.012032971900000022,
+          "builtin_value": -0.3026386786,
+          "contract_value": -0.3146716505
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-04-07T16:10:00-04:00",
+        "is_monday": false,
+        "is_postcash": true,
+        "is_late_session": false
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.06825066666666668,
+      "contract_threshold_headroom": 0.03992166666666669,
+      "built_margin": 0.071017,
+      "contract_margin": 0.059545000000000015,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": 0.0035169999999999924,
+      "contract_margin_headroom": -0.00795499999999999,
+      "built_comparator_source": "short",
+      "contract_comparator_source": "short",
+      "active_contextual_rules": []
+    },
+    {
+      "pair_label": "batch_b",
+      "bar_time_server": "2026.03.26 19:50:00",
+      "decision_transition": "no_trade_to_short",
+      "built_decision": "NO_TRADE",
+      "contract_decision": "SHORT",
+      "built_decision_reason": "SHORT_MARGIN_FAIL",
+      "contract_decision_reason": "SHORT_FILTERS_OK",
+      "cause_category": "margin_recovery",
+      "relevant_direction": "SHORT",
+      "p_short_delta_contract_minus_builtin": -0.025227999999999973,
+      "p_flat_delta_contract_minus_builtin": 0.05811700000000003,
+      "p_long_delta_contract_minus_builtin": -0.032889,
+      "top_feature_diffs": [
+        {
+          "feature": "atr_50",
+          "signed_delta_contract_minus_builtin": -6.948609239299998,
+          "abs_diff": 6.948609239299998,
+          "builtin_value": 41.635,
+          "contract_value": 34.6863907607
+        },
+        {
+          "feature": "atr_14",
+          "signed_delta_contract_minus_builtin": 2.347987383499998,
+          "abs_diff": 2.347987383499998,
+          "builtin_value": 35.0357142857,
+          "contract_value": 37.3837016692
+        },
+        {
+          "feature": "atr_14_over_atr_50",
+          "signed_delta_contract_minus_builtin": 0.2362661209,
+          "abs_diff": 0.2362661209,
+          "builtin_value": 0.8414966803,
+          "contract_value": 1.0777628012
+        },
+        {
+          "feature": "stoch_kd_diff",
+          "signed_delta_contract_minus_builtin": 0.07453852029999997,
+          "abs_diff": 0.07453852029999997,
+          "builtin_value": -0.7222880745,
+          "contract_value": -0.6477495542
+        },
+        {
+          "feature": "return_1_over_atr_14",
+          "signed_delta_contract_minus_builtin": 0.030006254399999988,
+          "abs_diff": 0.030006254399999988,
+          "builtin_value": -0.4777473986,
+          "contract_value": -0.4477411442
+        }
+      ],
+      "context_flags": {
+        "ny_time_iso": "2026-03-26T15:50:00-04:00",
+        "is_monday": false,
+        "is_postcash": false,
+        "is_late_session": true
+      },
+      "built_threshold": 0.3333333333333333,
+      "contract_threshold": 0.3333333333333333,
+      "built_threshold_headroom": 0.07597766666666667,
+      "contract_threshold_headroom": 0.05074966666666669,
+      "built_margin": 0.06353899999999996,
+      "contract_margin": 0.07119999999999999,
+      "built_margin_requirement": 0.0675,
+      "contract_margin_requirement": 0.0675,
+      "built_margin_headroom": -0.003961000000000048,
+      "contract_margin_headroom": 0.003699999999999981,
+      "built_comparator_source": "long",
+      "contract_comparator_source": "long",
+      "active_contextual_rules": []
+    }
+  ]
+}
